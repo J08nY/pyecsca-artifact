@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>pyecsca.sca.re package &#8212; pyecsca 0.3.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d10597a4" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=bf281230" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_paramlinks.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=de02a091" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" />
+    <script src="../_static/documentation_options.js?v=71d9d8e6"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/logo_black.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pyecsca.sca.re.base module" href="pyecsca.sca.re.base.html" />
+    <link rel="prev" title="pyecsca.sca.attack.leakage_model module" href="pyecsca.sca.attack.leakage_model.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo_black.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">pyecsca</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html"><span class="fas fa-screwdriver-wrench fa-fw"></span> Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks.html"><span class="fas fa-hand-pointer fa-fw"></span> Notebooks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.html">pyecsca.ec package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.misc.html">pyecsca.misc package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="pyecsca.sca.html">pyecsca.sca package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.html">pyecsca.codegen package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries.html"><span class="fas fa-server fa-fw"></span> ECC in Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html"><span class="fas fa-asterisk fa-fw"></span> References</a></li>
+</ul>
+
+<ul style="margin-top: 1em">
+    <li class="toctree-l1"><a href="https://github.com/J08nY/pyecsca/"><i class="fab fa-fw fa-github"></i> Source code</a></li>
+    <li class="toctree-l1"><a href="https://pypi.org/project/pyecsca/"><i class="fas fa-fw fa-file"></i> Releases</a></li>
+</ul><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul>
+  <li><a href="pyecsca.sca.html">pyecsca.sca package</a><ul>
+      <li>Previous: <a href="pyecsca.sca.attack.leakage_model.html" title="previous chapter">pyecsca.sca.attack.leakage_model module</a></li>
+      <li>Next: <a href="pyecsca.sca.re.base.html" title="next chapter">pyecsca.sca.re.base module</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-pyecsca.sca.re">
+<span id="pyecsca-sca-re-package"></span><h1>pyecsca.sca.re package<a class="headerlink" href="#module-pyecsca.sca.re" title="Link to this heading">¶</a></h1>
+<p>Package for reverse-engineering.</p>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.sca.re.base.html">pyecsca.sca.re.base module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.re.base.html#pyecsca.sca.re.base.RE"><code class="docutils literal notranslate"><span class="pre">RE</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.base.html#pyecsca.sca.re.base.RE.tree"><code class="docutils literal notranslate"><span class="pre">RE.tree</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.base.html#pyecsca.sca.re.base.RE.configs"><code class="docutils literal notranslate"><span class="pre">RE.configs</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.base.html#pyecsca.sca.re.base.RE.build_tree"><code class="docutils literal notranslate"><span class="pre">RE.build_tree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.base.html#pyecsca.sca.re.base.RE.run"><code class="docutils literal notranslate"><span class="pre">RE.run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.sca.re.rpa.html">pyecsca.sca.re.rpa module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.re.rpa.html#pyecsca.sca.re.rpa.MultipleContext"><code class="docutils literal notranslate"><span class="pre">MultipleContext</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.rpa.html#pyecsca.sca.re.rpa.MultipleContext.base"><code class="docutils literal notranslate"><span class="pre">MultipleContext.base</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.rpa.html#pyecsca.sca.re.rpa.MultipleContext.points"><code class="docutils literal notranslate"><span class="pre">MultipleContext.points</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.rpa.html#pyecsca.sca.re.rpa.MultipleContext.parents"><code class="docutils literal notranslate"><span class="pre">MultipleContext.parents</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.rpa.html#pyecsca.sca.re.rpa.MultipleContext.formulas"><code class="docutils literal notranslate"><span class="pre">MultipleContext.formulas</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.rpa.html#pyecsca.sca.re.rpa.MultipleContext.inside"><code class="docutils literal notranslate"><span class="pre">MultipleContext.inside</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.rpa.html#pyecsca.sca.re.rpa.MultipleContext.enter_action"><code class="docutils literal notranslate"><span class="pre">MultipleContext.enter_action()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.rpa.html#pyecsca.sca.re.rpa.MultipleContext.exit_action"><code class="docutils literal notranslate"><span class="pre">MultipleContext.exit_action()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.re.rpa.html#pyecsca.sca.re.rpa.rpa_point_0y"><code class="docutils literal notranslate"><span class="pre">rpa_point_0y()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.re.rpa.html#pyecsca.sca.re.rpa.rpa_point_x0"><code class="docutils literal notranslate"><span class="pre">rpa_point_x0()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.re.rpa.html#pyecsca.sca.re.rpa.rpa_input_point"><code class="docutils literal notranslate"><span class="pre">rpa_input_point()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.re.rpa.html#pyecsca.sca.re.rpa.rpa_distinguish"><code class="docutils literal notranslate"><span class="pre">rpa_distinguish()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.re.rpa.html#pyecsca.sca.re.rpa.RPA"><code class="docutils literal notranslate"><span class="pre">RPA</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.rpa.html#pyecsca.sca.re.rpa.RPA.tree"><code class="docutils literal notranslate"><span class="pre">RPA.tree</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.rpa.html#pyecsca.sca.re.rpa.RPA.configs"><code class="docutils literal notranslate"><span class="pre">RPA.configs</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.rpa.html#pyecsca.sca.re.rpa.RPA.params"><code class="docutils literal notranslate"><span class="pre">RPA.params</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.rpa.html#pyecsca.sca.re.rpa.RPA.P0"><code class="docutils literal notranslate"><span class="pre">RPA.P0</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.rpa.html#pyecsca.sca.re.rpa.RPA.scalars"><code class="docutils literal notranslate"><span class="pre">RPA.scalars</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.rpa.html#pyecsca.sca.re.rpa.RPA.build_tree"><code class="docutils literal notranslate"><span class="pre">RPA.build_tree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.rpa.html#pyecsca.sca.re.rpa.RPA.run"><code class="docutils literal notranslate"><span class="pre">RPA.run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.sca.re.structural.html">pyecsca.sca.re.structural module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.sca.re.tree.html">pyecsca.sca.re.tree module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Map"><code class="docutils literal notranslate"><span class="pre">Map</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Map.mapping"><code class="docutils literal notranslate"><span class="pre">Map.mapping</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Map.cfg_map"><code class="docutils literal notranslate"><span class="pre">Map.cfg_map</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Map.domain"><code class="docutils literal notranslate"><span class="pre">Map.domain</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Map.codomain"><code class="docutils literal notranslate"><span class="pre">Map.codomain</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Map.from_sets"><code class="docutils literal notranslate"><span class="pre">Map.from_sets()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Map.from_io_maps"><code class="docutils literal notranslate"><span class="pre">Map.from_io_maps()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Map.cfgs"><code class="docutils literal notranslate"><span class="pre">Map.cfgs</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Map.deduplicate"><code class="docutils literal notranslate"><span class="pre">Map.deduplicate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Map.merge"><code class="docutils literal notranslate"><span class="pre">Map.merge()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Map.describe"><code class="docutils literal notranslate"><span class="pre">Map.describe()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Node"><code class="docutils literal notranslate"><span class="pre">Node</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Node.cfgs"><code class="docutils literal notranslate"><span class="pre">Node.cfgs</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Node.dmap_index"><code class="docutils literal notranslate"><span class="pre">Node.dmap_index</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Node.dmap_input"><code class="docutils literal notranslate"><span class="pre">Node.dmap_input</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Node.response"><code class="docutils literal notranslate"><span class="pre">Node.response</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Node.parent"><code class="docutils literal notranslate"><span class="pre">Node.parent</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Node.children"><code class="docutils literal notranslate"><span class="pre">Node.children</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Node.ancestors"><code class="docutils literal notranslate"><span class="pre">Node.ancestors</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Node.anchestors"><code class="docutils literal notranslate"><span class="pre">Node.anchestors</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Node.depth"><code class="docutils literal notranslate"><span class="pre">Node.depth</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Node.descendants"><code class="docutils literal notranslate"><span class="pre">Node.descendants</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Node.height"><code class="docutils literal notranslate"><span class="pre">Node.height</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Node.is_leaf"><code class="docutils literal notranslate"><span class="pre">Node.is_leaf</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Node.is_root"><code class="docutils literal notranslate"><span class="pre">Node.is_root</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Node.iter_path_reverse"><code class="docutils literal notranslate"><span class="pre">Node.iter_path_reverse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Node.leaves"><code class="docutils literal notranslate"><span class="pre">Node.leaves</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Node.path"><code class="docutils literal notranslate"><span class="pre">Node.path</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Node.root"><code class="docutils literal notranslate"><span class="pre">Node.root</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Node.separator"><code class="docutils literal notranslate"><span class="pre">Node.separator</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Node.siblings"><code class="docutils literal notranslate"><span class="pre">Node.siblings</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Node.size"><code class="docutils literal notranslate"><span class="pre">Node.size</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Tree"><code class="docutils literal notranslate"><span class="pre">Tree</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Tree.maps"><code class="docutils literal notranslate"><span class="pre">Tree.maps</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Tree.root"><code class="docutils literal notranslate"><span class="pre">Tree.root</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Tree.leaves"><code class="docutils literal notranslate"><span class="pre">Tree.leaves</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Tree.height"><code class="docutils literal notranslate"><span class="pre">Tree.height</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Tree.size"><code class="docutils literal notranslate"><span class="pre">Tree.size</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Tree.precise"><code class="docutils literal notranslate"><span class="pre">Tree.precise</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Tree.render"><code class="docutils literal notranslate"><span class="pre">Tree.render()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Tree.render_basic"><code class="docutils literal notranslate"><span class="pre">Tree.render_basic()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Tree.describe"><code class="docutils literal notranslate"><span class="pre">Tree.describe()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Tree.expand"><code class="docutils literal notranslate"><span class="pre">Tree.expand()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.re.tree.html#pyecsca.sca.re.tree.Tree.build"><code class="docutils literal notranslate"><span class="pre">Tree.build()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.sca.re.zvp.html">pyecsca.sca.re.zvp module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.re.zvp.html#pyecsca.sca.re.zvp.map_to_affine"><code class="docutils literal notranslate"><span class="pre">map_to_affine()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.re.zvp.html#pyecsca.sca.re.zvp.compute_factor_set"><code class="docutils literal notranslate"><span class="pre">compute_factor_set()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.re.zvp.html#pyecsca.sca.re.zvp.zvp_points"><code class="docutils literal notranslate"><span class="pre">zvp_points()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;2018-2024, Jan Jancar.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.5</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../_sources/api/pyecsca.sca.re.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

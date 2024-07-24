@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>pyecsca.ec.mult.fixed module &#8212; pyecsca 0.3.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d10597a4" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=bf281230" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_paramlinks.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=de02a091" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" />
+    <script src="../_static/documentation_options.js?v=71d9d8e6"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/logo_black.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pyecsca.ec.mult.ladder module" href="pyecsca.ec.mult.ladder.html" />
+    <link rel="prev" title="pyecsca.ec.mult.comb module" href="pyecsca.ec.mult.comb.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo_black.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">pyecsca</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html"><span class="fas fa-screwdriver-wrench fa-fw"></span> Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks.html"><span class="fas fa-hand-pointer fa-fw"></span> Notebooks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="pyecsca.ec.html">pyecsca.ec package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.misc.html">pyecsca.misc package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.html">pyecsca.sca package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.html">pyecsca.codegen package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries.html"><span class="fas fa-server fa-fw"></span> ECC in Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html"><span class="fas fa-asterisk fa-fw"></span> References</a></li>
+</ul>
+
+<ul style="margin-top: 1em">
+    <li class="toctree-l1"><a href="https://github.com/J08nY/pyecsca/"><i class="fab fa-fw fa-github"></i> Source code</a></li>
+    <li class="toctree-l1"><a href="https://pypi.org/project/pyecsca/"><i class="fas fa-fw fa-file"></i> Releases</a></li>
+</ul><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul>
+  <li><a href="pyecsca.ec.html">pyecsca.ec package</a><ul>
+  <li><a href="pyecsca.ec.mult.html">pyecsca.ec.mult package</a><ul>
+      <li>Previous: <a href="pyecsca.ec.mult.comb.html" title="previous chapter">pyecsca.ec.mult.comb module</a></li>
+      <li>Next: <a href="pyecsca.ec.mult.ladder.html" title="next chapter">pyecsca.ec.mult.ladder module</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-pyecsca.ec.mult.fixed">
+<span id="pyecsca-ec-mult-fixed-module"></span><h1>pyecsca.ec.mult.fixed module<a class="headerlink" href="#module-pyecsca.ec.mult.fixed" title="Link to this heading">¶</a></h1>
+<p>Provides fixed-base scalar multipliers that do a lot of pre-computation (but not combs).</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.fixed.FullPrecompMultiplier">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FullPrecompMultiplier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">add</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dbl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">always</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">ProcessingDirection.LTR</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accumulation_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">AccumulationOrder.PeqPR</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">complete</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">short_circuit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/fixed.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.fixed.FullPrecompMultiplier" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pyecsca.ec.mult.base.html#pyecsca.ec.mult.base.AccumulatorMultiplier" title="pyecsca.ec.mult.base.AccumulatorMultiplier"><code class="xref py py-class docutils literal notranslate"><span class="pre">AccumulatorMultiplier</span></code></a>, <a class="reference internal" href="pyecsca.ec.mult.base.html#pyecsca.ec.mult.base.ScalarMultiplier" title="pyecsca.ec.mult.base.ScalarMultiplier"><code class="xref py py-class docutils literal notranslate"><span class="pre">ScalarMultiplier</span></code></a></p>
+<p>See page 104 of <a class="reference internal" href="../references.html#gecc" id="id1"><span>[GECC]</span></a>:</p>
+<blockquote>
+<div><p>For example, if the points <cite>[2]P,[2^2]P,…,[2^t−1]P</cite> are precomputed, then the right-to-left
+binary method (Algorithm 3.26) has expected running time <cite>(m/2)A</cite> (all doublings are
+eliminated).</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="pyecsca.ec.mult.fixed.FullPrecompMultiplier.params.always"></span><strong>always</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.mult.fixed.FullPrecompMultiplier.params.always">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – Whether the addition is always performed.</p></li>
+<li><p><span class="target" id="pyecsca.ec.mult.fixed.FullPrecompMultiplier.params.direction"></span><strong>direction</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.mult.fixed.FullPrecompMultiplier.params.direction">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.mult.base.html#pyecsca.ec.mult.base.ProcessingDirection" title="pyecsca.ec.mult.base.ProcessingDirection"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProcessingDirection</span></code></a></span>) – Whether it is LTR or RTL.</p></li>
+<li><p><span class="target" id="pyecsca.ec.mult.fixed.FullPrecompMultiplier.params.accumulation_order"></span><strong>accumulation_order</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.mult.fixed.FullPrecompMultiplier.params.accumulation_order">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.mult.base.html#pyecsca.ec.mult.base.AccumulationOrder" title="pyecsca.ec.mult.base.AccumulationOrder"><code class="xref py py-class docutils literal notranslate"><span class="pre">AccumulationOrder</span></code></a></span>) – The order of accumulation of points.</p></li>
+<li><p><span class="target" id="pyecsca.ec.mult.fixed.FullPrecompMultiplier.params.complete"></span><strong>complete</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.mult.fixed.FullPrecompMultiplier.params.complete">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – Whether it starts processing at full order-bit-length.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.fixed.FullPrecompMultiplier.requires">
+<span class="sig-name descname"><span class="pre">requires</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar[Set[Type]]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{&lt;class</span> <span class="pre">'pyecsca.ec.formula.base.AdditionFormula'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'pyecsca.ec.formula.base.DoublingFormula'&gt;}</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/fixed.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.fixed.FullPrecompMultiplier.requires" title="Link to this definition">¶</a></dt>
+<dd><p>The set of formula types that the multiplier requires.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.fixed.FullPrecompMultiplier.optionals">
+<span class="sig-name descname"><span class="pre">optionals</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar[Set[Type]]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{&lt;class</span> <span class="pre">'pyecsca.ec.formula.base.ScalingFormula'&gt;}</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/fixed.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.fixed.FullPrecompMultiplier.optionals" title="Link to this definition">¶</a></dt>
+<dd><p>The optional set of formula types that the multiplier can use.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.fixed.FullPrecompMultiplier.always">
+<span class="sig-name descname"><span class="pre">always</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/fixed.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.fixed.FullPrecompMultiplier.always" title="Link to this definition">¶</a></dt>
+<dd><p>Whether the double and add always method is used.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.fixed.FullPrecompMultiplier.direction">
+<span class="sig-name descname"><span class="pre">direction</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="pyecsca.ec.mult.base.html#pyecsca.ec.mult.base.ProcessingDirection" title="pyecsca.ec.mult.base.ProcessingDirection"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProcessingDirection</span></code></a></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/fixed.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.fixed.FullPrecompMultiplier.direction" title="Link to this definition">¶</a></dt>
+<dd><p>Whether it is LTR or RTL.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.fixed.FullPrecompMultiplier.complete">
+<span class="sig-name descname"><span class="pre">complete</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/fixed.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.fixed.FullPrecompMultiplier.complete" title="Link to this definition">¶</a></dt>
+<dd><p>Whether it starts processing at full order-bit-length.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.fixed.FullPrecompMultiplier.accumulation_order">
+<span class="sig-name descname"><span class="pre">accumulation_order</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">AccumulationOrder</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/fixed.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.fixed.FullPrecompMultiplier.accumulation_order" title="Link to this definition">¶</a></dt>
+<dd><p>The order of accumulation of points.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.fixed.FullPrecompMultiplier.short_circuit">
+<span class="sig-name descname"><span class="pre">short_circuit</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/fixed.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.fixed.FullPrecompMultiplier.short_circuit" title="Link to this definition">¶</a></dt>
+<dd><p>Whether the formulas will short-circuit upon input of the point at infinity.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.fixed.FullPrecompMultiplier.formulas">
+<span class="sig-name descname"><span class="pre">formulas</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Mapping[str,</span> <span class="pre">Formula]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/fixed.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.fixed.FullPrecompMultiplier.formulas" title="Link to this definition">¶</a></dt>
+<dd><p>All formulas the multiplier was initialized with.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.fixed.FullPrecompMultiplier.init">
+<span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/fixed.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.fixed.FullPrecompMultiplier.init" title="Link to this definition">¶</a></dt>
+<dd><p>Initialize the scalar multiplier with <a class="reference internal" href="#pyecsca.ec.mult.fixed.FullPrecompMultiplier.init.params.params" title="pyecsca.ec.mult.fixed.FullPrecompMultiplier.init"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">params</span></code></a> and a <a class="reference internal" href="#pyecsca.ec.mult.fixed.FullPrecompMultiplier.init.params.point" title="pyecsca.ec.mult.fixed.FullPrecompMultiplier.init"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">point</span></code></a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The point is not verified to be on the curve represented in the domain parameters.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="pyecsca.ec.mult.fixed.FullPrecompMultiplier.init.params.params"></span><strong>params</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.mult.fixed.FullPrecompMultiplier.init.params.params">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.params.html#pyecsca.ec.params.DomainParameters" title="pyecsca.ec.params.DomainParameters"><code class="xref py py-class docutils literal notranslate"><span class="pre">DomainParameters</span></code></a></span>) – The domain parameters to initialize the multiplier with.</p></li>
+<li><p><span class="target" id="pyecsca.ec.mult.fixed.FullPrecompMultiplier.init.params.point"></span><strong>point</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.mult.fixed.FullPrecompMultiplier.init.params.point">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></span>) – The point to initialize the multiplier with.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.fixed.FullPrecompMultiplier.multiply">
+<span class="sig-name descname"><span class="pre">multiply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scalar</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/fixed.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.fixed.FullPrecompMultiplier.multiply" title="Link to this definition">¶</a></dt>
+<dd><p>Multiply the point with the scalar.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The multiplier needs to be initialized by a call to the <a class="reference internal" href="#pyecsca.ec.mult.fixed.FullPrecompMultiplier.init" title="pyecsca.ec.mult.fixed.FullPrecompMultiplier.init"><code class="xref py py-meth docutils literal notranslate"><span class="pre">init()</span></code></a> method.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.ec.mult.fixed.FullPrecompMultiplier.multiply.params.scalar"></span><strong>scalar</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.mult.fixed.FullPrecompMultiplier.multiply.params.scalar">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – The scalar to use.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The resulting multiple.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;2018-2024, Jan Jancar.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.5</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../_sources/api/pyecsca.ec.mult.fixed.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

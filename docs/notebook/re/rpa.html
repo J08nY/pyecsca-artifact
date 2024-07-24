@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>RPA-based reverse-engineering &#8212; pyecsca 0.3.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d10597a4" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=bf281230" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx_paramlinks.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=de02a091" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" />
+    <script src="../../_static/documentation_options.js?v=71d9d8e6"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="icon" href="../../_static/logo_black.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="ZVP-based reverse-engineering" href="zvp.html" />
+    <link rel="prev" title="Exploration of formulas in open-source ECC libraries" href="formulas.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo_black.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">pyecsca</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html"><span class="fas fa-screwdriver-wrench fa-fw"></span> Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../notebooks.html"><span class="fas fa-hand-pointer fa-fw"></span> Notebooks</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../configuration_space.html">Configuration space</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../simulation.html">Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../codegen.html">Code generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../emulator.html">Emulation and leakage simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../measurement.html">Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../smartcards.html">Smartcards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="formulas.html">Exploration of formulas in open-source ECC libraries</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">RPA-based reverse-engineering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zvp.html">ZVP-based reverse-engineering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="epa.html">EPA-based reverse engineering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html"><span class="fas fa-code fa-fw"></span> API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libraries.html"><span class="fas fa-server fa-fw"></span> ECC in Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references.html"><span class="fas fa-asterisk fa-fw"></span> References</a></li>
+</ul>
+
+<ul style="margin-top: 1em">
+    <li class="toctree-l1"><a href="https://github.com/J08nY/pyecsca/"><i class="fab fa-fw fa-github"></i> Source code</a></li>
+    <li class="toctree-l1"><a href="https://pypi.org/project/pyecsca/"><i class="fas fa-fw fa-file"></i> Releases</a></li>
+</ul><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../../notebooks.html"><span class="fas fa-hand-pointer fa-fw"></span> Notebooks</a><ul>
+      <li>Previous: <a href="formulas.html" title="previous chapter">Exploration of formulas in open-source ECC libraries</a></li>
+      <li>Next: <a href="zvp.html" title="next chapter">ZVP-based reverse-engineering</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <a href="https://mybinder.org/v2/gh/J08nY/pyecsca-notebook/HEAD?labpath=re/rpa.ipynb" class="sd-badge sd-outline-primary">MyBinder</a><section id="RPA-based-reverse-engineering">
+<h1>RPA-based reverse-engineering<a class="headerlink" href="#RPA-based-reverse-engineering" title="Link to this heading">¶</a></h1>
+<p>This notebook showcases the RPA-based reverse-engineering technique for scalar multipliers.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#Exploration"><span class="std std-ref">Exploration</span></a></p></li>
+<li><p><a class="reference internal" href="#Reverse-engineering"><span class="std std-ref">Reverse-engineering</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#Oracle-simulation"><span class="std std-ref">Oracle simulation</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#What-about-(symmetric)-noise?"><span class="std std-ref">Symmetric noise</span></a></p></li>
+<li><p><a class="reference internal" href="#What-about-(asymmetric)-noise?"><span class="std std-ref">Asymmetric noise</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#Method-simulation"><span class="std std-ref">Method simulation</span></a></p></li>
+</ul>
+</li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">holoviews</span> <span class="k">as</span> <span class="nn">hv</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">find_peaks</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span><span class="p">,</span> <span class="n">lru_cache</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">bernoulli</span>
+<span class="kn">from</span> <span class="nn">concurrent.futures</span> <span class="kn">import</span> <span class="n">ProcessPoolExecutor</span><span class="p">,</span> <span class="n">as_completed</span>
+
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span><span class="p">,</span> <span class="n">display</span>
+<span class="kn">from</span> <span class="nn">tqdm.auto</span> <span class="kn">import</span> <span class="n">tqdm</span><span class="p">,</span> <span class="n">trange</span>
+<span class="kn">import</span> <span class="nn">tabulate</span>
+<span class="kn">from</span> <span class="nn">anytree</span> <span class="kn">import</span> <span class="n">LevelOrderGroupIter</span><span class="p">,</span> <span class="n">RenderTree</span>
+
+<span class="kn">from</span> <span class="nn">pyecsca.ec.model</span> <span class="kn">import</span> <span class="n">ShortWeierstrassModel</span>
+<span class="kn">from</span> <span class="nn">pyecsca.ec.coordinates</span> <span class="kn">import</span> <span class="n">AffineCoordinateModel</span>
+<span class="kn">from</span> <span class="nn">pyecsca.ec.curve</span> <span class="kn">import</span> <span class="n">EllipticCurve</span>
+<span class="kn">from</span> <span class="nn">pyecsca.ec.params</span> <span class="kn">import</span> <span class="n">DomainParameters</span><span class="p">,</span> <span class="n">get_params</span>
+<span class="kn">from</span> <span class="nn">pyecsca.ec.formula</span> <span class="kn">import</span> <span class="n">FormulaAction</span>
+<span class="kn">from</span> <span class="nn">pyecsca.ec.point</span> <span class="kn">import</span> <span class="n">Point</span>
+<span class="kn">from</span> <span class="nn">pyecsca.ec.mod</span> <span class="kn">import</span> <span class="n">mod</span>
+<span class="kn">from</span> <span class="nn">pyecsca.ec.mult</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">pyecsca.misc.utils</span> <span class="kn">import</span> <span class="n">silent</span><span class="p">,</span> <span class="n">TaskExecutor</span>
+<span class="kn">from</span> <span class="nn">pyecsca.sca.trace.sampling</span> <span class="kn">import</span> <span class="n">downsample_average</span><span class="p">,</span> <span class="n">downsample_max</span>
+<span class="kn">from</span> <span class="nn">pyecsca.sca.trace.process</span> <span class="kn">import</span> <span class="n">normalize</span><span class="p">,</span> <span class="n">rolling_mean</span><span class="p">,</span> <span class="n">absolute</span>
+<span class="kn">from</span> <span class="nn">pyecsca.sca.trace.combine</span> <span class="kn">import</span> <span class="n">average</span><span class="p">,</span> <span class="n">subtract</span>
+<span class="kn">from</span> <span class="nn">pyecsca.sca.trace.test</span> <span class="kn">import</span> <span class="n">welch_ttest</span>
+<span class="kn">from</span> <span class="nn">pyecsca.sca.attack.leakage_model</span> <span class="kn">import</span> <span class="n">HammingWeight</span><span class="p">,</span> <span class="n">NormalNoice</span>
+<span class="kn">from</span> <span class="nn">pyecsca.ec.context</span> <span class="kn">import</span> <span class="n">DefaultContext</span><span class="p">,</span> <span class="n">local</span>
+<span class="kn">from</span> <span class="nn">pyecsca.sca.re.rpa</span> <span class="kn">import</span> <span class="n">MultipleContext</span><span class="p">,</span> <span class="n">rpa_distinguish</span><span class="p">,</span> <span class="n">RPA</span>
+<span class="kn">from</span> <span class="nn">pyecsca.sca.trace</span> <span class="kn">import</span> <span class="n">Trace</span>
+<span class="kn">from</span> <span class="nn">pyecsca.sca.trace.plot</span> <span class="kn">import</span> <span class="n">plot_trace</span><span class="p">,</span> <span class="n">plot_traces</span>
+
+<span class="kn">from</span> <span class="nn">eval</span> <span class="kn">import</span> <span class="p">(</span><span class="n">eval_tree_symmetric</span><span class="p">,</span> <span class="n">eval_tree_asymmetric</span><span class="p">,</span>
+                    <span class="n">success_rate_symmetric</span><span class="p">,</span> <span class="n">success_rate_asymmetric</span><span class="p">,</span>
+                    <span class="n">query_rate_symmetric</span><span class="p">,</span> <span class="n">query_rate_asymmetric</span><span class="p">,</span>
+                    <span class="n">precise_rate_symmetric</span><span class="p">,</span> <span class="n">precise_rate_asymmetric</span><span class="p">,</span>
+                    <span class="n">amount_rate_symmetric</span><span class="p">,</span> <span class="n">amount_rate_asymmetric</span><span class="p">,</span>
+                    <span class="n">success_rate_vs_majority_symmetric</span><span class="p">,</span> <span class="n">success_rate_vs_majority_asymmetric</span><span class="p">,</span>
+                    <span class="n">success_rate_vs_query_rate_symmetric</span><span class="p">,</span> <span class="n">load</span><span class="p">,</span> <span class="n">store</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> ipympl
+<span class="n">hv</span><span class="o">.</span><span class="n">extension</span><span class="p">(</span><span class="s2">&quot;bokeh&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">ShortWeierstrassModel</span><span class="p">()</span>
+<span class="n">coordsaff</span> <span class="o">=</span> <span class="n">AffineCoordinateModel</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+<span class="n">coords</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">coordinates</span><span class="p">[</span><span class="s2">&quot;projective&quot;</span><span class="p">]</span>
+<span class="n">add</span> <span class="o">=</span> <span class="n">coords</span><span class="o">.</span><span class="n">formulas</span><span class="p">[</span><span class="s2">&quot;add-2007-bl&quot;</span><span class="p">]</span>  <span class="c1"># The formulas are irrelevant for this method</span>
+<span class="n">dbl</span> <span class="o">=</span> <span class="n">coords</span><span class="o">.</span><span class="n">formulas</span><span class="p">[</span><span class="s2">&quot;dbl-2007-bl&quot;</span><span class="p">]</span>
+<span class="n">neg</span> <span class="o">=</span> <span class="n">coords</span><span class="o">.</span><span class="n">formulas</span><span class="p">[</span><span class="s2">&quot;neg&quot;</span><span class="p">]</span>
+
+<span class="c1"># A 64-bit prime order curve for testing things out</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mh">0xc50de883f0e7b167</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">mod</span><span class="p">(</span><span class="mh">0x4833d7aa73fa6694</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">mod</span><span class="p">(</span><span class="mh">0xa6c44a61c5323f6a</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+<span class="n">gx</span> <span class="o">=</span> <span class="n">mod</span><span class="p">(</span><span class="mh">0x5fd1f7d38d4f2333</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+<span class="n">gy</span> <span class="o">=</span> <span class="n">mod</span><span class="p">(</span><span class="mh">0x21f43957d7e20ceb</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mh">0xc50de885003b80eb</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># A (0, y) RPA point on the above curve, in affine coords.</span>
+<span class="n">P0_aff</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="n">coordsaff</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">mod</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">p</span><span class="p">),</span> <span class="n">y</span><span class="o">=</span><span class="n">mod</span><span class="p">(</span><span class="mh">0x1742befa24cd8a0d</span><span class="p">,</span> <span class="n">p</span><span class="p">))</span>
+
+<span class="n">infty</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="n">mod</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">p</span><span class="p">),</span> <span class="n">Y</span><span class="o">=</span><span class="n">mod</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="p">),</span> <span class="n">Z</span><span class="o">=</span><span class="n">mod</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">p</span><span class="p">))</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="n">gx</span><span class="p">,</span> <span class="n">Y</span><span class="o">=</span><span class="n">gy</span><span class="p">,</span> <span class="n">Z</span><span class="o">=</span><span class="n">mod</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="p">))</span>
+
+<span class="n">curve</span> <span class="o">=</span> <span class="n">EllipticCurve</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">infty</span><span class="p">,</span> <span class="nb">dict</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">))</span>
+<span class="n">params</span> <span class="o">=</span> <span class="n">DomainParameters</span><span class="p">(</span><span class="n">curve</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+
+<span class="c1"># And P-256 for eval</span>
+<span class="n">p256</span> <span class="o">=</span> <span class="n">get_params</span><span class="p">(</span><span class="s2">&quot;secg&quot;</span><span class="p">,</span> <span class="s2">&quot;secp256r1&quot;</span><span class="p">,</span> <span class="s2">&quot;projective&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<section id="Exploration">
+<h2>Exploration<a class="headerlink" href="#Exploration" title="Link to this heading">¶</a></h2>
+<p>First select a bunch of multipliers. We will be trying to distinguish among these.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">multipliers</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">LTRMultiplier</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="n">dbl</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="n">AccumulationOrder</span><span class="o">.</span><span class="n">PeqPR</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">LTRMultiplier</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="n">dbl</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="n">AccumulationOrder</span><span class="o">.</span><span class="n">PeqPR</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">RTLMultiplier</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="n">dbl</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="n">AccumulationOrder</span><span class="o">.</span><span class="n">PeqPR</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">RTLMultiplier</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="n">dbl</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="n">AccumulationOrder</span><span class="o">.</span><span class="n">PeqPR</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+    <span class="n">SimpleLadderMultiplier</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="n">dbl</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">BinaryNAFMultiplier</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="n">dbl</span><span class="p">,</span> <span class="n">neg</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ProcessingDirection</span><span class="o">.</span><span class="n">LTR</span><span class="p">,</span> <span class="n">AccumulationOrder</span><span class="o">.</span><span class="n">PeqPR</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">BinaryNAFMultiplier</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="n">dbl</span><span class="p">,</span> <span class="n">neg</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ProcessingDirection</span><span class="o">.</span><span class="n">RTL</span><span class="p">,</span> <span class="n">AccumulationOrder</span><span class="o">.</span><span class="n">PeqPR</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">WindowNAFMultiplier</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="n">dbl</span><span class="p">,</span> <span class="n">neg</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">AccumulationOrder</span><span class="o">.</span><span class="n">PeqPR</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">WindowNAFMultiplier</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="n">dbl</span><span class="p">,</span> <span class="n">neg</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">AccumulationOrder</span><span class="o">.</span><span class="n">PeqPR</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">WindowNAFMultiplier</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="n">dbl</span><span class="p">,</span> <span class="n">neg</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">AccumulationOrder</span><span class="o">.</span><span class="n">PeqPR</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">WindowBoothMultiplier</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="n">dbl</span><span class="p">,</span> <span class="n">neg</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">AccumulationOrder</span><span class="o">.</span><span class="n">PeqPR</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">WindowBoothMultiplier</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="n">dbl</span><span class="p">,</span> <span class="n">neg</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">AccumulationOrder</span><span class="o">.</span><span class="n">PeqPR</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">WindowBoothMultiplier</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="n">dbl</span><span class="p">,</span> <span class="n">neg</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">AccumulationOrder</span><span class="o">.</span><span class="n">PeqPR</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">SlidingWindowMultiplier</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="n">dbl</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ProcessingDirection</span><span class="o">.</span><span class="n">LTR</span><span class="p">,</span> <span class="n">AccumulationOrder</span><span class="o">.</span><span class="n">PeqPR</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">SlidingWindowMultiplier</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="n">dbl</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ProcessingDirection</span><span class="o">.</span><span class="n">LTR</span><span class="p">,</span> <span class="n">AccumulationOrder</span><span class="o">.</span><span class="n">PeqPR</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">SlidingWindowMultiplier</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="n">dbl</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ProcessingDirection</span><span class="o">.</span><span class="n">LTR</span><span class="p">,</span> <span class="n">AccumulationOrder</span><span class="o">.</span><span class="n">PeqPR</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">SlidingWindowMultiplier</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="n">dbl</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ProcessingDirection</span><span class="o">.</span><span class="n">RTL</span><span class="p">,</span> <span class="n">AccumulationOrder</span><span class="o">.</span><span class="n">PeqPR</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">SlidingWindowMultiplier</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="n">dbl</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ProcessingDirection</span><span class="o">.</span><span class="n">RTL</span><span class="p">,</span> <span class="n">AccumulationOrder</span><span class="o">.</span><span class="n">PeqPR</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">SlidingWindowMultiplier</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="n">dbl</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ProcessingDirection</span><span class="o">.</span><span class="n">RTL</span><span class="p">,</span> <span class="n">AccumulationOrder</span><span class="o">.</span><span class="n">PeqPR</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">FixedWindowLTRMultiplier</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="n">dbl</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">AccumulationOrder</span><span class="o">.</span><span class="n">PeqPR</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">FixedWindowLTRMultiplier</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="n">dbl</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">AccumulationOrder</span><span class="o">.</span><span class="n">PeqPR</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">FixedWindowLTRMultiplier</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="n">dbl</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">AccumulationOrder</span><span class="o">.</span><span class="n">PeqPR</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">FixedWindowLTRMultiplier</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="n">dbl</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">AccumulationOrder</span><span class="o">.</span><span class="n">PeqPR</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">FixedWindowLTRMultiplier</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="n">dbl</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">AccumulationOrder</span><span class="o">.</span><span class="n">PeqPR</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">FullPrecompMultiplier</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="n">dbl</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="n">ProcessingDirection</span><span class="o">.</span><span class="n">LTR</span><span class="p">,</span> <span class="n">AccumulationOrder</span><span class="o">.</span><span class="n">PeqPR</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">FullPrecompMultiplier</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="n">dbl</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="n">ProcessingDirection</span><span class="o">.</span><span class="n">LTR</span><span class="p">,</span> <span class="n">AccumulationOrder</span><span class="o">.</span><span class="n">PeqPR</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">BGMWMultiplier</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="n">dbl</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ProcessingDirection</span><span class="o">.</span><span class="n">LTR</span><span class="p">,</span> <span class="n">AccumulationOrder</span><span class="o">.</span><span class="n">PeqPR</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">BGMWMultiplier</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="n">dbl</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ProcessingDirection</span><span class="o">.</span><span class="n">LTR</span><span class="p">,</span> <span class="n">AccumulationOrder</span><span class="o">.</span><span class="n">PeqPR</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">BGMWMultiplier</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="n">dbl</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ProcessingDirection</span><span class="o">.</span><span class="n">LTR</span><span class="p">,</span> <span class="n">AccumulationOrder</span><span class="o">.</span><span class="n">PeqPR</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">BGMWMultiplier</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="n">dbl</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ProcessingDirection</span><span class="o">.</span><span class="n">LTR</span><span class="p">,</span> <span class="n">AccumulationOrder</span><span class="o">.</span><span class="n">PeqPR</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">CombMultiplier</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="n">dbl</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">AccumulationOrder</span><span class="o">.</span><span class="n">PeqPR</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">CombMultiplier</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="n">dbl</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">AccumulationOrder</span><span class="o">.</span><span class="n">PeqPR</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">CombMultiplier</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="n">dbl</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">AccumulationOrder</span><span class="o">.</span><span class="n">PeqPR</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="n">CombMultiplier</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="n">dbl</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">AccumulationOrder</span><span class="o">.</span><span class="n">PeqPR</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">multipliers</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<p>Then select a random scalar and simulate computation using all of the multipliers, track the multiples, print the projective and affine results.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scalar</span> <span class="o">=</span> <span class="mb">0b1000000000000000000000000000000000000000000000000</span>
+<span class="n">scalar</span> <span class="o">=</span> <span class="mb">0b1111111111111111111111111111111111111111111111111</span>
+<span class="n">scalar</span> <span class="o">=</span> <span class="mb">0b1010101010101010101010101010101010101010101010101</span>
+<span class="n">scalar</span> <span class="o">=</span> <span class="mb">0b1111111111111111111111110000000000000000000000000</span>
+<span class="n">scalar</span> <span class="o">=</span> <span class="mi">123456789123456789</span>
+<span class="n">scarar</span> <span class="o">=</span> <span class="mi">8750920244948492046</span>
+<span class="c1"># multiples is a mapping from a multiple (integer) to a set of scalar multipliers that compute said multiple when doing [scalar]P</span>
+<span class="n">multiples</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="n">table</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;Multiplier&quot;</span><span class="p">,</span> <span class="s2">&quot;multiples&quot;</span><span class="p">]]</span>
+
+<span class="k">for</span> <span class="n">mult</span> <span class="ow">in</span> <span class="n">multipliers</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">local</span><span class="p">(</span><span class="n">MultipleContext</span><span class="p">())</span> <span class="k">as</span> <span class="n">ctx</span><span class="p">:</span>
+        <span class="n">mult</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">g</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">mult</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">scalar</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">ctx</span><span class="o">.</span><span class="n">points</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">multiples</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="nb">set</span><span class="p">())</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">mult</span><span class="p">)</span>
+    <span class="n">table</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">mult</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">points</span><span class="o">.</span><span class="n">values</span><span class="p">()))])</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">tabulate</span><span class="o">.</span><span class="n">tabulate</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">tablefmt</span><span class="o">=</span><span class="s2">&quot;html&quot;</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="s2">&quot;firstrow&quot;</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<p>Pick a multiple <code class="docutils literal notranslate"><span class="pre">k</span></code> that is computed by some multiplier for the scalar, invert it mod n, and do <code class="docutils literal notranslate"><span class="pre">[k^-1]P0</span></code> to obtain a point <code class="docutils literal notranslate"><span class="pre">P0_target</span></code>, such that, <code class="docutils literal notranslate"><span class="pre">[k]P0_target</span> <span class="pre">=</span> <span class="pre">P0</span></code> and <code class="docutils literal notranslate"><span class="pre">P0</span></code> has a zero coordinate.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="mi">108</span>
+<span class="n">kinv</span> <span class="o">=</span> <span class="n">mod</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">inverse</span><span class="p">()</span>
+<span class="n">P0_target</span> <span class="o">=</span> <span class="n">curve</span><span class="o">.</span><span class="n">affine_multiply</span><span class="p">(</span><span class="n">P0_aff</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">kinv</span><span class="p">))</span><span class="o">.</span><span class="n">to_model</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">curve</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original P0&quot;</span><span class="p">,</span> <span class="n">P0_aff</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P0_target  &quot;</span><span class="p">,</span> <span class="n">P0_target</span><span class="o">.</span><span class="n">to_affine</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Verify P0  &quot;</span><span class="p">,</span> <span class="n">curve</span><span class="o">.</span><span class="n">affine_multiply</span><span class="p">(</span><span class="n">P0_target</span><span class="o">.</span><span class="n">to_affine</span><span class="p">(),</span> <span class="n">k</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<p>Now go over the multipliers with P0_target and the original scalar as input. Then look whether a zero coordinate point was computed. Also look at whether the multiple “k” was computed. These two should be the same.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;Multiplier&quot;</span><span class="p">,</span> <span class="s2">&quot;zero present&quot;</span><span class="p">,</span> <span class="s2">&quot;multiple computed&quot;</span><span class="p">]]</span>
+
+<span class="k">for</span> <span class="n">mult</span> <span class="ow">in</span> <span class="n">multipliers</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">local</span><span class="p">(</span><span class="n">MultipleContext</span><span class="p">())</span> <span class="k">as</span> <span class="n">ctx</span><span class="p">:</span>
+        <span class="n">mult</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">P0_target</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">mult</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">scalar</span><span class="p">)</span>
+    <span class="n">zero</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">P</span><span class="p">:</span> <span class="n">P</span><span class="o">.</span><span class="n">X</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">P</span><span class="o">.</span><span class="n">Y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ctx</span><span class="o">.</span><span class="n">points</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+    <span class="n">multiple</span> <span class="o">=</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">ctx</span><span class="o">.</span><span class="n">points</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+    <span class="n">table</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">mult</span><span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;&lt;b&gt;</span><span class="si">{</span><span class="n">zero</span><span class="si">}</span><span class="s2">&lt;/b&gt;&quot;</span> <span class="k">if</span> <span class="n">zero</span> <span class="k">else</span> <span class="n">zero</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;&lt;b&gt;</span><span class="si">{</span><span class="n">multiple</span><span class="si">}</span><span class="s2">&lt;/b&gt;&quot;</span> <span class="k">if</span> <span class="n">multiple</span> <span class="k">else</span> <span class="n">multiple</span><span class="p">])</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">tabulate</span><span class="o">.</span><span class="n">tabulate</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">tablefmt</span><span class="o">=</span><span class="s2">&quot;unsafehtml&quot;</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="s2">&quot;firstrow&quot;</span><span class="p">,</span> <span class="n">colalign</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="s2">&quot;center&quot;</span><span class="p">))))</span>
+</pre></div>
+</div>
+</div>
+<p>Now lets look at the relation of multiples to multipliers.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;Multiple&quot;</span><span class="p">,</span> <span class="s2">&quot;Multipliers&quot;</span><span class="p">]]</span>
+<span class="k">for</span> <span class="n">multiple</span><span class="p">,</span> <span class="n">mults</span> <span class="ow">in</span> <span class="n">multiples</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">table</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="nb">bin</span><span class="p">(</span><span class="n">multiple</span><span class="p">),</span> <span class="p">[</span><span class="n">mult</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="k">for</span> <span class="n">mult</span> <span class="ow">in</span> <span class="n">mults</span><span class="p">]])</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">tabulate</span><span class="o">.</span><span class="n">tabulate</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">tablefmt</span><span class="o">=</span><span class="s2">&quot;html&quot;</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="s2">&quot;firstrow&quot;</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<p>Note that all of the exploration so far was in a context of a fixed scalar. Even though for a given scalar some multipliers might be indistinguishable from the perspective of the multiples they compute, there may be other scalars that distinguish them.</p>
+</section>
+<section id="Reverse-engineering">
+<h2>Reverse-engineering<a class="headerlink" href="#Reverse-engineering" title="Link to this heading">¶</a></h2>
+<section id="Oracle-simulation">
+<h3>Oracle simulation<a class="headerlink" href="#Oracle-simulation" title="Link to this heading">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">simulated_oracle</span></code> function simulates an RPA oracle that detect a zero coordinate point in the scalar multiplication. This can be used by the <code class="docutils literal notranslate"><span class="pre">rpa_distinguish</span></code> function to distinguish the true scalar multiplier. The oracle is parametrized with the simulated multiplier index in the table of multipliers (it simulates this “real” multiplier). Furthermore, lets also examine a <code class="docutils literal notranslate"><span class="pre">noisy_oracle</span></code> (with a flip probability) and a <code class="docutils literal notranslate"><span class="pre">biased_oracle</span></code> (with asymmetric flip probability).</p>
+<p>Note that the oracle has two additional parameters <code class="docutils literal notranslate"><span class="pre">measure_init</span></code> and <code class="docutils literal notranslate"><span class="pre">measure_multiply</span></code> which determine whether the oracle considers the zero coordinate point in scalar multiplier initialization (precomputation) and in scalar multiplier multiplication, respectively. This is important for scalar multipliers with precomputation as there one might be able to separate the precomputation and multiplication stages and obtain oracle answers on both separately.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">simulated_oracle</span><span class="p">(</span><span class="n">scalar</span><span class="p">,</span> <span class="n">affine_point</span><span class="p">,</span> <span class="n">simulate_mult_id</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">measure_init</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">measure_multiply</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">randomize</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">real_mult</span> <span class="o">=</span> <span class="n">multipliers</span><span class="p">[</span><span class="n">simulate_mult_id</span><span class="p">]</span>
+    <span class="n">point</span> <span class="o">=</span> <span class="n">affine_point</span><span class="o">.</span><span class="n">to_model</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">curve</span><span class="o">.</span><span class="n">coordinate_model</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">curve</span><span class="p">,</span> <span class="n">randomized</span><span class="o">=</span><span class="n">randomize</span><span class="p">)</span>
+
+    <span class="c1"># Simulate the multiplier init</span>
+    <span class="k">with</span> <span class="n">local</span><span class="p">(</span><span class="n">MultipleContext</span><span class="p">())</span> <span class="k">as</span> <span class="n">ctx</span><span class="p">:</span>
+        <span class="n">real_mult</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">point</span><span class="p">)</span>
+    <span class="n">init_points</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">parents</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="n">init_parents</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">sum</span><span class="p">((</span><span class="n">ctx</span><span class="o">.</span><span class="n">parents</span><span class="p">[</span><span class="n">point</span><span class="p">]</span> <span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="n">init_points</span><span class="p">),</span> <span class="p">[]))</span>
+    <span class="c1"># Did zero happen in some input point during the init?</span>
+    <span class="n">init_zero</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">P</span><span class="p">:</span> <span class="n">P</span><span class="o">.</span><span class="n">X</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">P</span><span class="o">.</span><span class="n">Y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">init_parents</span><span class="p">))</span>
+
+    <span class="c1"># Simulate the multiplier multiply</span>
+    <span class="k">with</span> <span class="n">local</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span> <span class="k">as</span> <span class="n">ctx</span><span class="p">:</span>
+        <span class="n">real_mult</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">scalar</span><span class="p">)</span>
+    <span class="n">all_points</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">parents</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="n">multiply_parents</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">sum</span><span class="p">((</span><span class="n">ctx</span><span class="o">.</span><span class="n">parents</span><span class="p">[</span><span class="n">point</span><span class="p">]</span> <span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="n">all_points</span> <span class="o">-</span> <span class="n">init_points</span><span class="p">),</span> <span class="p">[]))</span>
+    <span class="c1"># Did zero happen in some input point during the multiply?</span>
+    <span class="n">multiply_zero</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">P</span><span class="p">:</span> <span class="n">P</span><span class="o">.</span><span class="n">X</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">P</span><span class="o">.</span><span class="n">Y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">multiply_parents</span><span class="p">))</span>
+    <span class="n">real_result</span> <span class="o">=</span> <span class="p">(</span><span class="n">init_zero</span> <span class="ow">and</span> <span class="n">measure_init</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">multiply_zero</span> <span class="ow">and</span> <span class="n">measure_multiply</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">real_result</span>
+
+<span class="k">def</span> <span class="nf">noisy_oracle</span><span class="p">(</span><span class="n">oracle</span><span class="p">,</span> <span class="n">flip_proba</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">noisy</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">real_result</span> <span class="o">=</span> <span class="n">oracle</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">change</span> <span class="o">=</span> <span class="n">bernoulli</span><span class="p">(</span><span class="n">flip_proba</span><span class="p">)</span><span class="o">.</span><span class="n">rvs</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">real_result</span> <span class="o">^</span> <span class="n">change</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">noisy</span>
+
+<span class="k">def</span> <span class="nf">biased_oracle</span><span class="p">(</span><span class="n">oracle</span><span class="p">,</span> <span class="n">flip_0</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">flip_1</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">biased</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">real_result</span> <span class="o">=</span> <span class="n">oracle</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">change</span> <span class="o">=</span> <span class="n">bernoulli</span><span class="p">(</span><span class="n">flip_1</span><span class="p">)</span><span class="o">.</span><span class="n">rvs</span><span class="p">()</span> <span class="k">if</span> <span class="n">real_result</span> <span class="k">else</span> <span class="n">bernoulli</span><span class="p">(</span><span class="n">flip_0</span><span class="p">)</span><span class="o">.</span><span class="n">rvs</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">real_result</span> <span class="o">^</span> <span class="n">change</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">biased</span>
+</pre></div>
+</div>
+</div>
+<p>We can see how the RPA-RE method distinguishes a given multiplier:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">rpa_distinguish</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">multipliers</span><span class="p">,</span> <span class="n">simulated_oracle</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Let’s see if the result is correct. You can replace the <code class="docutils literal notranslate"><span class="pre">simulated_oracle</span></code> above with <code class="docutils literal notranslate"><span class="pre">noisy_oracle(simulated_oracle,</span> <span class="pre">flip_proba=0.2)</span></code> or with <code class="docutils literal notranslate"><span class="pre">biased_oracle(simulated_oracle,</span> <span class="pre">flip_0=0.2,</span> <span class="pre">flip_1=0.1)</span></code> to see how the process and result changes with noise.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">multipliers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">res</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>We can also have a look at the distinguishing tree that the method builds for this set of multipliers.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">re</span> <span class="o">=</span> <span class="n">RPA</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">multipliers</span><span class="p">))</span>
+<span class="k">with</span> <span class="n">silent</span><span class="p">():</span>
+    <span class="n">re</span><span class="o">.</span><span class="n">build_tree</span><span class="p">(</span><span class="n">p256</span><span class="p">,</span> <span class="n">tries</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<p>We can also look at the rough tree structure.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">render_basic</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<section id="What-about-(symmetric)-noise?">
+<h4>What about (symmetric) noise?<a class="headerlink" href="#What-about-(symmetric)-noise?" title="Link to this heading">¶</a></h4>
+<p>Now we can examine how the method performs in the presence of noise and with various majority vote parameters. Note that the code below spawns several processes (<code class="docutils literal notranslate"><span class="pre">num_cores</span></code>) and saturates their CPU fully, so set this to something appropriate.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">build_tree</span><span class="p">(</span><span class="n">cfgs</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">silent</span><span class="p">():</span>
+        <span class="n">re</span> <span class="o">=</span> <span class="n">RPA</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">cfgs</span><span class="p">))</span>
+        <span class="n">re</span><span class="o">.</span><span class="n">build_tree</span><span class="p">(</span><span class="n">p256</span><span class="p">,</span> <span class="n">tries</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">tree</span>
+
+<span class="n">correct_rate</span><span class="p">,</span> <span class="n">precise_rate</span><span class="p">,</span> <span class="n">amount_rate</span><span class="p">,</span> <span class="n">query_rate</span> <span class="o">=</span> <span class="n">eval_tree_symmetric</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">multipliers</span><span class="p">),</span> <span class="n">build_tree</span><span class="p">,</span> <span class="n">num_trees</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">num_tries</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">num_cores</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>We can plot several heatmaps: - One for the average number of queries to the oracle. - One for the success rate of the reverse-engineering. - One for the precision of the reverse-engineering.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">success_rate_symmetric</span><span class="p">(</span><span class="n">correct_rate</span><span class="p">,</span> <span class="mi">100</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">multipliers</span><span class="p">))</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;rpa_re_success_rate_symmetric.pdf&quot;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">query_rate_symmetric</span><span class="p">(</span><span class="n">query_rate</span><span class="p">)</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;rpa_re_query_rate_symmetric.pdf&quot;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">precise_rate_symmetric</span><span class="p">(</span><span class="n">precise_rate</span><span class="p">)</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;rpa_re_precise_rate_symmetric.pdf&quot;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">amount_rate_symmetric</span><span class="p">(</span><span class="n">amount_rate</span><span class="p">)</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;rpa_re_amount_rate_symmetric.pdf&quot;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Another way to look at these metrics is a scatter plot.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">success_rate_vs_query_rate_symmetric</span><span class="p">(</span><span class="n">query_rate</span><span class="p">,</span> <span class="n">correct_rate</span><span class="p">)</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;rpa_re_scatter_symmetric.pdf&quot;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">success_rate_vs_majority_symmetric</span><span class="p">(</span><span class="n">correct_rate</span><span class="p">)</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;rpa_re_plot_symmetric.pdf&quot;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>And save the results for later.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">store</span><span class="p">(</span><span class="s2">&quot;rpa_re_symmetric.nc&quot;</span><span class="p">,</span> <span class="n">correct_rate</span><span class="p">,</span> <span class="n">precise_rate</span><span class="p">,</span> <span class="n">amount_rate</span><span class="p">,</span> <span class="n">query_rate</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">correct_rate</span><span class="p">,</span> <span class="n">precise_rate</span><span class="p">,</span> <span class="n">amount_rate</span><span class="p">,</span> <span class="n">query_rate</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="s2">&quot;rpa_re_symmetric.nc&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="What-about-(asymmetric)-noise?">
+<h4>What about (asymmetric) noise?<a class="headerlink" href="#What-about-(asymmetric)-noise?" title="Link to this heading">¶</a></h4>
+<p>The oracle may not only be noisy, but biased, this computation evaluates that case. Beware, for the same parameters this is about 6x slower because of the other dimension (two error probabilities instead of one).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">build_tree</span><span class="p">(</span><span class="n">cfgs</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">silent</span><span class="p">():</span>
+        <span class="n">re</span> <span class="o">=</span> <span class="n">RPA</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">cfgs</span><span class="p">))</span>
+        <span class="n">re</span><span class="o">.</span><span class="n">build_tree</span><span class="p">(</span><span class="n">p256</span><span class="p">,</span> <span class="n">tries</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">tree</span>
+
+<span class="n">correct_rate_b</span><span class="p">,</span> <span class="n">precise_rate_b</span><span class="p">,</span> <span class="n">amount_rate_b</span><span class="p">,</span> <span class="n">query_rate_b</span> <span class="o">=</span> <span class="n">eval_tree_asymmetric</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">multipliers</span><span class="p">),</span> <span class="n">build_tree</span><span class="p">,</span> <span class="n">num_trees</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">num_tries</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">num_cores</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">success_rate_asymmetric</span><span class="p">(</span><span class="n">correct_rate_b</span><span class="p">,</span> <span class="mi">100</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">multipliers</span><span class="p">))</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;rpa_re_success_rate_asymmetric.pdf&quot;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">query_rate_asymmetric</span><span class="p">(</span><span class="n">query_rate_b</span><span class="p">)</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;rpa_re_query_rate_asymmetric.pdf&quot;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">precise_rate_asymmetric</span><span class="p">(</span><span class="n">precise_rate_b</span><span class="p">)</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;rpa_re_precise_rate_asymmetric.pdf&quot;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">amount_rate_asymmetric</span><span class="p">(</span><span class="n">amount_rate_b</span><span class="p">)</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;rpa_re_amount_rate_asymmetric.pdf&quot;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">success_rate_vs_majority_asymmetric</span><span class="p">(</span><span class="n">correct_rate_b</span><span class="p">)</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;rpa_re_plot_asymmetric.pdf&quot;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>And save the results for later.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">store</span><span class="p">(</span><span class="s2">&quot;rpa_re_asymmetric.nc&quot;</span><span class="p">,</span> <span class="n">correct_rate_b</span><span class="p">,</span> <span class="n">precise_rate_b</span><span class="p">,</span> <span class="n">amount_rate_b</span><span class="p">,</span> <span class="n">query_rate_b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">correct_rate_b</span><span class="p">,</span> <span class="n">precise_rate_b</span><span class="p">,</span> <span class="n">amount_rate_b</span><span class="p">,</span> <span class="n">query_rate_b</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="s2">&quot;rpa_re_asymmetric.nc&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="Method-simulation">
+<h3>Method simulation<a class="headerlink" href="#Method-simulation" title="Link to this heading">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">simulate_trace</span></code> function simulates a Hamming weight leakage trace of a given multiplier computing a scalar multiple. This is used by the <code class="docutils literal notranslate"><span class="pre">simulated_rpa_trace</span></code> function that does the RPA attack on simulated traces and returns the differential trace. This is in turn used to build the <code class="docutils literal notranslate"><span class="pre">simulated_rpa_oracle</span></code> which can be used by the <code class="docutils literal notranslate"><span class="pre">rpa_distinguish</span></code> function to perform RPA-RE and distinguish the true scalar multiplier. The oracle is parametrized with the simulated multiplier index in
+the table of multipliers (it simulates this “real” multiplier).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">simulate_trace</span><span class="p">(</span><span class="n">mult</span><span class="p">,</span> <span class="n">scalar</span><span class="p">,</span> <span class="n">point</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">local</span><span class="p">(</span><span class="n">DefaultContext</span><span class="p">())</span> <span class="k">as</span> <span class="n">ctx</span><span class="p">:</span>
+        <span class="n">mult</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">point</span><span class="p">)</span>
+        <span class="n">mult</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">scalar</span><span class="p">)</span>
+
+    <span class="n">lm</span> <span class="o">=</span> <span class="n">HammingWeight</span><span class="p">()</span>
+    <span class="n">trace</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">callback</span><span class="p">(</span><span class="n">action</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">action</span><span class="p">,</span> <span class="n">FormulaAction</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">intermediate</span> <span class="ow">in</span> <span class="n">action</span><span class="o">.</span><span class="n">op_results</span><span class="p">:</span>
+                <span class="n">leak</span> <span class="o">=</span> <span class="n">lm</span><span class="p">(</span><span class="n">intermediate</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+                <span class="n">trace</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">leak</span><span class="p">)</span>
+
+    <span class="n">ctx</span><span class="o">.</span><span class="n">actions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Trace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">trace</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">simulated_rpa_trace</span><span class="p">(</span><span class="n">mult</span><span class="p">,</span> <span class="n">scalar</span><span class="p">,</span> <span class="n">affine_point</span><span class="p">,</span> <span class="n">noise</span><span class="p">,</span> <span class="n">num_target</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">num_random</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">random_traces</span> <span class="o">=</span> <span class="p">[</span><span class="n">noise</span><span class="p">(</span><span class="n">normalize</span><span class="p">(</span><span class="n">simulate_trace</span><span class="p">(</span><span class="n">mult</span><span class="p">,</span> <span class="n">scalar</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">curve</span><span class="o">.</span><span class="n">affine_random</span><span class="p">()</span><span class="o">.</span><span class="n">to_model</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">curve</span><span class="o">.</span><span class="n">coordinate_model</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">curve</span><span class="p">,</span> <span class="n">randomized</span><span class="o">=</span><span class="kc">True</span><span class="p">))))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_random</span><span class="p">)]</span>
+    <span class="n">target_traces</span> <span class="o">=</span> <span class="p">[</span><span class="n">noise</span><span class="p">(</span><span class="n">normalize</span><span class="p">(</span><span class="n">simulate_trace</span><span class="p">(</span><span class="n">mult</span><span class="p">,</span> <span class="n">scalar</span><span class="p">,</span> <span class="n">affine_point</span><span class="o">.</span><span class="n">to_model</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">curve</span><span class="o">.</span><span class="n">coordinate_model</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">curve</span><span class="p">,</span> <span class="n">randomized</span><span class="o">=</span><span class="kc">True</span><span class="p">))))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_target</span><span class="p">)]</span>
+
+    <span class="n">random_avg</span> <span class="o">=</span> <span class="n">average</span><span class="p">(</span><span class="o">*</span><span class="n">random_traces</span><span class="p">)</span>
+    <span class="n">target_avg</span> <span class="o">=</span> <span class="n">average</span><span class="p">(</span><span class="o">*</span><span class="n">target_traces</span><span class="p">)</span>
+
+    <span class="n">diff_trace</span> <span class="o">=</span> <span class="n">subtract</span><span class="p">(</span><span class="n">random_avg</span><span class="p">,</span> <span class="n">target_avg</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">diff_trace</span>
+
+<span class="k">def</span> <span class="nf">simulated_rpa_oracle</span><span class="p">(</span><span class="n">scalar</span><span class="p">,</span> <span class="n">affine_point</span><span class="p">,</span> <span class="n">simulate_mult_id</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">variance</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">real_mult</span> <span class="o">=</span> <span class="n">multipliers</span><span class="p">[</span><span class="n">simulate_mult_id</span><span class="p">]</span>
+    <span class="n">noise</span> <span class="o">=</span> <span class="n">NormalNoice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">variance</span><span class="p">)</span>
+    <span class="n">diff_trace</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">simulated_rpa_trace</span><span class="p">(</span><span class="n">real_mult</span><span class="p">,</span> <span class="n">scalar</span><span class="p">,</span> <span class="n">affine_point</span><span class="p">,</span> <span class="n">noise</span><span class="p">))</span>
+    <span class="n">peaks</span><span class="p">,</span> <span class="n">props</span> <span class="o">=</span> <span class="n">find_peaks</span><span class="p">(</span><span class="n">diff_trace</span><span class="o">.</span><span class="n">samples</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">peaks</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;True multiplier&quot;</span><span class="p">,</span> <span class="s2">&quot;Reversed&quot;</span><span class="p">,</span> <span class="s2">&quot;Correct&quot;</span><span class="p">,</span> <span class="s2">&quot;Remaining&quot;</span><span class="p">]]</span>
+<span class="k">with</span> <span class="n">silent</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">mult</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">multipliers</span><span class="p">),</span> <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">multipliers</span><span class="p">)):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">rpa_distinguish</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">multipliers</span><span class="p">,</span> <span class="n">partial</span><span class="p">(</span><span class="n">simulated_rpa_oracle</span><span class="p">,</span> <span class="n">simulate_mult_id</span> <span class="o">=</span> <span class="n">i</span><span class="p">))</span>
+        <span class="n">table</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">mult</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span> <span class="n">mult</span> <span class="ow">in</span> <span class="n">res</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">res</span><span class="p">)])</span>
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">tabulate</span><span class="o">.</span><span class="n">tabulate</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">tablefmt</span><span class="o">=</span><span class="s2">&quot;html&quot;</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="s2">&quot;firstrow&quot;</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<p>Note that the oracle function above has several parameters, like noise standard deviation, amount of traces simulated, and peak finding height threshold. Below we analyze how these parameters influence the resulting error probabilities.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">eval</span><span class="p">(</span><span class="n">threshold</span><span class="p">,</span> <span class="n">sdev</span><span class="p">,</span> <span class="n">tries</span><span class="p">,</span> <span class="n">num_traces</span><span class="p">):</span>
+    <span class="n">noise</span> <span class="o">=</span> <span class="n">NormalNoice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">sdev</span><span class="p">)</span>
+    <span class="n">aff</span> <span class="o">=</span> <span class="n">P0_target</span><span class="o">.</span><span class="n">to_affine</span><span class="p">()</span>
+    <span class="n">true_pos</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">false_pos</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">tries</span><span class="p">):</span>
+        <span class="n">diff_real</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">simulated_rpa_trace</span><span class="p">(</span><span class="n">multipliers</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">scalar</span><span class="p">,</span> <span class="n">aff</span><span class="p">,</span> <span class="n">noise</span><span class="p">,</span> <span class="n">num_random</span><span class="o">=</span><span class="n">num_traces</span><span class="p">,</span> <span class="n">num_target</span><span class="o">=</span><span class="n">num_traces</span><span class="p">))</span>
+        <span class="n">true_pos</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">find_peaks</span><span class="p">(</span><span class="n">diff_real</span><span class="o">.</span><span class="n">samples</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="n">threshold</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="n">diff_nothing</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">simulated_rpa_trace</span><span class="p">(</span><span class="n">multipliers</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">scalar</span><span class="p">,</span> <span class="n">aff</span><span class="p">,</span> <span class="n">noise</span><span class="p">,</span> <span class="n">num_random</span><span class="o">=</span><span class="n">num_traces</span><span class="p">,</span> <span class="n">num_target</span><span class="o">=</span><span class="n">num_traces</span><span class="p">))</span>
+        <span class="n">false_pos</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">find_peaks</span><span class="p">(</span><span class="n">diff_nothing</span><span class="o">.</span><span class="n">samples</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="n">threshold</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    <span class="n">false_neg</span> <span class="o">=</span> <span class="n">tries</span> <span class="o">-</span> <span class="n">true_pos</span>
+    <span class="n">true_neg</span> <span class="o">=</span> <span class="n">tries</span> <span class="o">-</span> <span class="n">false_pos</span>
+    <span class="k">return</span> <span class="n">true_pos</span> <span class="o">/</span> <span class="n">tries</span><span class="p">,</span> <span class="n">true_neg</span> <span class="o">/</span> <span class="n">tries</span><span class="p">,</span> <span class="n">false_pos</span> <span class="o">/</span> <span class="n">tries</span><span class="p">,</span> <span class="n">false_neg</span> <span class="o">/</span> <span class="n">tries</span>
+
+<span class="n">threshold_range</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">sdev_range</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
+<span class="n">traces_range</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+<span class="n">e0</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">threshold_range</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">sdev_range</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">traces_range</span><span class="p">))),</span>
+                  <span class="n">dims</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;threshold&quot;</span><span class="p">,</span> <span class="s2">&quot;sdev&quot;</span><span class="p">,</span> <span class="s2">&quot;traces&quot;</span><span class="p">),</span>
+                  <span class="n">coords</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;threshold&quot;</span><span class="p">:</span> <span class="n">threshold_range</span><span class="p">,</span> <span class="s2">&quot;sdev&quot;</span><span class="p">:</span> <span class="n">sdev_range</span><span class="p">,</span> <span class="s2">&quot;traces&quot;</span><span class="p">:</span> <span class="n">traces_range</span><span class="p">},</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;e0&quot;</span><span class="p">)</span>
+<span class="n">e1</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">threshold_range</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">sdev_range</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">traces_range</span><span class="p">))),</span>
+                  <span class="n">dims</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;threshold&quot;</span><span class="p">,</span> <span class="s2">&quot;sdev&quot;</span><span class="p">,</span> <span class="s2">&quot;traces&quot;</span><span class="p">),</span>
+                  <span class="n">coords</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;threshold&quot;</span><span class="p">:</span> <span class="n">threshold_range</span><span class="p">,</span> <span class="s2">&quot;sdev&quot;</span><span class="p">:</span> <span class="n">sdev_range</span><span class="p">,</span> <span class="s2">&quot;traces&quot;</span><span class="p">:</span> <span class="n">traces_range</span><span class="p">},</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;e1&quot;</span><span class="p">)</span>
+<span class="n">tries</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="k">with</span> <span class="n">TaskExecutor</span><span class="p">(</span><span class="n">max_workers</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">threshold</span> <span class="ow">in</span> <span class="n">threshold_range</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">sdev</span> <span class="ow">in</span> <span class="n">sdev_range</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">num_traces</span> <span class="ow">in</span> <span class="n">traces_range</span><span class="p">:</span>
+                <span class="n">pool</span><span class="o">.</span><span class="n">submit_task</span><span class="p">((</span><span class="n">threshold</span><span class="p">,</span> <span class="n">sdev</span><span class="p">,</span> <span class="n">num_traces</span><span class="p">),</span>
+                                 <span class="nb">eval</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">sdev</span><span class="p">,</span> <span class="n">tries</span><span class="p">,</span> <span class="n">num_traces</span><span class="p">)</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">threshold</span><span class="p">,</span> <span class="n">sdev</span><span class="p">,</span> <span class="n">num_traces</span><span class="p">),</span> <span class="n">future</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">pool</span><span class="o">.</span><span class="n">as_completed</span><span class="p">(),</span> <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">pool</span><span class="o">.</span><span class="n">tasks</span><span class="p">),</span> <span class="n">smoothing</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="n">true_pos</span><span class="p">,</span> <span class="n">true_neg</span><span class="p">,</span> <span class="n">false_pos</span><span class="p">,</span> <span class="n">false_neg</span> <span class="o">=</span> <span class="n">future</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+        <span class="n">e0</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">threshold</span><span class="p">,</span> <span class="n">sdev</span><span class="p">,</span> <span class="n">num_traces</span><span class="p">]</span> <span class="o">=</span> <span class="n">false_pos</span>
+        <span class="n">e1</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">threshold</span><span class="p">,</span> <span class="n">sdev</span><span class="p">,</span> <span class="n">num_traces</span><span class="p">]</span> <span class="o">=</span> <span class="n">false_neg</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="s2">&quot;row&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">threshold</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">threshold_range</span><span class="p">):</span>
+    <span class="n">res0</span> <span class="o">=</span> <span class="n">e0</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="n">threshold</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;plasma&quot;</span><span class="p">,</span> <span class="n">add_colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">sdev</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sdev_range</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">traces</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">traces_range</span><span class="p">):</span>
+            <span class="n">val</span> <span class="o">=</span> <span class="n">e0</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="n">threshold</span><span class="p">,</span> <span class="n">sdev</span><span class="o">=</span><span class="n">sdev</span><span class="p">,</span> <span class="n">traces</span><span class="o">=</span><span class="n">traces</span><span class="p">)</span>
+            <span class="n">sval</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">val</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span> <span class="k">if</span> <span class="n">val</span> <span class="o">&lt;</span> <span class="mf">0.5</span> <span class="k">else</span> <span class="s2">&quot;black&quot;</span>
+            <span class="k">if</span> <span class="n">sval</span> <span class="o">==</span> <span class="s2">&quot;0.00&quot;</span><span class="p">:</span>
+                <span class="n">color</span><span class="o">=</span><span class="s2">&quot;grey&quot;</span>
+            <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">traces</span><span class="p">,</span> <span class="n">sdev</span><span class="p">,</span> <span class="n">sval</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s2">&quot;0&quot;</span><span class="p">),</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;$e_0$&quot;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;noise $\sigma$&quot;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;traces per group&quot;</span><span class="p">)</span>
+    <span class="n">res1</span> <span class="o">=</span> <span class="n">e1</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="n">threshold</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;plasma&quot;</span><span class="p">,</span> <span class="n">add_colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">sdev</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sdev_ramge</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">traces</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">traces_range</span><span class="p">):</span>
+            <span class="n">val</span> <span class="o">=</span> <span class="n">e1</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="n">threshold</span><span class="p">,</span> <span class="n">sdev</span><span class="o">=</span><span class="n">sdev</span><span class="p">,</span> <span class="n">traces</span><span class="o">=</span><span class="n">traces</span><span class="p">)</span>
+            <span class="n">sval</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">val</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span> <span class="k">if</span> <span class="n">val</span> <span class="o">&lt;</span> <span class="mf">0.5</span> <span class="k">else</span> <span class="s2">&quot;black&quot;</span>
+            <span class="k">if</span> <span class="n">sval</span> <span class="o">==</span> <span class="s2">&quot;0.00&quot;</span><span class="p">:</span>
+                <span class="n">color</span><span class="o">=</span><span class="s2">&quot;grey&quot;</span>
+            <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">traces</span><span class="p">,</span> <span class="n">sdev</span><span class="p">,</span> <span class="n">sval</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s2">&quot;0&quot;</span><span class="p">),</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;$e_1$&quot;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;noise $\sigma$&quot;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;traces per group&quot;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">h_pad</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">rect</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">cbar_ymin</span><span class="p">,</span> <span class="n">cbar_ymax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_position</span><span class="p">()</span><span class="o">.</span><span class="n">ymin</span><span class="p">,</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_position</span><span class="p">()</span><span class="o">.</span><span class="n">ymax</span>
+    <span class="n">cbar_ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">((</span><span class="mf">0.92</span><span class="p">,</span> <span class="mf">0.145</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.77</span><span class="p">))</span>
+    <span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">res0</span><span class="p">,</span> <span class="n">cax</span><span class="o">=</span><span class="n">cbar_ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;error probability&quot;</span><span class="p">)</span>
+    <span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_label_coords</span><span class="p">(</span><span class="mf">2.8</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">);</span>
+    <span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;error probability&quot;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=-</span><span class="mi">90</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;rpa_re_errors.pdf&quot;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">traces_range</span><span class="p">),</span> <span class="n">nrows</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">var_range</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="s2">&quot;col&quot;</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="s2">&quot;row&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">traces</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">traces_range</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">var</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">var_range</span><span class="p">):</span>
+        <span class="p">(</span><span class="n">e0</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">traces</span><span class="o">=</span><span class="n">traces</span><span class="p">,</span> <span class="n">var</span><span class="o">=</span><span class="n">var</span><span class="p">)</span> <span class="o">+</span> <span class="n">e1</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">traces</span><span class="o">=</span><span class="n">traces</span><span class="p">,</span> <span class="n">var</span><span class="o">=</span><span class="n">var</span><span class="p">))</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;e0&quot;</span><span class="p">)</span>
+        <span class="n">axs</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;error&quot;</span><span class="p">)</span>
+        <span class="n">axs</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;rpa_re_errors_all.pdf&quot;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;2018-2024, Jan Jancar.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.5</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../../_sources/notebook/re/rpa.ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

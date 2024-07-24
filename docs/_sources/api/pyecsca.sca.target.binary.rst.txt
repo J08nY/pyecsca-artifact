@@ -1,0 +1,7 @@
+pyecsca.sca.target.binary module
+================================
+
+.. automodule:: pyecsca.sca.target.binary
+   :members:
+   :undoc-members:
+   :show-inheritance:

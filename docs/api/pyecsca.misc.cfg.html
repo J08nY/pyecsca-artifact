@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>pyecsca.misc.cfg module &#8212; pyecsca 0.3.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d10597a4" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=bf281230" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_paramlinks.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=de02a091" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" />
+    <script src="../_static/documentation_options.js?v=71d9d8e6"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/logo_black.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pyecsca.misc.utils module" href="pyecsca.misc.utils.html" />
+    <link rel="prev" title="pyecsca.misc.cache module" href="pyecsca.misc.cache.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo_black.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">pyecsca</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html"><span class="fas fa-screwdriver-wrench fa-fw"></span> Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks.html"><span class="fas fa-hand-pointer fa-fw"></span> Notebooks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.html">pyecsca.ec package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="pyecsca.misc.html">pyecsca.misc package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.html">pyecsca.sca package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.html">pyecsca.codegen package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries.html"><span class="fas fa-server fa-fw"></span> ECC in Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html"><span class="fas fa-asterisk fa-fw"></span> References</a></li>
+</ul>
+
+<ul style="margin-top: 1em">
+    <li class="toctree-l1"><a href="https://github.com/J08nY/pyecsca/"><i class="fab fa-fw fa-github"></i> Source code</a></li>
+    <li class="toctree-l1"><a href="https://pypi.org/project/pyecsca/"><i class="fas fa-fw fa-file"></i> Releases</a></li>
+</ul><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul>
+  <li><a href="pyecsca.misc.html">pyecsca.misc package</a><ul>
+      <li>Previous: <a href="pyecsca.misc.cache.html" title="previous chapter">pyecsca.misc.cache module</a></li>
+      <li>Next: <a href="pyecsca.misc.utils.html" title="next chapter">pyecsca.misc.utils module</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-pyecsca.misc.cfg">
+<span id="pyecsca-misc-cfg-module"></span><h1>pyecsca.misc.cfg module<a class="headerlink" href="#module-pyecsca.misc.cfg" title="Link to this heading">¶</a></h1>
+<p>Provides functions for runtime configuration of the toolkit.</p>
+<p>This includes how errors are handled, or which <code class="xref py py-class docutils literal notranslate"><span class="pre">Mod</span></code> implementation is used.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.misc.cfg.ECConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ECConfig</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/misc/cfg.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.misc.cfg.ECConfig" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Configuration for the <a class="reference internal" href="pyecsca.ec.html#module-pyecsca.ec" title="pyecsca.ec"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyecsca.ec</span></code></a> package.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.misc.cfg.ECConfig.no_inverse_action">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">no_inverse_action</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/misc/cfg.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.misc.cfg.ECConfig.no_inverse_action" title="Link to this definition">¶</a></dt>
+<dd><p>Return or set the action to take when a non-invertible element is to be inverted.</p>
+<p>One of:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;error&quot;</span></code>: Raise <a class="reference internal" href="pyecsca.ec.error.html#pyecsca.ec.error.NonInvertibleError" title="pyecsca.ec.error.NonInvertibleError"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyecsca.ec.error.NonInvertibleError</span></code></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;warning&quot;</span></code>: Raise <a class="reference internal" href="pyecsca.ec.error.html#pyecsca.ec.error.NonInvertibleWarning" title="pyecsca.ec.error.NonInvertibleWarning"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyecsca.ec.error.NonInvertibleWarning</span></code></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;ignore&quot;</span></code>: Ignore the event and compute as if nothing happened.</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.misc.cfg.ECConfig.non_residue_action">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">non_residue_action</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/misc/cfg.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.misc.cfg.ECConfig.non_residue_action" title="Link to this definition">¶</a></dt>
+<dd><p>Return or set the action to take when a the square-root of a non-residue is to be computed.</p>
+<p>One of:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;error&quot;</span></code>: Raise <a class="reference internal" href="pyecsca.ec.error.html#pyecsca.ec.error.NonResidueError" title="pyecsca.ec.error.NonResidueError"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyecsca.ec.error.NonResidueError</span></code></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;warning&quot;</span></code>: Raise <a class="reference internal" href="pyecsca.ec.error.html#pyecsca.ec.error.NonResidueWarning" title="pyecsca.ec.error.NonResidueWarning"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyecsca.ec.error.NonResidueWarning</span></code></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;ignore&quot;</span></code>: Ignore the event and compute as if nothing happened.</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.misc.cfg.ECConfig.unsatisfied_formula_assumption_action">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">unsatisfied_formula_assumption_action</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/misc/cfg.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.misc.cfg.ECConfig.unsatisfied_formula_assumption_action" title="Link to this definition">¶</a></dt>
+<dd><p>Return or set the action to take when a formula assumption is unsatisfied during execution.</p>
+<p>This works for assumption that can be ignored without a fatal error,
+which are those that are not used to compute a value of an undefined parameter.
+For example, things of the form <code class="docutils literal notranslate"><span class="pre">Z1</span> <span class="pre">=</span> <span class="pre">1</span></code>.
+One of:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;error&quot;</span></code>: Raise <a class="reference internal" href="pyecsca.ec.error.html#pyecsca.ec.error.UnsatisfiedAssumptionError" title="pyecsca.ec.error.UnsatisfiedAssumptionError"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyecsca.ec.error.UnsatisfiedAssumptionError</span></code></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;warning&quot;</span></code>: Raise <a class="reference internal" href="pyecsca.ec.error.html#pyecsca.ec.error.UnsatisfiedAssumptionWarning" title="pyecsca.ec.error.UnsatisfiedAssumptionWarning"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyecsca.ec.error.UnsatisfiedAssumptionWarning</span></code></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;ignore&quot;</span></code>: Ignore the event and compute as if nothing happened.</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.misc.cfg.ECConfig.unsatisfied_coordinate_assumption_action">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">unsatisfied_coordinate_assumption_action</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/misc/cfg.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.misc.cfg.ECConfig.unsatisfied_coordinate_assumption_action" title="Link to this definition">¶</a></dt>
+<dd><p>Return or set the action to take when a coordinate assumption is unsatisfied during curve creation.</p>
+<p>This works for assumption that can be ignored without a fatal error,
+which are those that are not used to compute a value of an undefined parameter.
+For example, things of the form <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">-1</span></code>.
+One of:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;error&quot;</span></code>: Raise <a class="reference internal" href="pyecsca.ec.error.html#pyecsca.ec.error.UnsatisfiedAssumptionError" title="pyecsca.ec.error.UnsatisfiedAssumptionError"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyecsca.ec.error.UnsatisfiedAssumptionError</span></code></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;warning&quot;</span></code>: Raise <a class="reference internal" href="pyecsca.ec.error.html#pyecsca.ec.error.UnsatisfiedAssumptionWarning" title="pyecsca.ec.error.UnsatisfiedAssumptionWarning"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyecsca.ec.error.UnsatisfiedAssumptionWarning</span></code></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;ignore&quot;</span></code>: Ignore the event and compute as if nothing happened.</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.misc.cfg.ECConfig.mod_implementation">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mod_implementation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/misc/cfg.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.misc.cfg.ECConfig.mod_implementation" title="Link to this definition">¶</a></dt>
+<dd><p>Return or set the selected <code class="xref py py-class docutils literal notranslate"><span class="pre">pyecsca.ec.mod.Mod</span></code> implementation.</p>
+<p>One of:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;gmp&quot;</span></code>: Requires the GMP library and <cite>gmpy2</cite> package.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;flint&quot;</span></code>: Requires the flint library and <cite>python-flint</cite> package.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;python&quot;</span></code>: Doesn’t require anything.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;symbolic&quot;</span></code>: Requires sympy.</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.misc.cfg.LoggingConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LoggingConfig</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/misc/cfg.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.misc.cfg.LoggingConfig" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Logging configuration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.misc.cfg.LoggingConfig.enabled">
+<span class="sig-name descname"><span class="pre">enabled</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/misc/cfg.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.misc.cfg.LoggingConfig.enabled" title="Link to this definition">¶</a></dt>
+<dd><p>Whether logging is enabled.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.misc.cfg.Config">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Config</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/misc/cfg.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.misc.cfg.Config" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Runtime configuration for the library.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.misc.cfg.Config.ec">
+<span class="sig-name descname"><span class="pre">ec</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#pyecsca.misc.cfg.ECConfig" title="pyecsca.misc.cfg.ECConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">ECConfig</span></code></a></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/misc/cfg.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.misc.cfg.Config.ec" title="Link to this definition">¶</a></dt>
+<dd><p>Configuration for the <a class="reference internal" href="pyecsca.ec.html#module-pyecsca.ec" title="pyecsca.ec"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyecsca.ec</span></code></a> package.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.misc.cfg.Config.log">
+<span class="sig-name descname"><span class="pre">log</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#pyecsca.misc.cfg.LoggingConfig" title="pyecsca.misc.cfg.LoggingConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">LoggingConfig</span></code></a></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/misc/cfg.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.misc.cfg.Config.log" title="Link to this definition">¶</a></dt>
+<dd><p>Logging configuration.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.misc.cfg.getconfig">
+<span class="sig-name descname"><span class="pre">getconfig</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/misc/cfg.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.misc.cfg.getconfig" title="Link to this definition">¶</a></dt>
+<dd><p>Get the current config.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#pyecsca.misc.cfg.Config" title="pyecsca.misc.cfg.Config"><code class="xref py py-class docutils literal notranslate"><span class="pre">Config</span></code></a></span></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The current config.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.misc.cfg.setconfig">
+<span class="sig-name descname"><span class="pre">setconfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/misc/cfg.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.misc.cfg.setconfig" title="Link to this definition">¶</a></dt>
+<dd><p>Set the current config.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.misc.cfg.setconfig.params.cfg"></span><strong>cfg</strong><a class="paramlink headerlink reference internal" href="#pyecsca.misc.cfg.setconfig.params.cfg">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#pyecsca.misc.cfg.Config" title="pyecsca.misc.cfg.Config"><code class="xref py py-class docutils literal notranslate"><span class="pre">Config</span></code></a></span>) – The config to set.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Token</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A token that can be used to reset the config to the previous one.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.misc.cfg.resetconfig">
+<span class="sig-name descname"><span class="pre">resetconfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/misc/cfg.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.misc.cfg.resetconfig" title="Link to this definition">¶</a></dt>
+<dd><p>Reset the config to the previous one.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.misc.cfg.resetconfig.params.token"></span><strong>token</strong><a class="paramlink headerlink reference internal" href="#pyecsca.misc.cfg.resetconfig.params.token">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Token</span></code></span>) – A token from <a class="reference internal" href="#pyecsca.misc.cfg.setconfig" title="pyecsca.misc.cfg.setconfig"><code class="xref py py-func docutils literal notranslate"><span class="pre">setconfig()</span></code></a>.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.misc.cfg.TemporaryConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">TemporaryConfig</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/misc/cfg.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.misc.cfg.TemporaryConfig" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Temporary config context manager.</p>
+<p>Can be entered as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">TemporaryConfig</span><span class="p">()</span> <span class="k">as</span> <span class="n">cfg</span><span class="p">:</span>
+    <span class="n">cfg</span><span class="o">.</span><span class="n">some_property</span> <span class="o">=</span> <span class="n">some_value</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.misc.cfg.TemporaryConfig.token">
+<span class="sig-name descname"><span class="pre">token</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Token</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/misc/cfg.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.misc.cfg.TemporaryConfig.token" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;2018-2024, Jan Jancar.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.5</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../_sources/api/pyecsca.misc.cfg.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

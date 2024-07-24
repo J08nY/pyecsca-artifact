@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>pyecsca.codegen package &#8212; pyecsca 0.3.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d10597a4" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=bf281230" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_paramlinks.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=de02a091" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" />
+    <script src="../_static/documentation_options.js?v=71d9d8e6"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/logo_black.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pyecsca.codegen.templates package" href="pyecsca.codegen.templates.html" />
+    <link rel="prev" title="pyecsca.sca.trace_set.pickle module" href="pyecsca.sca.trace_set.pickle.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo_black.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">pyecsca</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html"><span class="fas fa-screwdriver-wrench fa-fw"></span> Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks.html"><span class="fas fa-hand-pointer fa-fw"></span> Notebooks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.html">pyecsca.ec package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.misc.html">pyecsca.misc package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.html">pyecsca.sca package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">pyecsca.codegen package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries.html"><span class="fas fa-server fa-fw"></span> ECC in Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html"><span class="fas fa-asterisk fa-fw"></span> References</a></li>
+</ul>
+
+<ul style="margin-top: 1em">
+    <li class="toctree-l1"><a href="https://github.com/J08nY/pyecsca/"><i class="fab fa-fw fa-github"></i> Source code</a></li>
+    <li class="toctree-l1"><a href="https://pypi.org/project/pyecsca/"><i class="fas fa-fw fa-file"></i> Releases</a></li>
+</ul><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul>
+      <li>Previous: <a href="pyecsca.sca.trace_set.pickle.html" title="previous chapter">pyecsca.sca.trace_set.pickle module</a></li>
+      <li>Next: <a href="pyecsca.codegen.templates.html" title="next chapter">pyecsca.codegen.templates package</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-pyecsca.codegen">
+<span id="pyecsca-codegen-package"></span><h1>pyecsca.codegen package<a class="headerlink" href="#module-pyecsca.codegen" title="Link to this heading">¶</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.codegen.templates.html">pyecsca.codegen.templates package</a></li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.codegen.builder.html">pyecsca.codegen.builder module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.builder.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.codegen.client.html">pyecsca.codegen.client module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.client.html#examples">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.Triggers"><code class="docutils literal notranslate"><span class="pre">Triggers</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.Triggers.add"><code class="docutils literal notranslate"><span class="pre">Triggers.add</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.Triggers.dadd"><code class="docutils literal notranslate"><span class="pre">Triggers.dadd</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.Triggers.dbl"><code class="docutils literal notranslate"><span class="pre">Triggers.dbl</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.Triggers.ladd"><code class="docutils literal notranslate"><span class="pre">Triggers.ladd</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.Triggers.neg"><code class="docutils literal notranslate"><span class="pre">Triggers.neg</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.Triggers.scl"><code class="docutils literal notranslate"><span class="pre">Triggers.scl</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.Triggers.tpl"><code class="docutils literal notranslate"><span class="pre">Triggers.tpl</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.Triggers.mult"><code class="docutils literal notranslate"><span class="pre">Triggers.mult</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.Triggers.keygen"><code class="docutils literal notranslate"><span class="pre">Triggers.keygen</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.Triggers.ecdh"><code class="docutils literal notranslate"><span class="pre">Triggers.ecdh</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.Triggers.ecdsa_sign"><code class="docutils literal notranslate"><span class="pre">Triggers.ecdsa_sign</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.Triggers.ecdsa_verify"><code class="docutils literal notranslate"><span class="pre">Triggers.ecdsa_verify</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.Triggers.coord_map"><code class="docutils literal notranslate"><span class="pre">Triggers.coord_map</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.Triggers.random_mod"><code class="docutils literal notranslate"><span class="pre">Triggers.random_mod</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.Triggers.conjugate"><code class="docutils literal notranslate"><span class="pre">Triggers.conjugate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.Triggers.bit_length"><code class="docutils literal notranslate"><span class="pre">Triggers.bit_length()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.Triggers.bit_count"><code class="docutils literal notranslate"><span class="pre">Triggers.bit_count()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.Triggers.to_bytes"><code class="docutils literal notranslate"><span class="pre">Triggers.to_bytes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.Triggers.from_bytes"><code class="docutils literal notranslate"><span class="pre">Triggers.from_bytes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.Triggers.as_integer_ratio"><code class="docutils literal notranslate"><span class="pre">Triggers.as_integer_ratio()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.Triggers.real"><code class="docutils literal notranslate"><span class="pre">Triggers.real</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.Triggers.imag"><code class="docutils literal notranslate"><span class="pre">Triggers.imag</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.Triggers.numerator"><code class="docutils literal notranslate"><span class="pre">Triggers.numerator</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.Triggers.denominator"><code class="docutils literal notranslate"><span class="pre">Triggers.denominator</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.cmd_init_prng"><code class="docutils literal notranslate"><span class="pre">cmd_init_prng()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.cmd_set_params"><code class="docutils literal notranslate"><span class="pre">cmd_set_params()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.cmd_generate"><code class="docutils literal notranslate"><span class="pre">cmd_generate()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.cmd_set_privkey"><code class="docutils literal notranslate"><span class="pre">cmd_set_privkey()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.cmd_set_pubkey"><code class="docutils literal notranslate"><span class="pre">cmd_set_pubkey()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.cmd_scalar_mult"><code class="docutils literal notranslate"><span class="pre">cmd_scalar_mult()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.cmd_ecdh"><code class="docutils literal notranslate"><span class="pre">cmd_ecdh()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.cmd_ecdsa_sign"><code class="docutils literal notranslate"><span class="pre">cmd_ecdsa_sign()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.cmd_ecdsa_verify"><code class="docutils literal notranslate"><span class="pre">cmd_ecdsa_verify()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.cmd_set_trigger"><code class="docutils literal notranslate"><span class="pre">cmd_set_trigger()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.cmd_debug"><code class="docutils literal notranslate"><span class="pre">cmd_debug()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.EmulatorTarget"><code class="docutils literal notranslate"><span class="pre">EmulatorTarget</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.EmulatorTarget.emulator"><code class="docutils literal notranslate"><span class="pre">EmulatorTarget.emulator</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.EmulatorTarget.result"><code class="docutils literal notranslate"><span class="pre">EmulatorTarget.result</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.EmulatorTarget.trace"><code class="docutils literal notranslate"><span class="pre">EmulatorTarget.trace</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.EmulatorTarget.model"><code class="docutils literal notranslate"><span class="pre">EmulatorTarget.model</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.EmulatorTarget.coords"><code class="docutils literal notranslate"><span class="pre">EmulatorTarget.coords</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.EmulatorTarget.seed"><code class="docutils literal notranslate"><span class="pre">EmulatorTarget.seed</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.EmulatorTarget.params"><code class="docutils literal notranslate"><span class="pre">EmulatorTarget.params</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.EmulatorTarget.privkey"><code class="docutils literal notranslate"><span class="pre">EmulatorTarget.privkey</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.EmulatorTarget.pubkey"><code class="docutils literal notranslate"><span class="pre">EmulatorTarget.pubkey</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.EmulatorTarget.connect"><code class="docutils literal notranslate"><span class="pre">EmulatorTarget.connect()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.EmulatorTarget.set_params"><code class="docutils literal notranslate"><span class="pre">EmulatorTarget.set_params()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.EmulatorTarget.scalar_mult"><code class="docutils literal notranslate"><span class="pre">EmulatorTarget.scalar_mult()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.EmulatorTarget.init_prng"><code class="docutils literal notranslate"><span class="pre">EmulatorTarget.init_prng()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.EmulatorTarget.generate"><code class="docutils literal notranslate"><span class="pre">EmulatorTarget.generate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.EmulatorTarget.set_privkey"><code class="docutils literal notranslate"><span class="pre">EmulatorTarget.set_privkey()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.EmulatorTarget.set_pubkey"><code class="docutils literal notranslate"><span class="pre">EmulatorTarget.set_pubkey()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.EmulatorTarget.ecdh"><code class="docutils literal notranslate"><span class="pre">EmulatorTarget.ecdh()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.EmulatorTarget.ecdsa_sign"><code class="docutils literal notranslate"><span class="pre">EmulatorTarget.ecdsa_sign()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.EmulatorTarget.ecdsa_verify"><code class="docutils literal notranslate"><span class="pre">EmulatorTarget.ecdsa_verify()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.EmulatorTarget.transform_trace"><code class="docutils literal notranslate"><span class="pre">EmulatorTarget.transform_trace()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.EmulatorTarget.set_trigger"><code class="docutils literal notranslate"><span class="pre">EmulatorTarget.set_trigger()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.EmulatorTarget.debug"><code class="docutils literal notranslate"><span class="pre">EmulatorTarget.debug()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.EmulatorTarget.quit"><code class="docutils literal notranslate"><span class="pre">EmulatorTarget.quit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.EmulatorTarget.disconnect"><code class="docutils literal notranslate"><span class="pre">EmulatorTarget.disconnect()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.ImplTarget"><code class="docutils literal notranslate"><span class="pre">ImplTarget</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.ImplTarget.timeout"><code class="docutils literal notranslate"><span class="pre">ImplTarget.timeout</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.ImplTarget.model"><code class="docutils literal notranslate"><span class="pre">ImplTarget.model</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.ImplTarget.coords"><code class="docutils literal notranslate"><span class="pre">ImplTarget.coords</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.ImplTarget.seed"><code class="docutils literal notranslate"><span class="pre">ImplTarget.seed</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.ImplTarget.params"><code class="docutils literal notranslate"><span class="pre">ImplTarget.params</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.ImplTarget.privkey"><code class="docutils literal notranslate"><span class="pre">ImplTarget.privkey</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.ImplTarget.pubkey"><code class="docutils literal notranslate"><span class="pre">ImplTarget.pubkey</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.ImplTarget.trigger"><code class="docutils literal notranslate"><span class="pre">ImplTarget.trigger</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.ImplTarget.init_prng"><code class="docutils literal notranslate"><span class="pre">ImplTarget.init_prng()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.ImplTarget.set_params"><code class="docutils literal notranslate"><span class="pre">ImplTarget.set_params()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.ImplTarget.generate"><code class="docutils literal notranslate"><span class="pre">ImplTarget.generate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.ImplTarget.set_privkey"><code class="docutils literal notranslate"><span class="pre">ImplTarget.set_privkey()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.ImplTarget.set_pubkey"><code class="docutils literal notranslate"><span class="pre">ImplTarget.set_pubkey()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.ImplTarget.scalar_mult"><code class="docutils literal notranslate"><span class="pre">ImplTarget.scalar_mult()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.ImplTarget.connect"><code class="docutils literal notranslate"><span class="pre">ImplTarget.connect()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.ImplTarget.ecdh"><code class="docutils literal notranslate"><span class="pre">ImplTarget.ecdh()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.ImplTarget.read"><code class="docutils literal notranslate"><span class="pre">ImplTarget.read()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.ImplTarget.recv_msgs"><code class="docutils literal notranslate"><span class="pre">ImplTarget.recv_msgs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.ImplTarget.send_cmd"><code class="docutils literal notranslate"><span class="pre">ImplTarget.send_cmd()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.ImplTarget.write"><code class="docutils literal notranslate"><span class="pre">ImplTarget.write()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.ImplTarget.ecdsa_sign"><code class="docutils literal notranslate"><span class="pre">ImplTarget.ecdsa_sign()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.ImplTarget.ecdsa_verify"><code class="docutils literal notranslate"><span class="pre">ImplTarget.ecdsa_verify()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.ImplTarget.debug"><code class="docutils literal notranslate"><span class="pre">ImplTarget.debug()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.ImplTarget.set_trigger"><code class="docutils literal notranslate"><span class="pre">ImplTarget.set_trigger()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.ImplTarget.quit"><code class="docutils literal notranslate"><span class="pre">ImplTarget.quit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.ImplTarget.disconnect"><code class="docutils literal notranslate"><span class="pre">ImplTarget.disconnect()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.DeviceTarget"><code class="docutils literal notranslate"><span class="pre">DeviceTarget</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.DeviceTarget.connect"><code class="docutils literal notranslate"><span class="pre">DeviceTarget.connect()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.DeviceTarget.debug"><code class="docutils literal notranslate"><span class="pre">DeviceTarget.debug()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.DeviceTarget.disconnect"><code class="docutils literal notranslate"><span class="pre">DeviceTarget.disconnect()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.DeviceTarget.ecdh"><code class="docutils literal notranslate"><span class="pre">DeviceTarget.ecdh()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.DeviceTarget.ecdsa_sign"><code class="docutils literal notranslate"><span class="pre">DeviceTarget.ecdsa_sign()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.DeviceTarget.ecdsa_verify"><code class="docutils literal notranslate"><span class="pre">DeviceTarget.ecdsa_verify()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.DeviceTarget.flash"><code class="docutils literal notranslate"><span class="pre">DeviceTarget.flash()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.DeviceTarget.generate"><code class="docutils literal notranslate"><span class="pre">DeviceTarget.generate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.DeviceTarget.init_prng"><code class="docutils literal notranslate"><span class="pre">DeviceTarget.init_prng()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.DeviceTarget.quit"><code class="docutils literal notranslate"><span class="pre">DeviceTarget.quit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.DeviceTarget.read"><code class="docutils literal notranslate"><span class="pre">DeviceTarget.read()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.DeviceTarget.recv_msgs"><code class="docutils literal notranslate"><span class="pre">DeviceTarget.recv_msgs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.DeviceTarget.reset"><code class="docutils literal notranslate"><span class="pre">DeviceTarget.reset()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.DeviceTarget.scalar_mult"><code class="docutils literal notranslate"><span class="pre">DeviceTarget.scalar_mult()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.DeviceTarget.send_cmd"><code class="docutils literal notranslate"><span class="pre">DeviceTarget.send_cmd()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.DeviceTarget.set_params"><code class="docutils literal notranslate"><span class="pre">DeviceTarget.set_params()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.DeviceTarget.set_privkey"><code class="docutils literal notranslate"><span class="pre">DeviceTarget.set_privkey()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.DeviceTarget.set_pubkey"><code class="docutils literal notranslate"><span class="pre">DeviceTarget.set_pubkey()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.DeviceTarget.set_trigger"><code class="docutils literal notranslate"><span class="pre">DeviceTarget.set_trigger()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.DeviceTarget.write"><code class="docutils literal notranslate"><span class="pre">DeviceTarget.write()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.DeviceTarget.model"><code class="docutils literal notranslate"><span class="pre">DeviceTarget.model</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.DeviceTarget.coords"><code class="docutils literal notranslate"><span class="pre">DeviceTarget.coords</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.DeviceTarget.seed"><code class="docutils literal notranslate"><span class="pre">DeviceTarget.seed</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.DeviceTarget.params"><code class="docutils literal notranslate"><span class="pre">DeviceTarget.params</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.DeviceTarget.privkey"><code class="docutils literal notranslate"><span class="pre">DeviceTarget.privkey</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.DeviceTarget.pubkey"><code class="docutils literal notranslate"><span class="pre">DeviceTarget.pubkey</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.DeviceTarget.trigger"><code class="docutils literal notranslate"><span class="pre">DeviceTarget.trigger</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.DeviceTarget.timeout"><code class="docutils literal notranslate"><span class="pre">DeviceTarget.timeout</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.HostTarget"><code class="docutils literal notranslate"><span class="pre">HostTarget</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.HostTarget.connect"><code class="docutils literal notranslate"><span class="pre">HostTarget.connect()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.HostTarget.debug"><code class="docutils literal notranslate"><span class="pre">HostTarget.debug()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.HostTarget.disconnect"><code class="docutils literal notranslate"><span class="pre">HostTarget.disconnect()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.HostTarget.ecdh"><code class="docutils literal notranslate"><span class="pre">HostTarget.ecdh()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.HostTarget.ecdsa_sign"><code class="docutils literal notranslate"><span class="pre">HostTarget.ecdsa_sign()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.HostTarget.ecdsa_verify"><code class="docutils literal notranslate"><span class="pre">HostTarget.ecdsa_verify()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.HostTarget.generate"><code class="docutils literal notranslate"><span class="pre">HostTarget.generate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.HostTarget.init_prng"><code class="docutils literal notranslate"><span class="pre">HostTarget.init_prng()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.HostTarget.process"><code class="docutils literal notranslate"><span class="pre">HostTarget.process</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.HostTarget.quit"><code class="docutils literal notranslate"><span class="pre">HostTarget.quit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.HostTarget.read"><code class="docutils literal notranslate"><span class="pre">HostTarget.read()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.HostTarget.recv_msgs"><code class="docutils literal notranslate"><span class="pre">HostTarget.recv_msgs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.HostTarget.scalar_mult"><code class="docutils literal notranslate"><span class="pre">HostTarget.scalar_mult()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.HostTarget.send_cmd"><code class="docutils literal notranslate"><span class="pre">HostTarget.send_cmd()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.HostTarget.set_params"><code class="docutils literal notranslate"><span class="pre">HostTarget.set_params()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.HostTarget.set_privkey"><code class="docutils literal notranslate"><span class="pre">HostTarget.set_privkey()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.HostTarget.set_pubkey"><code class="docutils literal notranslate"><span class="pre">HostTarget.set_pubkey()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.HostTarget.set_trigger"><code class="docutils literal notranslate"><span class="pre">HostTarget.set_trigger()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.HostTarget.write"><code class="docutils literal notranslate"><span class="pre">HostTarget.write()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.HostTarget.model"><code class="docutils literal notranslate"><span class="pre">HostTarget.model</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.HostTarget.coords"><code class="docutils literal notranslate"><span class="pre">HostTarget.coords</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.HostTarget.seed"><code class="docutils literal notranslate"><span class="pre">HostTarget.seed</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.HostTarget.params"><code class="docutils literal notranslate"><span class="pre">HostTarget.params</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.HostTarget.privkey"><code class="docutils literal notranslate"><span class="pre">HostTarget.privkey</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.HostTarget.pubkey"><code class="docutils literal notranslate"><span class="pre">HostTarget.pubkey</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.HostTarget.trigger"><code class="docutils literal notranslate"><span class="pre">HostTarget.trigger</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.HostTarget.timeout"><code class="docutils literal notranslate"><span class="pre">HostTarget.timeout</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.HostTarget.binary"><code class="docutils literal notranslate"><span class="pre">HostTarget.binary</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.client.html#pyecsca.codegen.client.HostTarget.debug_output"><code class="docutils literal notranslate"><span class="pre">HostTarget.debug_output</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.codegen.common.html">pyecsca.codegen.common module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.common.html#pyecsca.codegen.common.Platform"><code class="docutils literal notranslate"><span class="pre">Platform</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.common.html#pyecsca.codegen.common.Platform.HOST"><code class="docutils literal notranslate"><span class="pre">Platform.HOST</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.common.html#pyecsca.codegen.common.Platform.XMEGA"><code class="docutils literal notranslate"><span class="pre">Platform.XMEGA</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.common.html#pyecsca.codegen.common.Platform.STM32F0"><code class="docutils literal notranslate"><span class="pre">Platform.STM32F0</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.common.html#pyecsca.codegen.common.Platform.STM32F3"><code class="docutils literal notranslate"><span class="pre">Platform.STM32F3</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.common.html#pyecsca.codegen.common.Platform.NANO"><code class="docutils literal notranslate"><span class="pre">Platform.NANO</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.common.html#pyecsca.codegen.common.Platform.names"><code class="docutils literal notranslate"><span class="pre">Platform.names()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.common.html#pyecsca.codegen.common.Platform.values"><code class="docutils literal notranslate"><span class="pre">Platform.values()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.common.html#pyecsca.codegen.common.DeviceConfiguration"><code class="docutils literal notranslate"><span class="pre">DeviceConfiguration</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.common.html#pyecsca.codegen.common.DeviceConfiguration.platform"><code class="docutils literal notranslate"><span class="pre">DeviceConfiguration.platform</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.common.html#pyecsca.codegen.common.DeviceConfiguration.keygen"><code class="docutils literal notranslate"><span class="pre">DeviceConfiguration.keygen</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.common.html#pyecsca.codegen.common.DeviceConfiguration.ecdh"><code class="docutils literal notranslate"><span class="pre">DeviceConfiguration.ecdh</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.common.html#pyecsca.codegen.common.DeviceConfiguration.ecdsa"><code class="docutils literal notranslate"><span class="pre">DeviceConfiguration.ecdsa</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.common.html#pyecsca.codegen.common.DeviceConfiguration.defines"><code class="docutils literal notranslate"><span class="pre">DeviceConfiguration.defines</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.common.html#pyecsca.codegen.common.DeviceConfiguration.model"><code class="docutils literal notranslate"><span class="pre">DeviceConfiguration.model</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.common.html#pyecsca.codegen.common.DeviceConfiguration.coords"><code class="docutils literal notranslate"><span class="pre">DeviceConfiguration.coords</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.common.html#pyecsca.codegen.common.DeviceConfiguration.formulas"><code class="docutils literal notranslate"><span class="pre">DeviceConfiguration.formulas</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.common.html#pyecsca.codegen.common.DeviceConfiguration.scalarmult"><code class="docutils literal notranslate"><span class="pre">DeviceConfiguration.scalarmult</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.common.html#pyecsca.codegen.common.DeviceConfiguration.hash_type"><code class="docutils literal notranslate"><span class="pre">DeviceConfiguration.hash_type</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.common.html#pyecsca.codegen.common.DeviceConfiguration.mod_rand"><code class="docutils literal notranslate"><span class="pre">DeviceConfiguration.mod_rand</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.common.html#pyecsca.codegen.common.DeviceConfiguration.mult"><code class="docutils literal notranslate"><span class="pre">DeviceConfiguration.mult</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.common.html#pyecsca.codegen.common.DeviceConfiguration.sqr"><code class="docutils literal notranslate"><span class="pre">DeviceConfiguration.sqr</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.common.html#pyecsca.codegen.common.DeviceConfiguration.red"><code class="docutils literal notranslate"><span class="pre">DeviceConfiguration.red</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.codegen.common.html#pyecsca.codegen.common.DeviceConfiguration.inv"><code class="docutils literal notranslate"><span class="pre">DeviceConfiguration.inv</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.codegen.render.html">pyecsca.codegen.render module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.render.html#pyecsca.codegen.render.render"><code class="docutils literal notranslate"><span class="pre">render()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.render.html#pyecsca.codegen.render.build"><code class="docutils literal notranslate"><span class="pre">build()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.render.html#pyecsca.codegen.render.render_and_build"><code class="docutils literal notranslate"><span class="pre">render_and_build()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;2018-2024, Jan Jancar.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.5</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../_sources/api/pyecsca.codegen.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

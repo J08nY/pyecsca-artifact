@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>pyecsca.misc.utils module &#8212; pyecsca 0.3.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d10597a4" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=bf281230" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_paramlinks.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=de02a091" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" />
+    <script src="../_static/documentation_options.js?v=71d9d8e6"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/logo_black.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pyecsca.sca package" href="pyecsca.sca.html" />
+    <link rel="prev" title="pyecsca.misc.cfg module" href="pyecsca.misc.cfg.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo_black.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">pyecsca</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html"><span class="fas fa-screwdriver-wrench fa-fw"></span> Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks.html"><span class="fas fa-hand-pointer fa-fw"></span> Notebooks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.html">pyecsca.ec package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="pyecsca.misc.html">pyecsca.misc package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.html">pyecsca.sca package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.html">pyecsca.codegen package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries.html"><span class="fas fa-server fa-fw"></span> ECC in Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html"><span class="fas fa-asterisk fa-fw"></span> References</a></li>
+</ul>
+
+<ul style="margin-top: 1em">
+    <li class="toctree-l1"><a href="https://github.com/J08nY/pyecsca/"><i class="fab fa-fw fa-github"></i> Source code</a></li>
+    <li class="toctree-l1"><a href="https://pypi.org/project/pyecsca/"><i class="fas fa-fw fa-file"></i> Releases</a></li>
+</ul><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul>
+  <li><a href="pyecsca.misc.html">pyecsca.misc package</a><ul>
+      <li>Previous: <a href="pyecsca.misc.cfg.html" title="previous chapter">pyecsca.misc.cfg module</a></li>
+      <li>Next: <a href="pyecsca.sca.html" title="next chapter">pyecsca.sca package</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-pyecsca.misc.utils">
+<span id="pyecsca-misc-utils-module"></span><h1>pyecsca.misc.utils module<a class="headerlink" href="#module-pyecsca.misc.utils" title="Link to this heading">¶</a></h1>
+<p>Just some utilities I promise.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.misc.utils.pexec">
+<span class="sig-name descname"><span class="pre">pexec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/misc/utils.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.misc.utils.pexec" title="Link to this definition">¶</a></dt>
+<dd><p>Parse with exec.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.misc.utils.peval">
+<span class="sig-name descname"><span class="pre">peval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/misc/utils.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.misc.utils.peval" title="Link to this definition">¶</a></dt>
+<dd><p>Parse with eval.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.misc.utils.in_notebook">
+<span class="sig-name descname"><span class="pre">in_notebook</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/misc/utils.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.misc.utils.in_notebook" title="Link to this definition">¶</a></dt>
+<dd><p>Test whether we are executing in Jupyter notebook.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.misc.utils.log">
+<span class="sig-name descname"><span class="pre">log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/misc/utils.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.misc.utils.log" title="Link to this definition">¶</a></dt>
+<dd><p>Log a message.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.misc.utils.warn">
+<span class="sig-name descname"><span class="pre">warn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/misc/utils.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.misc.utils.warn" title="Link to this definition">¶</a></dt>
+<dd><p>Log a message.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.misc.utils.silent">
+<span class="sig-name descname"><span class="pre">silent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/misc/utils.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.misc.utils.silent" title="Link to this definition">¶</a></dt>
+<dd><p>Temporarily disable output.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.misc.utils.TaskExecutor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">TaskExecutor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/misc/utils.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.misc.utils.TaskExecutor" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ProcessPoolExecutor</span></code></p>
+<p>A simple ProcessPoolExecutor that keeps tracks of tasks that were submitted to it.</p>
+<p>Initializes a new ProcessPoolExecutor instance.</p>
+<dl>
+<dt>Args:</dt><dd><dl class="simple">
+<dt>max_workers: The maximum number of processes that can be used to</dt><dd><p>execute the given calls. If None or not given then as many
+worker processes will be created as the machine has processors.</p>
+</dd>
+<dt>mp_context: A multiprocessing context to launch the workers. This</dt><dd><p>object should provide SimpleQueue, Queue and Process. Useful
+to allow specific multiprocessing start methods.</p>
+</dd>
+</dl>
+<p>initializer: A callable used to initialize worker processes.
+initargs: A tuple of arguments to pass to the initializer.
+max_tasks_per_child: The maximum number of tasks a worker process</p>
+<blockquote>
+<div><p>can complete before it will exit and be replaced with a fresh
+worker process. The default of None means worker process will
+live as long as the executor. Requires a non-‘fork’ mp_context
+start method. When given, we default to using ‘spawn’ if no
+mp_context is supplied.</p>
+</div></blockquote>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.misc.utils.TaskExecutor.keys">
+<span class="sig-name descname"><span class="pre">keys</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/misc/utils.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.misc.utils.TaskExecutor.keys" title="Link to this definition">¶</a></dt>
+<dd><p>A list of keys that identify the futures.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.misc.utils.TaskExecutor.map">
+<span class="sig-name descname"><span class="pre">map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">iterables</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunksize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/misc/utils.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.misc.utils.TaskExecutor.map" title="Link to this definition">¶</a></dt>
+<dd><p>Returns an iterator equivalent to map(fn, iter).</p>
+<dl>
+<dt>Args:</dt><dd><dl class="simple">
+<dt>fn: A callable that will take as many arguments as there are</dt><dd><p>passed iterables.</p>
+</dd>
+<dt>timeout: The maximum number of seconds to wait. If None, then there</dt><dd><p>is no limit on the wait time.</p>
+</dd>
+<dt>chunksize: If greater than one, the iterables will be chopped into</dt><dd><p>chunks of size chunksize and submitted to the process pool.
+If set to one, the items in the list will be sent one at a time.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>An iterator equivalent to: map(func, <a href="#id1"><span class="problematic" id="id2">*</span></a>iterables) but the calls may
+be evaluated out-of-order.</p>
+</dd>
+<dt>Raises:</dt><dd><dl class="simple">
+<dt>TimeoutError: If the entire result iterator could not be generated</dt><dd><p>before the given timeout.</p>
+</dd>
+</dl>
+<p>Exception: If fn(<a href="#id3"><span class="problematic" id="id4">*</span></a>args) raises for any values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.misc.utils.TaskExecutor.shutdown">
+<span class="sig-name descname"><span class="pre">shutdown</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cancel_futures</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/misc/utils.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.misc.utils.TaskExecutor.shutdown" title="Link to this definition">¶</a></dt>
+<dd><p>Clean-up the resources associated with the Executor.</p>
+<p>It is safe to call this method several times. Otherwise, no other
+methods can be called after this one.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>wait: If True then shutdown will not return until all running</dt><dd><p>futures have finished executing and the resources used by the
+executor have been reclaimed.</p>
+</dd>
+<dt>cancel_futures: If True then shutdown will cancel all pending</dt><dd><p>futures. Futures that are completed or running will not be
+cancelled.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.misc.utils.TaskExecutor.submit">
+<span class="sig-name descname"><span class="pre">submit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/misc/utils.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.misc.utils.TaskExecutor.submit" title="Link to this definition">¶</a></dt>
+<dd><p>Submits a callable to be executed with the given arguments.</p>
+<p>Schedules the callable to be executed as fn(<a href="#id5"><span class="problematic" id="id6">*</span></a>args, <a href="#id7"><span class="problematic" id="id8">**</span></a>kwargs) and returns
+a Future instance representing the execution of the callable.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>A Future representing the given call.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.misc.utils.TaskExecutor.futures">
+<span class="sig-name descname"><span class="pre">futures</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Future</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/misc/utils.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.misc.utils.TaskExecutor.futures" title="Link to this definition">¶</a></dt>
+<dd><p>A list of futures submitted to the executor.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.misc.utils.TaskExecutor.submit_task">
+<span class="sig-name descname"><span class="pre">submit_task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/misc/utils.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.misc.utils.TaskExecutor.submit_task" title="Link to this definition">¶</a></dt>
+<dd><p>Submit a task (function <cite>fn</cite>), identified by <cite>key</cite> and with <cite>args</cite> and <cite>kwargs</cite>.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.misc.utils.TaskExecutor.tasks">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">tasks</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/misc/utils.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.misc.utils.TaskExecutor.tasks" title="Link to this definition">¶</a></dt>
+<dd><p>A list of tasks that were submitted to this executor.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.misc.utils.TaskExecutor.as_completed">
+<span class="sig-name descname"><span class="pre">as_completed</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/misc/utils.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.misc.utils.TaskExecutor.as_completed" title="Link to this definition">¶</a></dt>
+<dd><p>Like <cite>concurrent.futures.as_completed</cite>, but yields a pair of key and future.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Generator</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Future</span></code>], <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;2018-2024, Jan Jancar.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.5</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../_sources/api/pyecsca.misc.utils.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

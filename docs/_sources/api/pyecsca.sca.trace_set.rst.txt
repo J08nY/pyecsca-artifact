@@ -1,0 +1,19 @@
+pyecsca.sca.trace\_set package
+==============================
+
+.. automodule:: pyecsca.sca.trace_set
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   pyecsca.sca.trace_set.base
+   pyecsca.sca.trace_set.chipwhisperer
+   pyecsca.sca.trace_set.hdf5
+   pyecsca.sca.trace_set.inspector
+   pyecsca.sca.trace_set.pickle

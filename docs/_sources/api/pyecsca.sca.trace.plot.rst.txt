@@ -1,0 +1,7 @@
+pyecsca.sca.trace.plot module
+=============================
+
+.. automodule:: pyecsca.sca.trace.plot
+   :members:
+   :undoc-members:
+   :show-inheritance:

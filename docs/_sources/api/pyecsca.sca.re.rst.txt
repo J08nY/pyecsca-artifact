@@ -1,0 +1,19 @@
+pyecsca.sca.re package
+======================
+
+.. automodule:: pyecsca.sca.re
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   pyecsca.sca.re.base
+   pyecsca.sca.re.rpa
+   pyecsca.sca.re.structural
+   pyecsca.sca.re.tree
+   pyecsca.sca.re.zvp

@@ -1,0 +1,7 @@
+pyecsca.sca.trace.combine module
+================================
+
+.. automodule:: pyecsca.sca.trace.combine
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>pyecsca.sca.attack.leakage_model module &#8212; pyecsca 0.3.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d10597a4" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=bf281230" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_paramlinks.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=de02a091" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" />
+    <script src="../_static/documentation_options.js?v=71d9d8e6"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/logo_black.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pyecsca.sca.re package" href="pyecsca.sca.re.html" />
+    <link rel="prev" title="pyecsca.sca.attack.DPA module" href="pyecsca.sca.attack.DPA.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo_black.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">pyecsca</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html"><span class="fas fa-screwdriver-wrench fa-fw"></span> Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks.html"><span class="fas fa-hand-pointer fa-fw"></span> Notebooks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.html">pyecsca.ec package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.misc.html">pyecsca.misc package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="pyecsca.sca.html">pyecsca.sca package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.html">pyecsca.codegen package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries.html"><span class="fas fa-server fa-fw"></span> ECC in Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html"><span class="fas fa-asterisk fa-fw"></span> References</a></li>
+</ul>
+
+<ul style="margin-top: 1em">
+    <li class="toctree-l1"><a href="https://github.com/J08nY/pyecsca/"><i class="fab fa-fw fa-github"></i> Source code</a></li>
+    <li class="toctree-l1"><a href="https://pypi.org/project/pyecsca/"><i class="fas fa-fw fa-file"></i> Releases</a></li>
+</ul><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul>
+  <li><a href="pyecsca.sca.html">pyecsca.sca package</a><ul>
+  <li><a href="pyecsca.sca.attack.html">pyecsca.sca.attack package</a><ul>
+      <li>Previous: <a href="pyecsca.sca.attack.DPA.html" title="previous chapter">pyecsca.sca.attack.DPA module</a></li>
+      <li>Next: <a href="pyecsca.sca.re.html" title="next chapter">pyecsca.sca.re package</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-pyecsca.sca.attack.leakage_model">
+<span id="pyecsca-sca-attack-leakage-model-module"></span><h1>pyecsca.sca.attack.leakage_model module<a class="headerlink" href="#module-pyecsca.sca.attack.leakage_model" title="Link to this heading">¶</a></h1>
+<p>Provides leakage models to simulate leakage.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.sca.attack.leakage_model.Noise">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Noise</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/attack/leakage_model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.attack.leakage_model.Noise" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.sca.attack.leakage_model.ZeroNoise">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ZeroNoise</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/attack/leakage_model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.attack.leakage_model.ZeroNoise" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyecsca.sca.attack.leakage_model.Noise" title="pyecsca.sca.attack.leakage_model.Noise"><code class="xref py py-class docutils literal notranslate"><span class="pre">Noise</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.sca.attack.leakage_model.NormalNoice">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NormalNoice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mean</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sdev</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/attack/leakage_model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.attack.leakage_model.NormalNoice" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyecsca.sca.attack.leakage_model.Noise" title="pyecsca.sca.attack.leakage_model.Noise"><code class="xref py py-class docutils literal notranslate"><span class="pre">Noise</span></code></a></p>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=SAfq55aiqPc">https://www.youtube.com/watch?v=SAfq55aiqPc</a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.sca.attack.leakage_model.LeakageModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LeakageModel</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/attack/leakage_model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.attack.leakage_model.LeakageModel" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>An abstract leakage model.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.sca.attack.leakage_model.LeakageModel.num_args">
+<span class="sig-name descname"><span class="pre">num_args</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">ClassVar</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/attack/leakage_model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.attack.leakage_model.LeakageModel.num_args" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.sca.attack.leakage_model.Identity">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Identity</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/attack/leakage_model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.attack.leakage_model.Identity" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyecsca.sca.attack.leakage_model.LeakageModel" title="pyecsca.sca.attack.leakage_model.LeakageModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">LeakageModel</span></code></a></p>
+<p>Identity leakage model, leaks the thing itself.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.sca.attack.leakage_model.Identity.num_args">
+<span class="sig-name descname"><span class="pre">num_args</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">ClassVar</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code><span class="pre">]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/attack/leakage_model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.attack.leakage_model.Identity.num_args" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.sca.attack.leakage_model.Bit">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Bit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">which</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/attack/leakage_model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.attack.leakage_model.Bit" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyecsca.sca.attack.leakage_model.LeakageModel" title="pyecsca.sca.attack.leakage_model.LeakageModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">LeakageModel</span></code></a></p>
+<p>Bit leakage model, leaks a selected bit.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.sca.attack.leakage_model.Bit.num_args">
+<span class="sig-name descname"><span class="pre">num_args</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">ClassVar</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code><span class="pre">]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/attack/leakage_model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.attack.leakage_model.Bit.num_args" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.sca.attack.leakage_model.Slice">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Slice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">begin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/attack/leakage_model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.attack.leakage_model.Slice" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyecsca.sca.attack.leakage_model.LeakageModel" title="pyecsca.sca.attack.leakage_model.LeakageModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">LeakageModel</span></code></a></p>
+<p>Slice leakage model, leaks a slice of bits.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.sca.attack.leakage_model.Slice.num_args">
+<span class="sig-name descname"><span class="pre">num_args</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">ClassVar</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code><span class="pre">]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/attack/leakage_model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.attack.leakage_model.Slice.num_args" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.sca.attack.leakage_model.HammingWeight">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">HammingWeight</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/attack/leakage_model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.attack.leakage_model.HammingWeight" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyecsca.sca.attack.leakage_model.LeakageModel" title="pyecsca.sca.attack.leakage_model.LeakageModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">LeakageModel</span></code></a></p>
+<p>Hamming-weight leakage model, leaks the Hamming-weight of the thing.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.sca.attack.leakage_model.HammingWeight.num_args">
+<span class="sig-name descname"><span class="pre">num_args</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">ClassVar</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code><span class="pre">]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/attack/leakage_model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.attack.leakage_model.HammingWeight.num_args" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.sca.attack.leakage_model.HammingDistance">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">HammingDistance</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/attack/leakage_model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.attack.leakage_model.HammingDistance" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyecsca.sca.attack.leakage_model.LeakageModel" title="pyecsca.sca.attack.leakage_model.LeakageModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">LeakageModel</span></code></a></p>
+<p>Hamming-distance leakage model, leaks the Hamming-distance between the two things.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.sca.attack.leakage_model.HammingDistance.num_args">
+<span class="sig-name descname"><span class="pre">num_args</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">ClassVar</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code><span class="pre">]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/attack/leakage_model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.attack.leakage_model.HammingDistance.num_args" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.sca.attack.leakage_model.BitLength">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">BitLength</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/attack/leakage_model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.attack.leakage_model.BitLength" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyecsca.sca.attack.leakage_model.LeakageModel" title="pyecsca.sca.attack.leakage_model.LeakageModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">LeakageModel</span></code></a></p>
+<p>Bit-length leakage model, leaks the bit-length of the thing.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.sca.attack.leakage_model.BitLength.num_args">
+<span class="sig-name descname"><span class="pre">num_args</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">ClassVar</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code><span class="pre">]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/attack/leakage_model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.attack.leakage_model.BitLength.num_args" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;2018-2024, Jan Jancar.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.5</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../_sources/api/pyecsca.sca.attack.leakage_model.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

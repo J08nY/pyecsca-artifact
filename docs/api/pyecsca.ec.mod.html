@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>pyecsca.ec.mod package &#8212; pyecsca 0.3.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d10597a4" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=bf281230" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_paramlinks.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=de02a091" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" />
+    <script src="../_static/documentation_options.js?v=71d9d8e6"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/logo_black.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pyecsca.ec.mod.base module" href="pyecsca.ec.mod.base.html" />
+    <link rel="prev" title="pyecsca.ec.formula.unroll module" href="pyecsca.ec.formula.unroll.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo_black.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">pyecsca</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html"><span class="fas fa-screwdriver-wrench fa-fw"></span> Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks.html"><span class="fas fa-hand-pointer fa-fw"></span> Notebooks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="pyecsca.ec.html">pyecsca.ec package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.misc.html">pyecsca.misc package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.html">pyecsca.sca package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.html">pyecsca.codegen package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries.html"><span class="fas fa-server fa-fw"></span> ECC in Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html"><span class="fas fa-asterisk fa-fw"></span> References</a></li>
+</ul>
+
+<ul style="margin-top: 1em">
+    <li class="toctree-l1"><a href="https://github.com/J08nY/pyecsca/"><i class="fab fa-fw fa-github"></i> Source code</a></li>
+    <li class="toctree-l1"><a href="https://pypi.org/project/pyecsca/"><i class="fas fa-fw fa-file"></i> Releases</a></li>
+</ul><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul>
+  <li><a href="pyecsca.ec.html">pyecsca.ec package</a><ul>
+      <li>Previous: <a href="pyecsca.ec.formula.unroll.html" title="previous chapter">pyecsca.ec.formula.unroll module</a></li>
+      <li>Next: <a href="pyecsca.ec.mod.base.html" title="next chapter">pyecsca.ec.mod.base module</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-pyecsca.ec.mod">
+<span id="pyecsca-ec-mod-package"></span><h1>pyecsca.ec.mod package<a class="headerlink" href="#module-pyecsca.ec.mod" title="Link to this heading">¶</a></h1>
+<p>Provides several implementations of an element of ℤₙ.</p>
+<p>The base class <code class="xref py py-class docutils literal notranslate"><span class="pre">Mod</span></code> dynamically
+dispatches to the implementation chosen by the runtime configuration of the library
+(see <a class="reference internal" href="pyecsca.misc.cfg.html#pyecsca.misc.cfg.Config" title="pyecsca.misc.cfg.Config"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyecsca.misc.cfg.Config</span></code></a>). A Python integer based implementation is available under
+<code class="xref py py-class docutils literal notranslate"><span class="pre">RawMod</span></code>. A symbolic implementation based on sympy is available under <code class="xref py py-class docutils literal notranslate"><span class="pre">SymbolicMod</span></code>. If
+<cite>gmpy2</cite> is installed, a GMP based implementation is available under <code class="xref py py-class docutils literal notranslate"><span class="pre">GMPMod</span></code>. If <cite>python-flint</cite> is
+installed, a flint based implementation is available under <code class="xref py py-class docutils literal notranslate"><span class="pre">FlintMod</span></code>.</p>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.ec.mod.base.html">pyecsca.ec.mod.base module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.mod.base.html#pyecsca.ec.mod.base.gcd"><code class="docutils literal notranslate"><span class="pre">gcd()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.mod.base.html#pyecsca.ec.mod.base.extgcd"><code class="docutils literal notranslate"><span class="pre">extgcd()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.mod.base.html#pyecsca.ec.mod.base.jacobi"><code class="docutils literal notranslate"><span class="pre">jacobi()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.mod.base.html#pyecsca.ec.mod.base.miller_rabin"><code class="docutils literal notranslate"><span class="pre">miller_rabin()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.mod.base.html#pyecsca.ec.mod.base.RandomModAction"><code class="docutils literal notranslate"><span class="pre">RandomModAction</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.base.html#pyecsca.ec.mod.base.RandomModAction.order"><code class="docutils literal notranslate"><span class="pre">RandomModAction.order</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.base.html#pyecsca.ec.mod.base.RandomModAction.exit"><code class="docutils literal notranslate"><span class="pre">RandomModAction.exit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.base.html#pyecsca.ec.mod.base.RandomModAction.result"><code class="docutils literal notranslate"><span class="pre">RandomModAction.result</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.base.html#pyecsca.ec.mod.base.RandomModAction.inside"><code class="docutils literal notranslate"><span class="pre">RandomModAction.inside</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.mod.base.html#pyecsca.ec.mod.base.Mod"><code class="docutils literal notranslate"><span class="pre">Mod</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.base.html#pyecsca.ec.mod.base.Mod.x"><code class="docutils literal notranslate"><span class="pre">Mod.x</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.base.html#pyecsca.ec.mod.base.Mod.n"><code class="docutils literal notranslate"><span class="pre">Mod.n</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.base.html#pyecsca.ec.mod.base.Mod.bit_length"><code class="docutils literal notranslate"><span class="pre">Mod.bit_length()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.base.html#pyecsca.ec.mod.base.Mod.inverse"><code class="docutils literal notranslate"><span class="pre">Mod.inverse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.base.html#pyecsca.ec.mod.base.Mod.is_residue"><code class="docutils literal notranslate"><span class="pre">Mod.is_residue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.base.html#pyecsca.ec.mod.base.Mod.sqrt"><code class="docutils literal notranslate"><span class="pre">Mod.sqrt()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.base.html#pyecsca.ec.mod.base.Mod.random"><code class="docutils literal notranslate"><span class="pre">Mod.random()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.mod.base.html#pyecsca.ec.mod.base.Undefined"><code class="docutils literal notranslate"><span class="pre">Undefined</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.base.html#pyecsca.ec.mod.base.Undefined.x"><code class="docutils literal notranslate"><span class="pre">Undefined.x</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.base.html#pyecsca.ec.mod.base.Undefined.n"><code class="docutils literal notranslate"><span class="pre">Undefined.n</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.base.html#pyecsca.ec.mod.base.Undefined.bit_length"><code class="docutils literal notranslate"><span class="pre">Undefined.bit_length()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.base.html#pyecsca.ec.mod.base.Undefined.inverse"><code class="docutils literal notranslate"><span class="pre">Undefined.inverse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.base.html#pyecsca.ec.mod.base.Undefined.sqrt"><code class="docutils literal notranslate"><span class="pre">Undefined.sqrt()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.base.html#pyecsca.ec.mod.base.Undefined.is_residue"><code class="docutils literal notranslate"><span class="pre">Undefined.is_residue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.base.html#pyecsca.ec.mod.base.Undefined.random"><code class="docutils literal notranslate"><span class="pre">Undefined.random()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.mod.base.html#pyecsca.ec.mod.base.mod"><code class="docutils literal notranslate"><span class="pre">mod()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.ec.mod.flint.html">pyecsca.ec.mod.flint module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.mod.flint.html#pyecsca.ec.mod.flint.FlintMod"><code class="docutils literal notranslate"><span class="pre">FlintMod</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.flint.html#pyecsca.ec.mod.flint.FlintMod.x"><code class="docutils literal notranslate"><span class="pre">FlintMod.x</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.flint.html#pyecsca.ec.mod.flint.FlintMod.n"><code class="docutils literal notranslate"><span class="pre">FlintMod.n</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.flint.html#pyecsca.ec.mod.flint.FlintMod.bit_length"><code class="docutils literal notranslate"><span class="pre">FlintMod.bit_length()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.flint.html#pyecsca.ec.mod.flint.FlintMod.inverse"><code class="docutils literal notranslate"><span class="pre">FlintMod.inverse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.flint.html#pyecsca.ec.mod.flint.FlintMod.is_residue"><code class="docutils literal notranslate"><span class="pre">FlintMod.is_residue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.flint.html#pyecsca.ec.mod.flint.FlintMod.sqrt"><code class="docutils literal notranslate"><span class="pre">FlintMod.sqrt()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.flint.html#pyecsca.ec.mod.flint.FlintMod.random"><code class="docutils literal notranslate"><span class="pre">FlintMod.random()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.ec.mod.gmp.html">pyecsca.ec.mod.gmp module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.mod.gmp.html#pyecsca.ec.mod.gmp.GMPMod"><code class="docutils literal notranslate"><span class="pre">GMPMod</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.gmp.html#pyecsca.ec.mod.gmp.GMPMod.n"><code class="docutils literal notranslate"><span class="pre">GMPMod.n</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.gmp.html#pyecsca.ec.mod.gmp.GMPMod.x"><code class="docutils literal notranslate"><span class="pre">GMPMod.x</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.gmp.html#pyecsca.ec.mod.gmp.GMPMod.bit_length"><code class="docutils literal notranslate"><span class="pre">GMPMod.bit_length()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.gmp.html#pyecsca.ec.mod.gmp.GMPMod.inverse"><code class="docutils literal notranslate"><span class="pre">GMPMod.inverse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.gmp.html#pyecsca.ec.mod.gmp.GMPMod.is_residue"><code class="docutils literal notranslate"><span class="pre">GMPMod.is_residue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.gmp.html#pyecsca.ec.mod.gmp.GMPMod.sqrt"><code class="docutils literal notranslate"><span class="pre">GMPMod.sqrt()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.gmp.html#pyecsca.ec.mod.gmp.GMPMod.random"><code class="docutils literal notranslate"><span class="pre">GMPMod.random()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.ec.mod.raw.html">pyecsca.ec.mod.raw module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.mod.raw.html#pyecsca.ec.mod.raw.RawMod"><code class="docutils literal notranslate"><span class="pre">RawMod</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.raw.html#pyecsca.ec.mod.raw.RawMod.x"><code class="docutils literal notranslate"><span class="pre">RawMod.x</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.raw.html#pyecsca.ec.mod.raw.RawMod.n"><code class="docutils literal notranslate"><span class="pre">RawMod.n</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.raw.html#pyecsca.ec.mod.raw.RawMod.bit_length"><code class="docutils literal notranslate"><span class="pre">RawMod.bit_length()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.raw.html#pyecsca.ec.mod.raw.RawMod.inverse"><code class="docutils literal notranslate"><span class="pre">RawMod.inverse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.raw.html#pyecsca.ec.mod.raw.RawMod.is_residue"><code class="docutils literal notranslate"><span class="pre">RawMod.is_residue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.raw.html#pyecsca.ec.mod.raw.RawMod.sqrt"><code class="docutils literal notranslate"><span class="pre">RawMod.sqrt()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.raw.html#pyecsca.ec.mod.raw.RawMod.random"><code class="docutils literal notranslate"><span class="pre">RawMod.random()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.ec.mod.symbolic.html">pyecsca.ec.mod.symbolic module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.mod.symbolic.html#pyecsca.ec.mod.symbolic.SymbolicMod"><code class="docutils literal notranslate"><span class="pre">SymbolicMod</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.symbolic.html#pyecsca.ec.mod.symbolic.SymbolicMod.x"><code class="docutils literal notranslate"><span class="pre">SymbolicMod.x</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.symbolic.html#pyecsca.ec.mod.symbolic.SymbolicMod.n"><code class="docutils literal notranslate"><span class="pre">SymbolicMod.n</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.symbolic.html#pyecsca.ec.mod.symbolic.SymbolicMod.bit_length"><code class="docutils literal notranslate"><span class="pre">SymbolicMod.bit_length()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.symbolic.html#pyecsca.ec.mod.symbolic.SymbolicMod.inverse"><code class="docutils literal notranslate"><span class="pre">SymbolicMod.inverse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.symbolic.html#pyecsca.ec.mod.symbolic.SymbolicMod.sqrt"><code class="docutils literal notranslate"><span class="pre">SymbolicMod.sqrt()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.symbolic.html#pyecsca.ec.mod.symbolic.SymbolicMod.is_residue"><code class="docutils literal notranslate"><span class="pre">SymbolicMod.is_residue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mod.symbolic.html#pyecsca.ec.mod.symbolic.SymbolicMod.random"><code class="docutils literal notranslate"><span class="pre">SymbolicMod.random()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;2018-2024, Jan Jancar.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.5</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../_sources/api/pyecsca.ec.mod.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

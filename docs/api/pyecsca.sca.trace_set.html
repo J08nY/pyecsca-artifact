@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>pyecsca.sca.trace_set package &#8212; pyecsca 0.3.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d10597a4" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=bf281230" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_paramlinks.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=de02a091" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" />
+    <script src="../_static/documentation_options.js?v=71d9d8e6"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/logo_black.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pyecsca.sca.trace_set.base module" href="pyecsca.sca.trace_set.base.html" />
+    <link rel="prev" title="pyecsca.sca.trace.trace module" href="pyecsca.sca.trace.trace.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo_black.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">pyecsca</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html"><span class="fas fa-screwdriver-wrench fa-fw"></span> Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks.html"><span class="fas fa-hand-pointer fa-fw"></span> Notebooks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.html">pyecsca.ec package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.misc.html">pyecsca.misc package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="pyecsca.sca.html">pyecsca.sca package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.html">pyecsca.codegen package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries.html"><span class="fas fa-server fa-fw"></span> ECC in Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html"><span class="fas fa-asterisk fa-fw"></span> References</a></li>
+</ul>
+
+<ul style="margin-top: 1em">
+    <li class="toctree-l1"><a href="https://github.com/J08nY/pyecsca/"><i class="fab fa-fw fa-github"></i> Source code</a></li>
+    <li class="toctree-l1"><a href="https://pypi.org/project/pyecsca/"><i class="fas fa-fw fa-file"></i> Releases</a></li>
+</ul><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul>
+  <li><a href="pyecsca.sca.html">pyecsca.sca package</a><ul>
+      <li>Previous: <a href="pyecsca.sca.trace.trace.html" title="previous chapter">pyecsca.sca.trace.trace module</a></li>
+      <li>Next: <a href="pyecsca.sca.trace_set.base.html" title="next chapter">pyecsca.sca.trace_set.base module</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-pyecsca.sca.trace_set">
+<span id="pyecsca-sca-trace-set-package"></span><h1>pyecsca.sca.trace_set package<a class="headerlink" href="#module-pyecsca.sca.trace_set" title="Link to this heading">¶</a></h1>
+<p>Package for manipulating, reading and writing trace sets.</p>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.sca.trace_set.base.html">pyecsca.sca.trace_set.base module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace_set.base.html#pyecsca.sca.trace_set.base.TraceSet"><code class="docutils literal notranslate"><span class="pre">TraceSet</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.base.html#pyecsca.sca.trace_set.base.TraceSet.read"><code class="docutils literal notranslate"><span class="pre">TraceSet.read()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.base.html#pyecsca.sca.trace_set.base.TraceSet.inplace"><code class="docutils literal notranslate"><span class="pre">TraceSet.inplace()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.base.html#pyecsca.sca.trace_set.base.TraceSet.write"><code class="docutils literal notranslate"><span class="pre">TraceSet.write()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.sca.trace_set.chipwhisperer.html">pyecsca.sca.trace_set.chipwhisperer module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace_set.chipwhisperer.html#pyecsca.sca.trace_set.chipwhisperer.ChipWhispererTraceSet"><code class="docutils literal notranslate"><span class="pre">ChipWhispererTraceSet</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.chipwhisperer.html#pyecsca.sca.trace_set.chipwhisperer.ChipWhispererTraceSet.read"><code class="docutils literal notranslate"><span class="pre">ChipWhispererTraceSet.read()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.chipwhisperer.html#pyecsca.sca.trace_set.chipwhisperer.ChipWhispererTraceSet.inplace"><code class="docutils literal notranslate"><span class="pre">ChipWhispererTraceSet.inplace()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.chipwhisperer.html#pyecsca.sca.trace_set.chipwhisperer.ChipWhispererTraceSet.write"><code class="docutils literal notranslate"><span class="pre">ChipWhispererTraceSet.write()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.sca.trace_set.hdf5.html">pyecsca.sca.trace_set.hdf5 module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace_set.hdf5.html#pyecsca.sca.trace_set.hdf5.HDF5Meta"><code class="docutils literal notranslate"><span class="pre">HDF5Meta</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.hdf5.html#pyecsca.sca.trace_set.hdf5.HDF5Meta.clear"><code class="docutils literal notranslate"><span class="pre">HDF5Meta.clear()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.hdf5.html#pyecsca.sca.trace_set.hdf5.HDF5Meta.get"><code class="docutils literal notranslate"><span class="pre">HDF5Meta.get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.hdf5.html#pyecsca.sca.trace_set.hdf5.HDF5Meta.items"><code class="docutils literal notranslate"><span class="pre">HDF5Meta.items()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.hdf5.html#pyecsca.sca.trace_set.hdf5.HDF5Meta.keys"><code class="docutils literal notranslate"><span class="pre">HDF5Meta.keys()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.hdf5.html#pyecsca.sca.trace_set.hdf5.HDF5Meta.pop"><code class="docutils literal notranslate"><span class="pre">HDF5Meta.pop()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.hdf5.html#pyecsca.sca.trace_set.hdf5.HDF5Meta.popitem"><code class="docutils literal notranslate"><span class="pre">HDF5Meta.popitem()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.hdf5.html#pyecsca.sca.trace_set.hdf5.HDF5Meta.setdefault"><code class="docutils literal notranslate"><span class="pre">HDF5Meta.setdefault()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.hdf5.html#pyecsca.sca.trace_set.hdf5.HDF5Meta.update"><code class="docutils literal notranslate"><span class="pre">HDF5Meta.update()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.hdf5.html#pyecsca.sca.trace_set.hdf5.HDF5Meta.values"><code class="docutils literal notranslate"><span class="pre">HDF5Meta.values()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace_set.hdf5.html#pyecsca.sca.trace_set.hdf5.HDF5TraceSet"><code class="docutils literal notranslate"><span class="pre">HDF5TraceSet</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.hdf5.html#pyecsca.sca.trace_set.hdf5.HDF5TraceSet.read"><code class="docutils literal notranslate"><span class="pre">HDF5TraceSet.read()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.hdf5.html#pyecsca.sca.trace_set.hdf5.HDF5TraceSet.inplace"><code class="docutils literal notranslate"><span class="pre">HDF5TraceSet.inplace()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.hdf5.html#pyecsca.sca.trace_set.hdf5.HDF5TraceSet.append"><code class="docutils literal notranslate"><span class="pre">HDF5TraceSet.append()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.hdf5.html#pyecsca.sca.trace_set.hdf5.HDF5TraceSet.get"><code class="docutils literal notranslate"><span class="pre">HDF5TraceSet.get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.hdf5.html#pyecsca.sca.trace_set.hdf5.HDF5TraceSet.remove"><code class="docutils literal notranslate"><span class="pre">HDF5TraceSet.remove()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.hdf5.html#pyecsca.sca.trace_set.hdf5.HDF5TraceSet.save"><code class="docutils literal notranslate"><span class="pre">HDF5TraceSet.save()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.hdf5.html#pyecsca.sca.trace_set.hdf5.HDF5TraceSet.close"><code class="docutils literal notranslate"><span class="pre">HDF5TraceSet.close()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.hdf5.html#pyecsca.sca.trace_set.hdf5.HDF5TraceSet.write"><code class="docutils literal notranslate"><span class="pre">HDF5TraceSet.write()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html">pyecsca.sca.trace_set.inspector module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.SampleCoding"><code class="docutils literal notranslate"><span class="pre">SampleCoding</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.SampleCoding.Int8"><code class="docutils literal notranslate"><span class="pre">SampleCoding.Int8</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.SampleCoding.Int16"><code class="docutils literal notranslate"><span class="pre">SampleCoding.Int16</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.SampleCoding.Int32"><code class="docutils literal notranslate"><span class="pre">SampleCoding.Int32</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.SampleCoding.Float8"><code class="docutils literal notranslate"><span class="pre">SampleCoding.Float8</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.SampleCoding.Float16"><code class="docutils literal notranslate"><span class="pre">SampleCoding.Float16</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.SampleCoding.Float32"><code class="docutils literal notranslate"><span class="pre">SampleCoding.Float32</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.SampleCoding.dtype"><code class="docutils literal notranslate"><span class="pre">SampleCoding.dtype()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.SampleCoding.conjugate"><code class="docutils literal notranslate"><span class="pre">SampleCoding.conjugate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.SampleCoding.bit_length"><code class="docutils literal notranslate"><span class="pre">SampleCoding.bit_length()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.SampleCoding.bit_count"><code class="docutils literal notranslate"><span class="pre">SampleCoding.bit_count()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.SampleCoding.to_bytes"><code class="docutils literal notranslate"><span class="pre">SampleCoding.to_bytes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.SampleCoding.from_bytes"><code class="docutils literal notranslate"><span class="pre">SampleCoding.from_bytes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.SampleCoding.as_integer_ratio"><code class="docutils literal notranslate"><span class="pre">SampleCoding.as_integer_ratio()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.SampleCoding.real"><code class="docutils literal notranslate"><span class="pre">SampleCoding.real</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.SampleCoding.imag"><code class="docutils literal notranslate"><span class="pre">SampleCoding.imag</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.SampleCoding.numerator"><code class="docutils literal notranslate"><span class="pre">SampleCoding.numerator</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.SampleCoding.denominator"><code class="docutils literal notranslate"><span class="pre">SampleCoding.denominator</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.Parsers"><code class="docutils literal notranslate"><span class="pre">Parsers</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.Parsers.read_int"><code class="docutils literal notranslate"><span class="pre">Parsers.read_int()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.Parsers.read_bool"><code class="docutils literal notranslate"><span class="pre">Parsers.read_bool()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.Parsers.read_float"><code class="docutils literal notranslate"><span class="pre">Parsers.read_float()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.Parsers.read_str"><code class="docutils literal notranslate"><span class="pre">Parsers.read_str()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.Parsers.write_int"><code class="docutils literal notranslate"><span class="pre">Parsers.write_int()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.Parsers.write_bool"><code class="docutils literal notranslate"><span class="pre">Parsers.write_bool()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.Parsers.write_float"><code class="docutils literal notranslate"><span class="pre">Parsers.write_float()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.Parsers.write_str"><code class="docutils literal notranslate"><span class="pre">Parsers.write_str()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.InspectorTraceSet"><code class="docutils literal notranslate"><span class="pre">InspectorTraceSet</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.InspectorTraceSet.num_traces"><code class="docutils literal notranslate"><span class="pre">InspectorTraceSet.num_traces</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.InspectorTraceSet.num_samples"><code class="docutils literal notranslate"><span class="pre">InspectorTraceSet.num_samples</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.InspectorTraceSet.sample_coding"><code class="docutils literal notranslate"><span class="pre">InspectorTraceSet.sample_coding</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.InspectorTraceSet.data_space"><code class="docutils literal notranslate"><span class="pre">InspectorTraceSet.data_space</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.InspectorTraceSet.title_space"><code class="docutils literal notranslate"><span class="pre">InspectorTraceSet.title_space</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.InspectorTraceSet.global_title"><code class="docutils literal notranslate"><span class="pre">InspectorTraceSet.global_title</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.InspectorTraceSet.description"><code class="docutils literal notranslate"><span class="pre">InspectorTraceSet.description</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.InspectorTraceSet.x_offset"><code class="docutils literal notranslate"><span class="pre">InspectorTraceSet.x_offset</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.InspectorTraceSet.x_label"><code class="docutils literal notranslate"><span class="pre">InspectorTraceSet.x_label</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.InspectorTraceSet.y_label"><code class="docutils literal notranslate"><span class="pre">InspectorTraceSet.y_label</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.InspectorTraceSet.x_scale"><code class="docutils literal notranslate"><span class="pre">InspectorTraceSet.x_scale</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.InspectorTraceSet.y_scale"><code class="docutils literal notranslate"><span class="pre">InspectorTraceSet.y_scale</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.InspectorTraceSet.trace_offset"><code class="docutils literal notranslate"><span class="pre">InspectorTraceSet.trace_offset</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.InspectorTraceSet.log_scale"><code class="docutils literal notranslate"><span class="pre">InspectorTraceSet.log_scale</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.InspectorTraceSet.scope_range"><code class="docutils literal notranslate"><span class="pre">InspectorTraceSet.scope_range</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.InspectorTraceSet.scope_coupling"><code class="docutils literal notranslate"><span class="pre">InspectorTraceSet.scope_coupling</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.InspectorTraceSet.scope_offset"><code class="docutils literal notranslate"><span class="pre">InspectorTraceSet.scope_offset</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.InspectorTraceSet.scope_impedance"><code class="docutils literal notranslate"><span class="pre">InspectorTraceSet.scope_impedance</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.InspectorTraceSet.scope_id"><code class="docutils literal notranslate"><span class="pre">InspectorTraceSet.scope_id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.InspectorTraceSet.filter_type"><code class="docutils literal notranslate"><span class="pre">InspectorTraceSet.filter_type</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.InspectorTraceSet.filter_frequency"><code class="docutils literal notranslate"><span class="pre">InspectorTraceSet.filter_frequency</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.InspectorTraceSet.filter_range"><code class="docutils literal notranslate"><span class="pre">InspectorTraceSet.filter_range</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.InspectorTraceSet.external_clock"><code class="docutils literal notranslate"><span class="pre">InspectorTraceSet.external_clock</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.InspectorTraceSet.external_clock_threshold"><code class="docutils literal notranslate"><span class="pre">InspectorTraceSet.external_clock_threshold</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.InspectorTraceSet.external_clock_multiplier"><code class="docutils literal notranslate"><span class="pre">InspectorTraceSet.external_clock_multiplier</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.InspectorTraceSet.external_clock_phase_shift"><code class="docutils literal notranslate"><span class="pre">InspectorTraceSet.external_clock_phase_shift</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.InspectorTraceSet.external_clock_resampler_mask"><code class="docutils literal notranslate"><span class="pre">InspectorTraceSet.external_clock_resampler_mask</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.InspectorTraceSet.external_clock_resampler_enabled"><code class="docutils literal notranslate"><span class="pre">InspectorTraceSet.external_clock_resampler_enabled</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.InspectorTraceSet.external_clock_frequencty"><code class="docutils literal notranslate"><span class="pre">InspectorTraceSet.external_clock_frequencty</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.InspectorTraceSet.external_clock_time_base"><code class="docutils literal notranslate"><span class="pre">InspectorTraceSet.external_clock_time_base</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.InspectorTraceSet.read"><code class="docutils literal notranslate"><span class="pre">InspectorTraceSet.read()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.InspectorTraceSet.inplace"><code class="docutils literal notranslate"><span class="pre">InspectorTraceSet.inplace()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.InspectorTraceSet.write"><code class="docutils literal notranslate"><span class="pre">InspectorTraceSet.write()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.inspector.html#pyecsca.sca.trace_set.inspector.InspectorTraceSet.sampling_frequency"><code class="docutils literal notranslate"><span class="pre">InspectorTraceSet.sampling_frequency</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.sca.trace_set.pickle.html">pyecsca.sca.trace_set.pickle module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace_set.pickle.html#pyecsca.sca.trace_set.pickle.PickleTraceSet"><code class="docutils literal notranslate"><span class="pre">PickleTraceSet</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.pickle.html#pyecsca.sca.trace_set.pickle.PickleTraceSet.read"><code class="docutils literal notranslate"><span class="pre">PickleTraceSet.read()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.pickle.html#pyecsca.sca.trace_set.pickle.PickleTraceSet.inplace"><code class="docutils literal notranslate"><span class="pre">PickleTraceSet.inplace()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace_set.pickle.html#pyecsca.sca.trace_set.pickle.PickleTraceSet.write"><code class="docutils literal notranslate"><span class="pre">PickleTraceSet.write()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;2018-2024, Jan Jancar.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.5</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../_sources/api/pyecsca.sca.trace_set.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,7 @@
+pyecsca.ec.formula.partitions module
+====================================
+
+.. automodule:: pyecsca.ec.formula.partitions
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,7 @@
+pyecsca.ec.error module
+=======================
+
+.. automodule:: pyecsca.ec.error
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>pyecsca.ec.curve module &#8212; pyecsca 0.3.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d10597a4" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=bf281230" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_paramlinks.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=de02a091" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" />
+    <script src="../_static/documentation_options.js?v=71d9d8e6"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/logo_black.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pyecsca.ec.divpoly module" href="pyecsca.ec.divpoly.html" />
+    <link rel="prev" title="pyecsca.ec.coordinates module" href="pyecsca.ec.coordinates.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo_black.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">pyecsca</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html"><span class="fas fa-screwdriver-wrench fa-fw"></span> Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks.html"><span class="fas fa-hand-pointer fa-fw"></span> Notebooks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="pyecsca.ec.html">pyecsca.ec package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.misc.html">pyecsca.misc package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.html">pyecsca.sca package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.html">pyecsca.codegen package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries.html"><span class="fas fa-server fa-fw"></span> ECC in Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html"><span class="fas fa-asterisk fa-fw"></span> References</a></li>
+</ul>
+
+<ul style="margin-top: 1em">
+    <li class="toctree-l1"><a href="https://github.com/J08nY/pyecsca/"><i class="fab fa-fw fa-github"></i> Source code</a></li>
+    <li class="toctree-l1"><a href="https://pypi.org/project/pyecsca/"><i class="fas fa-fw fa-file"></i> Releases</a></li>
+</ul><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul>
+  <li><a href="pyecsca.ec.html">pyecsca.ec package</a><ul>
+      <li>Previous: <a href="pyecsca.ec.coordinates.html" title="previous chapter">pyecsca.ec.coordinates module</a></li>
+      <li>Next: <a href="pyecsca.ec.divpoly.html" title="next chapter">pyecsca.ec.divpoly module</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-pyecsca.ec.curve">
+<span id="pyecsca-ec-curve-module"></span><h1>pyecsca.ec.curve module<a class="headerlink" href="#module-pyecsca.ec.curve" title="Link to this heading">¶</a></h1>
+<p>Provides an elliptic curve class.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.ec.curve.EllipticCurve">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">EllipticCurve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coordinate_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neutral</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/curve.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.curve.EllipticCurve" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>An elliptic curve.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pyecsca.ec.params</span> <span class="kn">import</span> <span class="n">get_params</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">params</span> <span class="o">=</span> <span class="n">get_params</span><span class="p">(</span><span class="s2">&quot;secg&quot;</span><span class="p">,</span> <span class="s2">&quot;secp256r1&quot;</span><span class="p">,</span> <span class="s2">&quot;projective&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">curve</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">curve</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">curve</span><span class="o">.</span><span class="n">prime</span>
+<span class="go">115792089210356248762697446949407573530086143415290314195533631308867097853951</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">curve</span><span class="o">.</span><span class="n">parameters</span>  
+<span class="go">{&#39;a&#39;: 115792089210356248762697446949407573530086143415290314195533631308867097853948,</span>
+<span class="go"> &#39;b&#39;: 41058363725152142129326129780047268409114441015993725554835256314039467401291}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">curve</span><span class="o">.</span><span class="n">neutral</span>
+<span class="go">InfinityPoint(shortw/projective)</span>
+</pre></div>
+</div>
+<p>You can also use the curve object to operate on affine points.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pyecsca.ec.coordinates</span> <span class="kn">import</span> <span class="n">AffineCoordinateModel</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">affine</span> <span class="o">=</span> <span class="n">AffineCoordinateModel</span><span class="p">(</span><span class="n">curve</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">points_P</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">curve</span><span class="o">.</span><span class="n">affine_lift_x</span><span class="p">(</span><span class="n">mod</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">curve</span><span class="o">.</span><span class="n">prime</span><span class="p">)),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">p</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">y</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">points_P</span>  
+<span class="go">[Point([x=5, y=31468013646237722594854082025316614106172411895747863909393730389177298123724] in shortw/affine),</span>
+<span class="go"> Point([x=5, y=84324075564118526167843364924090959423913731519542450286139900919689799730227] in shortw/affine)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">P</span> <span class="o">=</span> <span class="n">points_P</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="n">affine</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">mod</span><span class="p">(</span><span class="mi">106156966968002564385990772707119429362097710917623193504777452220576981858057</span><span class="p">,</span> <span class="n">curve</span><span class="o">.</span><span class="n">prime</span><span class="p">),</span> <span class="n">y</span><span class="o">=</span><span class="n">mod</span><span class="p">(</span><span class="mi">89283496902772247016522581906930535517715184283144143693965440110672128480043</span><span class="p">,</span> <span class="n">curve</span><span class="o">.</span><span class="n">prime</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">curve</span><span class="o">.</span><span class="n">affine_add</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
+<span class="go">Point([x=110884201872336783252492544257507655322265785208411447156687491781308462893723, y=17851997459724035659875545393642578516937407971293368958749928013979790074156] in shortw/affine)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">curve</span><span class="o">.</span><span class="n">affine_multiply</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="go">Point([x=102258728610797412855984739741975475478412665729440354248608608794190482472287, y=6863906685124263315402674958985193889511160759072519051123564041627571792194] in shortw/affine)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">curve</span><span class="o">.</span><span class="n">affine_random</span><span class="p">()</span>  
+<span class="go">Point([x=..., y=...] in shortw/affine)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">curve</span><span class="o">.</span><span class="n">is_on_curve</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">curve</span><span class="o">.</span><span class="n">is_neutral</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.curve.EllipticCurve.model">
+<span class="sig-name descname"><span class="pre">model</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="pyecsca.ec.model.html#pyecsca.ec.model.CurveModel" title="pyecsca.ec.model.CurveModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">CurveModel</span></code></a></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/curve.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.curve.EllipticCurve.model" title="Link to this definition">¶</a></dt>
+<dd><p>The model of the curve.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.curve.EllipticCurve.coordinate_model">
+<span class="sig-name descname"><span class="pre">coordinate_model</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="pyecsca.ec.coordinates.html#pyecsca.ec.coordinates.CoordinateModel" title="pyecsca.ec.coordinates.CoordinateModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">CoordinateModel</span></code></a></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/curve.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.curve.EllipticCurve.coordinate_model" title="Link to this definition">¶</a></dt>
+<dd><p>The coordinate system of the curve.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.curve.EllipticCurve.prime">
+<span class="sig-name descname"><span class="pre">prime</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/curve.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.curve.EllipticCurve.prime" title="Link to this definition">¶</a></dt>
+<dd><p>The prime specifying the base prime field of the curve.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.curve.EllipticCurve.parameters">
+<span class="sig-name descname"><span class="pre">parameters</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">MutableMapping</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">,</span> <a class="reference internal" href="pyecsca.ec.mod.base.html#pyecsca.ec.mod.base.Mod" title="pyecsca.ec.mod.base.Mod"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mod</span></code></a><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/curve.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.curve.EllipticCurve.parameters" title="Link to this definition">¶</a></dt>
+<dd><p>The values of the parameters defining the curve, these cover the curve model and coordinate system parameters.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.curve.EllipticCurve.neutral">
+<span class="sig-name descname"><span class="pre">neutral</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/curve.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.curve.EllipticCurve.neutral" title="Link to this definition">¶</a></dt>
+<dd><p>The neutral point on the curve.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.curve.EllipticCurve.affine_add">
+<span class="sig-name descname"><span class="pre">affine_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">one</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/curve.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.curve.EllipticCurve.affine_add" title="Link to this definition">¶</a></dt>
+<dd><p>Add two affine points using the affine addition formula.</p>
+<p>Handles the case of point at infinity gracefully (short-circuits).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="pyecsca.ec.curve.EllipticCurve.affine_add.params.one"></span><strong>one</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.curve.EllipticCurve.affine_add.params.one">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></span>) – One point.</p></li>
+<li><p><span class="target" id="pyecsca.ec.curve.EllipticCurve.affine_add.params.other"></span><strong>other</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.curve.EllipticCurve.affine_add.params.other">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></span>) – Another point.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The addition of the two points.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.curve.EllipticCurve.affine_double">
+<span class="sig-name descname"><span class="pre">affine_double</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">one</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/curve.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.curve.EllipticCurve.affine_double" title="Link to this definition">¶</a></dt>
+<dd><p>Double an affine point using the affine doubling formula.</p>
+<p>Handles the case of point at infinity gracefully (short-circuits).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.ec.curve.EllipticCurve.affine_double.params.one"></span><strong>one</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.curve.EllipticCurve.affine_double.params.one">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></span>) – A point.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The doubling of the point.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.curve.EllipticCurve.affine_negate">
+<span class="sig-name descname"><span class="pre">affine_negate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">one</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/curve.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.curve.EllipticCurve.affine_negate" title="Link to this definition">¶</a></dt>
+<dd><p>Negate an affine point using the affine negation formula.</p>
+<p>Handles the case of point at infinity gracefully (short-circuits).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.ec.curve.EllipticCurve.affine_negate.params.one"></span><strong>one</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.curve.EllipticCurve.affine_negate.params.one">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></span>) – A point.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The negation of the point.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.curve.EllipticCurve.affine_multiply">
+<span class="sig-name descname"><span class="pre">affine_multiply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scalar</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/curve.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.curve.EllipticCurve.affine_multiply" title="Link to this definition">¶</a></dt>
+<dd><p>Multiply an affine point by a scalar using the affine doubling and addition formulas.</p>
+<p>Handles the case of point at infinity gracefully (short-circuits).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="pyecsca.ec.curve.EllipticCurve.affine_multiply.params.point"></span><strong>point</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.curve.EllipticCurve.affine_multiply.params.point">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></span>) – The point to multiply.</p></li>
+<li><p><span class="target" id="pyecsca.ec.curve.EllipticCurve.affine_multiply.params.scalar"></span><strong>scalar</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.curve.EllipticCurve.affine_multiply.params.scalar">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – The scalar to use.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The scalar multiplication of <cite>point</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.curve.EllipticCurve.affine_neutral">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">affine_neutral</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><span class="pre">Point</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/curve.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.curve.EllipticCurve.affine_neutral" title="Link to this definition">¶</a></dt>
+<dd><p>Get the neutral point in affine form, if it has one, otherwise <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The affine neutral point or <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.curve.EllipticCurve.neutral_is_affine">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">neutral_is_affine</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/curve.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.curve.EllipticCurve.neutral_is_affine" title="Link to this definition">¶</a></dt>
+<dd><p>Whether the neutral point is an affine point.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.curve.EllipticCurve.is_neutral">
+<span class="sig-name descname"><span class="pre">is_neutral</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/curve.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.curve.EllipticCurve.is_neutral" title="Link to this definition">¶</a></dt>
+<dd><p>Check whether the point is the neutral point.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.ec.curve.EllipticCurve.is_neutral.params.point"></span><strong>point</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.curve.EllipticCurve.is_neutral.params.point">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></span>) – The point to test.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Whether it is the neutral point.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.curve.EllipticCurve.is_on_curve">
+<span class="sig-name descname"><span class="pre">is_on_curve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/curve.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.curve.EllipticCurve.is_on_curve" title="Link to this definition">¶</a></dt>
+<dd><p>Check whether the point is on the curve.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.ec.curve.EllipticCurve.is_on_curve.params.point"></span><strong>point</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.curve.EllipticCurve.is_on_curve.params.point">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></span>) – The point to test.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Whether it is on the curve.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.curve.EllipticCurve.to_coords">
+<span class="sig-name descname"><span class="pre">to_coords</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coordinate_model</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/curve.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.curve.EllipticCurve.to_coords" title="Link to this definition">¶</a></dt>
+<dd><p>Convert this curve into a different coordinate model, only possible if it is currently affine.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.ec.curve.EllipticCurve.to_coords.params.coordinate_model"></span><strong>coordinate_model</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.curve.EllipticCurve.to_coords.params.coordinate_model">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.coordinates.html#pyecsca.ec.coordinates.CoordinateModel" title="pyecsca.ec.coordinates.CoordinateModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">CoordinateModel</span></code></a></span>) – The target coordinate model.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#pyecsca.ec.curve.EllipticCurve" title="pyecsca.ec.curve.EllipticCurve"><code class="xref py py-class docutils literal notranslate"><span class="pre">EllipticCurve</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The transformed elliptic curve.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.curve.EllipticCurve.to_affine">
+<span class="sig-name descname"><span class="pre">to_affine</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/curve.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.curve.EllipticCurve.to_affine" title="Link to this definition">¶</a></dt>
+<dd><p>Convert this curve into the affine coordinate model, if possible.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#pyecsca.ec.curve.EllipticCurve" title="pyecsca.ec.curve.EllipticCurve"><code class="xref py py-class docutils literal notranslate"><span class="pre">EllipticCurve</span></code></a></span></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The transformed elliptic curve.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.curve.EllipticCurve.decode_point">
+<span class="sig-name descname"><span class="pre">decode_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">encoded</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/curve.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.curve.EllipticCurve.decode_point" title="Link to this definition">¶</a></dt>
+<dd><p>Decode a point encoded as a sequence of bytes (ANSI X9.62).</p>
+<p>This decoding is the same as ANSI X9.63 for the affine coordinate system and for others it
+only implements the uncompressed variant.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The point is not validated to be on the curve (if the uncompressed encoding is used).</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.ec.curve.EllipticCurve.decode_point.params.encoded"></span><strong>encoded</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.curve.EllipticCurve.decode_point.params.encoded">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></span>) – The encoded representation of a point.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The decoded point.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.curve.EllipticCurve.affine_lift_x">
+<span class="sig-name descname"><span class="pre">affine_lift_x</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/curve.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.curve.EllipticCurve.affine_lift_x" title="Link to this definition">¶</a></dt>
+<dd><p>Lift an x-coordinate to the curve.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.ec.curve.EllipticCurve.affine_lift_x.params.x"></span><strong>x</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.curve.EllipticCurve.affine_lift_x.params.x">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.mod.base.html#pyecsca.ec.mod.base.Mod" title="pyecsca.ec.mod.base.Mod"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mod</span></code></a></span>) – The x-coordinate.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Set</span></code>[<a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Lifted (affine) points, if any.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.curve.EllipticCurve.affine_random">
+<span class="sig-name descname"><span class="pre">affine_random</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/curve.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.curve.EllipticCurve.affine_random" title="Link to this definition">¶</a></dt>
+<dd><p>Generate a random affine point on the curve.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;2018-2024, Jan Jancar.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.5</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../_sources/api/pyecsca.ec.curve.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

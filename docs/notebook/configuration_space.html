@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Configuration space &#8212; pyecsca 0.3.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d10597a4" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=bf281230" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_paramlinks.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=de02a091" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" />
+    <script src="../_static/documentation_options.js?v=71d9d8e6"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="icon" href="../_static/logo_black.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Simulation" href="simulation.html" />
+    <link rel="prev" title="Notebooks" href="../notebooks.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo_black.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">pyecsca</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html"><span class="fas fa-screwdriver-wrench fa-fw"></span> Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../notebooks.html"><span class="fas fa-hand-pointer fa-fw"></span> Notebooks</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Configuration space</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simulation.html">Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="codegen.html">Code generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="emulator.html">Emulation and leakage simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="measurement.html">Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smartcards.html">Smartcards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="re/formulas.html">Exploration of formulas in open-source ECC libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="re/rpa.html">RPA-based reverse-engineering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="re/zvp.html">ZVP-based reverse-engineering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="re/epa.html">EPA-based reverse engineering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries.html"><span class="fas fa-server fa-fw"></span> ECC in Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html"><span class="fas fa-asterisk fa-fw"></span> References</a></li>
+</ul>
+
+<ul style="margin-top: 1em">
+    <li class="toctree-l1"><a href="https://github.com/J08nY/pyecsca/"><i class="fab fa-fw fa-github"></i> Source code</a></li>
+    <li class="toctree-l1"><a href="https://pypi.org/project/pyecsca/"><i class="fas fa-fw fa-file"></i> Releases</a></li>
+</ul><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../notebooks.html"><span class="fas fa-hand-pointer fa-fw"></span> Notebooks</a><ul>
+      <li>Previous: <a href="../notebooks.html" title="previous chapter"><span class="fas fa-hand-pointer fa-fw"></span> Notebooks</a></li>
+      <li>Next: <a href="simulation.html" title="next chapter">Simulation</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <a href="https://mybinder.org/v2/gh/J08nY/pyecsca-notebook/HEAD?labpath=configuration_space.ipynb" class="sd-badge sd-outline-primary">MyBinder</a><section id="Configuration-space">
+<h1>Configuration space<a class="headerlink" href="#Configuration-space" title="Link to this heading">¶</a></h1>
+<p>This notebook explores the configuration space of Elliptic Curve crypto implementations.</p>
+<p>An ECC implementation configuration in <strong>pyecsca</strong> has the following attributes:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">get_args</span>
+<span class="kn">from</span> <span class="nn">pyecsca.ec.configuration</span> <span class="kn">import</span> <span class="n">Configuration</span>
+<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">fields</span>
+
+<span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">fields</span><span class="p">(</span><span class="n">Configuration</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">field</span><span class="o">.</span><span class="n">name</span>
+    <span class="n">tp</span> <span class="o">=</span> <span class="n">field</span><span class="o">.</span><span class="n">type</span>
+    <span class="n">doc</span> <span class="o">=</span> <span class="n">tp</span><span class="o">.</span><span class="vm">__doc__</span>
+    <span class="k">if</span> <span class="n">get_args</span><span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">type</span><span class="p">):</span>
+            <span class="n">doc</span> <span class="o">=</span> <span class="n">get_args</span><span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">type</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="vm">__doc__</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">tp</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;   &quot;</span><span class="p">,</span> <span class="n">doc</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">tp</span><span class="p">,</span> <span class="s2">&quot;names&quot;</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">enum_name</span> <span class="ow">in</span> <span class="n">tp</span><span class="o">.</span><span class="n">names</span><span class="p">():</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;       &quot;</span><span class="p">,</span> <span class="n">enum_name</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>It is represented by the <code class="docutils literal notranslate"><span class="pre">Configuration</span></code> class.</p>
+<section id="Enumerating-configurations">
+<h2>Enumerating configurations<a class="headerlink" href="#Enumerating-configurations" title="Link to this heading">¶</a></h2>
+<p>The possible configurations can be generated using the <code class="docutils literal notranslate"><span class="pre">all_configurations()</span></code> function. The whole space of configurations is quite huge.</p>
+<blockquote>
+<div><p>Note that the amount of possible parametrizations of some scalar multipliers is very large (e.g. window size) so <strong>pyecsca</strong> has to resctrict this to a reasonable selection. Specifically the function below only considers a few options for window size and similar parameters.</p>
+</div></blockquote>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyecsca.ec.configuration</span> <span class="kn">import</span> <span class="n">all_configurations</span>
+
+<span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">all_configurations</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>A large part of the configuration space is due to the independent options which consist of:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">hash_type</span></code> of type <code class="docutils literal notranslate"><span class="pre">HashType</span></code> <span class="math notranslate nohighlight">\(*6\)</span></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mod_rand</span></code> of type <code class="docutils literal notranslate"><span class="pre">RandomMod</span></code> <span class="math notranslate nohighlight">\(*2\)</span></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mult</span></code> of type <code class="docutils literal notranslate"><span class="pre">Multiplication</span></code> <span class="math notranslate nohighlight">\(*4\)</span></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sqr</span></code> of type <code class="docutils literal notranslate"><span class="pre">Squaring</span></code> <span class="math notranslate nohighlight">\(*4\)</span></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">red</span></code> of type <code class="docutils literal notranslate"><span class="pre">Reduction</span></code> <span class="math notranslate nohighlight">\(*3\)</span></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">inv</span></code> of type <code class="docutils literal notranslate"><span class="pre">Inversion</span></code> <span class="math notranslate nohighlight">\(*2\)</span></p></li>
+</ul>
+<p>Without these, the space is somewhat smaller:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">no_indep</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="mi">4</span><span class="o">*</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">no_ff</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">total</span> <span class="o">//</span> <span class="n">no_indep</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>To restrict the generated configurations, pass keyword arguments to the <code class="docutils literal notranslate"><span class="pre">all_configurations</span></code> matching the names of the attributes of the <code class="docutils literal notranslate"><span class="pre">Configuration</span></code> object.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyecsca.ec.configuration</span> <span class="kn">import</span> <span class="n">HashType</span><span class="p">,</span> <span class="n">RandomMod</span><span class="p">,</span> <span class="n">Multiplication</span><span class="p">,</span> <span class="n">Squaring</span><span class="p">,</span> <span class="n">Reduction</span><span class="p">,</span> <span class="n">Inversion</span>
+<span class="kn">from</span> <span class="nn">pyecsca.ec.model</span> <span class="kn">import</span> <span class="n">ShortWeierstrassModel</span>
+<span class="kn">from</span> <span class="nn">pyecsca.ec.mult</span> <span class="kn">import</span> <span class="n">LTRMultiplier</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">ShortWeierstrassModel</span><span class="p">()</span>
+<span class="n">coords</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">coordinates</span><span class="p">[</span><span class="s2">&quot;projective&quot;</span><span class="p">]</span>
+<span class="n">scalarmult</span> <span class="o">=</span> <span class="n">LTRMultiplier</span>
+<span class="n">independent_opts</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;hash_type&quot;</span><span class="p">:</span> <span class="n">HashType</span><span class="o">.</span><span class="n">SHA256</span><span class="p">,</span>
+    <span class="s2">&quot;mod_rand&quot;</span><span class="p">:</span> <span class="n">RandomMod</span><span class="o">.</span><span class="n">SAMPLE</span><span class="p">,</span>
+    <span class="s2">&quot;mult&quot;</span><span class="p">:</span> <span class="n">Multiplication</span><span class="o">.</span><span class="n">KARATSUBA</span><span class="p">,</span>
+    <span class="s2">&quot;sqr&quot;</span><span class="p">:</span> <span class="n">Squaring</span><span class="o">.</span><span class="n">KARATSUBA</span><span class="p">,</span>
+    <span class="s2">&quot;red&quot;</span><span class="p">:</span> <span class="n">Reduction</span><span class="o">.</span><span class="n">MONTGOMERY</span><span class="p">,</span>
+    <span class="s2">&quot;inv&quot;</span><span class="p">:</span> <span class="n">Inversion</span><span class="o">.</span><span class="n">GCD</span>
+<span class="p">}</span>
+
+<span class="n">configs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">all_configurations</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">coords</span><span class="o">=</span><span class="n">coords</span><span class="p">,</span> <span class="n">scalarmult</span><span class="o">=</span><span class="n">scalarmult</span><span class="p">,</span>
+                                                              <span class="o">**</span><span class="n">independent_opts</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">configs</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<p>We see that when we fixed all parameters except for the scalar multiplier arguments (see the <code class="docutils literal notranslate"><span class="pre">LTRMultiplier</span></code> constructor) we obtained 1280 configurations. That number expresses all of the possible ways to use addition formulas for the <code class="docutils literal notranslate"><span class="pre">projective</span></code> coordinate system in the binary left-to-right multiplier as well as internal options of that multiplier:</p>
+<ul class="simple">
+<li><p>whether it is “complete” in a sense that it starts processing at a constant bit (the bit-length od the order)</p></li>
+<li><p>whether it is “double-and-add-always”</p></li>
+<li><p>whether it “short-circuits” the formulas, i.e. detects that an exceptional point was input into them and returns correctly without executing them.</p></li>
+</ul>
+<section id="Models">
+<h3>Models<a class="headerlink" href="#Models" title="Link to this heading">¶</a></h3>
+<p>We can explore the number of configurations for each of the supported curve models.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span><span class="p">,</span> <span class="n">display</span>
+<span class="kn">import</span> <span class="nn">tabulate</span>
+<span class="kn">from</span> <span class="nn">pyecsca.ec.model</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">pyecsca.ec.mult</span> <span class="kn">import</span> <span class="n">ProcessingDirection</span><span class="p">,</span> <span class="n">AccumulationOrder</span>
+
+<span class="n">model_counts</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;Model&quot;</span><span class="p">,</span> <span class="s2">&quot;All&quot;</span><span class="p">,</span> <span class="s2">&quot;Without independent options&quot;</span><span class="p">,</span> <span class="s2">&quot;Without independent options and scaling&quot;</span><span class="p">,</span> <span class="s2">&quot;Without independent options and scalarmult options&quot;</span><span class="p">]]</span>
+<span class="n">totals</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Total&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="p">(</span><span class="n">ShortWeierstrassModel</span><span class="p">(),</span> <span class="n">MontgomeryModel</span><span class="p">(),</span> <span class="n">EdwardsModel</span><span class="p">(),</span> <span class="n">TwistedEdwardsModel</span><span class="p">()):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">all_configurations</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="o">**</span><span class="n">independent_opts</span><span class="p">))</span>
+    <span class="n">count_no_scl</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">all_configurations</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="o">**</span><span class="n">independent_opts</span><span class="p">,</span> <span class="n">scalarmult</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;scl&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}))</span>
+    <span class="n">count_no_opts</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">all_configurations</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="o">**</span><span class="n">independent_opts</span><span class="p">,</span> <span class="n">scalarmult</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;scl&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;always&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;short_circuit&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;complete&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;precompute_negation&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;width&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;direction&quot;</span><span class="p">:</span> <span class="n">ProcessingDirection</span><span class="o">.</span><span class="n">LTR</span><span class="p">,</span> <span class="s2">&quot;accumulation_order&quot;</span><span class="p">:</span> <span class="n">AccumulationOrder</span><span class="o">.</span><span class="n">PeqPR</span><span class="p">,</span> <span class="s2">&quot;recoding_direction&quot;</span><span class="p">:</span> <span class="n">ProcessingDirection</span><span class="o">.</span><span class="n">LTR</span><span class="p">}))</span>
+    <span class="n">model_counts</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">name</span><span class="p">,</span> <span class="n">count</span> <span class="o">*</span> <span class="n">no_ff</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">count_no_scl</span><span class="p">,</span> <span class="n">count_no_opts</span><span class="p">])</span>
+    <span class="n">totals</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">count</span> <span class="o">*</span> <span class="n">no_ff</span>
+    <span class="n">totals</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="n">count</span>
+    <span class="n">totals</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">+=</span> <span class="n">count_no_scl</span>
+    <span class="n">totals</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">+=</span> <span class="n">count_no_opts</span>
+<span class="n">model_counts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">totals</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">tabulate</span><span class="o">.</span><span class="n">tabulate</span><span class="p">(</span><span class="n">model_counts</span><span class="p">,</span> <span class="n">tablefmt</span><span class="o">=</span><span class="s2">&quot;html&quot;</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="s2">&quot;firstrow&quot;</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Coordinate-systems">
+<h3>Coordinate systems<a class="headerlink" href="#Coordinate-systems" title="Link to this heading">¶</a></h3>
+<p>Let’s now look at the configuration split for coordinate systems:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coords_counts</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;Model&quot;</span><span class="p">,</span> <span class="s2">&quot;Coords&quot;</span><span class="p">,</span> <span class="s2">&quot;All&quot;</span><span class="p">,</span> <span class="s2">&quot;Without independent options&quot;</span><span class="p">,</span> <span class="s2">&quot;Without independent options and scaling&quot;</span><span class="p">,</span> <span class="s2">&quot;Without independent options and scalarmult options&quot;</span><span class="p">]]</span>
+<span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="p">(</span><span class="n">ShortWeierstrassModel</span><span class="p">(),</span> <span class="n">MontgomeryModel</span><span class="p">(),</span> <span class="n">EdwardsModel</span><span class="p">(),</span> <span class="n">TwistedEdwardsModel</span><span class="p">()):</span>
+    <span class="n">model_name</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+    <span class="n">coords_counts</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">model_name</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">coords</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">coordinates</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">c</span><span class="p">:</span> <span class="n">c</span><span class="o">.</span><span class="n">name</span><span class="p">):</span>
+            <span class="n">coords_name</span> <span class="o">=</span> <span class="n">coords</span><span class="o">.</span><span class="n">name</span>
+            <span class="n">count</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">all_configurations</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">coords</span><span class="o">=</span><span class="n">coords</span><span class="p">,</span> <span class="o">**</span><span class="n">independent_opts</span><span class="p">))</span>
+            <span class="n">count_no_scl</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">all_configurations</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">coords</span><span class="o">=</span><span class="n">coords</span><span class="p">,</span> <span class="o">**</span><span class="n">independent_opts</span><span class="p">,</span> <span class="n">scalarmult</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;scl&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}))</span>
+            <span class="n">count_no_opts</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">all_configurations</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">coords</span><span class="o">=</span><span class="n">coords</span><span class="p">,</span> <span class="o">**</span><span class="n">independent_opts</span><span class="p">,</span> <span class="n">scalarmult</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;scl&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;always&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;short_circuit&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;complete&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;precompute_negation&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;width&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;direction&quot;</span><span class="p">:</span> <span class="n">ProcessingDirection</span><span class="o">.</span><span class="n">LTR</span><span class="p">,</span> <span class="s2">&quot;accumulation_order&quot;</span><span class="p">:</span> <span class="n">AccumulationOrder</span><span class="o">.</span><span class="n">PeqPR</span><span class="p">,</span> <span class="s2">&quot;recoding_direction&quot;</span><span class="p">:</span> <span class="n">ProcessingDirection</span><span class="o">.</span><span class="n">LTR</span><span class="p">}))</span>
+            <span class="n">coords_counts</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">coords_name</span><span class="p">,</span> <span class="n">count</span> <span class="o">*</span> <span class="n">no_ff</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">count_no_scl</span><span class="p">,</span> <span class="n">count_no_opts</span><span class="p">])</span>
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">tabulate</span><span class="o">.</span><span class="n">tabulate</span><span class="p">(</span><span class="n">coords_counts</span><span class="p">,</span> <span class="n">tablefmt</span><span class="o">=</span><span class="s2">&quot;html&quot;</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="s2">&quot;firstrow&quot;</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Scalar-multipliers">
+<h3>Scalar multipliers<a class="headerlink" href="#Scalar-multipliers" title="Link to this heading">¶</a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyecsca.ec.mult</span> <span class="kn">import</span> <span class="n">ScalarMultiplier</span>
+
+<span class="k">def</span> <span class="nf">leaf_subclasses</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+    <span class="n">subs</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">__subclasses__</span><span class="p">()</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">subclass</span> <span class="ow">in</span> <span class="n">subs</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">subclass</span><span class="o">.</span><span class="n">__subclasses__</span><span class="p">():</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">leaf_subclasses</span><span class="p">(</span><span class="n">subclass</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">subclass</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="n">mult_counts</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;ScalarMultiplier&quot;</span><span class="p">,</span> <span class="s2">&quot;All&quot;</span><span class="p">,</span> <span class="s2">&quot;Without independent options&quot;</span><span class="p">,</span> <span class="s2">&quot;Without independent options and scaling&quot;</span><span class="p">,</span> <span class="s2">&quot;Without independent options and scalarmult options&quot;</span><span class="p">]]</span>
+<span class="k">for</span> <span class="n">mult_cls</span> <span class="ow">in</span> <span class="n">leaf_subclasses</span><span class="p">(</span><span class="n">ScalarMultiplier</span><span class="p">):</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">all_configurations</span><span class="p">(</span><span class="o">**</span><span class="n">independent_opts</span><span class="p">,</span> <span class="n">scalarmult</span><span class="o">=</span><span class="n">mult_cls</span><span class="p">))</span>
+    <span class="n">count_no_scl</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">all_configurations</span><span class="p">(</span><span class="o">**</span><span class="n">independent_opts</span><span class="p">,</span> <span class="n">scalarmult</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;cls&quot;</span><span class="p">:</span> <span class="n">mult_cls</span><span class="p">,</span> <span class="s2">&quot;scl&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}))</span>
+    <span class="n">count_no_opts</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">all_configurations</span><span class="p">(</span><span class="o">**</span><span class="n">independent_opts</span><span class="p">,</span> <span class="n">scalarmult</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;cls&quot;</span><span class="p">:</span> <span class="n">mult_cls</span><span class="p">,</span> <span class="s2">&quot;scl&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;always&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;short_circuit&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;complete&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;precompute_negation&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;width&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;direction&quot;</span><span class="p">:</span> <span class="n">ProcessingDirection</span><span class="o">.</span><span class="n">LTR</span><span class="p">,</span> <span class="s2">&quot;accumulation_order&quot;</span><span class="p">:</span> <span class="n">AccumulationOrder</span><span class="o">.</span><span class="n">PeqPR</span><span class="p">,</span> <span class="s2">&quot;recoding_direction&quot;</span><span class="p">:</span> <span class="n">ProcessingDirection</span><span class="o">.</span><span class="n">LTR</span><span class="p">}))</span>
+    <span class="n">mult_counts</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">mult_cls</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">count</span> <span class="o">*</span> <span class="n">no_ff</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">count_no_scl</span><span class="p">,</span> <span class="n">count_no_opts</span><span class="p">])</span>
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">tabulate</span><span class="o">.</span><span class="n">tabulate</span><span class="p">(</span><span class="n">mult_counts</span><span class="p">,</span> <span class="n">tablefmt</span><span class="o">=</span><span class="s2">&quot;html&quot;</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="s2">&quot;firstrow&quot;</span><span class="p">)))</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;2018-2024, Jan Jancar.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.5</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../_sources/notebook/configuration_space.ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

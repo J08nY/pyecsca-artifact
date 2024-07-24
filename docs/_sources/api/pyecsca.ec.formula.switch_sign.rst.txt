@@ -1,0 +1,7 @@
+pyecsca.ec.formula.switch\_sign module
+======================================
+
+.. automodule:: pyecsca.ec.formula.switch_sign
+   :members:
+   :undoc-members:
+   :show-inheritance:

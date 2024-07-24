@@ -1,0 +1,7 @@
+pyecsca.codegen.templates package
+=================================
+
+.. automodule:: pyecsca.codegen.templates
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,7 @@
+pyecsca.sca.target.leia module
+==============================
+
+.. automodule:: pyecsca.sca.target.leia
+   :members:
+   :undoc-members:
+   :show-inheritance:

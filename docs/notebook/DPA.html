@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Differential Power Analysis &#8212; pyecsca 0.3.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d10597a4" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=bf281230" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_paramlinks.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=de02a091" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" />
+    <script src="../_static/documentation_options.js?v=71d9d8e6"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="icon" href="../_static/logo_black.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo_black.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">pyecsca</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html"><span class="fas fa-screwdriver-wrench fa-fw"></span> Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks.html"><span class="fas fa-hand-pointer fa-fw"></span> Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries.html"><span class="fas fa-server fa-fw"></span> ECC in Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html"><span class="fas fa-asterisk fa-fw"></span> References</a></li>
+</ul>
+
+<ul style="margin-top: 1em">
+    <li class="toctree-l1"><a href="https://github.com/J08nY/pyecsca/"><i class="fab fa-fw fa-github"></i> Source code</a></li>
+    <li class="toctree-l1"><a href="https://pypi.org/project/pyecsca/"><i class="fas fa-fw fa-file"></i> Releases</a></li>
+</ul><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <a href="https://mybinder.org/v2/gh/J08nY/pyecsca-notebook/HEAD?labpath=DPA.ipynb" class="sd-badge sd-outline-primary">MyBinder</a><section id="Differential-Power-Analysis">
+<h1>Differential Power Analysis<a class="headerlink" href="#Differential-Power-Analysis" title="Link to this heading">¶</a></h1>
+<p>This notebook demonstrates the functionality of the <code class="docutils literal notranslate"><span class="pre">DPA</span></code> class, which implements Differential Power Analysis side-channel attack. The attack is first performed and evaluated on leakage traces simulated by the <code class="docutils literal notranslate"><span class="pre">LeakageTarget</span></code> class and subsequently on leakage traces simulated by the <code class="docutils literal notranslate"><span class="pre">EmulatorTarget</span></code> class.</p>
+<section id="Initialisation">
+<h2>Initialisation<a class="headerlink" href="#Initialisation" title="Link to this heading">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyecsca.ec.mult</span> <span class="kn">import</span> <span class="n">LTRMultiplier</span>
+<span class="kn">from</span> <span class="nn">pyecsca.ec.mod</span> <span class="kn">import</span> <span class="n">mod</span>
+<span class="kn">from</span> <span class="nn">pyecsca.ec.point</span> <span class="kn">import</span> <span class="n">Point</span><span class="p">,</span> <span class="n">InfinityPoint</span>
+<span class="kn">from</span> <span class="nn">pyecsca.ec.model</span> <span class="kn">import</span> <span class="n">ShortWeierstrassModel</span>
+<span class="kn">from</span> <span class="nn">pyecsca.ec.curve</span> <span class="kn">import</span> <span class="n">EllipticCurve</span>
+<span class="kn">from</span> <span class="nn">pyecsca.ec.params</span> <span class="kn">import</span> <span class="n">DomainParameters</span>
+<span class="kn">from</span> <span class="nn">pyecsca.sca.attack.DPA</span> <span class="kn">import</span> <span class="n">DPA</span>
+<span class="kn">from</span> <span class="nn">pyecsca.sca.attack.CPA</span> <span class="kn">import</span> <span class="n">CPA</span>
+<span class="kn">from</span> <span class="nn">pyecsca.sca.attack.leakage_model</span> <span class="kn">import</span> <span class="n">HammingWeight</span>
+<span class="kn">from</span> <span class="nn">pyecsca.sca.target.leakage</span> <span class="kn">import</span> <span class="n">LeakageTarget</span>
+<span class="kn">from</span> <span class="nn">pyecsca.sca.trace</span> <span class="kn">import</span> <span class="n">Trace</span>
+<span class="kn">from</span> <span class="nn">pyecsca.sca.trace.edit</span> <span class="kn">import</span> <span class="n">stretch</span>
+<span class="kn">from</span> <span class="nn">pyecsca.sca.trace.process</span> <span class="kn">import</span> <span class="n">rolling_mean</span>
+<span class="kn">from</span> <span class="nn">pyecsca.codegen.client</span> <span class="kn">import</span> <span class="n">EmulatorTarget</span>
+<span class="kn">from</span> <span class="nn">rainbow</span> <span class="kn">import</span> <span class="n">TraceConfig</span>
+<span class="kn">from</span> <span class="nn">rainbow.leakage_models</span> <span class="kn">import</span> <span class="n">HammingWeight</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
+<span class="kn">import</span> <span class="nn">holoviews</span> <span class="k">as</span> <span class="nn">hv</span>
+<span class="kn">import</span> <span class="nn">multiprocessing</span> <span class="k">as</span> <span class="nn">mp</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hv</span><span class="o">.</span><span class="n">extension</span><span class="p">(</span><span class="s2">&quot;bokeh&quot;</span><span class="p">)</span>
+<br/></pre></div>
+</div>
+</div>
+<p>We first define the elliptic curve parameters we are going to be using for the demonstration.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">ShortWeierstrassModel</span><span class="p">()</span>
+<span class="n">coords</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">coordinates</span><span class="p">[</span><span class="s2">&quot;projective&quot;</span><span class="p">]</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mh">0xd7d1247f</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">mod</span><span class="p">(</span><span class="mh">0xa4a44016</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">mod</span><span class="p">(</span><span class="mh">0x73f76716</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mh">0xd7d2a475</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">gx</span><span class="p">,</span> <span class="n">gy</span><span class="p">,</span> <span class="n">gz</span> <span class="o">=</span> <span class="n">mod</span><span class="p">(</span><span class="mh">0x54eed6d7</span><span class="p">,</span> <span class="n">p</span><span class="p">),</span> <span class="n">mod</span><span class="p">(</span><span class="mh">0x6f1e55ac</span><span class="p">,</span> <span class="n">p</span><span class="p">),</span> <span class="n">mod</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+<span class="n">generator</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="n">gx</span><span class="p">,</span> <span class="n">Y</span><span class="o">=</span><span class="n">gy</span><span class="p">,</span> <span class="n">Z</span><span class="o">=</span><span class="n">gz</span><span class="p">)</span>
+<span class="n">neutral</span> <span class="o">=</span> <span class="n">InfinityPoint</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span>
+
+<span class="n">curve</span> <span class="o">=</span> <span class="n">EllipticCurve</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">neutral</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="n">a</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="n">b</span><span class="p">})</span>
+<span class="n">params</span> <span class="o">=</span> <span class="n">DomainParameters</span><span class="p">(</span><span class="n">curve</span><span class="p">,</span> <span class="n">generator</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+
+<span class="n">add</span> <span class="o">=</span> <span class="n">coords</span><span class="o">.</span><span class="n">formulas</span><span class="p">[</span><span class="s2">&quot;add-1998-cmo&quot;</span><span class="p">]</span>
+<span class="n">dbl</span> <span class="o">=</span> <span class="n">coords</span><span class="o">.</span><span class="n">formulas</span><span class="p">[</span><span class="s2">&quot;dbl-1998-cmo&quot;</span><span class="p">]</span>
+<span class="n">scl</span> <span class="o">=</span> <span class="n">coords</span><span class="o">.</span><span class="n">formulas</span><span class="p">[</span><span class="s2">&quot;z&quot;</span><span class="p">]</span>
+
+<span class="n">mult</span> <span class="o">=</span> <span class="n">LTRMultiplier</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="n">dbl</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>We create and initialize an instance of the <code class="docutils literal notranslate"><span class="pre">LeakageTarget</span></code> class with the above elliptic curve parameters.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">target</span> <span class="o">=</span> <span class="n">LeakageTarget</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">mult</span><span class="p">,</span> <span class="n">HammingWeight</span><span class="p">())</span>
+<span class="n">target</span><span class="o">.</span><span class="n">set_params</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Using the attack, we will try to recover an 8-bit scalar used in the scalar multiplication operation.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scalar_bit_length</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">secret_scalar</span> <span class="o">=</span> <span class="mi">229</span>
+</pre></div>
+</div>
+</div>
+<p>We will perform scalar multiplication on 10 000 random points on the curve and simulate 10 000 corresponding leakage traces, which we will then use to evaluate the attack.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_of_traces</span> <span class="o">=</span> <span class="mi">2000</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">generated_points</span><span class="p">,</span> <span class="n">generated_traces</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">simulate_scalar_mult_traces</span><span class="p">(</span><span class="n">num_of_traces</span><span class="p">,</span> <span class="n">secret_scalar</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Performing-the-attack">
+<h2>Performing the attack<a class="headerlink" href="#Performing-the-attack" title="Link to this heading">¶</a></h2>
+<p>We create and initialize an instance of the <code class="docutils literal notranslate"><span class="pre">DPA</span></code> class containing the attack’s implementation.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mult</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">generator</span><span class="p">)</span>
+<span class="n">real_pub_key</span> <span class="o">=</span> <span class="n">mult</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">secret_scalar</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dpa</span> <span class="o">=</span> <span class="n">DPA</span><span class="p">(</span><span class="n">generated_points</span><span class="p">,</span> <span class="n">generated_traces</span><span class="p">,</span> <span class="n">mult</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>We perform the attack and test that the scalar we recovered is correct.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">recovered_scalar</span> <span class="o">=</span> <span class="n">dpa</span><span class="o">.</span><span class="n">perform</span><span class="p">(</span><span class="n">scalar_bit_length</span><span class="p">,</span> <span class="n">real_pub_key</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">recovered_scalar</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">recovered_scalar</span> <span class="o">==</span> <span class="n">secret_scalar</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>We can visualize the differences of means calculated during the attack. Below are shown DOMs for correct and incorrect guess of the second bit of the scalar, followed by DOMs of correct guesses for fourth and sixth bit of the scalar to show the location of peeks.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Correct difference of means when guessing 2. bit (guessed scalar 192 = 1100 0000)</span>
+<span class="n">dpa</span><span class="o">.</span><span class="n">plot_difference_of_means</span><span class="p">(</span><span class="n">dpa</span><span class="o">.</span><span class="n">doms</span><span class="p">[</span><span class="s1">&#39;guess_one&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Incorrect difference of means when guessing 2. bit (guessed scalar 128 = 1000 0000)</span>
+<span class="n">dpa</span><span class="o">.</span><span class="n">plot_difference_of_means</span><span class="p">(</span><span class="n">dpa</span><span class="o">.</span><span class="n">doms</span><span class="p">[</span><span class="s1">&#39;guess_zero&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Correct difference of means when guessing 4. bit (guessed scalar 224 = 1110 0000)</span>
+<span class="n">dpa</span><span class="o">.</span><span class="n">plot_difference_of_means</span><span class="p">(</span><span class="n">dpa</span><span class="o">.</span><span class="n">doms</span><span class="p">[</span><span class="s1">&#39;guess_zero&#39;</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Correct difference of means when guessing 6. bit (guessed scalar 229 = 1110 0100)</span>
+<span class="n">dpa</span><span class="o">.</span><span class="n">plot_difference_of_means</span><span class="p">(</span><span class="n">dpa</span><span class="o">.</span><span class="n">doms</span><span class="p">[</span><span class="s1">&#39;guess_one&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Evaluating-the-effectiveness-of-the-attack">
+<h2>Evaluating the effectiveness of the attack<a class="headerlink" href="#Evaluating-the-effectiveness-of-the-attack" title="Link to this heading">¶</a></h2>
+<p>We will evaluate how the success rate of the attack increases with an increasing number of traces and subsequently evaluate how the success rate for a fixed number of traces changes with increasing noise.</p>
+<p>To have a convenient way of generating random subsets, we define the following function:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">select_random_sample</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">points</span><span class="p">,</span> <span class="n">traces</span><span class="p">):</span>
+    <span class="n">sample_points</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">sample_traces</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">selected_numbers</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">num_of_traces</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">num</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">selected_numbers</span><span class="p">:</span>
+            <span class="n">selected_numbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+        <span class="n">sample_points</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">points</span><span class="p">[</span><span class="n">num</span><span class="p">])</span>
+        <span class="n">sample_traces</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">traces</span><span class="p">[</span><span class="n">num</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">sample_points</span><span class="p">,</span> <span class="n">sample_traces</span>
+</pre></div>
+</div>
+</div>
+<section id="Success-rate-with-changing-number-of-traces">
+<h3>Success rate with changing number of traces<a class="headerlink" href="#Success-rate-with-changing-number-of-traces" title="Link to this heading">¶</a></h3>
+<p>We take subsets of different sizes and plot the success rate of the DPA corresponding to them. For each size, we perform the DPA 100 times on 100 generated subsets.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">DPA_traces</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">traces</span><span class="p">,</span> <span class="n">sample_size</span><span class="p">,</span> <span class="n">scalar_length</span><span class="p">,</span> <span class="n">pub_key</span><span class="p">,</span> <span class="n">multiplier</span><span class="p">,</span> <span class="n">domain_params</span><span class="p">):</span>
+    <span class="n">sample_points</span><span class="p">,</span> <span class="n">sample_traces</span> <span class="o">=</span> <span class="n">select_random_sample</span><span class="p">(</span><span class="n">sample_size</span><span class="p">,</span> <span class="n">points</span><span class="p">,</span> <span class="n">traces</span><span class="p">)</span>
+    <span class="n">sample_dpa</span> <span class="o">=</span> <span class="n">DPA</span><span class="p">(</span><span class="n">sample_points</span><span class="p">,</span> <span class="n">sample_traces</span><span class="p">,</span> <span class="n">multiplier</span><span class="p">,</span> <span class="n">domain_params</span><span class="p">)</span>
+    <span class="n">recovered</span> <span class="o">=</span> <span class="n">sample_dpa</span><span class="o">.</span><span class="n">perform</span><span class="p">(</span><span class="n">scalar_length</span><span class="p">,</span> <span class="n">pub_key</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">recovered</span> <span class="o">==</span> <span class="n">secret_scalar</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number_of_subsets</span> <span class="o">=</span> <span class="mi">17</span>
+<span class="n">successes_rates_traces</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">number_of_samples</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">*</span> <span class="mi">100</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">number_of_subsets</span><span class="p">)]</span>
+<span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">number_of_samples</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">mp</span><span class="o">.</span><span class="n">Pool</span><span class="p">()</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
+        <span class="n">result_objects</span> <span class="o">=</span> <span class="p">[</span><span class="n">pool</span><span class="o">.</span><span class="n">apply_async</span><span class="p">(</span><span class="n">DPA_traces</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">generated_points</span><span class="p">,</span> <span class="n">generated_traces</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span> <span class="n">scalar_bit_length</span><span class="p">,</span>
+                                                             <span class="n">real_pub_key</span><span class="p">,</span> <span class="n">mult</span><span class="p">,</span> <span class="n">params</span><span class="p">))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)]</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="p">[</span><span class="n">result</span><span class="o">.</span><span class="n">get</span><span class="p">()</span> <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">result_objects</span><span class="p">]</span>
+    <span class="n">successes_rates_traces</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">results</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;done for </span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>We plot the results.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">number_of_samples</span><span class="p">,</span> <span class="n">successes_rates_traces</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;number of traces&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;DPA success rate&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Success-rate-with-fixed-number-of-traces-and-changing-noise">
+<h3>Success rate with fixed number of traces and changing noise<a class="headerlink" href="#Success-rate-with-fixed-number-of-traces-and-changing-noise" title="Link to this heading">¶</a></h3>
+<p>As we now know the the minimum amount of traces needed for 100% success rate, we generate 100 subsets with that amount of traces and perform DPA for each subset. We do this multiple times with different amount of noise.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">normalize_trace</span><span class="p">(</span><span class="n">trace</span><span class="p">:</span> <span class="n">Trace</span><span class="p">):</span>
+    <span class="n">min_val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">trace</span><span class="o">.</span><span class="n">samples</span><span class="p">)</span>
+    <span class="n">max_val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">trace</span><span class="o">.</span><span class="n">samples</span><span class="p">)</span>
+    <span class="n">scaled_samples</span> <span class="o">=</span> <span class="p">(</span><span class="n">trace</span><span class="o">.</span><span class="n">samples</span> <span class="o">-</span> <span class="n">min_val</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">max_val</span> <span class="o">-</span> <span class="n">min_val</span><span class="p">)</span>
+    <span class="n">trace</span><span class="o">.</span><span class="n">samples</span> <span class="o">=</span> <span class="n">scaled_samples</span>
+
+<span class="k">def</span> <span class="nf">DPA_noise</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">traces</span><span class="p">,</span> <span class="n">sample_size</span><span class="p">,</span> <span class="n">standard_deviation</span><span class="p">,</span> <span class="n">scalar_length</span><span class="p">,</span> <span class="n">pub_key</span><span class="p">,</span> <span class="n">multiplier</span><span class="p">,</span> <span class="n">domain_params</span><span class="p">):</span>
+    <span class="n">sample_points</span><span class="p">,</span> <span class="n">sample_traces</span> <span class="o">=</span> <span class="n">select_random_sample</span><span class="p">(</span><span class="n">sample_size</span><span class="p">,</span> <span class="n">points</span><span class="p">,</span> <span class="n">traces</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">trace</span> <span class="ow">in</span> <span class="n">sample_traces</span><span class="p">:</span>
+        <span class="n">normalize_trace</span><span class="p">(</span><span class="n">trace</span><span class="p">)</span>
+    <span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">standard_deviation</span><span class="p">,</span> <span class="n">sample_traces</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">trace</span> <span class="ow">in</span> <span class="n">sample_traces</span><span class="p">:</span>
+        <span class="n">trace</span><span class="o">.</span><span class="n">samples</span> <span class="o">=</span> <span class="n">trace</span><span class="o">.</span><span class="n">samples</span> <span class="o">+</span> <span class="n">noise</span>
+    <span class="n">sample_dpa</span> <span class="o">=</span> <span class="n">DPA</span><span class="p">(</span><span class="n">sample_points</span><span class="p">,</span> <span class="n">sample_traces</span><span class="p">,</span> <span class="n">multiplier</span><span class="p">,</span> <span class="n">domain_params</span><span class="p">)</span>
+    <span class="n">recovered</span> <span class="o">=</span> <span class="n">sample_dpa</span><span class="o">.</span><span class="n">perform</span><span class="p">(</span><span class="n">scalar_length</span><span class="p">,</span> <span class="n">pub_key</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">recovered</span> <span class="o">==</span> <span class="n">secret_scalar</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number_of_subsets</span> <span class="o">=</span> <span class="mi">17</span>
+<span class="n">successes_rates_noise</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">sample_size</span> <span class="o">=</span> <span class="mi">1600</span>
+<span class="n">noise_sds</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.05</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">number_of_subsets</span><span class="p">)]</span>
+<span class="k">for</span> <span class="n">sd</span> <span class="ow">in</span> <span class="n">noise_sds</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">mp</span><span class="o">.</span><span class="n">Pool</span><span class="p">()</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
+        <span class="n">result_objects</span> <span class="o">=</span> <span class="p">[</span><span class="n">pool</span><span class="o">.</span><span class="n">apply_async</span><span class="p">(</span><span class="n">DPA_noise</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">generated_points</span><span class="p">,</span> <span class="n">generated_traces</span><span class="p">,</span> <span class="n">sample_size</span><span class="p">,</span> <span class="n">sd</span><span class="p">,</span> <span class="n">scalar_bit_length</span><span class="p">,</span>
+                                                             <span class="n">real_pub_key</span><span class="p">,</span> <span class="n">mult</span><span class="p">,</span> <span class="n">params</span><span class="p">))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)]</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="p">[</span><span class="n">result</span><span class="o">.</span><span class="n">get</span><span class="p">()</span> <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">result_objects</span><span class="p">]</span>
+    <span class="n">successes_rates_noise</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">results</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;done for </span><span class="si">{</span><span class="n">sd</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>We plot the results.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">noise_sds</span><span class="p">,</span> <span class="n">successes_rates_noise</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Gaussian noise (standard deviation)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;DPA success rate&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="DPA-on-leakage-traces-simulated-by-EmulatorTarget.">
+<h2>DPA on leakage traces simulated by <code class="docutils literal notranslate"><span class="pre">EmulatorTarget</span></code>.<a class="headerlink" href="#DPA-on-leakage-traces-simulated-by-EmulatorTarget." title="Link to this heading">¶</a></h2>
+<p>We gather leakage traces simulated by the <code class="docutils literal notranslate"><span class="pre">EmulatorTarget</span></code>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/data/xbatora/traces_8bit.pickle&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">traces_emulator</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">points_emulator</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">max_length</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">trace</span> <span class="ow">in</span> <span class="n">traces_emulator</span><span class="p">:</span>
+    <span class="k">if</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">trace</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">max_length</span><span class="p">):</span>
+        <span class="n">max_length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">trace</span><span class="p">)</span>
+    <span class="n">points_emulator</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Point</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="o">**</span><span class="n">trace</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s1">&#39;coords&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<p>The traces are not equally long. We <code class="docutils literal notranslate"><span class="pre">stretch</span></code> them to the same length. This should also reduce misalignment.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stretched_traces</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">trace</span> <span class="ow">in</span> <span class="n">traces_emulator</span><span class="p">:</span>
+    <span class="n">stretched_traces</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">stretch</span><span class="p">(</span><span class="n">trace</span><span class="p">,</span> <span class="n">max_length</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<p>We recover the second bit of the scalar. We know it should equal one, so we plot its corresponding DOM that should show a peak.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">recovered_scalar</span> <span class="o">=</span> <span class="mi">128</span> <span class="c1">#1000 0000</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dpa_emulator</span> <span class="o">=</span> <span class="n">DPA</span><span class="p">(</span><span class="n">points_emulator</span><span class="p">,</span> <span class="n">stretched_traces</span><span class="p">,</span> <span class="n">mult</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">recovered_scalar</span> <span class="o">=</span> <span class="mi">128</span> <span class="c1">#1000 0000</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">dpa_emulator</span><span class="o">.</span><span class="n">recover_bit</span><span class="p">(</span><span class="n">recovered_scalar</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">scalar_bit_length</span><span class="p">,</span> <span class="n">real_pub_key</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>The peak is not visible</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dpa_emulator</span><span class="o">.</span><span class="n">plot_difference_of_means</span><span class="p">(</span><span class="n">dpa_emulator</span><span class="o">.</span><span class="n">doms</span><span class="p">[</span><span class="s1">&#39;guess_one&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<p>The peak is not visible due to a significant misalignment. We apply rolling mean to the traces, which should reduce the misalignment. We perform the DPA again.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rolling_mean_traces</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">trace</span> <span class="ow">in</span> <span class="n">stretched_traces</span><span class="p">:</span>
+    <span class="n">rolling_mean_traces</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rolling_mean</span><span class="p">(</span><span class="n">trace</span><span class="p">,</span> <span class="mi">3000</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dpa_emulator</span> <span class="o">=</span> <span class="n">DPA</span><span class="p">(</span><span class="n">points_emulator</span><span class="p">,</span> <span class="n">rolling_mean_traces</span><span class="p">,</span> <span class="n">mult</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">recovered_scalar</span> <span class="o">=</span> <span class="mi">128</span> <span class="c1">#1000 0000</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">dpa_emulator</span><span class="o">.</span><span class="n">recover_bit</span><span class="p">(</span><span class="n">recovered_scalar</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">scalar_bit_length</span><span class="p">,</span> <span class="n">real_pub_key</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dpa_emulator</span><span class="o">.</span><span class="n">plot_difference_of_means</span><span class="p">(</span><span class="n">dpa_emulator</span><span class="o">.</span><span class="n">doms</span><span class="p">[</span><span class="s1">&#39;guess_one&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;2018-2024, Jan Jancar.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.5</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../_sources/notebook/DPA.ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

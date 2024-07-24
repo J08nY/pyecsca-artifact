@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>pyecsca.sca.target.chipwhisperer module &#8212; pyecsca 0.3.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d10597a4" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=bf281230" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_paramlinks.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=de02a091" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" />
+    <script src="../_static/documentation_options.js?v=71d9d8e6"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/logo_black.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pyecsca.sca.target.ectester module" href="pyecsca.sca.target.ectester.html" />
+    <link rel="prev" title="pyecsca.sca.target.binary module" href="pyecsca.sca.target.binary.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo_black.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">pyecsca</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html"><span class="fas fa-screwdriver-wrench fa-fw"></span> Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks.html"><span class="fas fa-hand-pointer fa-fw"></span> Notebooks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.html">pyecsca.ec package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.misc.html">pyecsca.misc package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="pyecsca.sca.html">pyecsca.sca package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.html">pyecsca.codegen package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries.html"><span class="fas fa-server fa-fw"></span> ECC in Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html"><span class="fas fa-asterisk fa-fw"></span> References</a></li>
+</ul>
+
+<ul style="margin-top: 1em">
+    <li class="toctree-l1"><a href="https://github.com/J08nY/pyecsca/"><i class="fab fa-fw fa-github"></i> Source code</a></li>
+    <li class="toctree-l1"><a href="https://pypi.org/project/pyecsca/"><i class="fas fa-fw fa-file"></i> Releases</a></li>
+</ul><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul>
+  <li><a href="pyecsca.sca.html">pyecsca.sca package</a><ul>
+  <li><a href="pyecsca.sca.target.html">pyecsca.sca.target package</a><ul>
+      <li>Previous: <a href="pyecsca.sca.target.binary.html" title="previous chapter">pyecsca.sca.target.binary module</a></li>
+      <li>Next: <a href="pyecsca.sca.target.ectester.html" title="next chapter">pyecsca.sca.target.ectester module</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-pyecsca.sca.target.chipwhisperer">
+<span id="pyecsca-sca-target-chipwhisperer-module"></span><h1>pyecsca.sca.target.chipwhisperer module<a class="headerlink" href="#module-pyecsca.sca.target.chipwhisperer" title="Link to this heading">¶</a></h1>
+<p>Provides a <a class="reference external" href="https://github.com/newaetech/chipwhisperer/">ChipWhisperer</a> target class.</p>
+<p>ChipWhisperer is a side-channel analysis tool and framework. A ChipWhisperer target is one
+that uses the ChipWhisperer’s SimpleSerial communication protocol and is communicated with
+using ChipWhisperer-Lite or Pro.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.sca.target.chipwhisperer.ChipWhispererTarget">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ChipWhispererTarget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scope</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">programmer</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/target/chipwhisperer.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.target.chipwhisperer.ChipWhispererTarget" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pyecsca.sca.target.flash.html#pyecsca.sca.target.flash.Flashable" title="pyecsca.sca.target.flash.Flashable"><code class="xref py py-class docutils literal notranslate"><span class="pre">Flashable</span></code></a>, <a class="reference internal" href="pyecsca.sca.target.simpleserial.html#pyecsca.sca.target.simpleserial.SimpleSerialTarget" title="pyecsca.sca.target.simpleserial.SimpleSerialTarget"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleSerialTarget</span></code></a></p>
+<p>ChipWhisperer-based target, using the SimpleSerial-ish protocol and communicating using ChipWhisperer-Lite/Pro.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.sca.target.chipwhisperer.ChipWhispererTarget.connect">
+<span class="sig-name descname"><span class="pre">connect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/target/chipwhisperer.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.target.chipwhisperer.ChipWhispererTarget.connect" title="Link to this definition">¶</a></dt>
+<dd><p>Connect to the target device.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.sca.target.chipwhisperer.ChipWhispererTarget.flash">
+<span class="sig-name descname"><span class="pre">flash</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fw_path</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/target/chipwhisperer.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.target.chipwhisperer.ChipWhispererTarget.flash" title="Link to this definition">¶</a></dt>
+<dd><p>Flash the firmware at <cite>fw_path</cite> to the target.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.sca.target.chipwhisperer.ChipWhispererTarget.flash.params.fw_path"></span><strong>fw_path</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.target.chipwhisperer.ChipWhispererTarget.flash.params.fw_path">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The path to the firmware blob.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Whether the flashing was successful.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.sca.target.chipwhisperer.ChipWhispererTarget.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/target/chipwhisperer.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.target.chipwhisperer.ChipWhispererTarget.write" title="Link to this definition">¶</a></dt>
+<dd><p>Write the <a class="reference internal" href="#pyecsca.sca.target.chipwhisperer.ChipWhispererTarget.write.params.data" title="pyecsca.sca.target.chipwhisperer.ChipWhispererTarget.write"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">data</span></code></a> bytes to the target’s serial input.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.sca.target.chipwhisperer.ChipWhispererTarget.write.params.data"></span><strong>data</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.target.chipwhisperer.ChipWhispererTarget.write.params.data">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></span>) – The data to write.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.sca.target.chipwhisperer.ChipWhispererTarget.read">
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/target/chipwhisperer.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.target.chipwhisperer.ChipWhispererTarget.read" title="Link to this definition">¶</a></dt>
+<dd><p>Read upto <a class="reference internal" href="#pyecsca.sca.target.chipwhisperer.ChipWhispererTarget.read.params.num" title="pyecsca.sca.target.chipwhisperer.ChipWhispererTarget.read"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">num</span></code></a> bytes or until <a class="reference internal" href="#pyecsca.sca.target.chipwhisperer.ChipWhispererTarget.read.params.timeout" title="pyecsca.sca.target.chipwhisperer.ChipWhispererTarget.read"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">timeout</span></code></a> milliseconds from the target’s serial output.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="pyecsca.sca.target.chipwhisperer.ChipWhispererTarget.read.params.num"></span><strong>num</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.target.chipwhisperer.ChipWhispererTarget.read.params.num">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – The number of bytes to read, <code class="docutils literal notranslate"><span class="pre">0</span></code> for all available.</p></li>
+<li><p><span class="target" id="pyecsca.sca.target.chipwhisperer.ChipWhispererTarget.read.params.timeout"></span><strong>timeout</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.target.chipwhisperer.ChipWhispererTarget.read.params.timeout">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – The timeout in milliseconds.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The bytes read.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.sca.target.chipwhisperer.ChipWhispererTarget.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/target/chipwhisperer.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.target.chipwhisperer.ChipWhispererTarget.reset" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.sca.target.chipwhisperer.ChipWhispererTarget.disconnect">
+<span class="sig-name descname"><span class="pre">disconnect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/target/chipwhisperer.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.target.chipwhisperer.ChipWhispererTarget.disconnect" title="Link to this definition">¶</a></dt>
+<dd><p>Disconnect from the target device.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.sca.target.chipwhisperer.ChipWhispererTarget.recv_msgs">
+<span class="sig-name descname"><span class="pre">recv_msgs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/target/chipwhisperer.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.target.chipwhisperer.ChipWhispererTarget.recv_msgs" title="Link to this definition">¶</a></dt>
+<dd><p>Receive <code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleSerialMessage</span></code> messages, while waiting upto <a class="reference internal" href="#pyecsca.sca.target.chipwhisperer.ChipWhispererTarget.recv_msgs.params.timeout" title="pyecsca.sca.target.chipwhisperer.ChipWhispererTarget.recv_msgs"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">timeout</span></code></a> seconds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.sca.target.chipwhisperer.ChipWhispererTarget.recv_msgs.params.timeout"></span><strong>timeout</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.target.chipwhisperer.ChipWhispererTarget.recv_msgs.params.timeout">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – How long to wait.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mapping</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="pyecsca.sca.target.simpleserial.html#pyecsca.sca.target.simpleserial.SimpleSerialMessage" title="pyecsca.sca.target.simpleserial.SimpleSerialMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleSerialMessage</span></code></a>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The received messages with their char.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.sca.target.chipwhisperer.ChipWhispererTarget.send_cmd">
+<span class="sig-name descname"><span class="pre">send_cmd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/target/chipwhisperer.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.target.chipwhisperer.ChipWhispererTarget.send_cmd" title="Link to this definition">¶</a></dt>
+<dd><p>Send a <code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleSerialMessage</span></code> and receive the response messages that the command produces, within a <a class="reference internal" href="#pyecsca.sca.target.chipwhisperer.ChipWhispererTarget.send_cmd.params.timeout" title="pyecsca.sca.target.chipwhisperer.ChipWhispererTarget.send_cmd"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">timeout</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="pyecsca.sca.target.chipwhisperer.ChipWhispererTarget.send_cmd.params.cmd"></span><strong>cmd</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.target.chipwhisperer.ChipWhispererTarget.send_cmd.params.cmd">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.sca.target.simpleserial.html#pyecsca.sca.target.simpleserial.SimpleSerialMessage" title="pyecsca.sca.target.simpleserial.SimpleSerialMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleSerialMessage</span></code></a></span>) – The command message to send.</p></li>
+<li><p><span class="target" id="pyecsca.sca.target.chipwhisperer.ChipWhispererTarget.send_cmd.params.timeout"></span><strong>timeout</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.target.chipwhisperer.ChipWhispererTarget.send_cmd.params.timeout">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – The timeout value to wait for the responses.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mapping</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="pyecsca.sca.target.simpleserial.html#pyecsca.sca.target.simpleserial.SimpleSerialMessage" title="pyecsca.sca.target.simpleserial.SimpleSerialMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleSerialMessage</span></code></a>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A mapping of the starting character of the message to the message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;2018-2024, Jan Jancar.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.5</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../_sources/api/pyecsca.sca.target.chipwhisperer.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

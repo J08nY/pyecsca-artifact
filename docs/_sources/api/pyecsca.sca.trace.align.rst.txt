@@ -1,0 +1,7 @@
+pyecsca.sca.trace.align module
+==============================
+
+.. automodule:: pyecsca.sca.trace.align
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,7 @@
+pyecsca.ec.formula.graph module
+===============================
+
+.. automodule:: pyecsca.ec.formula.graph
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,21 @@
+pyecsca.ec.mult package
+=======================
+
+.. automodule:: pyecsca.ec.mult
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   pyecsca.ec.mult.base
+   pyecsca.ec.mult.binary
+   pyecsca.ec.mult.comb
+   pyecsca.ec.mult.fixed
+   pyecsca.ec.mult.ladder
+   pyecsca.ec.mult.naf
+   pyecsca.ec.mult.window

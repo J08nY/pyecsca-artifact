@@ -1,0 +1,7 @@
+pyecsca.codegen.client module
+=============================
+
+.. automodule:: pyecsca.codegen.client
+   :members:
+   :undoc-members:
+   :show-inheritance:

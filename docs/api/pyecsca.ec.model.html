@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>pyecsca.ec.model module &#8212; pyecsca 0.3.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d10597a4" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=bf281230" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_paramlinks.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=de02a091" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" />
+    <script src="../_static/documentation_options.js?v=71d9d8e6"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="icon" href="../_static/logo_black.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pyecsca.ec.op module" href="pyecsca.ec.op.html" />
+    <link rel="prev" title="pyecsca.ec.key_generation module" href="pyecsca.ec.key_generation.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo_black.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">pyecsca</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html"><span class="fas fa-screwdriver-wrench fa-fw"></span> Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks.html"><span class="fas fa-hand-pointer fa-fw"></span> Notebooks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="pyecsca.ec.html">pyecsca.ec package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.misc.html">pyecsca.misc package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.html">pyecsca.sca package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.html">pyecsca.codegen package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries.html"><span class="fas fa-server fa-fw"></span> ECC in Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html"><span class="fas fa-asterisk fa-fw"></span> References</a></li>
+</ul>
+
+<ul style="margin-top: 1em">
+    <li class="toctree-l1"><a href="https://github.com/J08nY/pyecsca/"><i class="fab fa-fw fa-github"></i> Source code</a></li>
+    <li class="toctree-l1"><a href="https://pypi.org/project/pyecsca/"><i class="fas fa-fw fa-file"></i> Releases</a></li>
+</ul><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul>
+  <li><a href="pyecsca.ec.html">pyecsca.ec package</a><ul>
+      <li>Previous: <a href="pyecsca.ec.key_generation.html" title="previous chapter">pyecsca.ec.key_generation module</a></li>
+      <li>Next: <a href="pyecsca.ec.op.html" title="next chapter">pyecsca.ec.op module</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-pyecsca.ec.model">
+<span id="pyecsca-ec-model-module"></span><h1>pyecsca.ec.model module<a class="headerlink" href="#module-pyecsca.ec.model" title="Link to this heading">¶</a></h1>
+<p>Provides curve model classes for the supported curve models.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.ec.model.CurveModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">CurveModel</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.CurveModel" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Model(form) of an elliptic curve.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.CurveModel.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.CurveModel.name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.CurveModel.shortname">
+<span class="sig-name descname"><span class="pre">shortname</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.CurveModel.shortname" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.CurveModel.coordinates">
+<span class="sig-name descname"><span class="pre">coordinates</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">MutableMapping</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">,</span> <a class="reference internal" href="pyecsca.ec.coordinates.html#pyecsca.ec.coordinates.CoordinateModel" title="pyecsca.ec.coordinates.CoordinateModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">CoordinateModel</span></code></a><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.CurveModel.coordinates" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.CurveModel.parameter_names">
+<span class="sig-name descname"><span class="pre">parameter_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.CurveModel.parameter_names" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.CurveModel.coordinate_names">
+<span class="sig-name descname"><span class="pre">coordinate_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.CurveModel.coordinate_names" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.CurveModel.equation">
+<span class="sig-name descname"><span class="pre">equation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">Expression</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.CurveModel.equation" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.CurveModel.ysquared">
+<span class="sig-name descname"><span class="pre">ysquared</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">Expression</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.CurveModel.ysquared" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.CurveModel.base_addition">
+<span class="sig-name descname"><span class="pre">base_addition</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.CurveModel.base_addition" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.CurveModel.base_doubling">
+<span class="sig-name descname"><span class="pre">base_doubling</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.CurveModel.base_doubling" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.CurveModel.base_negation">
+<span class="sig-name descname"><span class="pre">base_negation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.CurveModel.base_negation" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.CurveModel.base_neutral">
+<span class="sig-name descname"><span class="pre">base_neutral</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.CurveModel.base_neutral" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.CurveModel.full_weierstrass">
+<span class="sig-name descname"><span class="pre">full_weierstrass</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.CurveModel.full_weierstrass" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.CurveModel.to_weierstrass">
+<span class="sig-name descname"><span class="pre">to_weierstrass</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.CurveModel.to_weierstrass" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.CurveModel.from_weierstrass">
+<span class="sig-name descname"><span class="pre">from_weierstrass</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.CurveModel.from_weierstrass" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.ec.model.ShortWeierstrassModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ShortWeierstrassModel</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.ShortWeierstrassModel" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">EFDCurveModel</span></code></p>
+<p>Short-Weierstrass curve model.</p>
+<div class="math notranslate nohighlight">
+\[y^2 = x^3 + a x + b\]</div>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.ShortWeierstrassModel.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.ShortWeierstrassModel.name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.ShortWeierstrassModel.shortname">
+<span class="sig-name descname"><span class="pre">shortname</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.ShortWeierstrassModel.shortname" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.ShortWeierstrassModel.coordinates">
+<span class="sig-name descname"><span class="pre">coordinates</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">MutableMapping</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">,</span> <a class="reference internal" href="pyecsca.ec.coordinates.html#pyecsca.ec.coordinates.CoordinateModel" title="pyecsca.ec.coordinates.CoordinateModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">CoordinateModel</span></code></a><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.ShortWeierstrassModel.coordinates" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.ShortWeierstrassModel.parameter_names">
+<span class="sig-name descname"><span class="pre">parameter_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.ShortWeierstrassModel.parameter_names" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.ShortWeierstrassModel.coordinate_names">
+<span class="sig-name descname"><span class="pre">coordinate_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.ShortWeierstrassModel.coordinate_names" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.ShortWeierstrassModel.equation">
+<span class="sig-name descname"><span class="pre">equation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">Expression</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.ShortWeierstrassModel.equation" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.ShortWeierstrassModel.ysquared">
+<span class="sig-name descname"><span class="pre">ysquared</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">Expression</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.ShortWeierstrassModel.ysquared" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.ShortWeierstrassModel.base_addition">
+<span class="sig-name descname"><span class="pre">base_addition</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.ShortWeierstrassModel.base_addition" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.ShortWeierstrassModel.base_doubling">
+<span class="sig-name descname"><span class="pre">base_doubling</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.ShortWeierstrassModel.base_doubling" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.ShortWeierstrassModel.base_negation">
+<span class="sig-name descname"><span class="pre">base_negation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.ShortWeierstrassModel.base_negation" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.ShortWeierstrassModel.base_neutral">
+<span class="sig-name descname"><span class="pre">base_neutral</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.ShortWeierstrassModel.base_neutral" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.ShortWeierstrassModel.full_weierstrass">
+<span class="sig-name descname"><span class="pre">full_weierstrass</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.ShortWeierstrassModel.full_weierstrass" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.ShortWeierstrassModel.to_weierstrass">
+<span class="sig-name descname"><span class="pre">to_weierstrass</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.ShortWeierstrassModel.to_weierstrass" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.ShortWeierstrassModel.from_weierstrass">
+<span class="sig-name descname"><span class="pre">from_weierstrass</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.ShortWeierstrassModel.from_weierstrass" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.ec.model.MontgomeryModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MontgomeryModel</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.MontgomeryModel" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">EFDCurveModel</span></code></p>
+<p>Montgomery curve model.</p>
+<div class="math notranslate nohighlight">
+\[B y^2 = x^3 + A x^2 + x\]</div>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.MontgomeryModel.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.MontgomeryModel.name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.MontgomeryModel.shortname">
+<span class="sig-name descname"><span class="pre">shortname</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.MontgomeryModel.shortname" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.MontgomeryModel.coordinates">
+<span class="sig-name descname"><span class="pre">coordinates</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">MutableMapping</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">,</span> <a class="reference internal" href="pyecsca.ec.coordinates.html#pyecsca.ec.coordinates.CoordinateModel" title="pyecsca.ec.coordinates.CoordinateModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">CoordinateModel</span></code></a><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.MontgomeryModel.coordinates" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.MontgomeryModel.parameter_names">
+<span class="sig-name descname"><span class="pre">parameter_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.MontgomeryModel.parameter_names" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.MontgomeryModel.coordinate_names">
+<span class="sig-name descname"><span class="pre">coordinate_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.MontgomeryModel.coordinate_names" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.MontgomeryModel.equation">
+<span class="sig-name descname"><span class="pre">equation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">Expression</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.MontgomeryModel.equation" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.MontgomeryModel.ysquared">
+<span class="sig-name descname"><span class="pre">ysquared</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">Expression</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.MontgomeryModel.ysquared" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.MontgomeryModel.base_addition">
+<span class="sig-name descname"><span class="pre">base_addition</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.MontgomeryModel.base_addition" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.MontgomeryModel.base_doubling">
+<span class="sig-name descname"><span class="pre">base_doubling</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.MontgomeryModel.base_doubling" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.MontgomeryModel.base_negation">
+<span class="sig-name descname"><span class="pre">base_negation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.MontgomeryModel.base_negation" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.MontgomeryModel.base_neutral">
+<span class="sig-name descname"><span class="pre">base_neutral</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.MontgomeryModel.base_neutral" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.MontgomeryModel.full_weierstrass">
+<span class="sig-name descname"><span class="pre">full_weierstrass</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.MontgomeryModel.full_weierstrass" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.MontgomeryModel.to_weierstrass">
+<span class="sig-name descname"><span class="pre">to_weierstrass</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.MontgomeryModel.to_weierstrass" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.MontgomeryModel.from_weierstrass">
+<span class="sig-name descname"><span class="pre">from_weierstrass</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.MontgomeryModel.from_weierstrass" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.ec.model.EdwardsModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">EdwardsModel</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.EdwardsModel" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">EFDCurveModel</span></code></p>
+<p>Edwards curve model.</p>
+<div class="math notranslate nohighlight">
+\[x^2 + y^2 = c^2 (1 + d x^2 y^2)\]</div>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.EdwardsModel.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.EdwardsModel.name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.EdwardsModel.shortname">
+<span class="sig-name descname"><span class="pre">shortname</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.EdwardsModel.shortname" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.EdwardsModel.coordinates">
+<span class="sig-name descname"><span class="pre">coordinates</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">MutableMapping</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">,</span> <a class="reference internal" href="pyecsca.ec.coordinates.html#pyecsca.ec.coordinates.CoordinateModel" title="pyecsca.ec.coordinates.CoordinateModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">CoordinateModel</span></code></a><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.EdwardsModel.coordinates" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.EdwardsModel.parameter_names">
+<span class="sig-name descname"><span class="pre">parameter_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.EdwardsModel.parameter_names" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.EdwardsModel.coordinate_names">
+<span class="sig-name descname"><span class="pre">coordinate_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.EdwardsModel.coordinate_names" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.EdwardsModel.equation">
+<span class="sig-name descname"><span class="pre">equation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">Expression</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.EdwardsModel.equation" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.EdwardsModel.ysquared">
+<span class="sig-name descname"><span class="pre">ysquared</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">Expression</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.EdwardsModel.ysquared" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.EdwardsModel.base_addition">
+<span class="sig-name descname"><span class="pre">base_addition</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.EdwardsModel.base_addition" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.EdwardsModel.base_doubling">
+<span class="sig-name descname"><span class="pre">base_doubling</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.EdwardsModel.base_doubling" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.EdwardsModel.base_negation">
+<span class="sig-name descname"><span class="pre">base_negation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.EdwardsModel.base_negation" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.EdwardsModel.base_neutral">
+<span class="sig-name descname"><span class="pre">base_neutral</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.EdwardsModel.base_neutral" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.EdwardsModel.full_weierstrass">
+<span class="sig-name descname"><span class="pre">full_weierstrass</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.EdwardsModel.full_weierstrass" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.EdwardsModel.to_weierstrass">
+<span class="sig-name descname"><span class="pre">to_weierstrass</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.EdwardsModel.to_weierstrass" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.EdwardsModel.from_weierstrass">
+<span class="sig-name descname"><span class="pre">from_weierstrass</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.EdwardsModel.from_weierstrass" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.ec.model.TwistedEdwardsModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">TwistedEdwardsModel</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.TwistedEdwardsModel" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">EFDCurveModel</span></code></p>
+<p>Twisted-Edwards curve model.</p>
+<div class="math notranslate nohighlight">
+\[a x^2 + y^2 = 1 + d x^2 y^2\]</div>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.TwistedEdwardsModel.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.TwistedEdwardsModel.name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.TwistedEdwardsModel.shortname">
+<span class="sig-name descname"><span class="pre">shortname</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.TwistedEdwardsModel.shortname" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.TwistedEdwardsModel.coordinates">
+<span class="sig-name descname"><span class="pre">coordinates</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">MutableMapping</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">,</span> <a class="reference internal" href="pyecsca.ec.coordinates.html#pyecsca.ec.coordinates.CoordinateModel" title="pyecsca.ec.coordinates.CoordinateModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">CoordinateModel</span></code></a><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.TwistedEdwardsModel.coordinates" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.TwistedEdwardsModel.parameter_names">
+<span class="sig-name descname"><span class="pre">parameter_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.TwistedEdwardsModel.parameter_names" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.TwistedEdwardsModel.coordinate_names">
+<span class="sig-name descname"><span class="pre">coordinate_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.TwistedEdwardsModel.coordinate_names" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.TwistedEdwardsModel.equation">
+<span class="sig-name descname"><span class="pre">equation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">Expression</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.TwistedEdwardsModel.equation" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.TwistedEdwardsModel.ysquared">
+<span class="sig-name descname"><span class="pre">ysquared</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">Expression</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.TwistedEdwardsModel.ysquared" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.TwistedEdwardsModel.base_addition">
+<span class="sig-name descname"><span class="pre">base_addition</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.TwistedEdwardsModel.base_addition" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.TwistedEdwardsModel.base_doubling">
+<span class="sig-name descname"><span class="pre">base_doubling</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.TwistedEdwardsModel.base_doubling" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.TwistedEdwardsModel.base_negation">
+<span class="sig-name descname"><span class="pre">base_negation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.TwistedEdwardsModel.base_negation" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.TwistedEdwardsModel.base_neutral">
+<span class="sig-name descname"><span class="pre">base_neutral</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.TwistedEdwardsModel.base_neutral" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.TwistedEdwardsModel.full_weierstrass">
+<span class="sig-name descname"><span class="pre">full_weierstrass</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.TwistedEdwardsModel.full_weierstrass" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.TwistedEdwardsModel.to_weierstrass">
+<span class="sig-name descname"><span class="pre">to_weierstrass</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.TwistedEdwardsModel.to_weierstrass" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.model.TwistedEdwardsModel.from_weierstrass">
+<span class="sig-name descname"><span class="pre">from_weierstrass</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/model.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.model.TwistedEdwardsModel.from_weierstrass" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;2018-2024, Jan Jancar.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.5</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../_sources/api/pyecsca.ec.model.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

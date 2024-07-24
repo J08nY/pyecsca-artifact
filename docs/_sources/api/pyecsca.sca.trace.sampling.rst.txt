@@ -1,0 +1,7 @@
+pyecsca.sca.trace.sampling module
+=================================
+
+.. automodule:: pyecsca.sca.trace.sampling
+   :members:
+   :undoc-members:
+   :show-inheritance:

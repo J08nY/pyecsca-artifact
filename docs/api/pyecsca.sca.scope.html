@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>pyecsca.sca.scope package &#8212; pyecsca 0.3.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d10597a4" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=bf281230" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_paramlinks.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=de02a091" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" />
+    <script src="../_static/documentation_options.js?v=71d9d8e6"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/logo_black.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pyecsca.sca.scope.base module" href="pyecsca.sca.scope.base.html" />
+    <link rel="prev" title="pyecsca.sca.re.zvp module" href="pyecsca.sca.re.zvp.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo_black.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">pyecsca</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html"><span class="fas fa-screwdriver-wrench fa-fw"></span> Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks.html"><span class="fas fa-hand-pointer fa-fw"></span> Notebooks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.html">pyecsca.ec package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.misc.html">pyecsca.misc package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="pyecsca.sca.html">pyecsca.sca package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.html">pyecsca.codegen package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries.html"><span class="fas fa-server fa-fw"></span> ECC in Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html"><span class="fas fa-asterisk fa-fw"></span> References</a></li>
+</ul>
+
+<ul style="margin-top: 1em">
+    <li class="toctree-l1"><a href="https://github.com/J08nY/pyecsca/"><i class="fab fa-fw fa-github"></i> Source code</a></li>
+    <li class="toctree-l1"><a href="https://pypi.org/project/pyecsca/"><i class="fas fa-fw fa-file"></i> Releases</a></li>
+</ul><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul>
+  <li><a href="pyecsca.sca.html">pyecsca.sca package</a><ul>
+      <li>Previous: <a href="pyecsca.sca.re.zvp.html" title="previous chapter">pyecsca.sca.re.zvp module</a></li>
+      <li>Next: <a href="pyecsca.sca.scope.base.html" title="next chapter">pyecsca.sca.scope.base module</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-pyecsca.sca.scope">
+<span id="pyecsca-sca-scope-package"></span><h1>pyecsca.sca.scope package<a class="headerlink" href="#module-pyecsca.sca.scope" title="Link to this heading">¶</a></h1>
+<p>Package for handling oscilloscopes for measurement of power/EM traces.</p>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.sca.scope.base.html">pyecsca.sca.scope.base module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.scope.base.html#pyecsca.sca.scope.base.SampleType"><code class="docutils literal notranslate"><span class="pre">SampleType</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.base.html#pyecsca.sca.scope.base.SampleType.Raw"><code class="docutils literal notranslate"><span class="pre">SampleType.Raw</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.base.html#pyecsca.sca.scope.base.SampleType.Volt"><code class="docutils literal notranslate"><span class="pre">SampleType.Volt</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.scope.base.html#pyecsca.sca.scope.base.Scope"><code class="docutils literal notranslate"><span class="pre">Scope</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.base.html#pyecsca.sca.scope.base.Scope.open"><code class="docutils literal notranslate"><span class="pre">Scope.open()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.base.html#pyecsca.sca.scope.base.Scope.channels"><code class="docutils literal notranslate"><span class="pre">Scope.channels</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.base.html#pyecsca.sca.scope.base.Scope.setup_frequency"><code class="docutils literal notranslate"><span class="pre">Scope.setup_frequency()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.base.html#pyecsca.sca.scope.base.Scope.setup_channel"><code class="docutils literal notranslate"><span class="pre">Scope.setup_channel()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.base.html#pyecsca.sca.scope.base.Scope.setup_trigger"><code class="docutils literal notranslate"><span class="pre">Scope.setup_trigger()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.base.html#pyecsca.sca.scope.base.Scope.setup_capture"><code class="docutils literal notranslate"><span class="pre">Scope.setup_capture()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.base.html#pyecsca.sca.scope.base.Scope.arm"><code class="docutils literal notranslate"><span class="pre">Scope.arm()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.base.html#pyecsca.sca.scope.base.Scope.capture"><code class="docutils literal notranslate"><span class="pre">Scope.capture()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.base.html#pyecsca.sca.scope.base.Scope.retrieve"><code class="docutils literal notranslate"><span class="pre">Scope.retrieve()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.base.html#pyecsca.sca.scope.base.Scope.stop"><code class="docutils literal notranslate"><span class="pre">Scope.stop()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.base.html#pyecsca.sca.scope.base.Scope.close"><code class="docutils literal notranslate"><span class="pre">Scope.close()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.sca.scope.chipwhisperer.html">pyecsca.sca.scope.chipwhisperer module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.scope.chipwhisperer.html#pyecsca.sca.scope.chipwhisperer.ChipWhispererScope"><code class="docutils literal notranslate"><span class="pre">ChipWhispererScope</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.chipwhisperer.html#pyecsca.sca.scope.chipwhisperer.ChipWhispererScope.open"><code class="docutils literal notranslate"><span class="pre">ChipWhispererScope.open()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.chipwhisperer.html#pyecsca.sca.scope.chipwhisperer.ChipWhispererScope.channels"><code class="docutils literal notranslate"><span class="pre">ChipWhispererScope.channels</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.chipwhisperer.html#pyecsca.sca.scope.chipwhisperer.ChipWhispererScope.setup_frequency"><code class="docutils literal notranslate"><span class="pre">ChipWhispererScope.setup_frequency()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.chipwhisperer.html#pyecsca.sca.scope.chipwhisperer.ChipWhispererScope.setup_channel"><code class="docutils literal notranslate"><span class="pre">ChipWhispererScope.setup_channel()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.chipwhisperer.html#pyecsca.sca.scope.chipwhisperer.ChipWhispererScope.setup_trigger"><code class="docutils literal notranslate"><span class="pre">ChipWhispererScope.setup_trigger()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.chipwhisperer.html#pyecsca.sca.scope.chipwhisperer.ChipWhispererScope.setup_capture"><code class="docutils literal notranslate"><span class="pre">ChipWhispererScope.setup_capture()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.chipwhisperer.html#pyecsca.sca.scope.chipwhisperer.ChipWhispererScope.arm"><code class="docutils literal notranslate"><span class="pre">ChipWhispererScope.arm()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.chipwhisperer.html#pyecsca.sca.scope.chipwhisperer.ChipWhispererScope.capture"><code class="docutils literal notranslate"><span class="pre">ChipWhispererScope.capture()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.chipwhisperer.html#pyecsca.sca.scope.chipwhisperer.ChipWhispererScope.retrieve"><code class="docutils literal notranslate"><span class="pre">ChipWhispererScope.retrieve()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.chipwhisperer.html#pyecsca.sca.scope.chipwhisperer.ChipWhispererScope.stop"><code class="docutils literal notranslate"><span class="pre">ChipWhispererScope.stop()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.chipwhisperer.html#pyecsca.sca.scope.chipwhisperer.ChipWhispererScope.close"><code class="docutils literal notranslate"><span class="pre">ChipWhispererScope.close()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.sca.scope.picoscope_alt.html">pyecsca.sca.scope.picoscope_alt module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.scope.picoscope_alt.html#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt"><code class="docutils literal notranslate"><span class="pre">PicoScopeAlt</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_alt.html#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.open"><code class="docutils literal notranslate"><span class="pre">PicoScopeAlt.open()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_alt.html#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.channels"><code class="docutils literal notranslate"><span class="pre">PicoScopeAlt.channels</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_alt.html#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_frequency"><code class="docutils literal notranslate"><span class="pre">PicoScopeAlt.setup_frequency()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_alt.html#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_channel"><code class="docutils literal notranslate"><span class="pre">PicoScopeAlt.setup_channel()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_alt.html#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_trigger"><code class="docutils literal notranslate"><span class="pre">PicoScopeAlt.setup_trigger()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_alt.html#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_capture"><code class="docutils literal notranslate"><span class="pre">PicoScopeAlt.setup_capture()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_alt.html#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.arm"><code class="docutils literal notranslate"><span class="pre">PicoScopeAlt.arm()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_alt.html#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.capture"><code class="docutils literal notranslate"><span class="pre">PicoScopeAlt.capture()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_alt.html#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.retrieve"><code class="docutils literal notranslate"><span class="pre">PicoScopeAlt.retrieve()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_alt.html#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.stop"><code class="docutils literal notranslate"><span class="pre">PicoScopeAlt.stop()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_alt.html#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.close"><code class="docutils literal notranslate"><span class="pre">PicoScopeAlt.close()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html">pyecsca.sca.scope.picoscope_sdk module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PicoScopeSdk"><code class="docutils literal notranslate"><span class="pre">PicoScopeSdk</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PicoScopeSdk.MODULE"><code class="docutils literal notranslate"><span class="pre">PicoScopeSdk.MODULE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PicoScopeSdk.PREFIX"><code class="docutils literal notranslate"><span class="pre">PicoScopeSdk.PREFIX</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PicoScopeSdk.CHANNELS"><code class="docutils literal notranslate"><span class="pre">PicoScopeSdk.CHANNELS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PicoScopeSdk.RANGES"><code class="docutils literal notranslate"><span class="pre">PicoScopeSdk.RANGES</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PicoScopeSdk.MAX_ADC_VALUE"><code class="docutils literal notranslate"><span class="pre">PicoScopeSdk.MAX_ADC_VALUE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PicoScopeSdk.MIN_ADC_VALUE"><code class="docutils literal notranslate"><span class="pre">PicoScopeSdk.MIN_ADC_VALUE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PicoScopeSdk.COUPLING"><code class="docutils literal notranslate"><span class="pre">PicoScopeSdk.COUPLING</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PicoScopeSdk.TIME_UNITS"><code class="docutils literal notranslate"><span class="pre">PicoScopeSdk.TIME_UNITS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PicoScopeSdk.TRIGGERS"><code class="docutils literal notranslate"><span class="pre">PicoScopeSdk.TRIGGERS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PicoScopeSdk.open"><code class="docutils literal notranslate"><span class="pre">PicoScopeSdk.open()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PicoScopeSdk.channels"><code class="docutils literal notranslate"><span class="pre">PicoScopeSdk.channels</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PicoScopeSdk.get_variant"><code class="docutils literal notranslate"><span class="pre">PicoScopeSdk.get_variant()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PicoScopeSdk.setup_frequency"><code class="docutils literal notranslate"><span class="pre">PicoScopeSdk.setup_frequency()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PicoScopeSdk.set_channel"><code class="docutils literal notranslate"><span class="pre">PicoScopeSdk.set_channel()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PicoScopeSdk.setup_channel"><code class="docutils literal notranslate"><span class="pre">PicoScopeSdk.setup_channel()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PicoScopeSdk.set_frequency"><code class="docutils literal notranslate"><span class="pre">PicoScopeSdk.set_frequency()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PicoScopeSdk.setup_trigger"><code class="docutils literal notranslate"><span class="pre">PicoScopeSdk.setup_trigger()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PicoScopeSdk.set_trigger"><code class="docutils literal notranslate"><span class="pre">PicoScopeSdk.set_trigger()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PicoScopeSdk.setup_capture"><code class="docutils literal notranslate"><span class="pre">PicoScopeSdk.setup_capture()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PicoScopeSdk.set_buffer"><code class="docutils literal notranslate"><span class="pre">PicoScopeSdk.set_buffer()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PicoScopeSdk.arm"><code class="docutils literal notranslate"><span class="pre">PicoScopeSdk.arm()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PicoScopeSdk.capture"><code class="docutils literal notranslate"><span class="pre">PicoScopeSdk.capture()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PicoScopeSdk.retrieve"><code class="docutils literal notranslate"><span class="pre">PicoScopeSdk.retrieve()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PicoScopeSdk.stop"><code class="docutils literal notranslate"><span class="pre">PicoScopeSdk.stop()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PicoScopeSdk.close"><code class="docutils literal notranslate"><span class="pre">PicoScopeSdk.close()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000Scope"><code class="docutils literal notranslate"><span class="pre">PS3000Scope</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000Scope.MODULE"><code class="docutils literal notranslate"><span class="pre">PS3000Scope.MODULE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000Scope.PREFIX"><code class="docutils literal notranslate"><span class="pre">PS3000Scope.PREFIX</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000Scope.CHANNELS"><code class="docutils literal notranslate"><span class="pre">PS3000Scope.CHANNELS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000Scope.RANGES"><code class="docutils literal notranslate"><span class="pre">PS3000Scope.RANGES</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000Scope.MAX_ADC_VALUE"><code class="docutils literal notranslate"><span class="pre">PS3000Scope.MAX_ADC_VALUE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000Scope.MIN_ADC_VALUE"><code class="docutils literal notranslate"><span class="pre">PS3000Scope.MIN_ADC_VALUE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000Scope.COUPLING"><code class="docutils literal notranslate"><span class="pre">PS3000Scope.COUPLING</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000Scope.open"><code class="docutils literal notranslate"><span class="pre">PS3000Scope.open()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000Scope.stop"><code class="docutils literal notranslate"><span class="pre">PS3000Scope.stop()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000Scope.close"><code class="docutils literal notranslate"><span class="pre">PS3000Scope.close()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000Scope.get_variant"><code class="docutils literal notranslate"><span class="pre">PS3000Scope.get_variant()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000Scope.set_frequency"><code class="docutils literal notranslate"><span class="pre">PS3000Scope.set_frequency()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000Scope.TRIGGERS"><code class="docutils literal notranslate"><span class="pre">PS3000Scope.TRIGGERS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000Scope.arm"><code class="docutils literal notranslate"><span class="pre">PS3000Scope.arm()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000Scope.capture"><code class="docutils literal notranslate"><span class="pre">PS3000Scope.capture()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000Scope.channels"><code class="docutils literal notranslate"><span class="pre">PS3000Scope.channels</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000Scope.retrieve"><code class="docutils literal notranslate"><span class="pre">PS3000Scope.retrieve()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000Scope.set_buffer"><code class="docutils literal notranslate"><span class="pre">PS3000Scope.set_buffer()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000Scope.set_channel"><code class="docutils literal notranslate"><span class="pre">PS3000Scope.set_channel()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000Scope.set_trigger"><code class="docutils literal notranslate"><span class="pre">PS3000Scope.set_trigger()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000Scope.setup_capture"><code class="docutils literal notranslate"><span class="pre">PS3000Scope.setup_capture()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000Scope.setup_channel"><code class="docutils literal notranslate"><span class="pre">PS3000Scope.setup_channel()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000Scope.setup_frequency"><code class="docutils literal notranslate"><span class="pre">PS3000Scope.setup_frequency()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000Scope.setup_trigger"><code class="docutils literal notranslate"><span class="pre">PS3000Scope.setup_trigger()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000Scope.TIME_UNITS"><code class="docutils literal notranslate"><span class="pre">PS3000Scope.TIME_UNITS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000Scope.handle"><code class="docutils literal notranslate"><span class="pre">PS3000Scope.handle</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000Scope.frequency"><code class="docutils literal notranslate"><span class="pre">PS3000Scope.frequency</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000Scope.pretrig"><code class="docutils literal notranslate"><span class="pre">PS3000Scope.pretrig</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000Scope.posttrig"><code class="docutils literal notranslate"><span class="pre">PS3000Scope.posttrig</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000Scope.samples"><code class="docutils literal notranslate"><span class="pre">PS3000Scope.samples</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000Scope.timebase"><code class="docutils literal notranslate"><span class="pre">PS3000Scope.timebase</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000Scope.buffers"><code class="docutils literal notranslate"><span class="pre">PS3000Scope.buffers</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000Scope.ranges"><code class="docutils literal notranslate"><span class="pre">PS3000Scope.ranges</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000aScope"><code class="docutils literal notranslate"><span class="pre">PS3000aScope</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000aScope.MODULE"><code class="docutils literal notranslate"><span class="pre">PS3000aScope.MODULE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000aScope.PREFIX"><code class="docutils literal notranslate"><span class="pre">PS3000aScope.PREFIX</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000aScope.CHANNELS"><code class="docutils literal notranslate"><span class="pre">PS3000aScope.CHANNELS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000aScope.RANGES"><code class="docutils literal notranslate"><span class="pre">PS3000aScope.RANGES</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000aScope.MAX_ADC_VALUE"><code class="docutils literal notranslate"><span class="pre">PS3000aScope.MAX_ADC_VALUE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000aScope.MIN_ADC_VALUE"><code class="docutils literal notranslate"><span class="pre">PS3000aScope.MIN_ADC_VALUE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000aScope.COUPLING"><code class="docutils literal notranslate"><span class="pre">PS3000aScope.COUPLING</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000aScope.open"><code class="docutils literal notranslate"><span class="pre">PS3000aScope.open()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000aScope.set_channel"><code class="docutils literal notranslate"><span class="pre">PS3000aScope.set_channel()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000aScope.set_buffer"><code class="docutils literal notranslate"><span class="pre">PS3000aScope.set_buffer()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000aScope.set_frequency"><code class="docutils literal notranslate"><span class="pre">PS3000aScope.set_frequency()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000aScope.TRIGGERS"><code class="docutils literal notranslate"><span class="pre">PS3000aScope.TRIGGERS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000aScope.arm"><code class="docutils literal notranslate"><span class="pre">PS3000aScope.arm()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000aScope.capture"><code class="docutils literal notranslate"><span class="pre">PS3000aScope.capture()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000aScope.channels"><code class="docutils literal notranslate"><span class="pre">PS3000aScope.channels</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000aScope.close"><code class="docutils literal notranslate"><span class="pre">PS3000aScope.close()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000aScope.get_variant"><code class="docutils literal notranslate"><span class="pre">PS3000aScope.get_variant()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000aScope.retrieve"><code class="docutils literal notranslate"><span class="pre">PS3000aScope.retrieve()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000aScope.set_trigger"><code class="docutils literal notranslate"><span class="pre">PS3000aScope.set_trigger()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000aScope.setup_capture"><code class="docutils literal notranslate"><span class="pre">PS3000aScope.setup_capture()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000aScope.setup_channel"><code class="docutils literal notranslate"><span class="pre">PS3000aScope.setup_channel()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000aScope.setup_frequency"><code class="docutils literal notranslate"><span class="pre">PS3000aScope.setup_frequency()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000aScope.setup_trigger"><code class="docutils literal notranslate"><span class="pre">PS3000aScope.setup_trigger()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000aScope.stop"><code class="docutils literal notranslate"><span class="pre">PS3000aScope.stop()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000aScope.TIME_UNITS"><code class="docutils literal notranslate"><span class="pre">PS3000aScope.TIME_UNITS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000aScope.handle"><code class="docutils literal notranslate"><span class="pre">PS3000aScope.handle</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000aScope.frequency"><code class="docutils literal notranslate"><span class="pre">PS3000aScope.frequency</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000aScope.pretrig"><code class="docutils literal notranslate"><span class="pre">PS3000aScope.pretrig</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000aScope.posttrig"><code class="docutils literal notranslate"><span class="pre">PS3000aScope.posttrig</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000aScope.samples"><code class="docutils literal notranslate"><span class="pre">PS3000aScope.samples</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000aScope.timebase"><code class="docutils literal notranslate"><span class="pre">PS3000aScope.timebase</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000aScope.buffers"><code class="docutils literal notranslate"><span class="pre">PS3000aScope.buffers</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS3000aScope.ranges"><code class="docutils literal notranslate"><span class="pre">PS3000aScope.ranges</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS4000Scope"><code class="docutils literal notranslate"><span class="pre">PS4000Scope</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS4000Scope.MODULE"><code class="docutils literal notranslate"><span class="pre">PS4000Scope.MODULE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS4000Scope.PREFIX"><code class="docutils literal notranslate"><span class="pre">PS4000Scope.PREFIX</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS4000Scope.CHANNELS"><code class="docutils literal notranslate"><span class="pre">PS4000Scope.CHANNELS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS4000Scope.RANGES"><code class="docutils literal notranslate"><span class="pre">PS4000Scope.RANGES</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS4000Scope.MAX_ADC_VALUE"><code class="docutils literal notranslate"><span class="pre">PS4000Scope.MAX_ADC_VALUE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS4000Scope.MIN_ADC_VALUE"><code class="docutils literal notranslate"><span class="pre">PS4000Scope.MIN_ADC_VALUE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS4000Scope.COUPLING"><code class="docutils literal notranslate"><span class="pre">PS4000Scope.COUPLING</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS4000Scope.set_frequency"><code class="docutils literal notranslate"><span class="pre">PS4000Scope.set_frequency()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS4000Scope.TRIGGERS"><code class="docutils literal notranslate"><span class="pre">PS4000Scope.TRIGGERS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS4000Scope.arm"><code class="docutils literal notranslate"><span class="pre">PS4000Scope.arm()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS4000Scope.capture"><code class="docutils literal notranslate"><span class="pre">PS4000Scope.capture()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS4000Scope.channels"><code class="docutils literal notranslate"><span class="pre">PS4000Scope.channels</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS4000Scope.close"><code class="docutils literal notranslate"><span class="pre">PS4000Scope.close()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS4000Scope.get_variant"><code class="docutils literal notranslate"><span class="pre">PS4000Scope.get_variant()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS4000Scope.open"><code class="docutils literal notranslate"><span class="pre">PS4000Scope.open()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS4000Scope.retrieve"><code class="docutils literal notranslate"><span class="pre">PS4000Scope.retrieve()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS4000Scope.set_buffer"><code class="docutils literal notranslate"><span class="pre">PS4000Scope.set_buffer()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS4000Scope.set_channel"><code class="docutils literal notranslate"><span class="pre">PS4000Scope.set_channel()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS4000Scope.set_trigger"><code class="docutils literal notranslate"><span class="pre">PS4000Scope.set_trigger()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS4000Scope.setup_capture"><code class="docutils literal notranslate"><span class="pre">PS4000Scope.setup_capture()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS4000Scope.setup_channel"><code class="docutils literal notranslate"><span class="pre">PS4000Scope.setup_channel()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS4000Scope.setup_frequency"><code class="docutils literal notranslate"><span class="pre">PS4000Scope.setup_frequency()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS4000Scope.setup_trigger"><code class="docutils literal notranslate"><span class="pre">PS4000Scope.setup_trigger()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS4000Scope.stop"><code class="docutils literal notranslate"><span class="pre">PS4000Scope.stop()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS4000Scope.TIME_UNITS"><code class="docutils literal notranslate"><span class="pre">PS4000Scope.TIME_UNITS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS4000Scope.handle"><code class="docutils literal notranslate"><span class="pre">PS4000Scope.handle</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS4000Scope.frequency"><code class="docutils literal notranslate"><span class="pre">PS4000Scope.frequency</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS4000Scope.pretrig"><code class="docutils literal notranslate"><span class="pre">PS4000Scope.pretrig</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS4000Scope.posttrig"><code class="docutils literal notranslate"><span class="pre">PS4000Scope.posttrig</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS4000Scope.samples"><code class="docutils literal notranslate"><span class="pre">PS4000Scope.samples</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS4000Scope.timebase"><code class="docutils literal notranslate"><span class="pre">PS4000Scope.timebase</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS4000Scope.buffers"><code class="docutils literal notranslate"><span class="pre">PS4000Scope.buffers</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS4000Scope.ranges"><code class="docutils literal notranslate"><span class="pre">PS4000Scope.ranges</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS5000Scope"><code class="docutils literal notranslate"><span class="pre">PS5000Scope</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS5000Scope.MODULE"><code class="docutils literal notranslate"><span class="pre">PS5000Scope.MODULE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS5000Scope.PREFIX"><code class="docutils literal notranslate"><span class="pre">PS5000Scope.PREFIX</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS5000Scope.CHANNELS"><code class="docutils literal notranslate"><span class="pre">PS5000Scope.CHANNELS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS5000Scope.RANGES"><code class="docutils literal notranslate"><span class="pre">PS5000Scope.RANGES</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS5000Scope.MAX_ADC_VALUE"><code class="docutils literal notranslate"><span class="pre">PS5000Scope.MAX_ADC_VALUE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS5000Scope.MIN_ADC_VALUE"><code class="docutils literal notranslate"><span class="pre">PS5000Scope.MIN_ADC_VALUE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS5000Scope.COUPLING"><code class="docutils literal notranslate"><span class="pre">PS5000Scope.COUPLING</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS5000Scope.set_frequency"><code class="docutils literal notranslate"><span class="pre">PS5000Scope.set_frequency()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS5000Scope.TRIGGERS"><code class="docutils literal notranslate"><span class="pre">PS5000Scope.TRIGGERS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS5000Scope.arm"><code class="docutils literal notranslate"><span class="pre">PS5000Scope.arm()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS5000Scope.capture"><code class="docutils literal notranslate"><span class="pre">PS5000Scope.capture()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS5000Scope.channels"><code class="docutils literal notranslate"><span class="pre">PS5000Scope.channels</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS5000Scope.close"><code class="docutils literal notranslate"><span class="pre">PS5000Scope.close()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS5000Scope.get_variant"><code class="docutils literal notranslate"><span class="pre">PS5000Scope.get_variant()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS5000Scope.open"><code class="docutils literal notranslate"><span class="pre">PS5000Scope.open()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS5000Scope.retrieve"><code class="docutils literal notranslate"><span class="pre">PS5000Scope.retrieve()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS5000Scope.set_buffer"><code class="docutils literal notranslate"><span class="pre">PS5000Scope.set_buffer()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS5000Scope.set_channel"><code class="docutils literal notranslate"><span class="pre">PS5000Scope.set_channel()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS5000Scope.set_trigger"><code class="docutils literal notranslate"><span class="pre">PS5000Scope.set_trigger()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS5000Scope.setup_capture"><code class="docutils literal notranslate"><span class="pre">PS5000Scope.setup_capture()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS5000Scope.setup_channel"><code class="docutils literal notranslate"><span class="pre">PS5000Scope.setup_channel()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS5000Scope.setup_frequency"><code class="docutils literal notranslate"><span class="pre">PS5000Scope.setup_frequency()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS5000Scope.setup_trigger"><code class="docutils literal notranslate"><span class="pre">PS5000Scope.setup_trigger()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS5000Scope.stop"><code class="docutils literal notranslate"><span class="pre">PS5000Scope.stop()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS5000Scope.TIME_UNITS"><code class="docutils literal notranslate"><span class="pre">PS5000Scope.TIME_UNITS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS5000Scope.handle"><code class="docutils literal notranslate"><span class="pre">PS5000Scope.handle</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS5000Scope.frequency"><code class="docutils literal notranslate"><span class="pre">PS5000Scope.frequency</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS5000Scope.pretrig"><code class="docutils literal notranslate"><span class="pre">PS5000Scope.pretrig</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS5000Scope.posttrig"><code class="docutils literal notranslate"><span class="pre">PS5000Scope.posttrig</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS5000Scope.samples"><code class="docutils literal notranslate"><span class="pre">PS5000Scope.samples</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS5000Scope.timebase"><code class="docutils literal notranslate"><span class="pre">PS5000Scope.timebase</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS5000Scope.buffers"><code class="docutils literal notranslate"><span class="pre">PS5000Scope.buffers</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS5000Scope.ranges"><code class="docutils literal notranslate"><span class="pre">PS5000Scope.ranges</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS6000Scope"><code class="docutils literal notranslate"><span class="pre">PS6000Scope</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS6000Scope.MODULE"><code class="docutils literal notranslate"><span class="pre">PS6000Scope.MODULE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS6000Scope.PREFIX"><code class="docutils literal notranslate"><span class="pre">PS6000Scope.PREFIX</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS6000Scope.CHANNELS"><code class="docutils literal notranslate"><span class="pre">PS6000Scope.CHANNELS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS6000Scope.RANGES"><code class="docutils literal notranslate"><span class="pre">PS6000Scope.RANGES</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS6000Scope.MAX_ADC_VALUE"><code class="docutils literal notranslate"><span class="pre">PS6000Scope.MAX_ADC_VALUE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS6000Scope.MIN_ADC_VALUE"><code class="docutils literal notranslate"><span class="pre">PS6000Scope.MIN_ADC_VALUE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS6000Scope.TRIGGERS"><code class="docutils literal notranslate"><span class="pre">PS6000Scope.TRIGGERS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS6000Scope.arm"><code class="docutils literal notranslate"><span class="pre">PS6000Scope.arm()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS6000Scope.capture"><code class="docutils literal notranslate"><span class="pre">PS6000Scope.capture()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS6000Scope.channels"><code class="docutils literal notranslate"><span class="pre">PS6000Scope.channels</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS6000Scope.close"><code class="docutils literal notranslate"><span class="pre">PS6000Scope.close()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS6000Scope.get_variant"><code class="docutils literal notranslate"><span class="pre">PS6000Scope.get_variant()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS6000Scope.retrieve"><code class="docutils literal notranslate"><span class="pre">PS6000Scope.retrieve()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS6000Scope.set_trigger"><code class="docutils literal notranslate"><span class="pre">PS6000Scope.set_trigger()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS6000Scope.setup_capture"><code class="docutils literal notranslate"><span class="pre">PS6000Scope.setup_capture()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS6000Scope.setup_channel"><code class="docutils literal notranslate"><span class="pre">PS6000Scope.setup_channel()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS6000Scope.setup_frequency"><code class="docutils literal notranslate"><span class="pre">PS6000Scope.setup_frequency()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS6000Scope.setup_trigger"><code class="docutils literal notranslate"><span class="pre">PS6000Scope.setup_trigger()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS6000Scope.stop"><code class="docutils literal notranslate"><span class="pre">PS6000Scope.stop()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS6000Scope.TIME_UNITS"><code class="docutils literal notranslate"><span class="pre">PS6000Scope.TIME_UNITS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS6000Scope.handle"><code class="docutils literal notranslate"><span class="pre">PS6000Scope.handle</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS6000Scope.frequency"><code class="docutils literal notranslate"><span class="pre">PS6000Scope.frequency</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS6000Scope.pretrig"><code class="docutils literal notranslate"><span class="pre">PS6000Scope.pretrig</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS6000Scope.posttrig"><code class="docutils literal notranslate"><span class="pre">PS6000Scope.posttrig</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS6000Scope.samples"><code class="docutils literal notranslate"><span class="pre">PS6000Scope.samples</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS6000Scope.timebase"><code class="docutils literal notranslate"><span class="pre">PS6000Scope.timebase</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS6000Scope.buffers"><code class="docutils literal notranslate"><span class="pre">PS6000Scope.buffers</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS6000Scope.ranges"><code class="docutils literal notranslate"><span class="pre">PS6000Scope.ranges</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS6000Scope.COUPLING"><code class="docutils literal notranslate"><span class="pre">PS6000Scope.COUPLING</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS6000Scope.open"><code class="docutils literal notranslate"><span class="pre">PS6000Scope.open()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS6000Scope.set_channel"><code class="docutils literal notranslate"><span class="pre">PS6000Scope.set_channel()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS6000Scope.set_buffer"><code class="docutils literal notranslate"><span class="pre">PS6000Scope.set_buffer()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.scope.picoscope_sdk.html#pyecsca.sca.scope.picoscope_sdk.PS6000Scope.set_frequency"><code class="docutils literal notranslate"><span class="pre">PS6000Scope.set_frequency()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;2018-2024, Jan Jancar.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.5</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../_sources/api/pyecsca.sca.scope.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

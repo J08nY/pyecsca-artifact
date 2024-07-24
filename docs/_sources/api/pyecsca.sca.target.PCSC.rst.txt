@@ -1,0 +1,7 @@
+pyecsca.sca.target.PCSC module
+==============================
+
+.. automodule:: pyecsca.sca.target.PCSC
+   :members:
+   :undoc-members:
+   :show-inheritance:

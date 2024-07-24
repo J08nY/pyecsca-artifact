@@ -1,0 +1,7 @@
+pyecsca.codegen.builder module
+==============================
+
+.. automodule:: pyecsca.codegen.builder
+   :members:
+   :undoc-members:
+   :show-inheritance:

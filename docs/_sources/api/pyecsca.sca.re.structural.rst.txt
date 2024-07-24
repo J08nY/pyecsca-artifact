@@ -1,0 +1,7 @@
+pyecsca.sca.re.structural module
+================================
+
+.. automodule:: pyecsca.sca.re.structural
+   :members:
+   :undoc-members:
+   :show-inheritance:

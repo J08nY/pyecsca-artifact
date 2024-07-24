@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>pyecsca.sca.trace package &#8212; pyecsca 0.3.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d10597a4" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=bf281230" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_paramlinks.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=de02a091" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" />
+    <script src="../_static/documentation_options.js?v=71d9d8e6"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/logo_black.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pyecsca.sca.trace.align module" href="pyecsca.sca.trace.align.html" />
+    <link rel="prev" title="pyecsca.sca.target.simpleserial module" href="pyecsca.sca.target.simpleserial.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo_black.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">pyecsca</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html"><span class="fas fa-screwdriver-wrench fa-fw"></span> Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks.html"><span class="fas fa-hand-pointer fa-fw"></span> Notebooks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.html">pyecsca.ec package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.misc.html">pyecsca.misc package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="pyecsca.sca.html">pyecsca.sca package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.html">pyecsca.codegen package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries.html"><span class="fas fa-server fa-fw"></span> ECC in Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html"><span class="fas fa-asterisk fa-fw"></span> References</a></li>
+</ul>
+
+<ul style="margin-top: 1em">
+    <li class="toctree-l1"><a href="https://github.com/J08nY/pyecsca/"><i class="fab fa-fw fa-github"></i> Source code</a></li>
+    <li class="toctree-l1"><a href="https://pypi.org/project/pyecsca/"><i class="fas fa-fw fa-file"></i> Releases</a></li>
+</ul><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul>
+  <li><a href="pyecsca.sca.html">pyecsca.sca package</a><ul>
+      <li>Previous: <a href="pyecsca.sca.target.simpleserial.html" title="previous chapter">pyecsca.sca.target.simpleserial module</a></li>
+      <li>Next: <a href="pyecsca.sca.trace.align.html" title="next chapter">pyecsca.sca.trace.align module</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-pyecsca.sca.trace">
+<span id="pyecsca-sca-trace-package"></span><h1>pyecsca.sca.trace package<a class="headerlink" href="#module-pyecsca.sca.trace" title="Link to this heading">¶</a></h1>
+<p>Package for manipulating traces.</p>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.sca.trace.align.html">pyecsca.sca.trace.align module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.align.html#pyecsca.sca.trace.align.align_correlation"><code class="docutils literal notranslate"><span class="pre">align_correlation()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.align.html#pyecsca.sca.trace.align.align_peaks"><code class="docutils literal notranslate"><span class="pre">align_peaks()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.align.html#pyecsca.sca.trace.align.align_offset"><code class="docutils literal notranslate"><span class="pre">align_offset()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.align.html#pyecsca.sca.trace.align.align_sad"><code class="docutils literal notranslate"><span class="pre">align_sad()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.align.html#pyecsca.sca.trace.align.align_dtw_scale"><code class="docutils literal notranslate"><span class="pre">align_dtw_scale()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.align.html#pyecsca.sca.trace.align.align_dtw"><code class="docutils literal notranslate"><span class="pre">align_dtw()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.sca.trace.combine.html">pyecsca.sca.trace.combine module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.combine.html#pyecsca.sca.trace.combine.average"><code class="docutils literal notranslate"><span class="pre">average()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.combine.html#pyecsca.sca.trace.combine.conditional_average"><code class="docutils literal notranslate"><span class="pre">conditional_average()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.combine.html#pyecsca.sca.trace.combine.standard_deviation"><code class="docutils literal notranslate"><span class="pre">standard_deviation()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.combine.html#pyecsca.sca.trace.combine.variance"><code class="docutils literal notranslate"><span class="pre">variance()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.combine.html#pyecsca.sca.trace.combine.average_and_variance"><code class="docutils literal notranslate"><span class="pre">average_and_variance()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.combine.html#pyecsca.sca.trace.combine.add"><code class="docutils literal notranslate"><span class="pre">add()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.combine.html#pyecsca.sca.trace.combine.subtract"><code class="docutils literal notranslate"><span class="pre">subtract()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.sca.trace.edit.html">pyecsca.sca.trace.edit module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.edit.html#pyecsca.sca.trace.edit.trim"><code class="docutils literal notranslate"><span class="pre">trim()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.edit.html#pyecsca.sca.trace.edit.reverse"><code class="docutils literal notranslate"><span class="pre">reverse()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.edit.html#pyecsca.sca.trace.edit.pad"><code class="docutils literal notranslate"><span class="pre">pad()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.edit.html#pyecsca.sca.trace.edit.stretch"><code class="docutils literal notranslate"><span class="pre">stretch()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.sca.trace.filter.html">pyecsca.sca.trace.filter module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.filter.html#pyecsca.sca.trace.filter.filter_lowpass"><code class="docutils literal notranslate"><span class="pre">filter_lowpass()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.filter.html#pyecsca.sca.trace.filter.filter_highpass"><code class="docutils literal notranslate"><span class="pre">filter_highpass()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.filter.html#pyecsca.sca.trace.filter.filter_bandpass"><code class="docutils literal notranslate"><span class="pre">filter_bandpass()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.filter.html#pyecsca.sca.trace.filter.filter_bandstop"><code class="docutils literal notranslate"><span class="pre">filter_bandstop()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.sca.trace.match.html">pyecsca.sca.trace.match module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.match.html#pyecsca.sca.trace.match.match_pattern"><code class="docutils literal notranslate"><span class="pre">match_pattern()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.match.html#pyecsca.sca.trace.match.match_part"><code class="docutils literal notranslate"><span class="pre">match_part()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.sca.trace.plot.html">pyecsca.sca.trace.plot module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.plot.html#pyecsca.sca.trace.plot.save_figure"><code class="docutils literal notranslate"><span class="pre">save_figure()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.plot.html#pyecsca.sca.trace.plot.save_figure_png"><code class="docutils literal notranslate"><span class="pre">save_figure_png()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.plot.html#pyecsca.sca.trace.plot.save_figure_svg"><code class="docutils literal notranslate"><span class="pre">save_figure_svg()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.plot.html#pyecsca.sca.trace.plot.plot_trace"><code class="docutils literal notranslate"><span class="pre">plot_trace()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.plot.html#pyecsca.sca.trace.plot.plot_traces"><code class="docutils literal notranslate"><span class="pre">plot_traces()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.sca.trace.process.html">pyecsca.sca.trace.process module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.process.html#pyecsca.sca.trace.process.absolute"><code class="docutils literal notranslate"><span class="pre">absolute()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.process.html#pyecsca.sca.trace.process.invert"><code class="docutils literal notranslate"><span class="pre">invert()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.process.html#pyecsca.sca.trace.process.threshold"><code class="docutils literal notranslate"><span class="pre">threshold()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.process.html#pyecsca.sca.trace.process.rolling_mean"><code class="docutils literal notranslate"><span class="pre">rolling_mean()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.process.html#pyecsca.sca.trace.process.offset"><code class="docutils literal notranslate"><span class="pre">offset()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.process.html#pyecsca.sca.trace.process.recenter"><code class="docutils literal notranslate"><span class="pre">recenter()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.process.html#pyecsca.sca.trace.process.normalize"><code class="docutils literal notranslate"><span class="pre">normalize()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.process.html#pyecsca.sca.trace.process.normalize_wl"><code class="docutils literal notranslate"><span class="pre">normalize_wl()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.process.html#pyecsca.sca.trace.process.transform"><code class="docutils literal notranslate"><span class="pre">transform()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.sca.trace.sampling.html">pyecsca.sca.trace.sampling module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.sampling.html#pyecsca.sca.trace.sampling.downsample_average"><code class="docutils literal notranslate"><span class="pre">downsample_average()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.sampling.html#pyecsca.sca.trace.sampling.downsample_pick"><code class="docutils literal notranslate"><span class="pre">downsample_pick()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.sampling.html#pyecsca.sca.trace.sampling.downsample_max"><code class="docutils literal notranslate"><span class="pre">downsample_max()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.sampling.html#pyecsca.sca.trace.sampling.downsample_min"><code class="docutils literal notranslate"><span class="pre">downsample_min()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.sampling.html#pyecsca.sca.trace.sampling.downsample_decimate"><code class="docutils literal notranslate"><span class="pre">downsample_decimate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.sca.trace.test.html">pyecsca.sca.trace.test module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.test.html#pyecsca.sca.trace.test.welch_ttest"><code class="docutils literal notranslate"><span class="pre">welch_ttest()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.test.html#pyecsca.sca.trace.test.student_ttest"><code class="docutils literal notranslate"><span class="pre">student_ttest()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.test.html#pyecsca.sca.trace.test.ks_test"><code class="docutils literal notranslate"><span class="pre">ks_test()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.sca.trace.trace.html">pyecsca.sca.trace.trace module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.trace.html#pyecsca.sca.trace.trace.Trace"><code class="docutils literal notranslate"><span class="pre">Trace</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace.trace.html#pyecsca.sca.trace.trace.Trace.meta"><code class="docutils literal notranslate"><span class="pre">Trace.meta</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace.trace.html#pyecsca.sca.trace.trace.Trace.samples"><code class="docutils literal notranslate"><span class="pre">Trace.samples</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace.trace.html#pyecsca.sca.trace.trace.Trace.trace_set"><code class="docutils literal notranslate"><span class="pre">Trace.trace_set</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace.trace.html#pyecsca.sca.trace.trace.Trace.with_samples"><code class="docutils literal notranslate"><span class="pre">Trace.with_samples()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace.trace.html#pyecsca.sca.trace.trace.Trace.astype"><code class="docutils literal notranslate"><span class="pre">Trace.astype()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.trace.trace.html#pyecsca.sca.trace.trace.CombinedTrace"><code class="docutils literal notranslate"><span class="pre">CombinedTrace</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace.trace.html#pyecsca.sca.trace.trace.CombinedTrace.astype"><code class="docutils literal notranslate"><span class="pre">CombinedTrace.astype()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace.trace.html#pyecsca.sca.trace.trace.CombinedTrace.trace_set"><code class="docutils literal notranslate"><span class="pre">CombinedTrace.trace_set</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace.trace.html#pyecsca.sca.trace.trace.CombinedTrace.with_samples"><code class="docutils literal notranslate"><span class="pre">CombinedTrace.with_samples()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace.trace.html#pyecsca.sca.trace.trace.CombinedTrace.meta"><code class="docutils literal notranslate"><span class="pre">CombinedTrace.meta</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.trace.trace.html#pyecsca.sca.trace.trace.CombinedTrace.samples"><code class="docutils literal notranslate"><span class="pre">CombinedTrace.samples</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;2018-2024, Jan Jancar.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.5</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../_sources/api/pyecsca.sca.trace.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

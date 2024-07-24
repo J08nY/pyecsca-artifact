@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Simulation &#8212; pyecsca 0.3.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d10597a4" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=bf281230" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_paramlinks.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=de02a091" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" />
+    <script src="../_static/documentation_options.js?v=71d9d8e6"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="icon" href="../_static/logo_black.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Code generation" href="codegen.html" />
+    <link rel="prev" title="Configuration space" href="configuration_space.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo_black.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">pyecsca</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html"><span class="fas fa-screwdriver-wrench fa-fw"></span> Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../notebooks.html"><span class="fas fa-hand-pointer fa-fw"></span> Notebooks</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="configuration_space.html">Configuration space</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="codegen.html">Code generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="emulator.html">Emulation and leakage simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="measurement.html">Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smartcards.html">Smartcards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="re/formulas.html">Exploration of formulas in open-source ECC libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="re/rpa.html">RPA-based reverse-engineering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="re/zvp.html">ZVP-based reverse-engineering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="re/epa.html">EPA-based reverse engineering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries.html"><span class="fas fa-server fa-fw"></span> ECC in Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html"><span class="fas fa-asterisk fa-fw"></span> References</a></li>
+</ul>
+
+<ul style="margin-top: 1em">
+    <li class="toctree-l1"><a href="https://github.com/J08nY/pyecsca/"><i class="fab fa-fw fa-github"></i> Source code</a></li>
+    <li class="toctree-l1"><a href="https://pypi.org/project/pyecsca/"><i class="fas fa-fw fa-file"></i> Releases</a></li>
+</ul><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../notebooks.html"><span class="fas fa-hand-pointer fa-fw"></span> Notebooks</a><ul>
+      <li>Previous: <a href="configuration_space.html" title="previous chapter">Configuration space</a></li>
+      <li>Next: <a href="codegen.html" title="next chapter">Code generation</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <a href="https://mybinder.org/v2/gh/J08nY/pyecsca-notebook/HEAD?labpath=simulation.ipynb" class="sd-badge sd-outline-primary">MyBinder</a><section id="Simulation">
+<h1>Simulation<a class="headerlink" href="#Simulation" title="Link to this heading">¶</a></h1>
+<p><strong>pyecsca</strong> is able to simulate computation of key generation, ECDH and ECDSA while tracing particular actions performed by the implementation as well as intermediate values. These traces are collected by the context (see the <code class="docutils literal notranslate"><span class="pre">Context</span></code> and <code class="docutils literal notranslate"><span class="pre">DefaultContext</span></code> classes). There is always one context active. For performance reasons, by default no context is active.</p>
+<p>These traces are useful for attacks which rely on computing particular intermediate values during the ECC computation.</p>
+<section id="Initialisation">
+<h2>Initialisation<a class="headerlink" href="#Initialisation" title="Link to this heading">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">binascii</span> <span class="kn">import</span> <span class="n">hexlify</span>
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">copy</span>
+
+<span class="kn">from</span> <span class="nn">pyecsca.ec.key_generation</span> <span class="kn">import</span> <span class="n">KeyGeneration</span>
+<span class="kn">from</span> <span class="nn">pyecsca.ec.key_agreement</span> <span class="kn">import</span> <span class="n">ECDH_SHA1</span>
+<span class="kn">from</span> <span class="nn">pyecsca.ec.signature</span> <span class="kn">import</span> <span class="n">ECDSA_SHA1</span>
+<span class="kn">from</span> <span class="nn">pyecsca.ec.params</span> <span class="kn">import</span> <span class="n">get_params</span>
+<span class="kn">from</span> <span class="nn">pyecsca.ec.mult</span> <span class="kn">import</span> <span class="n">LTRMultiplier</span>
+<span class="kn">from</span> <span class="nn">pyecsca.ec.context</span> <span class="kn">import</span> <span class="n">DefaultContext</span><span class="p">,</span> <span class="n">local</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p256</span> <span class="o">=</span> <span class="n">get_params</span><span class="p">(</span><span class="s2">&quot;secg&quot;</span><span class="p">,</span> <span class="s2">&quot;secp256r1&quot;</span><span class="p">,</span> <span class="s2">&quot;projective&quot;</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">p256</span><span class="o">.</span><span class="n">curve</span><span class="o">.</span><span class="n">model</span>
+<span class="n">coords</span> <span class="o">=</span> <span class="n">p256</span><span class="o">.</span><span class="n">curve</span><span class="o">.</span><span class="n">coordinate_model</span>
+
+<span class="n">add</span> <span class="o">=</span> <span class="n">coords</span><span class="o">.</span><span class="n">formulas</span><span class="p">[</span><span class="s2">&quot;add-2007-bl&quot;</span><span class="p">]</span>
+<span class="n">dbl</span> <span class="o">=</span> <span class="n">coords</span><span class="o">.</span><span class="n">formulas</span><span class="p">[</span><span class="s2">&quot;dbl-2007-bl&quot;</span><span class="p">]</span>
+
+<span class="n">mult</span> <span class="o">=</span> <span class="n">LTRMultiplier</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="n">dbl</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Key-generation">
+<h2>Key generation<a class="headerlink" href="#Key-generation" title="Link to this heading">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">keygen</span> <span class="o">=</span> <span class="n">KeyGeneration</span><span class="p">(</span><span class="n">copy</span><span class="p">(</span><span class="n">mult</span><span class="p">),</span> <span class="n">p256</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">local</span><span class="p">(</span><span class="n">DefaultContext</span><span class="p">())</span> <span class="k">as</span> <span class="n">keygen_ctx</span><span class="p">:</span>
+    <span class="n">private</span><span class="p">,</span> <span class="n">public</span> <span class="o">=</span> <span class="n">keygen</span><span class="o">.</span><span class="n">generate</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">private</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">public</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">keygen_ctx</span><span class="o">.</span><span class="n">actions</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Signing">
+<h2>Signing<a class="headerlink" href="#Signing" title="Link to this heading">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ecdsa</span> <span class="o">=</span> <span class="n">ECDSA_SHA1</span><span class="p">(</span><span class="n">copy</span><span class="p">(</span><span class="n">mult</span><span class="p">),</span> <span class="n">p256</span><span class="p">,</span> <span class="n">add</span><span class="p">,</span> <span class="n">public</span><span class="p">,</span> <span class="n">private</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;something&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">local</span><span class="p">(</span><span class="n">DefaultContext</span><span class="p">())</span> <span class="k">as</span> <span class="n">sign_ctx</span><span class="p">:</span>
+    <span class="n">signature</span> <span class="o">=</span> <span class="n">ecdsa</span><span class="o">.</span><span class="n">sign_data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">signature</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sign_ctx</span><span class="o">.</span><span class="n">actions</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">local</span><span class="p">(</span><span class="n">DefaultContext</span><span class="p">())</span> <span class="k">as</span> <span class="n">verify_ctx</span><span class="p">:</span>
+    <span class="n">verified</span> <span class="o">=</span> <span class="n">ecdsa</span><span class="o">.</span><span class="n">verify_data</span><span class="p">(</span><span class="n">signature</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">verified</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">verify_ctx</span><span class="o">.</span><span class="n">actions</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Key-agreement">
+<h2>Key agreement<a class="headerlink" href="#Key-agreement" title="Link to this heading">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">other_private</span><span class="p">,</span> <span class="n">other_public</span> <span class="o">=</span> <span class="n">keygen</span><span class="o">.</span><span class="n">generate</span><span class="p">()</span>
+
+<span class="n">ecdh_a</span> <span class="o">=</span> <span class="n">ECDH_SHA1</span><span class="p">(</span><span class="n">copy</span><span class="p">(</span><span class="n">mult</span><span class="p">),</span> <span class="n">p256</span><span class="p">,</span> <span class="n">public</span><span class="p">,</span> <span class="n">other_private</span><span class="p">)</span>
+<span class="n">ecdh_b</span> <span class="o">=</span> <span class="n">ECDH_SHA1</span><span class="p">(</span><span class="n">copy</span><span class="p">(</span><span class="n">mult</span><span class="p">),</span> <span class="n">p256</span><span class="p">,</span> <span class="n">other_public</span><span class="p">,</span> <span class="n">private</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">local</span><span class="p">(</span><span class="n">DefaultContext</span><span class="p">())</span> <span class="k">as</span> <span class="n">ecdh_ctx</span><span class="p">:</span>
+    <span class="n">ecdh_a_result</span> <span class="o">=</span> <span class="n">ecdh_a</span><span class="o">.</span><span class="n">perform</span><span class="p">()</span>
+    <span class="n">ecdh_b_result</span> <span class="o">=</span> <span class="n">ecdh_b</span><span class="o">.</span><span class="n">perform</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">hexlify</span><span class="p">(</span><span class="n">ecdh_a_result</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">hexlify</span><span class="p">(</span><span class="n">ecdh_b_result</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ecdh_a_result</span> <span class="o">==</span> <span class="n">ecdh_b_result</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ecdh_ctx</span><span class="o">.</span><span class="n">actions</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Walking-the-trace">
+<h2>Walking the trace<a class="headerlink" href="#Walking-the-trace" title="Link to this heading">¶</a></h2>
+<p>As visible from the outputs above, <code class="docutils literal notranslate"><span class="pre">DefaultContext</span></code> traces the actions performed by the implementation in an ordered tree where the child relationship means that some actions happened during another action and order of children gives the order of operations. In the above example of ECDH, two ECDH executions are visible, each consisting of one scalar multuplication which consists of several applications of <code class="docutils literal notranslate"><span class="pre">add</span></code> and <code class="docutils literal notranslate"><span class="pre">dbl</span></code> formulas.</p>
+<p>We can examine this tree in the first ECDH execution and see that the scalar multiplier used was not setup to be regular (see <code class="docutils literal notranslate"><span class="pre">LTRMultiplier</span></code> argument <code class="docutils literal notranslate"><span class="pre">always</span></code>) and that the order of operations leaks bits of the scalar. This fact will be easily exploitable on a power trace via SPA.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_ecdh</span> <span class="o">=</span> <span class="n">ecdh_ctx</span><span class="o">.</span><span class="n">actions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">second_ecdh</span> <span class="o">=</span> <span class="n">ecdh_ctx</span><span class="o">.</span><span class="n">actions</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">ecdh</span> <span class="o">=</span> <span class="n">first_ecdh</span><span class="o">.</span><span class="n">get_by_index</span><span class="p">([])</span>
+<span class="n">scalarmult</span> <span class="o">=</span> <span class="n">first_ecdh</span><span class="o">.</span><span class="n">get_by_index</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">recovered_private</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">for</span> <span class="n">formula_node</span> <span class="ow">in</span> <span class="n">scalarmult</span><span class="o">.</span><span class="n">children</span><span class="p">:</span>
+    <span class="n">formula_call</span> <span class="o">=</span> <span class="n">formula_node</span><span class="o">.</span><span class="n">action</span>
+    <span class="k">if</span> <span class="n">formula_call</span><span class="o">.</span><span class="n">formula</span><span class="o">.</span><span class="n">shortname</span> <span class="o">==</span> <span class="s2">&quot;add&quot;</span><span class="p">:</span>
+        <span class="n">recovered_private</span> <span class="o">|=</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">formula_call</span><span class="o">.</span><span class="n">formula</span><span class="o">.</span><span class="n">shortname</span> <span class="o">==</span> <span class="s2">&quot;dbl&quot;</span><span class="p">:</span>
+        <span class="n">recovered_private</span> <span class="o">&lt;&lt;=</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">formula_call</span><span class="o">.</span><span class="n">formula</span><span class="o">.</span><span class="n">shortname</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">other_private</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">recovered_private</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">other_private</span> <span class="o">==</span> <span class="n">recovered_private</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>One can navigate the tree by indices, to get the second formula call of the second ECDH scalar multiplication:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">node</span> <span class="o">=</span> <span class="n">first_ecdh</span><span class="o">.</span><span class="n">get_by_index</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">action</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">[0,1]</span></code> path given above represented a walk through the execution trace, taking the first child (a scalar multiplication) and then a second child (a second formula application).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;2018-2024, Jan Jancar.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.5</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../_sources/notebook/simulation.ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

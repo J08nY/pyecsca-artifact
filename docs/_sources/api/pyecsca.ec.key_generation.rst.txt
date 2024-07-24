@@ -1,0 +1,7 @@
+pyecsca.ec.key\_generation module
+=================================
+
+.. automodule:: pyecsca.ec.key_generation
+   :members:
+   :undoc-members:
+   :show-inheritance:

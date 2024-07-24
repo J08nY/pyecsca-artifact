@@ -1,0 +1,7 @@
+pyecsca.ec.mult.window module
+=============================
+
+.. automodule:: pyecsca.ec.mult.window
+   :members:
+   :undoc-members:
+   :show-inheritance:

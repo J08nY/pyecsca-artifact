@@ -1,0 +1,7 @@
+pyecsca.sca.trace\_set.chipwhisperer module
+===========================================
+
+.. automodule:: pyecsca.sca.trace_set.chipwhisperer
+   :members:
+   :undoc-members:
+   :show-inheritance:

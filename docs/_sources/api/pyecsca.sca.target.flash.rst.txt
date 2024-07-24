@@ -1,0 +1,7 @@
+pyecsca.sca.target.flash module
+===============================
+
+.. automodule:: pyecsca.sca.target.flash
+   :members:
+   :undoc-members:
+   :show-inheritance:

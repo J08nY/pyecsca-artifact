@@ -1,0 +1,21 @@
+pyecsca.sca package
+===================
+
+.. automodule:: pyecsca.sca
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   pyecsca.sca.attack
+   pyecsca.sca.re
+   pyecsca.sca.scope
+   pyecsca.sca.stacked_traces
+   pyecsca.sca.target
+   pyecsca.sca.trace
+   pyecsca.sca.trace_set

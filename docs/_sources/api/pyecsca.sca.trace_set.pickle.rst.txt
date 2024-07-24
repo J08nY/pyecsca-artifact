@@ -1,0 +1,7 @@
+pyecsca.sca.trace\_set.pickle module
+====================================
+
+.. automodule:: pyecsca.sca.trace_set.pickle
+   :members:
+   :undoc-members:
+   :show-inheritance:

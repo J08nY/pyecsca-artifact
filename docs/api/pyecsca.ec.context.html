@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>pyecsca.ec.context module &#8212; pyecsca 0.3.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d10597a4" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=bf281230" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_paramlinks.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=de02a091" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" />
+    <script src="../_static/documentation_options.js?v=71d9d8e6"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/logo_black.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pyecsca.ec.coordinates module" href="pyecsca.ec.coordinates.html" />
+    <link rel="prev" title="pyecsca.ec.configuration module" href="pyecsca.ec.configuration.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo_black.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">pyecsca</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html"><span class="fas fa-screwdriver-wrench fa-fw"></span> Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks.html"><span class="fas fa-hand-pointer fa-fw"></span> Notebooks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="pyecsca.ec.html">pyecsca.ec package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.misc.html">pyecsca.misc package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.html">pyecsca.sca package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.html">pyecsca.codegen package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries.html"><span class="fas fa-server fa-fw"></span> ECC in Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html"><span class="fas fa-asterisk fa-fw"></span> References</a></li>
+</ul>
+
+<ul style="margin-top: 1em">
+    <li class="toctree-l1"><a href="https://github.com/J08nY/pyecsca/"><i class="fab fa-fw fa-github"></i> Source code</a></li>
+    <li class="toctree-l1"><a href="https://pypi.org/project/pyecsca/"><i class="fas fa-fw fa-file"></i> Releases</a></li>
+</ul><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul>
+  <li><a href="pyecsca.ec.html">pyecsca.ec package</a><ul>
+      <li>Previous: <a href="pyecsca.ec.configuration.html" title="previous chapter">pyecsca.ec.configuration module</a></li>
+      <li>Next: <a href="pyecsca.ec.coordinates.html" title="next chapter">pyecsca.ec.coordinates module</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-pyecsca.ec.context">
+<span id="pyecsca-ec-context-module"></span><h1>pyecsca.ec.context module<a class="headerlink" href="#module-pyecsca.ec.context" title="Link to this heading">¶</a></h1>
+<p>Provides classes for tracing the execution of operations.</p>
+<p>The operations include key generation, scalar multiplication, formula execution and individual operation evaluation.
+These operations are traced in <cite>Context</cite> classes using <cite>Actions</cite>. Different contexts trace actions differently.</p>
+<p>A <a class="reference internal" href="#pyecsca.ec.context.DefaultContext" title="pyecsca.ec.context.DefaultContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">DefaultContext</span></code></a> traces actions into a tree as they are executed (a scalar
+multiplication actions has as its children an ordered list of the individual formula executions it has done).</p>
+<p>A <a class="reference internal" href="#pyecsca.ec.context.PathContext" title="pyecsca.ec.context.PathContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">PathContext</span></code></a> works like a <a class="reference internal" href="#pyecsca.ec.context.DefaultContext" title="pyecsca.ec.context.DefaultContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">DefaultContext</span></code></a> that only traces an action on a particular path
+in the tree.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.ec.context.Action">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Action</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.Action" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>An Action.</p>
+<p>Can be entered:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">Action</span><span class="p">()</span> <span class="k">as</span> <span class="n">action</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">action</span><span class="o">.</span><span class="n">inside</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.context.Action.inside">
+<span class="sig-name descname"><span class="pre">inside</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.Action.inside" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.ec.context.ResultAction">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ResultAction</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.ResultAction" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyecsca.ec.context.Action" title="pyecsca.ec.context.Action"><code class="xref py py-class docutils literal notranslate"><span class="pre">Action</span></code></a></p>
+<p>An action that has a result.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">ResultAction</span><span class="p">()</span> <span class="k">as</span> <span class="n">action</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">r</span> <span class="o">=</span> <span class="n">action</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s2">&quot;result&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">action</span><span class="o">.</span><span class="n">result</span> <span class="o">==</span> <span class="n">r</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.context.ResultAction.result">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">result</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Any</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.ResultAction.result" title="Link to this definition">¶</a></dt>
+<dd><p>The result of the action.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.context.ResultAction.exit">
+<span class="sig-name descname"><span class="pre">exit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.ResultAction.exit" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.context.ResultAction.inside">
+<span class="sig-name descname"><span class="pre">inside</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.ResultAction.inside" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.ec.context.Node">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">children</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.Node" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeMixin</span></code></p>
+<p>A node in an execution tree.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.context.Node.action">
+<span class="sig-name descname"><span class="pre">action</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#pyecsca.ec.context.Action" title="pyecsca.ec.context.Action"><code class="xref py py-class docutils literal notranslate"><span class="pre">Action</span></code></a></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.Node.action" title="Link to this definition">¶</a></dt>
+<dd><p>The action of the node.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.context.Node.parent">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parent</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.Node.parent" title="Link to this definition">¶</a></dt>
+<dd><p>Parent Node.</p>
+<p>On set, the node is detached from any previous parent node and attached
+to the new node.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">anytree</span> <span class="kn">import</span> <span class="n">Node</span><span class="p">,</span> <span class="n">RenderTree</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">udo</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Udo&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">marc</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Marc&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lian</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Lian&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">marc</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">RenderTree</span><span class="p">(</span><span class="n">udo</span><span class="p">))</span>
+<span class="go">Node(&#39;/Udo&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">RenderTree</span><span class="p">(</span><span class="n">marc</span><span class="p">))</span>
+<span class="go">Node(&#39;/Marc&#39;)</span>
+<span class="go">└── Node(&#39;/Marc/Lian&#39;)</span>
+</pre></div>
+</div>
+<p><strong>Attach</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">marc</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">udo</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">RenderTree</span><span class="p">(</span><span class="n">udo</span><span class="p">))</span>
+<span class="go">Node(&#39;/Udo&#39;)</span>
+<span class="go">└── Node(&#39;/Udo/Marc&#39;)</span>
+<span class="go">    └── Node(&#39;/Udo/Marc/Lian&#39;)</span>
+</pre></div>
+</div>
+<p><strong>Detach</strong></p>
+<p>To make a node to a root node, just set this attribute to <cite>None</cite>.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">marc</span><span class="o">.</span><span class="n">is_root</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">marc</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">marc</span><span class="o">.</span><span class="n">is_root</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.context.Node.children">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">children</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.Node.children" title="Link to this definition">¶</a></dt>
+<dd><p>All child nodes.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">anytree</span> <span class="kn">import</span> <span class="n">Node</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">children</span>
+<span class="go">(Node(&#39;/n/a&#39;), Node(&#39;/n/b&#39;), Node(&#39;/n/c&#39;))</span>
+</pre></div>
+</div>
+<p>Modifying the children attribute modifies the tree.</p>
+<p><strong>Detach</strong></p>
+<p>The children attribute can be updated by setting to an iterable.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">children</span>
+<span class="go">(Node(&#39;/n/a&#39;), Node(&#39;/n/b&#39;))</span>
+</pre></div>
+</div>
+<p>Node <cite>c</cite> is removed from the tree.
+In case of an existing reference, the node <cite>c</cite> does not vanish and is the root of its own tree.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span>
+<span class="go">Node(&#39;/c&#39;)</span>
+</pre></div>
+</div>
+<p><strong>Attach</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span>
+<span class="go">Node(&#39;/d&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">d</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">children</span>
+<span class="go">(Node(&#39;/n/a&#39;), Node(&#39;/n/b&#39;), Node(&#39;/n/d&#39;))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span>
+<span class="go">Node(&#39;/n/d&#39;)</span>
+</pre></div>
+</div>
+<p><strong>Duplicate</strong></p>
+<p>A node can just be the children once. Duplicates cause a <code class="xref any docutils literal notranslate"><span class="pre">TreeError</span></code>:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">a</span><span class="p">]</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="w">    </span><span class="o">...</span>
+<span class="gr">anytree.node.exceptions.TreeError</span>: <span class="n">Cannot add node Node(&#39;/n/a&#39;) multiple times as child.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.context.Node.get_by_key">
+<span class="sig-name descname"><span class="pre">get_by_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.Node.get_by_key" title="Link to this definition">¶</a></dt>
+<dd><p>Get a Node from the tree by a path of <a class="reference internal" href="#pyecsca.ec.context.Action" title="pyecsca.ec.context.Action"><code class="xref py py-class docutils literal notranslate"><span class="pre">Action</span></code></a> s.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tree</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Action</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_a</span> <span class="o">=</span> <span class="n">Action</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">a_a</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">tree</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">one_a</span> <span class="o">=</span> <span class="n">Action</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">one</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">one_a</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">a</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">other_a</span> <span class="o">=</span> <span class="n">Action</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">other</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">other_a</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">a</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tree</span><span class="o">.</span><span class="n">get_by_key</span><span class="p">([])</span> <span class="o">==</span> <span class="n">tree</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tree</span><span class="o">.</span><span class="n">get_by_key</span><span class="p">([</span><span class="n">a_a</span><span class="p">])</span> <span class="o">==</span> <span class="n">a</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tree</span><span class="o">.</span><span class="n">get_by_key</span><span class="p">(([</span><span class="n">a_a</span><span class="p">,</span> <span class="n">one_a</span><span class="p">]))</span> <span class="o">==</span> <span class="n">one</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.ec.context.Node.get_by_key.params.path"></span><strong>path</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.context.Node.get_by_key.params.path">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#pyecsca.ec.context.Action" title="pyecsca.ec.context.Action"><code class="xref py py-class docutils literal notranslate"><span class="pre">Action</span></code></a>]</span>) – The path of actions to walk.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#pyecsca.ec.context.Node" title="pyecsca.ec.context.Node"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The node.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.context.Node.get_by_index">
+<span class="sig-name descname"><span class="pre">get_by_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.Node.get_by_index" title="Link to this definition">¶</a></dt>
+<dd><p>Get a Node from the tree by a path of indices.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tree</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Action</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_a</span> <span class="o">=</span> <span class="n">Action</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">a_a</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">tree</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">one_a</span> <span class="o">=</span> <span class="n">Action</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">one</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">one_a</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">a</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">other_a</span> <span class="o">=</span> <span class="n">Action</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">other</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">other_a</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">a</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tree</span><span class="o">.</span><span class="n">get_by_index</span><span class="p">([])</span> <span class="o">==</span> <span class="n">tree</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tree</span><span class="o">.</span><span class="n">get_by_index</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="n">a</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tree</span><span class="o">.</span><span class="n">get_by_index</span><span class="p">(([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span> <span class="o">==</span> <span class="n">one</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.ec.context.Node.get_by_index.params.path"></span><strong>path</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.context.Node.get_by_index.params.path">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>) – The path of indices.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#pyecsca.ec.context.Node" title="pyecsca.ec.context.Node"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The node.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.context.Node.walk">
+<span class="sig-name descname"><span class="pre">walk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.Node.walk" title="Link to this definition">¶</a></dt>
+<dd><p>Walk the tree in post-order (as it was executed) and apply <a class="reference internal" href="#pyecsca.ec.context.Node.walk.params.callback" title="pyecsca.ec.context.Node.walk"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">callback</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.ec.context.Node.walk.params.callback"></span><strong>callback</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.context.Node.walk.params.callback">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<a class="reference internal" href="#pyecsca.ec.context.Action" title="pyecsca.ec.context.Action"><code class="xref py py-class docutils literal notranslate"><span class="pre">Action</span></code></a>], <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]</span>) – The callback to apply to the actions in the nodes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.context.Node.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.Node.render" title="Link to this definition">¶</a></dt>
+<dd><p>Render the tree.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.context.Node.ancestors">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ancestors</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.Node.ancestors" title="Link to this definition">¶</a></dt>
+<dd><p>All parent nodes and their parent nodes.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">anytree</span> <span class="kn">import</span> <span class="n">Node</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">udo</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Udo&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">marc</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Marc&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">udo</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lian</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Lian&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">marc</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">udo</span><span class="o">.</span><span class="n">ancestors</span>
+<span class="go">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">marc</span><span class="o">.</span><span class="n">ancestors</span>
+<span class="go">(Node(&#39;/Udo&#39;),)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lian</span><span class="o">.</span><span class="n">ancestors</span>
+<span class="go">(Node(&#39;/Udo&#39;), Node(&#39;/Udo/Marc&#39;))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.context.Node.anchestors">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">anchestors</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.Node.anchestors" title="Link to this definition">¶</a></dt>
+<dd><p>All parent nodes and their parent nodes - see <a class="reference internal" href="#pyecsca.ec.context.Node.ancestors" title="pyecsca.ec.context.Node.ancestors"><code class="xref any py py-attr docutils literal notranslate"><span class="pre">ancestors</span></code></a>.</p>
+<p>The attribute <cite>anchestors</cite> is just a typo of <cite>ancestors</cite>. Please use <cite>ancestors</cite>.
+This attribute will be removed in the 3.0.0 release.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.context.Node.depth">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">depth</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.Node.depth" title="Link to this definition">¶</a></dt>
+<dd><p>Number of edges to the root <cite>Node</cite>.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">anytree</span> <span class="kn">import</span> <span class="n">Node</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">udo</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Udo&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">marc</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Marc&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">udo</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lian</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Lian&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">marc</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">udo</span><span class="o">.</span><span class="n">depth</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">marc</span><span class="o">.</span><span class="n">depth</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lian</span><span class="o">.</span><span class="n">depth</span>
+<span class="go">2</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.context.Node.descendants">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">descendants</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.Node.descendants" title="Link to this definition">¶</a></dt>
+<dd><p>All child nodes and all their child nodes.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">anytree</span> <span class="kn">import</span> <span class="n">Node</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">udo</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Udo&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">marc</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Marc&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">udo</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lian</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Lian&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">marc</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">loui</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Loui&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">marc</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">soe</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Soe&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">lian</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">udo</span><span class="o">.</span><span class="n">descendants</span>
+<span class="go">(Node(&#39;/Udo/Marc&#39;), Node(&#39;/Udo/Marc/Lian&#39;), Node(&#39;/Udo/Marc/Lian/Soe&#39;), Node(&#39;/Udo/Marc/Loui&#39;))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">marc</span><span class="o">.</span><span class="n">descendants</span>
+<span class="go">(Node(&#39;/Udo/Marc/Lian&#39;), Node(&#39;/Udo/Marc/Lian/Soe&#39;), Node(&#39;/Udo/Marc/Loui&#39;))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lian</span><span class="o">.</span><span class="n">descendants</span>
+<span class="go">(Node(&#39;/Udo/Marc/Lian/Soe&#39;),)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.context.Node.height">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">height</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.Node.height" title="Link to this definition">¶</a></dt>
+<dd><p>Number of edges on the longest path to a leaf <cite>Node</cite>.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">anytree</span> <span class="kn">import</span> <span class="n">Node</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">udo</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Udo&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">marc</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Marc&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">udo</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lian</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Lian&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">marc</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">udo</span><span class="o">.</span><span class="n">height</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">marc</span><span class="o">.</span><span class="n">height</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lian</span><span class="o">.</span><span class="n">height</span>
+<span class="go">0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.context.Node.is_leaf">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_leaf</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.Node.is_leaf" title="Link to this definition">¶</a></dt>
+<dd><p><cite>Node</cite> has no children (External Node).</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">anytree</span> <span class="kn">import</span> <span class="n">Node</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">udo</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Udo&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">marc</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Marc&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">udo</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lian</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Lian&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">marc</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">udo</span><span class="o">.</span><span class="n">is_leaf</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">marc</span><span class="o">.</span><span class="n">is_leaf</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lian</span><span class="o">.</span><span class="n">is_leaf</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.context.Node.is_root">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_root</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.Node.is_root" title="Link to this definition">¶</a></dt>
+<dd><p><cite>Node</cite> is tree root.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">anytree</span> <span class="kn">import</span> <span class="n">Node</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">udo</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Udo&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">marc</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Marc&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">udo</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lian</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Lian&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">marc</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">udo</span><span class="o">.</span><span class="n">is_root</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">marc</span><span class="o">.</span><span class="n">is_root</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lian</span><span class="o">.</span><span class="n">is_root</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.context.Node.iter_path_reverse">
+<span class="sig-name descname"><span class="pre">iter_path_reverse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.Node.iter_path_reverse" title="Link to this definition">¶</a></dt>
+<dd><p>Iterate up the tree from the current node to the root node.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">anytree</span> <span class="kn">import</span> <span class="n">Node</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">udo</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Udo&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">marc</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Marc&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">udo</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lian</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Lian&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">marc</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">udo</span><span class="o">.</span><span class="n">iter_path_reverse</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<span class="go">Node(&#39;/Udo&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">marc</span><span class="o">.</span><span class="n">iter_path_reverse</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<span class="go">Node(&#39;/Udo/Marc&#39;)</span>
+<span class="go">Node(&#39;/Udo&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">lian</span><span class="o">.</span><span class="n">iter_path_reverse</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<span class="go">Node(&#39;/Udo/Marc/Lian&#39;)</span>
+<span class="go">Node(&#39;/Udo/Marc&#39;)</span>
+<span class="go">Node(&#39;/Udo&#39;)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.context.Node.leaves">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">leaves</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.Node.leaves" title="Link to this definition">¶</a></dt>
+<dd><p>Tuple of all leaf nodes.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">anytree</span> <span class="kn">import</span> <span class="n">Node</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">udo</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Udo&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">marc</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Marc&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">udo</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lian</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Lian&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">marc</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">loui</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Loui&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">marc</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lazy</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Lazy&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">marc</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">udo</span><span class="o">.</span><span class="n">leaves</span>
+<span class="go">(Node(&#39;/Udo/Marc/Lian&#39;), Node(&#39;/Udo/Marc/Loui&#39;), Node(&#39;/Udo/Marc/Lazy&#39;))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">marc</span><span class="o">.</span><span class="n">leaves</span>
+<span class="go">(Node(&#39;/Udo/Marc/Lian&#39;), Node(&#39;/Udo/Marc/Loui&#39;), Node(&#39;/Udo/Marc/Lazy&#39;))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.context.Node.path">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">path</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.Node.path" title="Link to this definition">¶</a></dt>
+<dd><p>Path from root node down to this <cite>Node</cite>.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">anytree</span> <span class="kn">import</span> <span class="n">Node</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">udo</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Udo&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">marc</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Marc&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">udo</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lian</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Lian&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">marc</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">udo</span><span class="o">.</span><span class="n">path</span>
+<span class="go">(Node(&#39;/Udo&#39;),)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">marc</span><span class="o">.</span><span class="n">path</span>
+<span class="go">(Node(&#39;/Udo&#39;), Node(&#39;/Udo/Marc&#39;))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lian</span><span class="o">.</span><span class="n">path</span>
+<span class="go">(Node(&#39;/Udo&#39;), Node(&#39;/Udo/Marc&#39;), Node(&#39;/Udo/Marc/Lian&#39;))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.context.Node.root">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">root</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.Node.root" title="Link to this definition">¶</a></dt>
+<dd><p>Tree Root Node.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">anytree</span> <span class="kn">import</span> <span class="n">Node</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">udo</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Udo&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">marc</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Marc&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">udo</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lian</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Lian&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">marc</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">udo</span><span class="o">.</span><span class="n">root</span>
+<span class="go">Node(&#39;/Udo&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">marc</span><span class="o">.</span><span class="n">root</span>
+<span class="go">Node(&#39;/Udo&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lian</span><span class="o">.</span><span class="n">root</span>
+<span class="go">Node(&#39;/Udo&#39;)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.context.Node.separator">
+<span class="sig-name descname"><span class="pre">separator</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/'</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.Node.separator" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.context.Node.siblings">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">siblings</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.Node.siblings" title="Link to this definition">¶</a></dt>
+<dd><p>Tuple of nodes with the same parent.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">anytree</span> <span class="kn">import</span> <span class="n">Node</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">udo</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Udo&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">marc</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Marc&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">udo</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lian</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Lian&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">marc</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">loui</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Loui&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">marc</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lazy</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Lazy&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">marc</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">udo</span><span class="o">.</span><span class="n">siblings</span>
+<span class="go">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">marc</span><span class="o">.</span><span class="n">siblings</span>
+<span class="go">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lian</span><span class="o">.</span><span class="n">siblings</span>
+<span class="go">(Node(&#39;/Udo/Marc/Loui&#39;), Node(&#39;/Udo/Marc/Lazy&#39;))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">loui</span><span class="o">.</span><span class="n">siblings</span>
+<span class="go">(Node(&#39;/Udo/Marc/Lian&#39;), Node(&#39;/Udo/Marc/Lazy&#39;))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.context.Node.size">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">size</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.Node.size" title="Link to this definition">¶</a></dt>
+<dd><p>Tree size — the number of nodes in tree starting at this node.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">anytree</span> <span class="kn">import</span> <span class="n">Node</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">udo</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Udo&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">marc</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Marc&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">udo</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lian</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Lian&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">marc</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">loui</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Loui&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">marc</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">soe</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Soe&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">lian</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">udo</span><span class="o">.</span><span class="n">size</span>
+<span class="go">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">marc</span><span class="o">.</span><span class="n">size</span>
+<span class="go">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lian</span><span class="o">.</span><span class="n">size</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">loui</span><span class="o">.</span><span class="n">size</span>
+<span class="go">1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.ec.context.Context">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Context</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.Context" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>Context is an object that traces actions which happen.</p>
+<p>There is always one context active, see functions <code class="xref py py-func docutils literal notranslate"><span class="pre">getcontext()</span></code>,
+<code class="xref py py-func docutils literal notranslate"><span class="pre">setcontext()</span></code> and <code class="xref py py-func docutils literal notranslate"><span class="pre">resetcontext()</span></code>. Also, the <a class="reference internal" href="#pyecsca.ec.context.local" title="pyecsca.ec.context.local"><code class="xref py py-func docutils literal notranslate"><span class="pre">local()</span></code></a>
+contextmanager.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.context.Context.enter_action">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">enter_action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.Context.enter_action" title="Link to this definition">¶</a></dt>
+<dd><p>Enter into an action (i.e. start executing it).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.ec.context.Context.enter_action.params.action"></span><strong>action</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.context.Context.enter_action.params.action">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#pyecsca.ec.context.Action" title="pyecsca.ec.context.Action"><code class="xref py py-class docutils literal notranslate"><span class="pre">Action</span></code></a></span>) – The action.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.context.Context.exit_action">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">exit_action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.Context.exit_action" title="Link to this definition">¶</a></dt>
+<dd><p>Exit from an action (i.e. stop executing it).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.ec.context.Context.exit_action.params.action"></span><strong>action</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.context.Context.exit_action.params.action">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#pyecsca.ec.context.Action" title="pyecsca.ec.context.Action"><code class="xref py py-class docutils literal notranslate"><span class="pre">Action</span></code></a></span>) – The action.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.ec.context.DefaultContext">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DefaultContext</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.DefaultContext" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyecsca.ec.context.Context" title="pyecsca.ec.context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a></p>
+<p>Context that traces executions of actions in a forest.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">local</span><span class="p">(</span><span class="n">DefaultContext</span><span class="p">())</span> <span class="k">as</span> <span class="n">ctx</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">with</span> <span class="n">Action</span><span class="p">()</span> <span class="k">as</span> <span class="n">one_action</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">with</span> <span class="n">ResultAction</span><span class="p">()</span> <span class="k">as</span> <span class="n">other_action</span><span class="p">:</span>
+<span class="gp">... </span>            <span class="n">r</span> <span class="o">=</span> <span class="n">other_action</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s2">&quot;some result&quot;</span><span class="p">)</span>
+<span class="gp">... </span>        <span class="k">with</span> <span class="n">Action</span><span class="p">()</span> <span class="k">as</span> <span class="n">yet_another</span><span class="p">:</span>
+<span class="gp">... </span>            <span class="k">pass</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">actions</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> 
+<span class="go">Action()</span>
+<span class="go">├──ResultAction(result=&#39;some result&#39;)</span>
+<span class="go">└──Action()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">other</span> <span class="ow">in</span> <span class="n">ctx</span><span class="o">.</span><span class="n">actions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">children</span><span class="p">:</span> 
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">action</span><span class="p">)</span>
+<span class="go">ResultAction(result=&#39;some result&#39;)</span>
+<span class="go">Action()</span>
+</pre></div>
+</div>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.context.DefaultContext.actions">
+<span class="sig-name descname"><span class="pre">actions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><a class="reference internal" href="#pyecsca.ec.context.Node" title="pyecsca.ec.context.Node"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node</span></code></a><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.DefaultContext.actions" title="Link to this definition">¶</a></dt>
+<dd><p>A forest of trees.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.context.DefaultContext.current">
+<span class="sig-name descname"><span class="pre">current</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><a class="reference internal" href="#pyecsca.ec.context.Action" title="pyecsca.ec.context.Action"><code class="xref py py-class docutils literal notranslate"><span class="pre">Action</span></code></a><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.DefaultContext.current" title="Link to this definition">¶</a></dt>
+<dd><p>The path to the current action.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.context.DefaultContext.enter_action">
+<span class="sig-name descname"><span class="pre">enter_action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.DefaultContext.enter_action" title="Link to this definition">¶</a></dt>
+<dd><p>Enter into an action (i.e. start executing it).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.ec.context.DefaultContext.enter_action.params.action"></span><strong>action</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.context.DefaultContext.enter_action.params.action">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#pyecsca.ec.context.Action" title="pyecsca.ec.context.Action"><code class="xref py py-class docutils literal notranslate"><span class="pre">Action</span></code></a></span>) – The action.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.context.DefaultContext.exit_action">
+<span class="sig-name descname"><span class="pre">exit_action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.DefaultContext.exit_action" title="Link to this definition">¶</a></dt>
+<dd><p>Exit from an action (i.e. stop executing it).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.ec.context.DefaultContext.exit_action.params.action"></span><strong>action</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.context.DefaultContext.exit_action.params.action">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#pyecsca.ec.context.Action" title="pyecsca.ec.context.Action"><code class="xref py py-class docutils literal notranslate"><span class="pre">Action</span></code></a></span>) – The action.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.ec.context.PathContext">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PathContext</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.PathContext" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyecsca.ec.context.Context" title="pyecsca.ec.context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a></p>
+<p>Context that traces targeted actions.</p>
+<p>Create a <a class="reference internal" href="#pyecsca.ec.context.PathContext" title="pyecsca.ec.context.PathContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">PathContext</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.ec.context.PathContext.params.path"></span><strong>path</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.context.PathContext.params.path">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>) – The path of an action in the execution tree that will be captured.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.context.PathContext.path">
+<span class="sig-name descname"><span class="pre">path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.PathContext.path" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.context.PathContext.current">
+<span class="sig-name descname"><span class="pre">current</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.PathContext.current" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.context.PathContext.current_depth">
+<span class="sig-name descname"><span class="pre">current_depth</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.PathContext.current_depth" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.context.PathContext.value">
+<span class="sig-name descname"><span class="pre">value</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code><span class="pre">[</span><a class="reference internal" href="#pyecsca.ec.context.Action" title="pyecsca.ec.context.Action"><code class="xref py py-class docutils literal notranslate"><span class="pre">Action</span></code></a><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.PathContext.value" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.context.PathContext.enter_action">
+<span class="sig-name descname"><span class="pre">enter_action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.PathContext.enter_action" title="Link to this definition">¶</a></dt>
+<dd><p>Enter into an action (i.e. start executing it).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.ec.context.PathContext.enter_action.params.action"></span><strong>action</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.context.PathContext.enter_action.params.action">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#pyecsca.ec.context.Action" title="pyecsca.ec.context.Action"><code class="xref py py-class docutils literal notranslate"><span class="pre">Action</span></code></a></span>) – The action.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.context.PathContext.exit_action">
+<span class="sig-name descname"><span class="pre">exit_action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.PathContext.exit_action" title="Link to this definition">¶</a></dt>
+<dd><p>Exit from an action (i.e. stop executing it).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.ec.context.PathContext.exit_action.params.action"></span><strong>action</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.context.PathContext.exit_action.params.action">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#pyecsca.ec.context.Action" title="pyecsca.ec.context.Action"><code class="xref py py-class docutils literal notranslate"><span class="pre">Action</span></code></a></span>) – The action.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.ec.context.local">
+<span class="sig-name descname"><span class="pre">local</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/context.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.context.local" title="Link to this definition">¶</a></dt>
+<dd><p>Use a local context.</p>
+<p>Use it like a contextmanager, the context is active during its execution.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">local</span><span class="p">(</span><span class="n">DefaultContext</span><span class="p">())</span> <span class="k">as</span> <span class="n">ctx</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">with</span> <span class="n">Action</span><span class="p">()</span> <span class="k">as</span> <span class="n">action</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">pass</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ctx</span><span class="o">.</span><span class="n">actions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">action</span> <span class="o">==</span> <span class="n">action</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.ec.context.local.params.ctx"></span><strong>ctx</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.context.local.params.ctx">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<a class="reference internal" href="#pyecsca.ec.context.Context" title="pyecsca.ec.context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>]</span>) – If none, current context is copied.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ContextManager</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A context manager.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;2018-2024, Jan Jancar.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.5</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../_sources/api/pyecsca.ec.context.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

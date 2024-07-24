@@ -1,0 +1,7 @@
+pyecsca.ec.formula.code module
+==============================
+
+.. automodule:: pyecsca.ec.formula.code
+   :members:
+   :undoc-members:
+   :show-inheritance:

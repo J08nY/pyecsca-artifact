@@ -1,0 +1,7 @@
+pyecsca.ec.mult.binary module
+=============================
+
+.. automodule:: pyecsca.ec.mult.binary
+   :members:
+   :undoc-members:
+   :show-inheritance:

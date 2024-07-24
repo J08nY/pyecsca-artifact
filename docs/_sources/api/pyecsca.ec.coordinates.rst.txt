@@ -1,0 +1,7 @@
+pyecsca.ec.coordinates module
+=============================
+
+.. automodule:: pyecsca.ec.coordinates
+   :members:
+   :undoc-members:
+   :show-inheritance:

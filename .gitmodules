@@ -1,0 +1,3 @@
+[submodule "pyecsca"]
+	path = pyecsca
+	url = https://github.com/J08nY/pyecsca.git

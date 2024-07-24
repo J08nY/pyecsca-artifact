@@ -1,0 +1,17 @@
+pyecsca.sca.attack package
+==========================
+
+.. automodule:: pyecsca.sca.attack
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   pyecsca.sca.attack.CPA
+   pyecsca.sca.attack.DPA
+   pyecsca.sca.attack.leakage_model

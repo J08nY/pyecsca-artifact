@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>pyecsca.ec.point module &#8212; pyecsca 0.3.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d10597a4" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=bf281230" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_paramlinks.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=de02a091" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" />
+    <script src="../_static/documentation_options.js?v=71d9d8e6"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/logo_black.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pyecsca.ec.scalar module" href="pyecsca.ec.scalar.html" />
+    <link rel="prev" title="pyecsca.ec.params module" href="pyecsca.ec.params.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo_black.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">pyecsca</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html"><span class="fas fa-screwdriver-wrench fa-fw"></span> Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks.html"><span class="fas fa-hand-pointer fa-fw"></span> Notebooks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="pyecsca.ec.html">pyecsca.ec package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.misc.html">pyecsca.misc package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.html">pyecsca.sca package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.html">pyecsca.codegen package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries.html"><span class="fas fa-server fa-fw"></span> ECC in Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html"><span class="fas fa-asterisk fa-fw"></span> References</a></li>
+</ul>
+
+<ul style="margin-top: 1em">
+    <li class="toctree-l1"><a href="https://github.com/J08nY/pyecsca/"><i class="fab fa-fw fa-github"></i> Source code</a></li>
+    <li class="toctree-l1"><a href="https://pypi.org/project/pyecsca/"><i class="fas fa-fw fa-file"></i> Releases</a></li>
+</ul><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul>
+  <li><a href="pyecsca.ec.html">pyecsca.ec package</a><ul>
+      <li>Previous: <a href="pyecsca.ec.params.html" title="previous chapter">pyecsca.ec.params module</a></li>
+      <li>Next: <a href="pyecsca.ec.scalar.html" title="next chapter">pyecsca.ec.scalar module</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-pyecsca.ec.point">
+<span id="pyecsca-ec-point-module"></span><h1>pyecsca.ec.point module<a class="headerlink" href="#module-pyecsca.ec.point" title="Link to this heading">¶</a></h1>
+<p>Provides a <a class="reference internal" href="#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a> class and a special <a class="reference internal" href="#pyecsca.ec.point.InfinityPoint" title="pyecsca.ec.point.InfinityPoint"><code class="xref py py-class docutils literal notranslate"><span class="pre">InfinityPoint</span></code></a> class for the point at infinity.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.ec.point.CoordinateMappingAction">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">CoordinateMappingAction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_from</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_to</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/point.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.point.CoordinateMappingAction" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pyecsca.ec.context.html#pyecsca.ec.context.ResultAction" title="pyecsca.ec.context.ResultAction"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResultAction</span></code></a></p>
+<p>A mapping of a point from one coordinate system to another one, usually one is an affine one.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.point.CoordinateMappingAction.model_from">
+<span class="sig-name descname"><span class="pre">model_from</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="pyecsca.ec.coordinates.html#pyecsca.ec.coordinates.CoordinateModel" title="pyecsca.ec.coordinates.CoordinateModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">CoordinateModel</span></code></a></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/point.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.point.CoordinateMappingAction.model_from" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.point.CoordinateMappingAction.model_to">
+<span class="sig-name descname"><span class="pre">model_to</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="pyecsca.ec.coordinates.html#pyecsca.ec.coordinates.CoordinateModel" title="pyecsca.ec.coordinates.CoordinateModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">CoordinateModel</span></code></a></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/point.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.point.CoordinateMappingAction.model_to" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.point.CoordinateMappingAction.point">
+<span class="sig-name descname"><span class="pre">point</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Point</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/point.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.point.CoordinateMappingAction.point" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.point.CoordinateMappingAction.exit">
+<span class="sig-name descname"><span class="pre">exit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/point.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.point.CoordinateMappingAction.exit" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.point.CoordinateMappingAction.result">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">result</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Any</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/point.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.point.CoordinateMappingAction.result" title="Link to this definition">¶</a></dt>
+<dd><p>The result of the action.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.point.CoordinateMappingAction.inside">
+<span class="sig-name descname"><span class="pre">inside</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/point.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.point.CoordinateMappingAction.inside" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.ec.point.Point">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">coords</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/point.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.point.Point" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A point with coordinates in a coordinate model.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.point.Point.coordinate_model">
+<span class="sig-name descname"><span class="pre">coordinate_model</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="pyecsca.ec.coordinates.html#pyecsca.ec.coordinates.CoordinateModel" title="pyecsca.ec.coordinates.CoordinateModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">CoordinateModel</span></code></a></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/point.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.point.Point.coordinate_model" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.point.Point.coords">
+<span class="sig-name descname"><span class="pre">coords</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">Mapping</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">,</span> <a class="reference internal" href="pyecsca.ec.mod.base.html#pyecsca.ec.mod.base.Mod" title="pyecsca.ec.mod.base.Mod"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mod</span></code></a><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/point.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.point.Point.coords" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.point.Point.field">
+<span class="sig-name descname"><span class="pre">field</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/point.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.point.Point.field" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.point.Point.to_affine">
+<span class="sig-name descname"><span class="pre">to_affine</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/point.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.point.Point.to_affine" title="Link to this definition">¶</a></dt>
+<dd><p>Convert this point into the affine coordinate model, if possible.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.point.Point.to_model">
+<span class="sig-name descname"><span class="pre">to_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coordinate_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curve</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">randomized</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/point.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.point.Point.to_model" title="Link to this definition">¶</a></dt>
+<dd><p>Convert an affine point into a given coordinate model, if possible.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.point.Point.equals_affine">
+<span class="sig-name descname"><span class="pre">equals_affine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/point.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.point.Point.equals_affine" title="Link to this definition">¶</a></dt>
+<dd><p>Test whether this point is equal to <a class="reference internal" href="#pyecsca.ec.point.Point.equals_affine.params.other" title="pyecsca.ec.point.Point.equals_affine"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">other</span></code></a> irrespective of the coordinate model (in the affine sense).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.point.Point.equals_scaled">
+<span class="sig-name descname"><span class="pre">equals_scaled</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/point.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.point.Point.equals_scaled" title="Link to this definition">¶</a></dt>
+<dd><p>Test whether this point is equal to <a class="reference internal" href="#pyecsca.ec.point.Point.equals_scaled.params.other" title="pyecsca.ec.point.Point.equals_scaled"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">other</span></code></a> using the “z” scaling formula.</p>
+<p>The “z” scaling formula maps the projective class to a single representative.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.ec.point.Point.equals_scaled.params.other"></span><strong>other</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.point.Point.equals_scaled.params.other">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></span>) – The point to compare</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the “z” formula is not available for the coordinate system.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Whether the points are equal.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.point.Point.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/point.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.point.Point.equals" title="Link to this definition">¶</a></dt>
+<dd><p>Test whether this point is equal to <cite>other</cite> irrespective of the coordinate model (in the affine sense).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.ec.point.InfinityPoint">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">InfinityPoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/point.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.point.InfinityPoint" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></p>
+<p>A point at infinity.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.point.InfinityPoint.to_affine">
+<span class="sig-name descname"><span class="pre">to_affine</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/point.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.point.InfinityPoint.to_affine" title="Link to this definition">¶</a></dt>
+<dd><p>Convert this point into the affine coordinate model, if possible.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#pyecsca.ec.point.InfinityPoint" title="pyecsca.ec.point.InfinityPoint"><code class="xref py py-class docutils literal notranslate"><span class="pre">InfinityPoint</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.point.InfinityPoint.to_model">
+<span class="sig-name descname"><span class="pre">to_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coordinate_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curve</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">randomized</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/point.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.point.InfinityPoint.to_model" title="Link to this definition">¶</a></dt>
+<dd><p>Convert an affine point into a given coordinate model, if possible.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#pyecsca.ec.point.InfinityPoint" title="pyecsca.ec.point.InfinityPoint"><code class="xref py py-class docutils literal notranslate"><span class="pre">InfinityPoint</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.point.InfinityPoint.equals_affine">
+<span class="sig-name descname"><span class="pre">equals_affine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/point.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.point.InfinityPoint.equals_affine" title="Link to this definition">¶</a></dt>
+<dd><p>Test whether this point is equal to <a class="reference internal" href="#pyecsca.ec.point.InfinityPoint.equals_affine.params.other" title="pyecsca.ec.point.InfinityPoint.equals_affine"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">other</span></code></a> irrespective of the coordinate model (in the affine sense).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.point.InfinityPoint.equals_scaled">
+<span class="sig-name descname"><span class="pre">equals_scaled</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/point.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.point.InfinityPoint.equals_scaled" title="Link to this definition">¶</a></dt>
+<dd><p>Test whether this point is equal to <a class="reference internal" href="#pyecsca.ec.point.InfinityPoint.equals_scaled.params.other" title="pyecsca.ec.point.InfinityPoint.equals_scaled"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">other</span></code></a> using the “z” scaling formula.</p>
+<p>The “z” scaling formula maps the projective class to a single representative.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.ec.point.InfinityPoint.equals_scaled.params.other"></span><strong>other</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.point.InfinityPoint.equals_scaled.params.other">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></span>) – The point to compare</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the “z” formula is not available for the coordinate system.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Whether the points are equal.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.point.InfinityPoint.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/point.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.point.InfinityPoint.equals" title="Link to this definition">¶</a></dt>
+<dd><p>Test whether this point is equal to <cite>other</cite> irrespective of the coordinate model (in the affine sense).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.point.InfinityPoint.coordinate_model">
+<span class="sig-name descname"><span class="pre">coordinate_model</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="pyecsca.ec.coordinates.html#pyecsca.ec.coordinates.CoordinateModel" title="pyecsca.ec.coordinates.CoordinateModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">CoordinateModel</span></code></a></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/point.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.point.InfinityPoint.coordinate_model" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.point.InfinityPoint.coords">
+<span class="sig-name descname"><span class="pre">coords</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">Mapping</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">,</span> <a class="reference internal" href="pyecsca.ec.mod.base.html#pyecsca.ec.mod.base.Mod" title="pyecsca.ec.mod.base.Mod"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mod</span></code></a><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/point.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.point.InfinityPoint.coords" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.point.InfinityPoint.field">
+<span class="sig-name descname"><span class="pre">field</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/point.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.point.InfinityPoint.field" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;2018-2024, Jan Jancar.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.5</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../_sources/api/pyecsca.ec.point.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

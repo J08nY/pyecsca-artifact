@@ -1,0 +1,7 @@
+pyecsca.ec.key\_agreement module
+================================
+
+.. automodule:: pyecsca.ec.key_agreement
+   :members:
+   :undoc-members:
+   :show-inheritance:

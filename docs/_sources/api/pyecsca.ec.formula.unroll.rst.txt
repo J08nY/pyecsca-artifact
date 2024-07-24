@@ -1,0 +1,7 @@
+pyecsca.ec.formula.unroll module
+================================
+
+.. automodule:: pyecsca.ec.formula.unroll
+   :members:
+   :undoc-members:
+   :show-inheritance:

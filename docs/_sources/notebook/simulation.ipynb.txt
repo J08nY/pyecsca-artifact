@@ -1,0 +1,291 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Simulation\n",
+    "\n",
+    "**pyecsca** is able to simulate computation of key generation, ECDH and ECDSA while tracing particular actions performed by the implementation as well as intermediate values. These traces are collected by the context (see the `Context` and `DefaultContext` classes). There is always one context active. For performance reasons, by default no context is active.\n",
+    "\n",
+    "These traces are useful for attacks which rely on computing particular intermediate values during the ECC computation."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "\n",
+    "## Initialisation"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from binascii import hexlify\n",
+    "from copy import copy\n",
+    "\n",
+    "from pyecsca.ec.key_generation import KeyGeneration\n",
+    "from pyecsca.ec.key_agreement import ECDH_SHA1\n",
+    "from pyecsca.ec.signature import ECDSA_SHA1\n",
+    "from pyecsca.ec.params import get_params\n",
+    "from pyecsca.ec.mult import LTRMultiplier\n",
+    "from pyecsca.ec.context import DefaultContext, local"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "p256 = get_params(\"secg\", \"secp256r1\", \"projective\")\n",
+    "model = p256.curve.model\n",
+    "coords = p256.curve.coordinate_model\n",
+    "\n",
+    "add = coords.formulas[\"add-2007-bl\"]\n",
+    "dbl = coords.formulas[\"dbl-2007-bl\"]\n",
+    "\n",
+    "mult = LTRMultiplier(add, dbl, None)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Key generation"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "keygen = KeyGeneration(copy(mult), p256, False)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "with local(DefaultContext()) as keygen_ctx:\n",
+    "    private, public = keygen.generate()\n",
+    "print(private)\n",
+    "print(public)\n",
+    "print(keygen_ctx.actions)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Signing"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "ecdsa = ECDSA_SHA1(copy(mult), p256, add, public, private)\n",
+    "data = b\"something\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "with local(DefaultContext()) as sign_ctx:\n",
+    "    signature = ecdsa.sign_data(data)\n",
+    "print(data)\n",
+    "print(signature)\n",
+    "print(sign_ctx.actions)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "with local(DefaultContext()) as verify_ctx:\n",
+    "    verified = ecdsa.verify_data(signature, data)\n",
+    "print(verified)\n",
+    "print(verify_ctx.actions)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Key agreement"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "other_private, other_public = keygen.generate()\n",
+    "\n",
+    "ecdh_a = ECDH_SHA1(copy(mult), p256, public, other_private)\n",
+    "ecdh_b = ECDH_SHA1(copy(mult), p256, other_public, private)\n",
+    "with local(DefaultContext()) as ecdh_ctx:\n",
+    "    ecdh_a_result = ecdh_a.perform()\n",
+    "    ecdh_b_result = ecdh_b.perform()\n",
+    "print(hexlify(ecdh_a_result))\n",
+    "print(hexlify(ecdh_b_result))\n",
+    "print(ecdh_a_result == ecdh_b_result)\n",
+    "print(ecdh_ctx.actions)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Walking the trace"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "As visible from the outputs above, `DefaultContext` traces the actions performed by the implementation in an ordered tree where the child relationship means that some actions happened during another action and order of children gives the order of operations. In the above example of ECDH, two ECDH executions are visible, each consisting of one scalar multuplication which consists of several applications of `add` and `dbl` formulas.\n",
+    "\n",
+    "We can examine this tree in the first ECDH execution and see that the scalar multiplier used was not setup to be regular (see `LTRMultiplier` argument `always`) and that the order of operations leaks bits of the scalar. This fact will be easily exploitable on a power trace via SPA."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "first_ecdh = ecdh_ctx.actions[0]\n",
+    "second_ecdh = ecdh_ctx.actions[1]\n",
+    "\n",
+    "ecdh = first_ecdh.get_by_index([])\n",
+    "scalarmult = first_ecdh.get_by_index([0])\n",
+    "recovered_private = 1\n",
+    "for formula_node in scalarmult.children:\n",
+    "    formula_call = formula_node.action\n",
+    "    if formula_call.formula.shortname == \"add\":\n",
+    "        recovered_private |= 1\n",
+    "    elif formula_call.formula.shortname == \"dbl\":\n",
+    "        recovered_private <<= 1\n",
+    "    print(formula_call.formula.shortname)\n",
+    "\n",
+    "print(bin(int(other_private)))\n",
+    "print(bin(int(recovered_private)))\n",
+    "print(other_private == recovered_private)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "One can navigate the tree by indices, to get the second formula call of the second ECDH scalar multiplication:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "node = first_ecdh.get_by_index([0, 1])\n",
+    "print(repr(node.action))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The `[0,1]` path given above represented a walk through the execution trace, taking the first child (a scalar multiplication) and then a second child (a second formula application)."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "@webio": {
+   "lastCommId": null,
+   "lastKernelId": null
+  },
+  "hide_input": false,
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.11.8"
+  },
+  "latex_envs": {
+   "LaTeX_envs_menu_present": true,
+   "autoclose": false,
+   "autocomplete": true,
+   "bibliofile": "biblio.bib",
+   "cite_by": "apalike",
+   "current_citInitial": 1,
+   "eqLabelWithNumbers": true,
+   "eqNumInitial": 1,
+   "hotkeys": {
+    "equation": "Ctrl-E",
+    "itemize": "Ctrl-I"
+   },
+   "labels_anchors": false,
+   "latex_user_defs": false,
+   "report_style_numbering": false,
+   "user_envs_cfg": false
+  },
+  "pycharm": {
+   "stem_cell": {
+    "cell_type": "raw",
+    "metadata": {
+     "collapsed": false
+    },
+    "source": []
+   }
+  },
+  "toc": {
+   "base_numbering": 1,
+   "nav_menu": {},
+   "number_sections": true,
+   "sideBar": true,
+   "skip_h1_title": false,
+   "title_cell": "Table of Contents",
+   "title_sidebar": "Contents",
+   "toc_cell": false,
+   "toc_position": {},
+   "toc_section_display": true,
+   "toc_window_display": false
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

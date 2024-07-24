@@ -1,0 +1,7 @@
+pyecsca.ec.formula.efd module
+=============================
+
+.. automodule:: pyecsca.ec.formula.efd
+   :members:
+   :undoc-members:
+   :show-inheritance:

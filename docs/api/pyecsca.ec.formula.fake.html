@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>pyecsca.ec.formula.fake module &#8212; pyecsca 0.3.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d10597a4" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=bf281230" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_paramlinks.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=de02a091" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" />
+    <script src="../_static/documentation_options.js?v=71d9d8e6"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/logo_black.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pyecsca.ec.formula.fliparoo module" href="pyecsca.ec.formula.fliparoo.html" />
+    <link rel="prev" title="pyecsca.ec.formula.expand module" href="pyecsca.ec.formula.expand.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo_black.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">pyecsca</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html"><span class="fas fa-screwdriver-wrench fa-fw"></span> Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks.html"><span class="fas fa-hand-pointer fa-fw"></span> Notebooks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="pyecsca.ec.html">pyecsca.ec package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.misc.html">pyecsca.misc package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.html">pyecsca.sca package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.html">pyecsca.codegen package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries.html"><span class="fas fa-server fa-fw"></span> ECC in Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html"><span class="fas fa-asterisk fa-fw"></span> References</a></li>
+</ul>
+
+<ul style="margin-top: 1em">
+    <li class="toctree-l1"><a href="https://github.com/J08nY/pyecsca/"><i class="fab fa-fw fa-github"></i> Source code</a></li>
+    <li class="toctree-l1"><a href="https://pypi.org/project/pyecsca/"><i class="fas fa-fw fa-file"></i> Releases</a></li>
+</ul><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul>
+  <li><a href="pyecsca.ec.html">pyecsca.ec package</a><ul>
+  <li><a href="pyecsca.ec.formula.html">pyecsca.ec.formula package</a><ul>
+      <li>Previous: <a href="pyecsca.ec.formula.expand.html" title="previous chapter">pyecsca.ec.formula.expand module</a></li>
+      <li>Next: <a href="pyecsca.ec.formula.fliparoo.html" title="next chapter">pyecsca.ec.formula.fliparoo module</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-pyecsca.ec.formula.fake">
+<span id="pyecsca-ec-formula-fake-module"></span><h1>pyecsca.ec.formula.fake module<a class="headerlink" href="#module-pyecsca.ec.formula.fake" title="Link to this heading">¶</a></h1>
+<p>Provides “fake” formulas.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeFormula">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FakeFormula</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coordinate_model</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeFormula" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pyecsca.ec.formula.base.html#pyecsca.ec.formula.base.Formula" title="pyecsca.ec.formula.base.Formula"><code class="xref py py-class docutils literal notranslate"><span class="pre">Formula</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>No matter what the input point is, it just returns the right amount of FakePoints.</p>
+<p>Useful for computing with the scalar multipliers without having concrete formulas
+and points (for example to get the addition chain via the MultipleContext).</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeFormula.coordinate_model">
+<span class="sig-name descname"><span class="pre">coordinate_model</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Any</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeFormula.coordinate_model" title="Link to this definition">¶</a></dt>
+<dd><p>Coordinate model of the formula.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeFormula.code">
+<span class="sig-name descname"><span class="pre">code</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List[CodeOp]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeFormula.code" title="Link to this definition">¶</a></dt>
+<dd><p>The collection of ops that constitute the code of the formula.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeFormula.assumptions_str">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">assumptions_str</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeFormula.assumptions_str" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeFormula.input_index">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">input_index</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeFormula.input_index" title="Link to this definition">¶</a></dt>
+<dd><p>Return the starting index where this formula reads its inputs.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeFormula.inputs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">inputs</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeFormula.inputs" title="Link to this definition">¶</a></dt>
+<dd><p>Return the input variables of the formula.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeFormula.num_addsubs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_addsubs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeFormula.num_addsubs" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of additions and subtractions.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeFormula.num_divisions">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_divisions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeFormula.num_divisions" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of divisions.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeFormula.num_inversions">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_inversions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeFormula.num_inversions" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of inversions.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeFormula.num_multiplications">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_multiplications</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeFormula.num_multiplications" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of multiplications.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeFormula.num_operations">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_operations</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeFormula.num_operations" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of operations.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeFormula.num_powers">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_powers</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeFormula.num_powers" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of powers.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeFormula.num_squarings">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_squarings</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeFormula.num_squarings" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of squarings.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeFormula.output_index">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_index</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeFormula.output_index" title="Link to this definition">¶</a></dt>
+<dd><p>Return the starting index where this formula stores its outputs.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeFormula.outputs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">outputs</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeFormula.outputs" title="Link to this definition">¶</a></dt>
+<dd><p>Return the output variables of the formula.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeFormula.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeFormula.name" title="Link to this definition">¶</a></dt>
+<dd><p>Name of the formula.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeFormula.shortname">
+<span class="sig-name descname"><span class="pre">shortname</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar[str]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeFormula.shortname" title="Link to this definition">¶</a></dt>
+<dd><p>A shortname for the type of the formula.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeFormula.meta">
+<span class="sig-name descname"><span class="pre">meta</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">MutableMapping[str,</span> <span class="pre">Any]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeFormula.meta" title="Link to this definition">¶</a></dt>
+<dd><p>Meta information about the formula, such as its source.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeFormula.parameters">
+<span class="sig-name descname"><span class="pre">parameters</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List[str]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeFormula.parameters" title="Link to this definition">¶</a></dt>
+<dd><p>Formula parameters (i.e. new parameters introduced by the formula, like <cite>half = 1/2</cite>).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeFormula.assumptions">
+<span class="sig-name descname"><span class="pre">assumptions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List[Expression]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeFormula.assumptions" title="Link to this definition">¶</a></dt>
+<dd><p>Assumptions of the formula (e.g. <cite>Z1 == 1</cite> or <cite>2*half == 1</cite>).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeFormula.num_inputs">
+<span class="sig-name descname"><span class="pre">num_inputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar[int]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeFormula.num_inputs" title="Link to this definition">¶</a></dt>
+<dd><p>Number of inputs (points) of the formula.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeFormula.num_outputs">
+<span class="sig-name descname"><span class="pre">num_outputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar[int]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeFormula.num_outputs" title="Link to this definition">¶</a></dt>
+<dd><p>Number of outputs (points) of the formula.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeFormula.unified">
+<span class="sig-name descname"><span class="pre">unified</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeFormula.unified" title="Link to this definition">¶</a></dt>
+<dd><p>Whether the formula specifies that it is unified.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeAdditionFormula">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FakeAdditionFormula</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coordinate_model</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeAdditionFormula" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyecsca.ec.formula.fake.FakeFormula" title="pyecsca.ec.formula.fake.FakeFormula"><code class="xref py py-class docutils literal notranslate"><span class="pre">FakeFormula</span></code></a>, <a class="reference internal" href="pyecsca.ec.formula.base.html#pyecsca.ec.formula.base.AdditionFormula" title="pyecsca.ec.formula.base.AdditionFormula"><code class="xref py py-class docutils literal notranslate"><span class="pre">AdditionFormula</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeAdditionFormula.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'fake'</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeAdditionFormula.name" title="Link to this definition">¶</a></dt>
+<dd><p>Name of the formula.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeAdditionFormula.assumptions_str">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">assumptions_str</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeAdditionFormula.assumptions_str" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeAdditionFormula.input_index">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">input_index</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeAdditionFormula.input_index" title="Link to this definition">¶</a></dt>
+<dd><p>Return the starting index where this formula reads its inputs.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeAdditionFormula.inputs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">inputs</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeAdditionFormula.inputs" title="Link to this definition">¶</a></dt>
+<dd><p>Return the input variables of the formula.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeAdditionFormula.num_addsubs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_addsubs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeAdditionFormula.num_addsubs" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of additions and subtractions.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeAdditionFormula.num_divisions">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_divisions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeAdditionFormula.num_divisions" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of divisions.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeAdditionFormula.num_inputs">
+<span class="sig-name descname"><span class="pre">num_inputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar[int]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeAdditionFormula.num_inputs" title="Link to this definition">¶</a></dt>
+<dd><p>Number of inputs (points) of the formula.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeAdditionFormula.num_inversions">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_inversions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeAdditionFormula.num_inversions" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of inversions.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeAdditionFormula.num_multiplications">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_multiplications</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeAdditionFormula.num_multiplications" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of multiplications.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeAdditionFormula.num_operations">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_operations</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeAdditionFormula.num_operations" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of operations.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeAdditionFormula.num_outputs">
+<span class="sig-name descname"><span class="pre">num_outputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar[int]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeAdditionFormula.num_outputs" title="Link to this definition">¶</a></dt>
+<dd><p>Number of outputs (points) of the formula.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeAdditionFormula.num_powers">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_powers</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeAdditionFormula.num_powers" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of powers.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeAdditionFormula.num_squarings">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_squarings</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeAdditionFormula.num_squarings" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of squarings.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeAdditionFormula.output_index">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_index</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeAdditionFormula.output_index" title="Link to this definition">¶</a></dt>
+<dd><p>Return the starting index where this formula stores its outputs.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeAdditionFormula.outputs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">outputs</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeAdditionFormula.outputs" title="Link to this definition">¶</a></dt>
+<dd><p>Return the output variables of the formula.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeAdditionFormula.shortname">
+<span class="sig-name descname"><span class="pre">shortname</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar[str]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'add'</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeAdditionFormula.shortname" title="Link to this definition">¶</a></dt>
+<dd><p>A shortname for the type of the formula.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeAdditionFormula.coordinate_model">
+<span class="sig-name descname"><span class="pre">coordinate_model</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Any</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeAdditionFormula.coordinate_model" title="Link to this definition">¶</a></dt>
+<dd><p>Coordinate model of the formula.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeAdditionFormula.meta">
+<span class="sig-name descname"><span class="pre">meta</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">MutableMapping[str,</span> <span class="pre">Any]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeAdditionFormula.meta" title="Link to this definition">¶</a></dt>
+<dd><p>Meta information about the formula, such as its source.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeAdditionFormula.parameters">
+<span class="sig-name descname"><span class="pre">parameters</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List[str]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeAdditionFormula.parameters" title="Link to this definition">¶</a></dt>
+<dd><p>Formula parameters (i.e. new parameters introduced by the formula, like <cite>half = 1/2</cite>).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeAdditionFormula.assumptions">
+<span class="sig-name descname"><span class="pre">assumptions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List[Expression]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeAdditionFormula.assumptions" title="Link to this definition">¶</a></dt>
+<dd><p>Assumptions of the formula (e.g. <cite>Z1 == 1</cite> or <cite>2*half == 1</cite>).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeAdditionFormula.code">
+<span class="sig-name descname"><span class="pre">code</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List[CodeOp]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeAdditionFormula.code" title="Link to this definition">¶</a></dt>
+<dd><p>The collection of ops that constitute the code of the formula.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeAdditionFormula.unified">
+<span class="sig-name descname"><span class="pre">unified</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeAdditionFormula.unified" title="Link to this definition">¶</a></dt>
+<dd><p>Whether the formula specifies that it is unified.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDoublingFormula">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FakeDoublingFormula</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coordinate_model</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDoublingFormula" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyecsca.ec.formula.fake.FakeFormula" title="pyecsca.ec.formula.fake.FakeFormula"><code class="xref py py-class docutils literal notranslate"><span class="pre">FakeFormula</span></code></a>, <a class="reference internal" href="pyecsca.ec.formula.base.html#pyecsca.ec.formula.base.DoublingFormula" title="pyecsca.ec.formula.base.DoublingFormula"><code class="xref py py-class docutils literal notranslate"><span class="pre">DoublingFormula</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDoublingFormula.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'fake'</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDoublingFormula.name" title="Link to this definition">¶</a></dt>
+<dd><p>Name of the formula.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDoublingFormula.assumptions_str">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">assumptions_str</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDoublingFormula.assumptions_str" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDoublingFormula.input_index">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">input_index</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDoublingFormula.input_index" title="Link to this definition">¶</a></dt>
+<dd><p>Return the starting index where this formula reads its inputs.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDoublingFormula.inputs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">inputs</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDoublingFormula.inputs" title="Link to this definition">¶</a></dt>
+<dd><p>Return the input variables of the formula.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDoublingFormula.num_addsubs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_addsubs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDoublingFormula.num_addsubs" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of additions and subtractions.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDoublingFormula.num_divisions">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_divisions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDoublingFormula.num_divisions" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of divisions.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDoublingFormula.num_inputs">
+<span class="sig-name descname"><span class="pre">num_inputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar[int]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDoublingFormula.num_inputs" title="Link to this definition">¶</a></dt>
+<dd><p>Number of inputs (points) of the formula.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDoublingFormula.num_inversions">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_inversions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDoublingFormula.num_inversions" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of inversions.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDoublingFormula.num_multiplications">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_multiplications</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDoublingFormula.num_multiplications" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of multiplications.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDoublingFormula.num_operations">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_operations</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDoublingFormula.num_operations" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of operations.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDoublingFormula.num_outputs">
+<span class="sig-name descname"><span class="pre">num_outputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar[int]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDoublingFormula.num_outputs" title="Link to this definition">¶</a></dt>
+<dd><p>Number of outputs (points) of the formula.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDoublingFormula.num_powers">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_powers</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDoublingFormula.num_powers" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of powers.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDoublingFormula.num_squarings">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_squarings</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDoublingFormula.num_squarings" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of squarings.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDoublingFormula.output_index">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_index</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDoublingFormula.output_index" title="Link to this definition">¶</a></dt>
+<dd><p>Return the starting index where this formula stores its outputs.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDoublingFormula.outputs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">outputs</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDoublingFormula.outputs" title="Link to this definition">¶</a></dt>
+<dd><p>Return the output variables of the formula.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDoublingFormula.shortname">
+<span class="sig-name descname"><span class="pre">shortname</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar[str]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'dbl'</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDoublingFormula.shortname" title="Link to this definition">¶</a></dt>
+<dd><p>A shortname for the type of the formula.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDoublingFormula.coordinate_model">
+<span class="sig-name descname"><span class="pre">coordinate_model</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Any</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDoublingFormula.coordinate_model" title="Link to this definition">¶</a></dt>
+<dd><p>Coordinate model of the formula.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDoublingFormula.meta">
+<span class="sig-name descname"><span class="pre">meta</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">MutableMapping[str,</span> <span class="pre">Any]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDoublingFormula.meta" title="Link to this definition">¶</a></dt>
+<dd><p>Meta information about the formula, such as its source.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDoublingFormula.parameters">
+<span class="sig-name descname"><span class="pre">parameters</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List[str]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDoublingFormula.parameters" title="Link to this definition">¶</a></dt>
+<dd><p>Formula parameters (i.e. new parameters introduced by the formula, like <cite>half = 1/2</cite>).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDoublingFormula.assumptions">
+<span class="sig-name descname"><span class="pre">assumptions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List[Expression]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDoublingFormula.assumptions" title="Link to this definition">¶</a></dt>
+<dd><p>Assumptions of the formula (e.g. <cite>Z1 == 1</cite> or <cite>2*half == 1</cite>).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDoublingFormula.code">
+<span class="sig-name descname"><span class="pre">code</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List[CodeOp]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDoublingFormula.code" title="Link to this definition">¶</a></dt>
+<dd><p>The collection of ops that constitute the code of the formula.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDoublingFormula.unified">
+<span class="sig-name descname"><span class="pre">unified</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDoublingFormula.unified" title="Link to this definition">¶</a></dt>
+<dd><p>Whether the formula specifies that it is unified.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeTriplingFormula">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FakeTriplingFormula</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coordinate_model</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeTriplingFormula" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyecsca.ec.formula.fake.FakeFormula" title="pyecsca.ec.formula.fake.FakeFormula"><code class="xref py py-class docutils literal notranslate"><span class="pre">FakeFormula</span></code></a>, <a class="reference internal" href="pyecsca.ec.formula.base.html#pyecsca.ec.formula.base.TriplingFormula" title="pyecsca.ec.formula.base.TriplingFormula"><code class="xref py py-class docutils literal notranslate"><span class="pre">TriplingFormula</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeTriplingFormula.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'fake'</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeTriplingFormula.name" title="Link to this definition">¶</a></dt>
+<dd><p>Name of the formula.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeTriplingFormula.assumptions_str">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">assumptions_str</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeTriplingFormula.assumptions_str" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeTriplingFormula.input_index">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">input_index</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeTriplingFormula.input_index" title="Link to this definition">¶</a></dt>
+<dd><p>Return the starting index where this formula reads its inputs.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeTriplingFormula.inputs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">inputs</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeTriplingFormula.inputs" title="Link to this definition">¶</a></dt>
+<dd><p>Return the input variables of the formula.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeTriplingFormula.num_addsubs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_addsubs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeTriplingFormula.num_addsubs" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of additions and subtractions.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeTriplingFormula.num_divisions">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_divisions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeTriplingFormula.num_divisions" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of divisions.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeTriplingFormula.num_inputs">
+<span class="sig-name descname"><span class="pre">num_inputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar[int]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeTriplingFormula.num_inputs" title="Link to this definition">¶</a></dt>
+<dd><p>Number of inputs (points) of the formula.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeTriplingFormula.num_inversions">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_inversions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeTriplingFormula.num_inversions" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of inversions.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeTriplingFormula.num_multiplications">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_multiplications</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeTriplingFormula.num_multiplications" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of multiplications.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeTriplingFormula.num_operations">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_operations</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeTriplingFormula.num_operations" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of operations.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeTriplingFormula.num_outputs">
+<span class="sig-name descname"><span class="pre">num_outputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar[int]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeTriplingFormula.num_outputs" title="Link to this definition">¶</a></dt>
+<dd><p>Number of outputs (points) of the formula.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeTriplingFormula.num_powers">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_powers</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeTriplingFormula.num_powers" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of powers.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeTriplingFormula.num_squarings">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_squarings</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeTriplingFormula.num_squarings" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of squarings.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeTriplingFormula.output_index">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_index</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeTriplingFormula.output_index" title="Link to this definition">¶</a></dt>
+<dd><p>Return the starting index where this formula stores its outputs.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeTriplingFormula.outputs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">outputs</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeTriplingFormula.outputs" title="Link to this definition">¶</a></dt>
+<dd><p>Return the output variables of the formula.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeTriplingFormula.shortname">
+<span class="sig-name descname"><span class="pre">shortname</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar[str]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'tpl'</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeTriplingFormula.shortname" title="Link to this definition">¶</a></dt>
+<dd><p>A shortname for the type of the formula.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeTriplingFormula.coordinate_model">
+<span class="sig-name descname"><span class="pre">coordinate_model</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Any</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeTriplingFormula.coordinate_model" title="Link to this definition">¶</a></dt>
+<dd><p>Coordinate model of the formula.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeTriplingFormula.meta">
+<span class="sig-name descname"><span class="pre">meta</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">MutableMapping[str,</span> <span class="pre">Any]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeTriplingFormula.meta" title="Link to this definition">¶</a></dt>
+<dd><p>Meta information about the formula, such as its source.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeTriplingFormula.parameters">
+<span class="sig-name descname"><span class="pre">parameters</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List[str]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeTriplingFormula.parameters" title="Link to this definition">¶</a></dt>
+<dd><p>Formula parameters (i.e. new parameters introduced by the formula, like <cite>half = 1/2</cite>).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeTriplingFormula.assumptions">
+<span class="sig-name descname"><span class="pre">assumptions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List[Expression]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeTriplingFormula.assumptions" title="Link to this definition">¶</a></dt>
+<dd><p>Assumptions of the formula (e.g. <cite>Z1 == 1</cite> or <cite>2*half == 1</cite>).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeTriplingFormula.code">
+<span class="sig-name descname"><span class="pre">code</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List[CodeOp]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeTriplingFormula.code" title="Link to this definition">¶</a></dt>
+<dd><p>The collection of ops that constitute the code of the formula.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeTriplingFormula.unified">
+<span class="sig-name descname"><span class="pre">unified</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeTriplingFormula.unified" title="Link to this definition">¶</a></dt>
+<dd><p>Whether the formula specifies that it is unified.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeNegationFormula">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FakeNegationFormula</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coordinate_model</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeNegationFormula" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyecsca.ec.formula.fake.FakeFormula" title="pyecsca.ec.formula.fake.FakeFormula"><code class="xref py py-class docutils literal notranslate"><span class="pre">FakeFormula</span></code></a>, <a class="reference internal" href="pyecsca.ec.formula.base.html#pyecsca.ec.formula.base.NegationFormula" title="pyecsca.ec.formula.base.NegationFormula"><code class="xref py py-class docutils literal notranslate"><span class="pre">NegationFormula</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeNegationFormula.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'fake'</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeNegationFormula.name" title="Link to this definition">¶</a></dt>
+<dd><p>Name of the formula.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeNegationFormula.assumptions_str">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">assumptions_str</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeNegationFormula.assumptions_str" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeNegationFormula.input_index">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">input_index</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeNegationFormula.input_index" title="Link to this definition">¶</a></dt>
+<dd><p>Return the starting index where this formula reads its inputs.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeNegationFormula.inputs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">inputs</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeNegationFormula.inputs" title="Link to this definition">¶</a></dt>
+<dd><p>Return the input variables of the formula.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeNegationFormula.num_addsubs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_addsubs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeNegationFormula.num_addsubs" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of additions and subtractions.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeNegationFormula.num_divisions">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_divisions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeNegationFormula.num_divisions" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of divisions.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeNegationFormula.num_inputs">
+<span class="sig-name descname"><span class="pre">num_inputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar[int]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeNegationFormula.num_inputs" title="Link to this definition">¶</a></dt>
+<dd><p>Number of inputs (points) of the formula.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeNegationFormula.num_inversions">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_inversions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeNegationFormula.num_inversions" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of inversions.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeNegationFormula.num_multiplications">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_multiplications</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeNegationFormula.num_multiplications" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of multiplications.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeNegationFormula.num_operations">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_operations</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeNegationFormula.num_operations" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of operations.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeNegationFormula.num_outputs">
+<span class="sig-name descname"><span class="pre">num_outputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar[int]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeNegationFormula.num_outputs" title="Link to this definition">¶</a></dt>
+<dd><p>Number of outputs (points) of the formula.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeNegationFormula.num_powers">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_powers</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeNegationFormula.num_powers" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of powers.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeNegationFormula.num_squarings">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_squarings</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeNegationFormula.num_squarings" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of squarings.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeNegationFormula.output_index">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_index</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeNegationFormula.output_index" title="Link to this definition">¶</a></dt>
+<dd><p>Return the starting index where this formula stores its outputs.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeNegationFormula.outputs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">outputs</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeNegationFormula.outputs" title="Link to this definition">¶</a></dt>
+<dd><p>Return the output variables of the formula.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeNegationFormula.shortname">
+<span class="sig-name descname"><span class="pre">shortname</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar[str]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'neg'</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeNegationFormula.shortname" title="Link to this definition">¶</a></dt>
+<dd><p>A shortname for the type of the formula.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeNegationFormula.coordinate_model">
+<span class="sig-name descname"><span class="pre">coordinate_model</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Any</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeNegationFormula.coordinate_model" title="Link to this definition">¶</a></dt>
+<dd><p>Coordinate model of the formula.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeNegationFormula.meta">
+<span class="sig-name descname"><span class="pre">meta</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">MutableMapping[str,</span> <span class="pre">Any]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeNegationFormula.meta" title="Link to this definition">¶</a></dt>
+<dd><p>Meta information about the formula, such as its source.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeNegationFormula.parameters">
+<span class="sig-name descname"><span class="pre">parameters</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List[str]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeNegationFormula.parameters" title="Link to this definition">¶</a></dt>
+<dd><p>Formula parameters (i.e. new parameters introduced by the formula, like <cite>half = 1/2</cite>).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeNegationFormula.assumptions">
+<span class="sig-name descname"><span class="pre">assumptions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List[Expression]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeNegationFormula.assumptions" title="Link to this definition">¶</a></dt>
+<dd><p>Assumptions of the formula (e.g. <cite>Z1 == 1</cite> or <cite>2*half == 1</cite>).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeNegationFormula.code">
+<span class="sig-name descname"><span class="pre">code</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List[CodeOp]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeNegationFormula.code" title="Link to this definition">¶</a></dt>
+<dd><p>The collection of ops that constitute the code of the formula.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeNegationFormula.unified">
+<span class="sig-name descname"><span class="pre">unified</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeNegationFormula.unified" title="Link to this definition">¶</a></dt>
+<dd><p>Whether the formula specifies that it is unified.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeScalingFormula">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FakeScalingFormula</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coordinate_model</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeScalingFormula" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyecsca.ec.formula.fake.FakeFormula" title="pyecsca.ec.formula.fake.FakeFormula"><code class="xref py py-class docutils literal notranslate"><span class="pre">FakeFormula</span></code></a>, <a class="reference internal" href="pyecsca.ec.formula.base.html#pyecsca.ec.formula.base.ScalingFormula" title="pyecsca.ec.formula.base.ScalingFormula"><code class="xref py py-class docutils literal notranslate"><span class="pre">ScalingFormula</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeScalingFormula.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'fake'</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeScalingFormula.name" title="Link to this definition">¶</a></dt>
+<dd><p>Name of the formula.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeScalingFormula.assumptions_str">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">assumptions_str</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeScalingFormula.assumptions_str" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeScalingFormula.input_index">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">input_index</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeScalingFormula.input_index" title="Link to this definition">¶</a></dt>
+<dd><p>Return the starting index where this formula reads its inputs.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeScalingFormula.inputs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">inputs</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeScalingFormula.inputs" title="Link to this definition">¶</a></dt>
+<dd><p>Return the input variables of the formula.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeScalingFormula.num_addsubs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_addsubs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeScalingFormula.num_addsubs" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of additions and subtractions.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeScalingFormula.num_divisions">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_divisions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeScalingFormula.num_divisions" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of divisions.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeScalingFormula.num_inputs">
+<span class="sig-name descname"><span class="pre">num_inputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar[int]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeScalingFormula.num_inputs" title="Link to this definition">¶</a></dt>
+<dd><p>Number of inputs (points) of the formula.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeScalingFormula.num_inversions">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_inversions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeScalingFormula.num_inversions" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of inversions.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeScalingFormula.num_multiplications">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_multiplications</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeScalingFormula.num_multiplications" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of multiplications.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeScalingFormula.num_operations">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_operations</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeScalingFormula.num_operations" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of operations.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeScalingFormula.num_outputs">
+<span class="sig-name descname"><span class="pre">num_outputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar[int]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeScalingFormula.num_outputs" title="Link to this definition">¶</a></dt>
+<dd><p>Number of outputs (points) of the formula.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeScalingFormula.num_powers">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_powers</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeScalingFormula.num_powers" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of powers.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeScalingFormula.num_squarings">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_squarings</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeScalingFormula.num_squarings" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of squarings.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeScalingFormula.output_index">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_index</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeScalingFormula.output_index" title="Link to this definition">¶</a></dt>
+<dd><p>Return the starting index where this formula stores its outputs.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeScalingFormula.outputs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">outputs</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeScalingFormula.outputs" title="Link to this definition">¶</a></dt>
+<dd><p>Return the output variables of the formula.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeScalingFormula.shortname">
+<span class="sig-name descname"><span class="pre">shortname</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar[str]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'scl'</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeScalingFormula.shortname" title="Link to this definition">¶</a></dt>
+<dd><p>A shortname for the type of the formula.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeScalingFormula.coordinate_model">
+<span class="sig-name descname"><span class="pre">coordinate_model</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Any</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeScalingFormula.coordinate_model" title="Link to this definition">¶</a></dt>
+<dd><p>Coordinate model of the formula.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeScalingFormula.meta">
+<span class="sig-name descname"><span class="pre">meta</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">MutableMapping[str,</span> <span class="pre">Any]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeScalingFormula.meta" title="Link to this definition">¶</a></dt>
+<dd><p>Meta information about the formula, such as its source.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeScalingFormula.parameters">
+<span class="sig-name descname"><span class="pre">parameters</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List[str]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeScalingFormula.parameters" title="Link to this definition">¶</a></dt>
+<dd><p>Formula parameters (i.e. new parameters introduced by the formula, like <cite>half = 1/2</cite>).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeScalingFormula.assumptions">
+<span class="sig-name descname"><span class="pre">assumptions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List[Expression]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeScalingFormula.assumptions" title="Link to this definition">¶</a></dt>
+<dd><p>Assumptions of the formula (e.g. <cite>Z1 == 1</cite> or <cite>2*half == 1</cite>).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeScalingFormula.code">
+<span class="sig-name descname"><span class="pre">code</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List[CodeOp]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeScalingFormula.code" title="Link to this definition">¶</a></dt>
+<dd><p>The collection of ops that constitute the code of the formula.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeScalingFormula.unified">
+<span class="sig-name descname"><span class="pre">unified</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeScalingFormula.unified" title="Link to this definition">¶</a></dt>
+<dd><p>Whether the formula specifies that it is unified.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FakeDifferentialAdditionFormula</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coordinate_model</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyecsca.ec.formula.fake.FakeFormula" title="pyecsca.ec.formula.fake.FakeFormula"><code class="xref py py-class docutils literal notranslate"><span class="pre">FakeFormula</span></code></a>, <a class="reference internal" href="pyecsca.ec.formula.base.html#pyecsca.ec.formula.base.DifferentialAdditionFormula" title="pyecsca.ec.formula.base.DifferentialAdditionFormula"><code class="xref py py-class docutils literal notranslate"><span class="pre">DifferentialAdditionFormula</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'fake'</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.name" title="Link to this definition">¶</a></dt>
+<dd><p>Name of the formula.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.assumptions_str">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">assumptions_str</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.assumptions_str" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.input_index">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">input_index</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.input_index" title="Link to this definition">¶</a></dt>
+<dd><p>Return the starting index where this formula reads its inputs.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.inputs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">inputs</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.inputs" title="Link to this definition">¶</a></dt>
+<dd><p>Return the input variables of the formula.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.num_addsubs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_addsubs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.num_addsubs" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of additions and subtractions.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.num_divisions">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_divisions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.num_divisions" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of divisions.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.num_inputs">
+<span class="sig-name descname"><span class="pre">num_inputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar[int]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.num_inputs" title="Link to this definition">¶</a></dt>
+<dd><p>Number of inputs (points) of the formula.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.num_inversions">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_inversions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.num_inversions" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of inversions.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.num_multiplications">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_multiplications</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.num_multiplications" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of multiplications.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.num_operations">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_operations</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.num_operations" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of operations.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.num_outputs">
+<span class="sig-name descname"><span class="pre">num_outputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar[int]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.num_outputs" title="Link to this definition">¶</a></dt>
+<dd><p>Number of outputs (points) of the formula.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.num_powers">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_powers</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.num_powers" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of powers.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.num_squarings">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_squarings</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.num_squarings" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of squarings.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.output_index">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_index</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.output_index" title="Link to this definition">¶</a></dt>
+<dd><p>Return the starting index where this formula stores its outputs.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.outputs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">outputs</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.outputs" title="Link to this definition">¶</a></dt>
+<dd><p>Return the output variables of the formula.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.shortname">
+<span class="sig-name descname"><span class="pre">shortname</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar[str]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'dadd'</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.shortname" title="Link to this definition">¶</a></dt>
+<dd><p>A shortname for the type of the formula.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.coordinate_model">
+<span class="sig-name descname"><span class="pre">coordinate_model</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Any</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.coordinate_model" title="Link to this definition">¶</a></dt>
+<dd><p>Coordinate model of the formula.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.meta">
+<span class="sig-name descname"><span class="pre">meta</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">MutableMapping[str,</span> <span class="pre">Any]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.meta" title="Link to this definition">¶</a></dt>
+<dd><p>Meta information about the formula, such as its source.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.parameters">
+<span class="sig-name descname"><span class="pre">parameters</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List[str]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.parameters" title="Link to this definition">¶</a></dt>
+<dd><p>Formula parameters (i.e. new parameters introduced by the formula, like <cite>half = 1/2</cite>).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.assumptions">
+<span class="sig-name descname"><span class="pre">assumptions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List[Expression]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.assumptions" title="Link to this definition">¶</a></dt>
+<dd><p>Assumptions of the formula (e.g. <cite>Z1 == 1</cite> or <cite>2*half == 1</cite>).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.code">
+<span class="sig-name descname"><span class="pre">code</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List[CodeOp]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.code" title="Link to this definition">¶</a></dt>
+<dd><p>The collection of ops that constitute the code of the formula.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.unified">
+<span class="sig-name descname"><span class="pre">unified</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeDifferentialAdditionFormula.unified" title="Link to this definition">¶</a></dt>
+<dd><p>Whether the formula specifies that it is unified.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeLadderFormula">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FakeLadderFormula</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coordinate_model</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeLadderFormula" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyecsca.ec.formula.fake.FakeFormula" title="pyecsca.ec.formula.fake.FakeFormula"><code class="xref py py-class docutils literal notranslate"><span class="pre">FakeFormula</span></code></a>, <a class="reference internal" href="pyecsca.ec.formula.base.html#pyecsca.ec.formula.base.LadderFormula" title="pyecsca.ec.formula.base.LadderFormula"><code class="xref py py-class docutils literal notranslate"><span class="pre">LadderFormula</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeLadderFormula.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'fake'</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeLadderFormula.name" title="Link to this definition">¶</a></dt>
+<dd><p>Name of the formula.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeLadderFormula.assumptions_str">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">assumptions_str</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeLadderFormula.assumptions_str" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeLadderFormula.input_index">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">input_index</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeLadderFormula.input_index" title="Link to this definition">¶</a></dt>
+<dd><p>Return the starting index where this formula reads its inputs.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeLadderFormula.inputs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">inputs</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeLadderFormula.inputs" title="Link to this definition">¶</a></dt>
+<dd><p>Return the input variables of the formula.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeLadderFormula.num_addsubs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_addsubs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeLadderFormula.num_addsubs" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of additions and subtractions.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeLadderFormula.num_divisions">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_divisions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeLadderFormula.num_divisions" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of divisions.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeLadderFormula.num_inputs">
+<span class="sig-name descname"><span class="pre">num_inputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar[int]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeLadderFormula.num_inputs" title="Link to this definition">¶</a></dt>
+<dd><p>Number of inputs (points) of the formula.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeLadderFormula.num_inversions">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_inversions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeLadderFormula.num_inversions" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of inversions.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeLadderFormula.num_multiplications">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_multiplications</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeLadderFormula.num_multiplications" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of multiplications.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeLadderFormula.num_operations">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_operations</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeLadderFormula.num_operations" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of operations.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeLadderFormula.num_outputs">
+<span class="sig-name descname"><span class="pre">num_outputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar[int]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeLadderFormula.num_outputs" title="Link to this definition">¶</a></dt>
+<dd><p>Number of outputs (points) of the formula.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeLadderFormula.num_powers">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_powers</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeLadderFormula.num_powers" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of powers.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeLadderFormula.num_squarings">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_squarings</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeLadderFormula.num_squarings" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of squarings.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeLadderFormula.output_index">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_index</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeLadderFormula.output_index" title="Link to this definition">¶</a></dt>
+<dd><p>Return the starting index where this formula stores its outputs.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeLadderFormula.outputs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">outputs</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeLadderFormula.outputs" title="Link to this definition">¶</a></dt>
+<dd><p>Return the output variables of the formula.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeLadderFormula.shortname">
+<span class="sig-name descname"><span class="pre">shortname</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar[str]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ladd'</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeLadderFormula.shortname" title="Link to this definition">¶</a></dt>
+<dd><p>A shortname for the type of the formula.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeLadderFormula.coordinate_model">
+<span class="sig-name descname"><span class="pre">coordinate_model</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Any</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeLadderFormula.coordinate_model" title="Link to this definition">¶</a></dt>
+<dd><p>Coordinate model of the formula.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeLadderFormula.meta">
+<span class="sig-name descname"><span class="pre">meta</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">MutableMapping[str,</span> <span class="pre">Any]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeLadderFormula.meta" title="Link to this definition">¶</a></dt>
+<dd><p>Meta information about the formula, such as its source.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeLadderFormula.parameters">
+<span class="sig-name descname"><span class="pre">parameters</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List[str]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeLadderFormula.parameters" title="Link to this definition">¶</a></dt>
+<dd><p>Formula parameters (i.e. new parameters introduced by the formula, like <cite>half = 1/2</cite>).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeLadderFormula.assumptions">
+<span class="sig-name descname"><span class="pre">assumptions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List[Expression]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeLadderFormula.assumptions" title="Link to this definition">¶</a></dt>
+<dd><p>Assumptions of the formula (e.g. <cite>Z1 == 1</cite> or <cite>2*half == 1</cite>).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeLadderFormula.code">
+<span class="sig-name descname"><span class="pre">code</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List[CodeOp]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeLadderFormula.code" title="Link to this definition">¶</a></dt>
+<dd><p>The collection of ops that constitute the code of the formula.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakeLadderFormula.unified">
+<span class="sig-name descname"><span class="pre">unified</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakeLadderFormula.unified" title="Link to this definition">¶</a></dt>
+<dd><p>Whether the formula specifies that it is unified.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakePoint">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FakePoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakePoint" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></p>
+<p>Just a fake point.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakePoint.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakePoint.equals" title="Link to this definition">¶</a></dt>
+<dd><p>Test whether this point is equal to <cite>other</cite> irrespective of the coordinate model (in the affine sense).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakePoint.equals_affine">
+<span class="sig-name descname"><span class="pre">equals_affine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakePoint.equals_affine" title="Link to this definition">¶</a></dt>
+<dd><p>Test whether this point is equal to <a class="reference internal" href="#pyecsca.ec.formula.fake.FakePoint.equals_affine.params.other" title="pyecsca.ec.formula.fake.FakePoint.equals_affine"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">other</span></code></a> irrespective of the coordinate model (in the affine sense).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakePoint.equals_scaled">
+<span class="sig-name descname"><span class="pre">equals_scaled</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakePoint.equals_scaled" title="Link to this definition">¶</a></dt>
+<dd><p>Test whether this point is equal to <a class="reference internal" href="#pyecsca.ec.formula.fake.FakePoint.equals_scaled.params.other" title="pyecsca.ec.formula.fake.FakePoint.equals_scaled"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">other</span></code></a> using the “z” scaling formula.</p>
+<p>The “z” scaling formula maps the projective class to a single representative.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.ec.formula.fake.FakePoint.equals_scaled.params.other"></span><strong>other</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.formula.fake.FakePoint.equals_scaled.params.other">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></span>) – The point to compare</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the “z” formula is not available for the coordinate system.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Whether the points are equal.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakePoint.to_affine">
+<span class="sig-name descname"><span class="pre">to_affine</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakePoint.to_affine" title="Link to this definition">¶</a></dt>
+<dd><p>Convert this point into the affine coordinate model, if possible.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakePoint.to_model">
+<span class="sig-name descname"><span class="pre">to_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coordinate_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curve</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">randomized</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakePoint.to_model" title="Link to this definition">¶</a></dt>
+<dd><p>Convert an affine point into a given coordinate model, if possible.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakePoint.coordinate_model">
+<span class="sig-name descname"><span class="pre">coordinate_model</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">CoordinateModel</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakePoint.coordinate_model" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakePoint.coords">
+<span class="sig-name descname"><span class="pre">coords</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Mapping[str,</span> <span class="pre">Mod]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakePoint.coords" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.formula.fake.FakePoint.field">
+<span class="sig-name descname"><span class="pre">field</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/formula/fake.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.formula.fake.FakePoint.field" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;2018-2024, Jan Jancar.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.5</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../_sources/api/pyecsca.ec.formula.fake.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

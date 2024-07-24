@@ -1,0 +1,19 @@
+pyecsca.ec.mod package
+======================
+
+.. automodule:: pyecsca.ec.mod
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   pyecsca.ec.mod.base
+   pyecsca.ec.mod.flint
+   pyecsca.ec.mod.gmp
+   pyecsca.ec.mod.raw
+   pyecsca.ec.mod.symbolic

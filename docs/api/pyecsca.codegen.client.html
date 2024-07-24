@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>pyecsca.codegen.client module &#8212; pyecsca 0.3.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d10597a4" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=bf281230" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_paramlinks.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=de02a091" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" />
+    <script src="../_static/documentation_options.js?v=71d9d8e6"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/logo_black.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pyecsca.codegen.common module" href="pyecsca.codegen.common.html" />
+    <link rel="prev" title="pyecsca.codegen.builder module" href="pyecsca.codegen.builder.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo_black.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">pyecsca</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html"><span class="fas fa-screwdriver-wrench fa-fw"></span> Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks.html"><span class="fas fa-hand-pointer fa-fw"></span> Notebooks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.html">pyecsca.ec package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.misc.html">pyecsca.misc package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.html">pyecsca.sca package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="pyecsca.codegen.html">pyecsca.codegen package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries.html"><span class="fas fa-server fa-fw"></span> ECC in Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html"><span class="fas fa-asterisk fa-fw"></span> References</a></li>
+</ul>
+
+<ul style="margin-top: 1em">
+    <li class="toctree-l1"><a href="https://github.com/J08nY/pyecsca/"><i class="fab fa-fw fa-github"></i> Source code</a></li>
+    <li class="toctree-l1"><a href="https://pypi.org/project/pyecsca/"><i class="fas fa-fw fa-file"></i> Releases</a></li>
+</ul><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul>
+  <li><a href="pyecsca.codegen.html">pyecsca.codegen package</a><ul>
+      <li>Previous: <a href="pyecsca.codegen.builder.html" title="previous chapter">pyecsca.codegen.builder module</a></li>
+      <li>Next: <a href="pyecsca.codegen.common.html" title="next chapter">pyecsca.codegen.common module</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-pyecsca.codegen.client">
+<span id="pyecsca-codegen-client-module"></span><h1>pyecsca.codegen.client module<a class="headerlink" href="#module-pyecsca.codegen.client" title="Link to this heading">¶</a></h1>
+<p>Client script.</p>
+<p>Use it to interact with the built implementations (and flash them if necessary).</p>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading">¶</a></h2>
+<p>The following examples use the generated implementation in <code class="docutils literal notranslate"><span class="pre">pyecsca-codegen-HOST.elf</span></code> for the host
+architecture, which is assumed to use the Short-Weierstrass curve model with projective coordinates.</p>
+<p>The first example generates a keypair and exports it.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>client<span class="w"> </span>--platform<span class="w"> </span>HOST<span class="w"> </span>--fw<span class="w"> </span>./pyecsca-codegen-HOST.elf<span class="w"> </span>shortw<span class="w"> </span>projective<span class="w"> </span>gen<span class="w"> </span>secg/secp128r1
+<span class="gp gp-VirtualEnv">(162938999268550597445809790209592423458, Point([x=111810799217268384317536017529141796945, y=309320541414531923178173772704935971498] in shortw/affine)</span><span class="go">)</span>
+<span class="go">0.01743340492248535</span>
+</pre></div>
+</div>
+<p>The following example does ECDH with the target, which first generates a keypair.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>client<span class="w"> </span>--platform<span class="w"> </span>HOST<span class="w"> </span>--fw<span class="w"> </span>./pyecsca-codegen-HOST.elf<span class="w"> </span>shortw<span class="w"> </span>projective<span class="w"> </span>ecdh<span class="w"> </span>secg/secp128r1<span class="w"> </span><span class="m">122835813094999453922649270086793500655</span>,326514220558629293368386081113307347349
+<span class="go">Keypair: 162938999268550597445809790209592423458, [x=111810799217268384317536017529141796945, y=309320541414531923178173772704935971498]</span>
+<span class="go">ECDH result: 30567033074c9169e9355a7b348aa7511c3ae605</span>
+</pre></div>
+</div>
+<p>The following example signs a message <code class="docutils literal notranslate"><span class="pre">&quot;something&quot;</span></code> using the target, which first generates a keypair.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>client<span class="w"> </span>--platform<span class="w"> </span>HOST<span class="w"> </span>--fw<span class="w"> </span>./pyecsca-codegen-HOST.elf<span class="w"> </span>shortw<span class="w"> </span>projective<span class="w"> </span>ecdsa-sign<span class="w"> </span>secg/secp128r1<span class="w"> </span>something
+<span class="go">Keypair: 162938999268550597445809790209592423458, [x=111810799217268384317536017529141796945, y=309320541414531923178173772704935971498]</span>
+<span class="go">Signature: 30250211009dc6d5b03cffe0cbd5e829838ecb59e4021023496ba97cf1d816619fe626de2d07b6</span>
+</pre></div>
+</div>
+<p>The following example verifies a signature on the message <code class="docutils literal notranslate"><span class="pre">&quot;something&quot;</span></code> using the target and the provided public key.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>client<span class="w"> </span>--platform<span class="w"> </span>HOST<span class="w"> </span>--fw<span class="w"> </span>./pyecsca-codegen-HOST.elf<span class="w"> </span>shortw<span class="w"> </span>projective<span class="w"> </span>ecdsa-verify<span class="w"> </span>secg/secp128r1<span class="w"> </span><span class="m">111810799217268384317536017529141796945</span>,309320541414531923178173772704935971498<span class="w"> </span>something_else<span class="w"> </span>30250211009dc6d5b03cffe0cbd5e829838ecb59e40210171c895d2d4f27850ff5f2a375ea22b7
+<span class="go">Result: True</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The implementation has a PRNG it uses to get randomness. This PRNG starts with a constant state.
+You can use the <code class="docutils literal notranslate"><span class="pre">--seed</span></code> option to set a custom state.</p>
+</div>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.Triggers">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Triggers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.Triggers" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">IntFlag</span></code></p>
+<p>Actions that the implementation can trigger on.</p>
+<p>Given that this is a bit-flag, multiple choices are
+allowed, in which case the trigger signal will toggle
+onn each action entry/exit.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.Triggers.add">
+<span class="sig-name descname"><span class="pre">add</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.Triggers.add" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.Triggers.dadd">
+<span class="sig-name descname"><span class="pre">dadd</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.Triggers.dadd" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.Triggers.dbl">
+<span class="sig-name descname"><span class="pre">dbl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.Triggers.dbl" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.Triggers.ladd">
+<span class="sig-name descname"><span class="pre">ladd</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.Triggers.ladd" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.Triggers.neg">
+<span class="sig-name descname"><span class="pre">neg</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">16</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.Triggers.neg" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.Triggers.scl">
+<span class="sig-name descname"><span class="pre">scl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">32</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.Triggers.scl" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.Triggers.tpl">
+<span class="sig-name descname"><span class="pre">tpl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">64</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.Triggers.tpl" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.Triggers.mult">
+<span class="sig-name descname"><span class="pre">mult</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">128</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.Triggers.mult" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.Triggers.keygen">
+<span class="sig-name descname"><span class="pre">keygen</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">256</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.Triggers.keygen" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.Triggers.ecdh">
+<span class="sig-name descname"><span class="pre">ecdh</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">512</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.Triggers.ecdh" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.Triggers.ecdsa_sign">
+<span class="sig-name descname"><span class="pre">ecdsa_sign</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1024</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.Triggers.ecdsa_sign" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.Triggers.ecdsa_verify">
+<span class="sig-name descname"><span class="pre">ecdsa_verify</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2048</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.Triggers.ecdsa_verify" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.Triggers.coord_map">
+<span class="sig-name descname"><span class="pre">coord_map</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4096</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.Triggers.coord_map" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.Triggers.random_mod">
+<span class="sig-name descname"><span class="pre">random_mod</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8192</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.Triggers.random_mod" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.Triggers.conjugate">
+<span class="sig-name descname"><span class="pre">conjugate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.Triggers.conjugate" title="Link to this definition">¶</a></dt>
+<dd><p>Returns self, the complex conjugate of any int.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.Triggers.bit_length">
+<span class="sig-name descname"><span class="pre">bit_length</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.Triggers.bit_length" title="Link to this definition">¶</a></dt>
+<dd><p>Number of bits necessary to represent self in binary.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">bin</span><span class="p">(</span><span class="mi">37</span><span class="p">)</span>
+<span class="go">&#39;0b100101&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mi">37</span><span class="p">)</span><span class="o">.</span><span class="n">bit_length</span><span class="p">()</span>
+<span class="go">6</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.Triggers.bit_count">
+<span class="sig-name descname"><span class="pre">bit_count</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.Triggers.bit_count" title="Link to this definition">¶</a></dt>
+<dd><p>Number of ones in the binary representation of the absolute value of self.</p>
+<p>Also known as the population count.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">bin</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
+<span class="go">&#39;0b1101&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mi">13</span><span class="p">)</span><span class="o">.</span><span class="n">bit_count</span><span class="p">()</span>
+<span class="go">3</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.Triggers.to_bytes">
+<span class="sig-name descname"><span class="pre">to_bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">byteorder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'big'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.Triggers.to_bytes" title="Link to this definition">¶</a></dt>
+<dd><p>Return an array of bytes representing an integer.</p>
+<dl class="simple">
+<dt>length</dt><dd><p>Length of bytes object to use.  An OverflowError is raised if the
+integer is not representable with the given number of bytes.  Default
+is length 1.</p>
+</dd>
+<dt>byteorder</dt><dd><p>The byte order used to represent the integer.  If byteorder is ‘big’,
+the most significant byte is at the beginning of the byte array.  If
+byteorder is ‘little’, the most significant byte is at the end of the
+byte array.  To request the native byte order of the host system, use
+<a href="#id1"><span class="problematic" id="id2">`</span></a>sys.byteorder’ as the byte order value.  Default is to use ‘big’.</p>
+</dd>
+<dt>signed</dt><dd><p>Determines whether two’s complement is used to represent the integer.
+If signed is False and a negative integer is given, an OverflowError
+is raised.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.Triggers.from_bytes">
+<span class="sig-name descname"><span class="pre">from_bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">byteorder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'big'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.Triggers.from_bytes" title="Link to this definition">¶</a></dt>
+<dd><p>Return the integer represented by the given array of bytes.</p>
+<dl class="simple">
+<dt>bytes</dt><dd><p>Holds the array of bytes to convert.  The argument must either
+support the buffer protocol or be an iterable object producing bytes.
+Bytes and bytearray are examples of built-in objects that support the
+buffer protocol.</p>
+</dd>
+<dt>byteorder</dt><dd><p>The byte order used to represent the integer.  If byteorder is ‘big’,
+the most significant byte is at the beginning of the byte array.  If
+byteorder is ‘little’, the most significant byte is at the end of the
+byte array.  To request the native byte order of the host system, use
+<a href="#id3"><span class="problematic" id="id4">`</span></a>sys.byteorder’ as the byte order value.  Default is to use ‘big’.</p>
+</dd>
+<dt>signed</dt><dd><p>Indicates whether two’s complement is used to represent the integer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.Triggers.as_integer_ratio">
+<span class="sig-name descname"><span class="pre">as_integer_ratio</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.Triggers.as_integer_ratio" title="Link to this definition">¶</a></dt>
+<dd><p>Return integer ratio.</p>
+<p>Return a pair of integers, whose ratio is exactly equal to the original int
+and with a positive denominator.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">as_integer_ratio</span><span class="p">()</span>
+<span class="go">(10, 1)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">as_integer_ratio</span><span class="p">()</span>
+<span class="go">(-10, 1)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">as_integer_ratio</span><span class="p">()</span>
+<span class="go">(0, 1)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.Triggers.real">
+<span class="sig-name descname"><span class="pre">real</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.Triggers.real" title="Link to this definition">¶</a></dt>
+<dd><p>the real part of a complex number</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.Triggers.imag">
+<span class="sig-name descname"><span class="pre">imag</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.Triggers.imag" title="Link to this definition">¶</a></dt>
+<dd><p>the imaginary part of a complex number</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.Triggers.numerator">
+<span class="sig-name descname"><span class="pre">numerator</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.Triggers.numerator" title="Link to this definition">¶</a></dt>
+<dd><p>the numerator of a rational number in lowest terms</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.Triggers.denominator">
+<span class="sig-name descname"><span class="pre">denominator</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.Triggers.denominator" title="Link to this definition">¶</a></dt>
+<dd><p>the denominator of a rational number in lowest terms</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.cmd_init_prng">
+<span class="sig-name descname"><span class="pre">cmd_init_prng</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seed</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.cmd_init_prng" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.cmd_set_params">
+<span class="sig-name descname"><span class="pre">cmd_set_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.cmd_set_params" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.cmd_generate">
+<span class="sig-name descname"><span class="pre">cmd_generate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.cmd_generate" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.cmd_set_privkey">
+<span class="sig-name descname"><span class="pre">cmd_set_privkey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">privkey</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.cmd_set_privkey" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.cmd_set_pubkey">
+<span class="sig-name descname"><span class="pre">cmd_set_pubkey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pubkey</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.cmd_set_pubkey" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.cmd_scalar_mult">
+<span class="sig-name descname"><span class="pre">cmd_scalar_mult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scalar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.cmd_scalar_mult" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.cmd_ecdh">
+<span class="sig-name descname"><span class="pre">cmd_ecdh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pubkey</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.cmd_ecdh" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.cmd_ecdsa_sign">
+<span class="sig-name descname"><span class="pre">cmd_ecdsa_sign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.cmd_ecdsa_sign" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.cmd_ecdsa_verify">
+<span class="sig-name descname"><span class="pre">cmd_ecdsa_verify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sig</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.cmd_ecdsa_verify" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.cmd_set_trigger">
+<span class="sig-name descname"><span class="pre">cmd_set_trigger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">actions</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.cmd_set_trigger" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.cmd_debug">
+<span class="sig-name descname"><span class="pre">cmd_debug</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.cmd_debug" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.EmulatorTarget">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">EmulatorTarget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_config=&lt;Print:</span> <span class="pre">0&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trace_config=&lt;rainbow.rainbow.TraceConfig</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_breakpoints=False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.EmulatorTarget" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pyecsca.sca.target.base.html#pyecsca.sca.target.base.Target" title="pyecsca.sca.target.base.Target"><code class="xref py py-class docutils literal notranslate"><span class="pre">Target</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.EmulatorTarget.emulator">
+<span class="sig-name descname"><span class="pre">emulator</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">rainbow_stm32f215</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.EmulatorTarget.emulator" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.EmulatorTarget.result">
+<span class="sig-name descname"><span class="pre">result</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.EmulatorTarget.result" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.EmulatorTarget.trace">
+<span class="sig-name descname"><span class="pre">trace</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.EmulatorTarget.trace" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.EmulatorTarget.model">
+<span class="sig-name descname"><span class="pre">model</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="pyecsca.ec.model.html#pyecsca.ec.model.CurveModel" title="pyecsca.ec.model.CurveModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">CurveModel</span></code></a></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.EmulatorTarget.model" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.EmulatorTarget.coords">
+<span class="sig-name descname"><span class="pre">coords</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="pyecsca.ec.coordinates.html#pyecsca.ec.coordinates.CoordinateModel" title="pyecsca.ec.coordinates.CoordinateModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">CoordinateModel</span></code></a></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.EmulatorTarget.coords" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.EmulatorTarget.seed">
+<span class="sig-name descname"><span class="pre">seed</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.EmulatorTarget.seed" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.EmulatorTarget.params">
+<span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code><span class="pre">[</span><a class="reference internal" href="pyecsca.ec.params.html#pyecsca.ec.params.DomainParameters" title="pyecsca.ec.params.DomainParameters"><code class="xref py py-class docutils literal notranslate"><span class="pre">DomainParameters</span></code></a><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.EmulatorTarget.params" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.EmulatorTarget.privkey">
+<span class="sig-name descname"><span class="pre">privkey</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.EmulatorTarget.privkey" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.EmulatorTarget.pubkey">
+<span class="sig-name descname"><span class="pre">pubkey</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code><span class="pre">[</span><a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.EmulatorTarget.pubkey" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.EmulatorTarget.connect">
+<span class="sig-name descname"><span class="pre">connect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.EmulatorTarget.connect" title="Link to this definition">¶</a></dt>
+<dd><p>Connect to the target device.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.EmulatorTarget.set_params">
+<span class="sig-name descname"><span class="pre">set_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.EmulatorTarget.set_params" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.EmulatorTarget.scalar_mult">
+<span class="sig-name descname"><span class="pre">scalar_mult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scalar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.EmulatorTarget.scalar_mult" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.EmulatorTarget.init_prng">
+<span class="sig-name descname"><span class="pre">init_prng</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seed</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.EmulatorTarget.init_prng" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.EmulatorTarget.generate">
+<span class="sig-name descname"><span class="pre">generate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.EmulatorTarget.generate" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.EmulatorTarget.set_privkey">
+<span class="sig-name descname"><span class="pre">set_privkey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">privkey</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.EmulatorTarget.set_privkey" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.EmulatorTarget.set_pubkey">
+<span class="sig-name descname"><span class="pre">set_pubkey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pubkey</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.EmulatorTarget.set_pubkey" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.EmulatorTarget.ecdh">
+<span class="sig-name descname"><span class="pre">ecdh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other_pubkey</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.EmulatorTarget.ecdh" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.EmulatorTarget.ecdsa_sign">
+<span class="sig-name descname"><span class="pre">ecdsa_sign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.EmulatorTarget.ecdsa_sign" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.EmulatorTarget.ecdsa_verify">
+<span class="sig-name descname"><span class="pre">ecdsa_verify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signature</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.EmulatorTarget.ecdsa_verify" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.EmulatorTarget.transform_trace">
+<span class="sig-name descname"><span class="pre">transform_trace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filter_malloc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_instructions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.EmulatorTarget.transform_trace" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.sca.trace.trace.html#pyecsca.sca.trace.trace.Trace" title="pyecsca.sca.trace.trace.Trace"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trace</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.EmulatorTarget.set_trigger">
+<span class="sig-name descname"><span class="pre">set_trigger</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.EmulatorTarget.set_trigger" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.EmulatorTarget.debug">
+<span class="sig-name descname"><span class="pre">debug</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.EmulatorTarget.debug" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.EmulatorTarget.quit">
+<span class="sig-name descname"><span class="pre">quit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.EmulatorTarget.quit" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.EmulatorTarget.disconnect">
+<span class="sig-name descname"><span class="pre">disconnect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.EmulatorTarget.disconnect" title="Link to this definition">¶</a></dt>
+<dd><p>Disconnect from the target device.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.ImplTarget">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ImplTarget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coords</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.ImplTarget" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pyecsca.sca.target.simpleserial.html#pyecsca.sca.target.simpleserial.SimpleSerialTarget" title="pyecsca.sca.target.simpleserial.SimpleSerialTarget"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleSerialTarget</span></code></a></p>
+<blockquote>
+<div><p>A target that is based on an implementation built by pyecsca-codegen.</p>
+</div></blockquote>
+<dl class="simple">
+<dt><a href="#id5"><span class="problematic" id="id6">``</span></a></dt><dd><p>This is an abstract class that uses the send_cmd method on the
+<a class="reference internal" href="pyecsca.sca.target.simpleserial.html#pyecsca.sca.target.simpleserial.SimpleSerialTarget" title="pyecsca.sca.target.simpleserial.SimpleSerialTarget"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyecsca.sca.target.simpleserial.SimpleSerialTarget</span></code></a>
+class to send commands to the target. That class in turn requires one to
+implement the read/write/connect/disconnect methods that communicate with the
+target somehow. See <a class="reference internal" href="#pyecsca.codegen.client.DeviceTarget" title="pyecsca.codegen.client.DeviceTarget"><code class="xref py py-class docutils literal notranslate"><span class="pre">DeviceTarget</span></code></a> that uses
+<a class="reference internal" href="pyecsca.sca.target.chipwhisperer.html#pyecsca.sca.target.chipwhisperer.ChipWhispererTarget" title="pyecsca.sca.target.chipwhisperer.ChipWhispererTarget"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyecsca.sca.target.chipwhisperer.ChipWhispererTarget</span></code></a> for thar purpose,
+or <a class="reference internal" href="#pyecsca.codegen.client.HostTarget" title="pyecsca.codegen.client.HostTarget"><code class="xref py py-class docutils literal notranslate"><span class="pre">HostTarget</span></code></a> that uses <a class="reference internal" href="pyecsca.sca.target.binary.html#pyecsca.sca.target.binary.BinaryTarget" title="pyecsca.sca.target.binary.BinaryTarget"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyecsca.sca.target.binary.BinaryTarget</span></code></a>.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.ImplTarget.timeout">
+<span class="sig-name descname"><span class="pre">timeout</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.ImplTarget.timeout" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.ImplTarget.model">
+<span class="sig-name descname"><span class="pre">model</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="pyecsca.ec.model.html#pyecsca.ec.model.CurveModel" title="pyecsca.ec.model.CurveModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">CurveModel</span></code></a></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.ImplTarget.model" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.ImplTarget.coords">
+<span class="sig-name descname"><span class="pre">coords</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="pyecsca.ec.coordinates.html#pyecsca.ec.coordinates.CoordinateModel" title="pyecsca.ec.coordinates.CoordinateModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">CoordinateModel</span></code></a></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.ImplTarget.coords" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.ImplTarget.seed">
+<span class="sig-name descname"><span class="pre">seed</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.ImplTarget.seed" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.ImplTarget.params">
+<span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code><span class="pre">[</span><a class="reference internal" href="pyecsca.ec.params.html#pyecsca.ec.params.DomainParameters" title="pyecsca.ec.params.DomainParameters"><code class="xref py py-class docutils literal notranslate"><span class="pre">DomainParameters</span></code></a><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.ImplTarget.params" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.ImplTarget.privkey">
+<span class="sig-name descname"><span class="pre">privkey</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.ImplTarget.privkey" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.ImplTarget.pubkey">
+<span class="sig-name descname"><span class="pre">pubkey</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code><span class="pre">[</span><a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.ImplTarget.pubkey" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.ImplTarget.trigger">
+<span class="sig-name descname"><span class="pre">trigger</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code><span class="pre">[</span><a class="reference internal" href="#pyecsca.codegen.client.Triggers" title="pyecsca.codegen.client.Triggers"><code class="xref py py-class docutils literal notranslate"><span class="pre">Triggers</span></code></a><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.ImplTarget.trigger" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.ImplTarget.init_prng">
+<span class="sig-name descname"><span class="pre">init_prng</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seed</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.ImplTarget.init_prng" title="Link to this definition">¶</a></dt>
+<dd><p>Init the PRNG using the <cite>seed</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.ImplTarget.set_params">
+<span class="sig-name descname"><span class="pre">set_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.ImplTarget.set_params" title="Link to this definition">¶</a></dt>
+<dd><p>Set the domain parameters on the target.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.ImplTarget.generate">
+<span class="sig-name descname"><span class="pre">generate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.ImplTarget.generate" title="Link to this definition">¶</a></dt>
+<dd><p>Generate a keypair on the target and set it (and export it).</p>
+<p>Requires that domain parameters are set up.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.ImplTarget.set_privkey">
+<span class="sig-name descname"><span class="pre">set_privkey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">privkey</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.ImplTarget.set_privkey" title="Link to this definition">¶</a></dt>
+<dd><p>Set the private key on the target.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.ImplTarget.set_pubkey">
+<span class="sig-name descname"><span class="pre">set_pubkey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pubkey</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.ImplTarget.set_pubkey" title="Link to this definition">¶</a></dt>
+<dd><p>Set the public key on the target.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.ImplTarget.scalar_mult">
+<span class="sig-name descname"><span class="pre">scalar_mult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scalar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.ImplTarget.scalar_mult" title="Link to this definition">¶</a></dt>
+<dd><p>Run scalar multiplication on the target and export the result.</p>
+<p>Requires that domain parameters are set up.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.ImplTarget.connect">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">connect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.ImplTarget.connect" title="Link to this definition">¶</a></dt>
+<dd><p>Connect to the target device.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.ImplTarget.ecdh">
+<span class="sig-name descname"><span class="pre">ecdh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other_pubkey</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.ImplTarget.ecdh" title="Link to this definition">¶</a></dt>
+<dd><p>Do ECDH with the target.</p>
+<p>Requires that domain parameters are set up, as well as a private key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.ImplTarget.read">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.ImplTarget.read" title="Link to this definition">¶</a></dt>
+<dd><p>Read upto <a class="reference internal" href="#pyecsca.codegen.client.ImplTarget.read.params.num" title="pyecsca.codegen.client.ImplTarget.read"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">num</span></code></a> bytes or until <a class="reference internal" href="#pyecsca.codegen.client.ImplTarget.read.params.timeout" title="pyecsca.codegen.client.ImplTarget.read"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">timeout</span></code></a> milliseconds from the target’s serial output.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="pyecsca.codegen.client.ImplTarget.read.params.num"></span><strong>num</strong><a class="paramlink headerlink reference internal" href="#pyecsca.codegen.client.ImplTarget.read.params.num">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – The number of bytes to read, <code class="docutils literal notranslate"><span class="pre">0</span></code> for all available.</p></li>
+<li><p><span class="target" id="pyecsca.codegen.client.ImplTarget.read.params.timeout"></span><strong>timeout</strong><a class="paramlink headerlink reference internal" href="#pyecsca.codegen.client.ImplTarget.read.params.timeout">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – The timeout in milliseconds.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The bytes read.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.ImplTarget.recv_msgs">
+<span class="sig-name descname"><span class="pre">recv_msgs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.ImplTarget.recv_msgs" title="Link to this definition">¶</a></dt>
+<dd><p>Receive <code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleSerialMessage</span></code> messages, while waiting upto <a class="reference internal" href="#pyecsca.codegen.client.ImplTarget.recv_msgs.params.timeout" title="pyecsca.codegen.client.ImplTarget.recv_msgs"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">timeout</span></code></a> seconds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.codegen.client.ImplTarget.recv_msgs.params.timeout"></span><strong>timeout</strong><a class="paramlink headerlink reference internal" href="#pyecsca.codegen.client.ImplTarget.recv_msgs.params.timeout">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – How long to wait.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mapping</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="pyecsca.sca.target.simpleserial.html#pyecsca.sca.target.simpleserial.SimpleSerialMessage" title="pyecsca.sca.target.simpleserial.SimpleSerialMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleSerialMessage</span></code></a>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The received messages with their char.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.ImplTarget.send_cmd">
+<span class="sig-name descname"><span class="pre">send_cmd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.ImplTarget.send_cmd" title="Link to this definition">¶</a></dt>
+<dd><p>Send a <code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleSerialMessage</span></code> and receive the response messages that the command produces, within a <a class="reference internal" href="#pyecsca.codegen.client.ImplTarget.send_cmd.params.timeout" title="pyecsca.codegen.client.ImplTarget.send_cmd"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">timeout</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="pyecsca.codegen.client.ImplTarget.send_cmd.params.cmd"></span><strong>cmd</strong><a class="paramlink headerlink reference internal" href="#pyecsca.codegen.client.ImplTarget.send_cmd.params.cmd">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.sca.target.simpleserial.html#pyecsca.sca.target.simpleserial.SimpleSerialMessage" title="pyecsca.sca.target.simpleserial.SimpleSerialMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleSerialMessage</span></code></a></span>) – The command message to send.</p></li>
+<li><p><span class="target" id="pyecsca.codegen.client.ImplTarget.send_cmd.params.timeout"></span><strong>timeout</strong><a class="paramlink headerlink reference internal" href="#pyecsca.codegen.client.ImplTarget.send_cmd.params.timeout">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – The timeout value to wait for the responses.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mapping</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="pyecsca.sca.target.simpleserial.html#pyecsca.sca.target.simpleserial.SimpleSerialMessage" title="pyecsca.sca.target.simpleserial.SimpleSerialMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleSerialMessage</span></code></a>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A mapping of the starting character of the message to the message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.ImplTarget.write">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.ImplTarget.write" title="Link to this definition">¶</a></dt>
+<dd><p>Write the <a class="reference internal" href="#pyecsca.codegen.client.ImplTarget.write.params.data" title="pyecsca.codegen.client.ImplTarget.write"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">data</span></code></a> bytes to the target’s serial input.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.codegen.client.ImplTarget.write.params.data"></span><strong>data</strong><a class="paramlink headerlink reference internal" href="#pyecsca.codegen.client.ImplTarget.write.params.data">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></span>) – The data to write.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.ImplTarget.ecdsa_sign">
+<span class="sig-name descname"><span class="pre">ecdsa_sign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.ImplTarget.ecdsa_sign" title="Link to this definition">¶</a></dt>
+<dd><p>Sign a message on the target.</p>
+<p>Requires that domain parameters are set up, as well as a private key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.ImplTarget.ecdsa_verify">
+<span class="sig-name descname"><span class="pre">ecdsa_verify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signature</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.ImplTarget.ecdsa_verify" title="Link to this definition">¶</a></dt>
+<dd><p>Verify a signature on the target.</p>
+<p>Requires that domain parameters are set up, as well as a public key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.ImplTarget.debug">
+<span class="sig-name descname"><span class="pre">debug</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.ImplTarget.debug" title="Link to this definition">¶</a></dt>
+<dd><p>Run the debug command on the target.</p>
+<p>Returns the curve model and coordinate model names.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.ImplTarget.set_trigger">
+<span class="sig-name descname"><span class="pre">set_trigger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">actions</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.ImplTarget.set_trigger" title="Link to this definition">¶</a></dt>
+<dd><p>Setup the trigger on the target.
+:rtype: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The triggers are not exclusive, and you can set to trigger on multiple actions.
+However, note that they toggle the trigger signal. For example, if you set up
+triggers on scalar multiplication and addition (<code class="docutils literal notranslate"><span class="pre">Triggers.mult</span> <span class="pre">|</span> <span class="pre">Triggers.add</span></code>)
+the trigger signal will go high once scalar multiplication starts, then go low
+during each addition operation and finally go low for good after scalar multiplication
+ends.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.ImplTarget.quit">
+<span class="sig-name descname"><span class="pre">quit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.ImplTarget.quit" title="Link to this definition">¶</a></dt>
+<dd><p>Turn off the target.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.ImplTarget.disconnect">
+<span class="sig-name descname"><span class="pre">disconnect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.ImplTarget.disconnect" title="Link to this definition">¶</a></dt>
+<dd><p>Disconnect from the target device.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.DeviceTarget">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DeviceTarget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">platform</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.DeviceTarget" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyecsca.codegen.client.ImplTarget" title="pyecsca.codegen.client.ImplTarget"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImplTarget</span></code></a>, <a class="reference internal" href="pyecsca.sca.target.chipwhisperer.html#pyecsca.sca.target.chipwhisperer.ChipWhispererTarget" title="pyecsca.sca.target.chipwhisperer.ChipWhispererTarget"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChipWhispererTarget</span></code></a></p>
+<p>A ChipWhisperer-based device target.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.DeviceTarget.connect">
+<span class="sig-name descname"><span class="pre">connect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.DeviceTarget.connect" title="Link to this definition">¶</a></dt>
+<dd><p>Connect to the target device.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.DeviceTarget.debug">
+<span class="sig-name descname"><span class="pre">debug</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.DeviceTarget.debug" title="Link to this definition">¶</a></dt>
+<dd><p>Run the debug command on the target.</p>
+<p>Returns the curve model and coordinate model names.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.DeviceTarget.disconnect">
+<span class="sig-name descname"><span class="pre">disconnect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.DeviceTarget.disconnect" title="Link to this definition">¶</a></dt>
+<dd><p>Disconnect from the target device.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.DeviceTarget.ecdh">
+<span class="sig-name descname"><span class="pre">ecdh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other_pubkey</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.DeviceTarget.ecdh" title="Link to this definition">¶</a></dt>
+<dd><p>Do ECDH with the target.</p>
+<p>Requires that domain parameters are set up, as well as a private key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.DeviceTarget.ecdsa_sign">
+<span class="sig-name descname"><span class="pre">ecdsa_sign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.DeviceTarget.ecdsa_sign" title="Link to this definition">¶</a></dt>
+<dd><p>Sign a message on the target.</p>
+<p>Requires that domain parameters are set up, as well as a private key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.DeviceTarget.ecdsa_verify">
+<span class="sig-name descname"><span class="pre">ecdsa_verify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signature</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.DeviceTarget.ecdsa_verify" title="Link to this definition">¶</a></dt>
+<dd><p>Verify a signature on the target.</p>
+<p>Requires that domain parameters are set up, as well as a public key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.DeviceTarget.flash">
+<span class="sig-name descname"><span class="pre">flash</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fw_path</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.DeviceTarget.flash" title="Link to this definition">¶</a></dt>
+<dd><p>Flash the firmware at <cite>fw_path</cite> to the target.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.codegen.client.DeviceTarget.flash.params.fw_path"></span><strong>fw_path</strong><a class="paramlink headerlink reference internal" href="#pyecsca.codegen.client.DeviceTarget.flash.params.fw_path">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The path to the firmware blob.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Whether the flashing was successful.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.DeviceTarget.generate">
+<span class="sig-name descname"><span class="pre">generate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.DeviceTarget.generate" title="Link to this definition">¶</a></dt>
+<dd><p>Generate a keypair on the target and set it (and export it).</p>
+<p>Requires that domain parameters are set up.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.DeviceTarget.init_prng">
+<span class="sig-name descname"><span class="pre">init_prng</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seed</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.DeviceTarget.init_prng" title="Link to this definition">¶</a></dt>
+<dd><p>Init the PRNG using the <cite>seed</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.DeviceTarget.quit">
+<span class="sig-name descname"><span class="pre">quit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.DeviceTarget.quit" title="Link to this definition">¶</a></dt>
+<dd><p>Turn off the target.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.DeviceTarget.read">
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.DeviceTarget.read" title="Link to this definition">¶</a></dt>
+<dd><p>Read upto <a class="reference internal" href="#pyecsca.codegen.client.DeviceTarget.read.params.num" title="pyecsca.codegen.client.DeviceTarget.read"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">num</span></code></a> bytes or until <a class="reference internal" href="#pyecsca.codegen.client.DeviceTarget.read.params.timeout" title="pyecsca.codegen.client.DeviceTarget.read"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">timeout</span></code></a> milliseconds from the target’s serial output.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="pyecsca.codegen.client.DeviceTarget.read.params.num"></span><strong>num</strong><a class="paramlink headerlink reference internal" href="#pyecsca.codegen.client.DeviceTarget.read.params.num">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – The number of bytes to read, <code class="docutils literal notranslate"><span class="pre">0</span></code> for all available.</p></li>
+<li><p><span class="target" id="pyecsca.codegen.client.DeviceTarget.read.params.timeout"></span><strong>timeout</strong><a class="paramlink headerlink reference internal" href="#pyecsca.codegen.client.DeviceTarget.read.params.timeout">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – The timeout in milliseconds.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The bytes read.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.DeviceTarget.recv_msgs">
+<span class="sig-name descname"><span class="pre">recv_msgs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.DeviceTarget.recv_msgs" title="Link to this definition">¶</a></dt>
+<dd><p>Receive <code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleSerialMessage</span></code> messages, while waiting upto <a class="reference internal" href="#pyecsca.codegen.client.DeviceTarget.recv_msgs.params.timeout" title="pyecsca.codegen.client.DeviceTarget.recv_msgs"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">timeout</span></code></a> seconds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.codegen.client.DeviceTarget.recv_msgs.params.timeout"></span><strong>timeout</strong><a class="paramlink headerlink reference internal" href="#pyecsca.codegen.client.DeviceTarget.recv_msgs.params.timeout">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – How long to wait.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mapping</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="pyecsca.sca.target.simpleserial.html#pyecsca.sca.target.simpleserial.SimpleSerialMessage" title="pyecsca.sca.target.simpleserial.SimpleSerialMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleSerialMessage</span></code></a>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The received messages with their char.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.DeviceTarget.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.DeviceTarget.reset" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.DeviceTarget.scalar_mult">
+<span class="sig-name descname"><span class="pre">scalar_mult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scalar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.DeviceTarget.scalar_mult" title="Link to this definition">¶</a></dt>
+<dd><p>Run scalar multiplication on the target and export the result.</p>
+<p>Requires that domain parameters are set up.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.DeviceTarget.send_cmd">
+<span class="sig-name descname"><span class="pre">send_cmd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.DeviceTarget.send_cmd" title="Link to this definition">¶</a></dt>
+<dd><p>Send a <code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleSerialMessage</span></code> and receive the response messages that the command produces, within a <a class="reference internal" href="#pyecsca.codegen.client.DeviceTarget.send_cmd.params.timeout" title="pyecsca.codegen.client.DeviceTarget.send_cmd"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">timeout</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="pyecsca.codegen.client.DeviceTarget.send_cmd.params.cmd"></span><strong>cmd</strong><a class="paramlink headerlink reference internal" href="#pyecsca.codegen.client.DeviceTarget.send_cmd.params.cmd">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.sca.target.simpleserial.html#pyecsca.sca.target.simpleserial.SimpleSerialMessage" title="pyecsca.sca.target.simpleserial.SimpleSerialMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleSerialMessage</span></code></a></span>) – The command message to send.</p></li>
+<li><p><span class="target" id="pyecsca.codegen.client.DeviceTarget.send_cmd.params.timeout"></span><strong>timeout</strong><a class="paramlink headerlink reference internal" href="#pyecsca.codegen.client.DeviceTarget.send_cmd.params.timeout">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – The timeout value to wait for the responses.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mapping</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="pyecsca.sca.target.simpleserial.html#pyecsca.sca.target.simpleserial.SimpleSerialMessage" title="pyecsca.sca.target.simpleserial.SimpleSerialMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleSerialMessage</span></code></a>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A mapping of the starting character of the message to the message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.DeviceTarget.set_params">
+<span class="sig-name descname"><span class="pre">set_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.DeviceTarget.set_params" title="Link to this definition">¶</a></dt>
+<dd><p>Set the domain parameters on the target.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.DeviceTarget.set_privkey">
+<span class="sig-name descname"><span class="pre">set_privkey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">privkey</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.DeviceTarget.set_privkey" title="Link to this definition">¶</a></dt>
+<dd><p>Set the private key on the target.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.DeviceTarget.set_pubkey">
+<span class="sig-name descname"><span class="pre">set_pubkey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pubkey</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.DeviceTarget.set_pubkey" title="Link to this definition">¶</a></dt>
+<dd><p>Set the public key on the target.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.DeviceTarget.set_trigger">
+<span class="sig-name descname"><span class="pre">set_trigger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">actions</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.DeviceTarget.set_trigger" title="Link to this definition">¶</a></dt>
+<dd><p>Setup the trigger on the target.
+:rtype: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The triggers are not exclusive, and you can set to trigger on multiple actions.
+However, note that they toggle the trigger signal. For example, if you set up
+triggers on scalar multiplication and addition (<code class="docutils literal notranslate"><span class="pre">Triggers.mult</span> <span class="pre">|</span> <span class="pre">Triggers.add</span></code>)
+the trigger signal will go high once scalar multiplication starts, then go low
+during each addition operation and finally go low for good after scalar multiplication
+ends.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.DeviceTarget.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.DeviceTarget.write" title="Link to this definition">¶</a></dt>
+<dd><p>Write the <a class="reference internal" href="#pyecsca.codegen.client.DeviceTarget.write.params.data" title="pyecsca.codegen.client.DeviceTarget.write"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">data</span></code></a> bytes to the target’s serial input.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.codegen.client.DeviceTarget.write.params.data"></span><strong>data</strong><a class="paramlink headerlink reference internal" href="#pyecsca.codegen.client.DeviceTarget.write.params.data">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></span>) – The data to write.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.DeviceTarget.model">
+<span class="sig-name descname"><span class="pre">model</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="pyecsca.ec.model.html#pyecsca.ec.model.CurveModel" title="pyecsca.ec.model.CurveModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">CurveModel</span></code></a></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.DeviceTarget.model" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.DeviceTarget.coords">
+<span class="sig-name descname"><span class="pre">coords</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="pyecsca.ec.coordinates.html#pyecsca.ec.coordinates.CoordinateModel" title="pyecsca.ec.coordinates.CoordinateModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">CoordinateModel</span></code></a></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.DeviceTarget.coords" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.DeviceTarget.seed">
+<span class="sig-name descname"><span class="pre">seed</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.DeviceTarget.seed" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.DeviceTarget.params">
+<span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code><span class="pre">[</span><a class="reference internal" href="pyecsca.ec.params.html#pyecsca.ec.params.DomainParameters" title="pyecsca.ec.params.DomainParameters"><code class="xref py py-class docutils literal notranslate"><span class="pre">DomainParameters</span></code></a><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.DeviceTarget.params" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.DeviceTarget.privkey">
+<span class="sig-name descname"><span class="pre">privkey</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.DeviceTarget.privkey" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.DeviceTarget.pubkey">
+<span class="sig-name descname"><span class="pre">pubkey</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code><span class="pre">[</span><a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.DeviceTarget.pubkey" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.DeviceTarget.trigger">
+<span class="sig-name descname"><span class="pre">trigger</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code><span class="pre">[</span><a class="reference internal" href="#pyecsca.codegen.client.Triggers" title="pyecsca.codegen.client.Triggers"><code class="xref py py-class docutils literal notranslate"><span class="pre">Triggers</span></code></a><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.DeviceTarget.trigger" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.DeviceTarget.timeout">
+<span class="sig-name descname"><span class="pre">timeout</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.DeviceTarget.timeout" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.HostTarget">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">HostTarget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coords</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.HostTarget" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyecsca.codegen.client.ImplTarget" title="pyecsca.codegen.client.ImplTarget"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImplTarget</span></code></a>, <a class="reference internal" href="pyecsca.sca.target.binary.html#pyecsca.sca.target.binary.BinaryTarget" title="pyecsca.sca.target.binary.BinaryTarget"><code class="xref py py-class docutils literal notranslate"><span class="pre">BinaryTarget</span></code></a></p>
+<p>A host-based target, will just run the binary on your machine and communicate
+with it via stdin/stdout.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.HostTarget.connect">
+<span class="sig-name descname"><span class="pre">connect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.HostTarget.connect" title="Link to this definition">¶</a></dt>
+<dd><p>Connect to the target device.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.HostTarget.debug">
+<span class="sig-name descname"><span class="pre">debug</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.HostTarget.debug" title="Link to this definition">¶</a></dt>
+<dd><p>Run the debug command on the target.</p>
+<p>Returns the curve model and coordinate model names.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.HostTarget.disconnect">
+<span class="sig-name descname"><span class="pre">disconnect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.HostTarget.disconnect" title="Link to this definition">¶</a></dt>
+<dd><p>Disconnect from the target device.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.HostTarget.ecdh">
+<span class="sig-name descname"><span class="pre">ecdh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other_pubkey</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.HostTarget.ecdh" title="Link to this definition">¶</a></dt>
+<dd><p>Do ECDH with the target.</p>
+<p>Requires that domain parameters are set up, as well as a private key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.HostTarget.ecdsa_sign">
+<span class="sig-name descname"><span class="pre">ecdsa_sign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.HostTarget.ecdsa_sign" title="Link to this definition">¶</a></dt>
+<dd><p>Sign a message on the target.</p>
+<p>Requires that domain parameters are set up, as well as a private key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.HostTarget.ecdsa_verify">
+<span class="sig-name descname"><span class="pre">ecdsa_verify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signature</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.HostTarget.ecdsa_verify" title="Link to this definition">¶</a></dt>
+<dd><p>Verify a signature on the target.</p>
+<p>Requires that domain parameters are set up, as well as a public key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.HostTarget.generate">
+<span class="sig-name descname"><span class="pre">generate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.HostTarget.generate" title="Link to this definition">¶</a></dt>
+<dd><p>Generate a keypair on the target and set it (and export it).</p>
+<p>Requires that domain parameters are set up.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.HostTarget.init_prng">
+<span class="sig-name descname"><span class="pre">init_prng</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seed</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.HostTarget.init_prng" title="Link to this definition">¶</a></dt>
+<dd><p>Init the PRNG using the <cite>seed</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.HostTarget.process">
+<span class="sig-name descname"><span class="pre">process</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional[Popen]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.HostTarget.process" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.HostTarget.quit">
+<span class="sig-name descname"><span class="pre">quit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.HostTarget.quit" title="Link to this definition">¶</a></dt>
+<dd><p>Turn off the target.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.HostTarget.read">
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.HostTarget.read" title="Link to this definition">¶</a></dt>
+<dd><p>Read upto <a class="reference internal" href="#pyecsca.codegen.client.HostTarget.read.params.num" title="pyecsca.codegen.client.HostTarget.read"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">num</span></code></a> bytes or until <a class="reference internal" href="#pyecsca.codegen.client.HostTarget.read.params.timeout" title="pyecsca.codegen.client.HostTarget.read"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">timeout</span></code></a> milliseconds from the target’s serial output.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="pyecsca.codegen.client.HostTarget.read.params.num"></span><strong>num</strong><a class="paramlink headerlink reference internal" href="#pyecsca.codegen.client.HostTarget.read.params.num">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – The number of bytes to read, <code class="docutils literal notranslate"><span class="pre">0</span></code> for all available.</p></li>
+<li><p><span class="target" id="pyecsca.codegen.client.HostTarget.read.params.timeout"></span><strong>timeout</strong><a class="paramlink headerlink reference internal" href="#pyecsca.codegen.client.HostTarget.read.params.timeout">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – The timeout in milliseconds.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The bytes read.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.HostTarget.recv_msgs">
+<span class="sig-name descname"><span class="pre">recv_msgs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.HostTarget.recv_msgs" title="Link to this definition">¶</a></dt>
+<dd><p>Receive <code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleSerialMessage</span></code> messages, while waiting upto <a class="reference internal" href="#pyecsca.codegen.client.HostTarget.recv_msgs.params.timeout" title="pyecsca.codegen.client.HostTarget.recv_msgs"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">timeout</span></code></a> seconds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.codegen.client.HostTarget.recv_msgs.params.timeout"></span><strong>timeout</strong><a class="paramlink headerlink reference internal" href="#pyecsca.codegen.client.HostTarget.recv_msgs.params.timeout">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – How long to wait.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mapping</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="pyecsca.sca.target.simpleserial.html#pyecsca.sca.target.simpleserial.SimpleSerialMessage" title="pyecsca.sca.target.simpleserial.SimpleSerialMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleSerialMessage</span></code></a>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The received messages with their char.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.HostTarget.scalar_mult">
+<span class="sig-name descname"><span class="pre">scalar_mult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scalar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.HostTarget.scalar_mult" title="Link to this definition">¶</a></dt>
+<dd><p>Run scalar multiplication on the target and export the result.</p>
+<p>Requires that domain parameters are set up.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.HostTarget.send_cmd">
+<span class="sig-name descname"><span class="pre">send_cmd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.HostTarget.send_cmd" title="Link to this definition">¶</a></dt>
+<dd><p>Send a <code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleSerialMessage</span></code> and receive the response messages that the command produces, within a <a class="reference internal" href="#pyecsca.codegen.client.HostTarget.send_cmd.params.timeout" title="pyecsca.codegen.client.HostTarget.send_cmd"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">timeout</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="pyecsca.codegen.client.HostTarget.send_cmd.params.cmd"></span><strong>cmd</strong><a class="paramlink headerlink reference internal" href="#pyecsca.codegen.client.HostTarget.send_cmd.params.cmd">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.sca.target.simpleserial.html#pyecsca.sca.target.simpleserial.SimpleSerialMessage" title="pyecsca.sca.target.simpleserial.SimpleSerialMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleSerialMessage</span></code></a></span>) – The command message to send.</p></li>
+<li><p><span class="target" id="pyecsca.codegen.client.HostTarget.send_cmd.params.timeout"></span><strong>timeout</strong><a class="paramlink headerlink reference internal" href="#pyecsca.codegen.client.HostTarget.send_cmd.params.timeout">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – The timeout value to wait for the responses.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mapping</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="pyecsca.sca.target.simpleserial.html#pyecsca.sca.target.simpleserial.SimpleSerialMessage" title="pyecsca.sca.target.simpleserial.SimpleSerialMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleSerialMessage</span></code></a>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A mapping of the starting character of the message to the message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.HostTarget.set_params">
+<span class="sig-name descname"><span class="pre">set_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.HostTarget.set_params" title="Link to this definition">¶</a></dt>
+<dd><p>Set the domain parameters on the target.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.HostTarget.set_privkey">
+<span class="sig-name descname"><span class="pre">set_privkey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">privkey</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.HostTarget.set_privkey" title="Link to this definition">¶</a></dt>
+<dd><p>Set the private key on the target.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.HostTarget.set_pubkey">
+<span class="sig-name descname"><span class="pre">set_pubkey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pubkey</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.HostTarget.set_pubkey" title="Link to this definition">¶</a></dt>
+<dd><p>Set the public key on the target.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.HostTarget.set_trigger">
+<span class="sig-name descname"><span class="pre">set_trigger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">actions</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.HostTarget.set_trigger" title="Link to this definition">¶</a></dt>
+<dd><p>Setup the trigger on the target.
+:rtype: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The triggers are not exclusive, and you can set to trigger on multiple actions.
+However, note that they toggle the trigger signal. For example, if you set up
+triggers on scalar multiplication and addition (<code class="docutils literal notranslate"><span class="pre">Triggers.mult</span> <span class="pre">|</span> <span class="pre">Triggers.add</span></code>)
+the trigger signal will go high once scalar multiplication starts, then go low
+during each addition operation and finally go low for good after scalar multiplication
+ends.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.HostTarget.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.HostTarget.write" title="Link to this definition">¶</a></dt>
+<dd><p>Write the <a class="reference internal" href="#pyecsca.codegen.client.HostTarget.write.params.data" title="pyecsca.codegen.client.HostTarget.write"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">data</span></code></a> bytes to the target’s serial input.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.codegen.client.HostTarget.write.params.data"></span><strong>data</strong><a class="paramlink headerlink reference internal" href="#pyecsca.codegen.client.HostTarget.write.params.data">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></span>) – The data to write.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.HostTarget.model">
+<span class="sig-name descname"><span class="pre">model</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">CurveModel</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.HostTarget.model" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.HostTarget.coords">
+<span class="sig-name descname"><span class="pre">coords</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">CoordinateModel</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.HostTarget.coords" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.HostTarget.seed">
+<span class="sig-name descname"><span class="pre">seed</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional[bytes]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.HostTarget.seed" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.HostTarget.params">
+<span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional[DomainParameters]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.HostTarget.params" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.HostTarget.privkey">
+<span class="sig-name descname"><span class="pre">privkey</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional[int]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.HostTarget.privkey" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.HostTarget.pubkey">
+<span class="sig-name descname"><span class="pre">pubkey</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional[Point]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.HostTarget.pubkey" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.HostTarget.trigger">
+<span class="sig-name descname"><span class="pre">trigger</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional[Triggers]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.HostTarget.trigger" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.HostTarget.timeout">
+<span class="sig-name descname"><span class="pre">timeout</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.HostTarget.timeout" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.HostTarget.binary">
+<span class="sig-name descname"><span class="pre">binary</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List[str]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.HostTarget.binary" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.codegen.client.HostTarget.debug_output">
+<span class="sig-name descname"><span class="pre">debug_output</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca-codegen/tree/master/pyecsca/codegen/client.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.codegen.client.HostTarget.debug_output" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;2018-2024, Jan Jancar.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.5</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../_sources/api/pyecsca.codegen.client.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

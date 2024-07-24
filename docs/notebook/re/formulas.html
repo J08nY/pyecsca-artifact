@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Exploration of formulas in open-source ECC libraries &#8212; pyecsca 0.3.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d10597a4" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=bf281230" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx_paramlinks.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=de02a091" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" />
+    <script src="../../_static/documentation_options.js?v=71d9d8e6"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="icon" href="../../_static/logo_black.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="RPA-based reverse-engineering" href="rpa.html" />
+    <link rel="prev" title="Smartcards" href="../smartcards.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo_black.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">pyecsca</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html"><span class="fas fa-screwdriver-wrench fa-fw"></span> Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../notebooks.html"><span class="fas fa-hand-pointer fa-fw"></span> Notebooks</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../configuration_space.html">Configuration space</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../simulation.html">Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../codegen.html">Code generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../emulator.html">Emulation and leakage simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../measurement.html">Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../smartcards.html">Smartcards</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Exploration of formulas in open-source ECC libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rpa.html">RPA-based reverse-engineering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zvp.html">ZVP-based reverse-engineering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="epa.html">EPA-based reverse engineering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html"><span class="fas fa-code fa-fw"></span> API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libraries.html"><span class="fas fa-server fa-fw"></span> ECC in Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references.html"><span class="fas fa-asterisk fa-fw"></span> References</a></li>
+</ul>
+
+<ul style="margin-top: 1em">
+    <li class="toctree-l1"><a href="https://github.com/J08nY/pyecsca/"><i class="fab fa-fw fa-github"></i> Source code</a></li>
+    <li class="toctree-l1"><a href="https://pypi.org/project/pyecsca/"><i class="fas fa-fw fa-file"></i> Releases</a></li>
+</ul><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../../notebooks.html"><span class="fas fa-hand-pointer fa-fw"></span> Notebooks</a><ul>
+      <li>Previous: <a href="../smartcards.html" title="previous chapter">Smartcards</a></li>
+      <li>Next: <a href="rpa.html" title="next chapter">RPA-based reverse-engineering</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <a href="https://mybinder.org/v2/gh/J08nY/pyecsca-notebook/HEAD?labpath=re/formulas.ipynb" class="sd-badge sd-outline-primary">MyBinder</a><section id="Exploration-of-formulas-in-open-source-ECC-libraries">
+<h1>Exploration of formulas in open-source ECC libraries<a class="headerlink" href="#Exploration-of-formulas-in-open-source-ECC-libraries" title="Link to this heading">¶</a></h1>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">import</span> <span class="nn">tabulate</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">inspect</span>
+<span class="kn">import</span> <span class="nn">tempfile</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">multiprocessing</span>
+
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+<span class="kn">from</span> <span class="nn">concurrent.futures</span> <span class="kn">import</span> <span class="n">ProcessPoolExecutor</span><span class="p">,</span> <span class="n">as_completed</span>
+<span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">contextmanager</span>
+<span class="kn">from</span> <span class="nn">importlib</span> <span class="kn">import</span> <span class="n">import_module</span><span class="p">,</span> <span class="n">invalidate_caches</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span><span class="p">,</span> <span class="n">display</span>
+<span class="kn">from</span> <span class="nn">tqdm.notebook</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">from</span> <span class="nn">importlib_resources</span> <span class="kn">import</span> <span class="n">files</span><span class="p">,</span> <span class="n">as_file</span>
+
+<span class="kn">import</span> <span class="nn">pyecsca</span>
+<span class="kn">from</span> <span class="nn">pyecsca.ec.model</span> <span class="kn">import</span> <span class="n">ShortWeierstrassModel</span><span class="p">,</span> <span class="n">TwistedEdwardsModel</span><span class="p">,</span> <span class="n">MontgomeryModel</span>
+<span class="kn">from</span> <span class="nn">pyecsca.ec.formula</span> <span class="kn">import</span> <span class="n">AdditionEFDFormula</span><span class="p">,</span> <span class="n">DoublingEFDFormula</span><span class="p">,</span> <span class="n">LadderEFDFormula</span>
+<span class="kn">from</span> <span class="nn">pyecsca.ec.params</span> <span class="kn">import</span> <span class="n">get_params</span>
+<span class="kn">from</span> <span class="nn">pyecsca.ec.formula.metrics</span> <span class="kn">import</span> <span class="n">formula_similarity</span><span class="p">,</span> <span class="n">formula_similarity_fuzz</span>
+<span class="kn">from</span> <span class="nn">pyecsca.ec.formula.unroll</span> <span class="kn">import</span> <span class="n">unroll_formula_expr</span><span class="p">,</span> <span class="n">unroll_formula</span>
+<span class="kn">from</span> <span class="nn">pyecsca.ec.formula.expand</span> <span class="kn">import</span> <span class="n">expand_formula_set</span>
+
+
+<span class="c1"># Allow to use &quot;spawn&quot; multiprocessing method for function defined in a Jupyter notebook.</span>
+<span class="c1"># https://neuromancer.sk/article/35</span>
+<span class="nd">@contextmanager</span>
+<span class="k">def</span> <span class="nf">enable_spawn</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="n">invalidate_caches</span><span class="p">()</span>
+    <span class="n">source</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getsource</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">NamedTemporaryFile</span><span class="p">(</span><span class="n">suffix</span><span class="o">=</span><span class="s2">&quot;.py&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">directory</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
+        <span class="n">module</span> <span class="o">=</span> <span class="n">import_module</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">stem</span><span class="p">))</span>
+        <span class="k">yield</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sw</span> <span class="o">=</span> <span class="n">ShortWeierstrassModel</span><span class="p">()</span>
+<span class="n">mont</span> <span class="o">=</span> <span class="n">MontgomeryModel</span><span class="p">()</span>
+<span class="n">te</span> <span class="o">=</span> <span class="n">TwistedEdwardsModel</span><span class="p">()</span>
+
+<span class="n">curve25519</span> <span class="o">=</span> <span class="n">get_params</span><span class="p">(</span><span class="s2">&quot;other&quot;</span><span class="p">,</span> <span class="s2">&quot;Curve25519&quot;</span><span class="p">,</span> <span class="s2">&quot;xz&quot;</span><span class="p">)</span>
+<span class="n">ed25519</span> <span class="o">=</span> <span class="n">get_params</span><span class="p">(</span><span class="s2">&quot;other&quot;</span><span class="p">,</span> <span class="s2">&quot;Ed25519&quot;</span><span class="p">,</span> <span class="s2">&quot;extended&quot;</span><span class="p">)</span>
+<span class="n">p256_jac3</span> <span class="o">=</span> <span class="n">get_params</span><span class="p">(</span><span class="s2">&quot;secg&quot;</span><span class="p">,</span> <span class="s2">&quot;secp256r1&quot;</span><span class="p">,</span> <span class="s2">&quot;jacobian-3&quot;</span><span class="p">)</span>
+<span class="n">p256_jac</span> <span class="o">=</span> <span class="n">get_params</span><span class="p">(</span><span class="s2">&quot;secg&quot;</span><span class="p">,</span> <span class="s2">&quot;secp256r1&quot;</span><span class="p">,</span> <span class="s2">&quot;jacobian&quot;</span><span class="p">)</span>
+<span class="n">p256_mod</span> <span class="o">=</span> <span class="n">get_params</span><span class="p">(</span><span class="s2">&quot;secg&quot;</span><span class="p">,</span> <span class="s2">&quot;secp256r1&quot;</span><span class="p">,</span> <span class="s2">&quot;modified&quot;</span><span class="p">)</span>
+<span class="n">p256_proj3</span> <span class="o">=</span> <span class="n">get_params</span><span class="p">(</span><span class="s2">&quot;secg&quot;</span><span class="p">,</span> <span class="s2">&quot;secp256r1&quot;</span><span class="p">,</span> <span class="s2">&quot;projective-3&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<section id="The-formulas">
+<h2>The formulas<a class="headerlink" href="#The-formulas" title="Link to this heading">¶</a></h2>
+<p>The following formulas were collected from open-source cryptographic libraries and are stored in the tests directory of the pyecsca toolkit.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lib_formula_defs</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">[</span>
+            <span class="s2">&quot;add-bc-r1rv76-jac&quot;</span><span class="p">,</span> <span class="c1">#ok</span>
+            <span class="n">ShortWeierstrassModel</span><span class="p">,</span>
+            <span class="s2">&quot;jacobian&quot;</span><span class="p">,</span>
+            <span class="p">(</span><span class="s2">&quot;secg&quot;</span><span class="p">,</span> <span class="s2">&quot;secp128r1&quot;</span><span class="p">),</span>
+            <span class="n">AdditionEFDFormula</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+            <span class="s2">&quot;add-bc-r1rv76-mod&quot;</span><span class="p">,</span> <span class="c1">#ok</span>
+            <span class="n">ShortWeierstrassModel</span><span class="p">,</span>
+            <span class="s2">&quot;modified&quot;</span><span class="p">,</span>
+            <span class="p">(</span><span class="s2">&quot;secg&quot;</span><span class="p">,</span> <span class="s2">&quot;secp128r1&quot;</span><span class="p">),</span>
+            <span class="n">AdditionEFDFormula</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+            <span class="s2">&quot;dbl-bc-r1rv76-jac&quot;</span><span class="p">,</span> <span class="c1">#ok</span>
+            <span class="n">ShortWeierstrassModel</span><span class="p">,</span>
+            <span class="s2">&quot;jacobian&quot;</span><span class="p">,</span>
+            <span class="p">(</span><span class="s2">&quot;secg&quot;</span><span class="p">,</span> <span class="s2">&quot;secp128r1&quot;</span><span class="p">),</span>
+            <span class="n">DoublingEFDFormula</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+            <span class="s2">&quot;dbl-bc-r1rv76-mod&quot;</span><span class="p">,</span> <span class="c1">#ok</span>
+            <span class="n">ShortWeierstrassModel</span><span class="p">,</span>
+            <span class="s2">&quot;modified&quot;</span><span class="p">,</span>
+            <span class="p">(</span><span class="s2">&quot;secg&quot;</span><span class="p">,</span> <span class="s2">&quot;secp128r1&quot;</span><span class="p">),</span>
+            <span class="n">DoublingEFDFormula</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+            <span class="s2">&quot;dbl-bc-r1rv76-x25519&quot;</span><span class="p">,</span> <span class="c1">#ok</span>
+            <span class="n">MontgomeryModel</span><span class="p">,</span>
+            <span class="s2">&quot;xz&quot;</span><span class="p">,</span>
+            <span class="p">(</span><span class="s2">&quot;other&quot;</span><span class="p">,</span> <span class="s2">&quot;Curve25519&quot;</span><span class="p">),</span>
+            <span class="n">DoublingEFDFormula</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+            <span class="s2">&quot;ladd-bc-r1rv76-x25519&quot;</span><span class="p">,</span> <span class="c1">#ok</span>
+            <span class="n">MontgomeryModel</span><span class="p">,</span>
+            <span class="s2">&quot;xz&quot;</span><span class="p">,</span>
+            <span class="p">(</span><span class="s2">&quot;other&quot;</span><span class="p">,</span> <span class="s2">&quot;Curve25519&quot;</span><span class="p">),</span>
+            <span class="n">LadderEFDFormula</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+            <span class="s2">&quot;dbl-boringssl-p224&quot;</span><span class="p">,</span> <span class="c1">#ok</span>
+            <span class="n">ShortWeierstrassModel</span><span class="p">,</span>
+            <span class="s2">&quot;jacobian-3&quot;</span><span class="p">,</span>
+            <span class="p">(</span><span class="s2">&quot;secg&quot;</span><span class="p">,</span> <span class="s2">&quot;secp224r1&quot;</span><span class="p">),</span>
+            <span class="n">DoublingEFDFormula</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+            <span class="s2">&quot;add-boringssl-p224&quot;</span><span class="p">,</span> <span class="c1">#ok</span>
+            <span class="n">ShortWeierstrassModel</span><span class="p">,</span>
+            <span class="s2">&quot;jacobian-3&quot;</span><span class="p">,</span>
+            <span class="p">(</span><span class="s2">&quot;secg&quot;</span><span class="p">,</span> <span class="s2">&quot;secp224r1&quot;</span><span class="p">),</span>
+            <span class="n">AdditionEFDFormula</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+            <span class="s2">&quot;add-libressl-v382&quot;</span><span class="p">,</span> <span class="c1">#ok</span>
+            <span class="n">ShortWeierstrassModel</span><span class="p">,</span>
+            <span class="s2">&quot;jacobian&quot;</span><span class="p">,</span>
+            <span class="p">(</span><span class="s2">&quot;secg&quot;</span><span class="p">,</span> <span class="s2">&quot;secp128r1&quot;</span><span class="p">),</span>
+            <span class="n">AdditionEFDFormula</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+            <span class="s2">&quot;dbl-libressl-v382&quot;</span><span class="p">,</span> <span class="c1">#ok</span>
+            <span class="n">ShortWeierstrassModel</span><span class="p">,</span>
+            <span class="s2">&quot;jacobian&quot;</span><span class="p">,</span>
+            <span class="p">(</span><span class="s2">&quot;secg&quot;</span><span class="p">,</span> <span class="s2">&quot;secp128r1&quot;</span><span class="p">),</span>
+            <span class="n">DoublingEFDFormula</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+            <span class="s2">&quot;dbl-secp256k1-v040&quot;</span><span class="p">,</span> <span class="c1">#ok</span>
+            <span class="n">ShortWeierstrassModel</span><span class="p">,</span>
+            <span class="s2">&quot;jacobian&quot;</span><span class="p">,</span>
+            <span class="p">(</span><span class="s2">&quot;secg&quot;</span><span class="p">,</span> <span class="s2">&quot;secp256k1&quot;</span><span class="p">),</span>
+            <span class="n">DoublingEFDFormula</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+            <span class="s2">&quot;add-openssl-z256&quot;</span><span class="p">,</span> <span class="c1">#ok</span>
+            <span class="n">ShortWeierstrassModel</span><span class="p">,</span>
+            <span class="s2">&quot;jacobian-3&quot;</span><span class="p">,</span>
+            <span class="p">(</span><span class="s2">&quot;secg&quot;</span><span class="p">,</span> <span class="s2">&quot;secp256r1&quot;</span><span class="p">),</span>
+            <span class="n">AdditionEFDFormula</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+            <span class="s2">&quot;add-openssl-z256a&quot;</span><span class="p">,</span> <span class="c1">#ok</span>
+            <span class="n">ShortWeierstrassModel</span><span class="p">,</span>
+            <span class="s2">&quot;jacobian-3&quot;</span><span class="p">,</span>
+            <span class="p">(</span><span class="s2">&quot;secg&quot;</span><span class="p">,</span> <span class="s2">&quot;secp256r1&quot;</span><span class="p">),</span>
+            <span class="n">AdditionEFDFormula</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+            <span class="s2">&quot;ladd-openssl-x25519&quot;</span><span class="p">,</span> <span class="c1">#ok</span>
+            <span class="n">MontgomeryModel</span><span class="p">,</span>
+            <span class="s2">&quot;xz&quot;</span><span class="p">,</span>
+            <span class="p">(</span><span class="s2">&quot;other&quot;</span><span class="p">,</span> <span class="s2">&quot;Curve25519&quot;</span><span class="p">),</span>
+            <span class="n">LadderEFDFormula</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+            <span class="s2">&quot;ladd-hacl-x25519&quot;</span><span class="p">,</span> <span class="c1">#ok</span>
+            <span class="n">MontgomeryModel</span><span class="p">,</span>
+            <span class="s2">&quot;xz&quot;</span><span class="p">,</span>
+            <span class="p">(</span><span class="s2">&quot;other&quot;</span><span class="p">,</span> <span class="s2">&quot;Curve25519&quot;</span><span class="p">),</span>
+            <span class="n">LadderEFDFormula</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+            <span class="s2">&quot;dbl-hacl-x25519&quot;</span><span class="p">,</span> <span class="c1">#ok</span>
+            <span class="n">MontgomeryModel</span><span class="p">,</span>
+            <span class="s2">&quot;xz&quot;</span><span class="p">,</span>
+            <span class="p">(</span><span class="s2">&quot;other&quot;</span><span class="p">,</span> <span class="s2">&quot;Curve25519&quot;</span><span class="p">),</span>
+            <span class="n">DoublingEFDFormula</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+            <span class="s2">&quot;dbl-sunec-v21&quot;</span><span class="p">,</span> <span class="c1">#ok</span>
+            <span class="n">ShortWeierstrassModel</span><span class="p">,</span>
+            <span class="s2">&quot;projective-3&quot;</span><span class="p">,</span>
+            <span class="p">(</span><span class="s2">&quot;secg&quot;</span><span class="p">,</span> <span class="s2">&quot;secp256r1&quot;</span><span class="p">),</span>
+            <span class="n">DoublingEFDFormula</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+            <span class="s2">&quot;add-sunec-v21&quot;</span><span class="p">,</span> <span class="c1">#ok</span>
+            <span class="n">ShortWeierstrassModel</span><span class="p">,</span>
+            <span class="s2">&quot;projective-3&quot;</span><span class="p">,</span>
+            <span class="p">(</span><span class="s2">&quot;secg&quot;</span><span class="p">,</span> <span class="s2">&quot;secp256r1&quot;</span><span class="p">),</span>
+            <span class="n">AdditionEFDFormula</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+            <span class="s2">&quot;add-sunec-v21-ed25519&quot;</span><span class="p">,</span> <span class="c1">#ok</span>
+            <span class="n">TwistedEdwardsModel</span><span class="p">,</span>
+            <span class="s2">&quot;extended-1&quot;</span><span class="p">,</span>
+            <span class="p">(</span><span class="s2">&quot;other&quot;</span><span class="p">,</span> <span class="s2">&quot;Ed25519&quot;</span><span class="p">),</span>
+            <span class="n">AdditionEFDFormula</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+            <span class="s2">&quot;dbl-sunec-v21-ed25519&quot;</span><span class="p">,</span> <span class="c1">#ok</span>
+            <span class="n">TwistedEdwardsModel</span><span class="p">,</span>
+            <span class="s2">&quot;extended-1&quot;</span><span class="p">,</span>
+            <span class="p">(</span><span class="s2">&quot;other&quot;</span><span class="p">,</span> <span class="s2">&quot;Ed25519&quot;</span><span class="p">),</span>
+            <span class="n">DoublingEFDFormula</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+            <span class="s2">&quot;ladd-rfc7748&quot;</span><span class="p">,</span> <span class="c1">#ok</span>
+            <span class="n">MontgomeryModel</span><span class="p">,</span>
+            <span class="s2">&quot;xz&quot;</span><span class="p">,</span>
+            <span class="p">(</span><span class="s2">&quot;other&quot;</span><span class="p">,</span> <span class="s2">&quot;Curve25519&quot;</span><span class="p">),</span>
+            <span class="n">LadderEFDFormula</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+            <span class="s2">&quot;add-bearssl-v06&quot;</span><span class="p">,</span> <span class="c1">#ok</span>
+            <span class="n">ShortWeierstrassModel</span><span class="p">,</span>
+            <span class="s2">&quot;jacobian&quot;</span><span class="p">,</span>
+            <span class="p">(</span><span class="s2">&quot;secg&quot;</span><span class="p">,</span> <span class="s2">&quot;secp256r1&quot;</span><span class="p">),</span>
+            <span class="n">AdditionEFDFormula</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+            <span class="s2">&quot;dbl-bearssl-v06&quot;</span><span class="p">,</span> <span class="c1">#ok</span>
+            <span class="n">ShortWeierstrassModel</span><span class="p">,</span>
+            <span class="s2">&quot;jacobian&quot;</span><span class="p">,</span>
+            <span class="p">(</span><span class="s2">&quot;secg&quot;</span><span class="p">,</span> <span class="s2">&quot;secp256r1&quot;</span><span class="p">),</span>
+            <span class="n">DoublingEFDFormula</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+            <span class="s2">&quot;add-libgcrypt-v1102&quot;</span><span class="p">,</span> <span class="c1">#ok</span>
+            <span class="n">ShortWeierstrassModel</span><span class="p">,</span>
+            <span class="s2">&quot;jacobian&quot;</span><span class="p">,</span>
+            <span class="p">(</span><span class="s2">&quot;secg&quot;</span><span class="p">,</span> <span class="s2">&quot;secp256r1&quot;</span><span class="p">),</span>
+            <span class="n">AdditionEFDFormula</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+            <span class="s2">&quot;dbl-libgcrypt-v1102&quot;</span><span class="p">,</span> <span class="c1">#ok</span>
+            <span class="n">ShortWeierstrassModel</span><span class="p">,</span>
+            <span class="s2">&quot;jacobian&quot;</span><span class="p">,</span>
+            <span class="p">(</span><span class="s2">&quot;secg&quot;</span><span class="p">,</span> <span class="s2">&quot;secp256r1&quot;</span><span class="p">),</span>
+            <span class="n">DoublingEFDFormula</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+            <span class="s2">&quot;ladd-go-1214&quot;</span><span class="p">,</span> <span class="c1">#ok</span>
+            <span class="n">MontgomeryModel</span><span class="p">,</span>
+            <span class="s2">&quot;xz&quot;</span><span class="p">,</span>
+            <span class="p">(</span><span class="s2">&quot;other&quot;</span><span class="p">,</span> <span class="s2">&quot;Curve25519&quot;</span><span class="p">),</span>
+            <span class="n">LadderEFDFormula</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+            <span class="s2">&quot;add-gecc-322&quot;</span><span class="p">,</span> <span class="c1">#ok</span>
+            <span class="n">ShortWeierstrassModel</span><span class="p">,</span>
+            <span class="s2">&quot;jacobian-3&quot;</span><span class="p">,</span>
+            <span class="p">(</span><span class="s2">&quot;secg&quot;</span><span class="p">,</span> <span class="s2">&quot;secp256r1&quot;</span><span class="p">),</span>
+            <span class="n">AdditionEFDFormula</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+            <span class="s2">&quot;dbl-gecc-321&quot;</span><span class="p">,</span> <span class="c1">#ok</span>
+            <span class="n">ShortWeierstrassModel</span><span class="p">,</span>
+            <span class="s2">&quot;jacobian-3&quot;</span><span class="p">,</span>
+            <span class="p">(</span><span class="s2">&quot;secg&quot;</span><span class="p">,</span> <span class="s2">&quot;secp256r1&quot;</span><span class="p">),</span>
+            <span class="n">DoublingEFDFormula</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+            <span class="s2">&quot;ladd-boringssl-x25519&quot;</span><span class="p">,</span> <span class="c1">#ok</span>
+            <span class="n">MontgomeryModel</span><span class="p">,</span>
+            <span class="s2">&quot;xz&quot;</span><span class="p">,</span>
+            <span class="p">(</span><span class="s2">&quot;other&quot;</span><span class="p">,</span> <span class="s2">&quot;Curve25519&quot;</span><span class="p">),</span>
+            <span class="n">LadderEFDFormula</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+            <span class="s2">&quot;dbl-ipp-x25519&quot;</span><span class="p">,</span> <span class="c1">#ok</span>
+            <span class="n">MontgomeryModel</span><span class="p">,</span>
+            <span class="s2">&quot;xz&quot;</span><span class="p">,</span>
+            <span class="p">(</span><span class="s2">&quot;other&quot;</span><span class="p">,</span> <span class="s2">&quot;Curve25519&quot;</span><span class="p">),</span>
+            <span class="n">DoublingEFDFormula</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+            <span class="s2">&quot;ladd-botan-x25519&quot;</span><span class="p">,</span> <span class="c1">#ok</span>
+            <span class="n">MontgomeryModel</span><span class="p">,</span>
+            <span class="s2">&quot;xz&quot;</span><span class="p">,</span>
+            <span class="p">(</span><span class="s2">&quot;other&quot;</span><span class="p">,</span> <span class="s2">&quot;Curve25519&quot;</span><span class="p">),</span>
+            <span class="n">LadderEFDFormula</span><span class="p">,</span>
+        <span class="p">],</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<p>Let’s load the formulas now.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lib_formulas</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">base_path</span> <span class="o">=</span> <span class="n">files</span><span class="p">(</span><span class="n">pyecsca</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s2">&quot;../test/data/formulas/&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">formula_def</span> <span class="ow">in</span> <span class="n">lib_formula_defs</span><span class="p">:</span>
+    <span class="n">meta_path</span> <span class="o">=</span> <span class="n">base_path</span> <span class="o">/</span> <span class="n">formula_def</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">op3_path</span> <span class="o">=</span> <span class="n">base_path</span> <span class="o">/</span> <span class="p">(</span><span class="n">formula_def</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;.op3&quot;</span><span class="p">)</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">formula_def</span><span class="p">[</span><span class="mi">1</span><span class="p">]()</span>
+    <span class="n">formula</span> <span class="o">=</span> <span class="n">formula_def</span><span class="p">[</span><span class="mi">4</span><span class="p">](</span><span class="n">meta_path</span><span class="p">,</span> <span class="n">op3_path</span><span class="p">,</span> <span class="n">formula_def</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">model</span><span class="o">.</span><span class="n">coordinates</span><span class="p">[</span><span class="n">formula_def</span><span class="p">[</span><span class="mi">2</span><span class="p">]])</span><span class="o">.</span><span class="n">to_code</span><span class="p">()</span>
+    <span class="n">lib_formulas</span><span class="p">[</span><span class="n">formula_def</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">formula</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">lib_formulas</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Now we can setup some code for examining the similarities between the formulas.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compute_similarities</span><span class="p">(</span><span class="n">formulas</span><span class="p">,</span> <span class="n">curve</span><span class="p">):</span>
+    <span class="n">table</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;One&quot;</span><span class="p">,</span> <span class="s2">&quot;Other&quot;</span><span class="p">,</span> <span class="s2">&quot;Similarity (output)&quot;</span><span class="p">,</span> <span class="s2">&quot;Similarity (IV)&quot;</span><span class="p">]]</span>
+
+    <span class="n">im_iv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">formulas</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">formulas</span><span class="p">)))</span>
+    <span class="n">im_out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">formulas</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">formulas</span><span class="p">)))</span>
+    <span class="k">for</span> <span class="n">formula</span> <span class="ow">in</span> <span class="n">formulas</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">formula</span><span class="o">.</span><span class="n">assumptions</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">assumption_str</span> <span class="ow">in</span> <span class="n">formula</span><span class="o">.</span><span class="n">assumptions_str</span><span class="p">:</span>
+                <span class="n">lhs</span><span class="p">,</span> <span class="n">rhs</span> <span class="o">=</span> <span class="n">assumption_str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; == &quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">lhs</span> <span class="ow">in</span> <span class="n">formula</span><span class="o">.</span><span class="n">inputs</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Warning, formula </span><span class="si">{</span><span class="n">formula</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> has assumptions: </span><span class="si">{</span><span class="n">assumption_str</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">one</span><span class="p">,</span> <span class="n">other</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">formulas</span><span class="p">,</span> <span class="n">formulas</span><span class="p">):</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">formulas</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">one</span><span class="p">)</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="n">formulas</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">curve</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">sim</span> <span class="o">=</span> <span class="n">formula_similarity</span><span class="p">(</span><span class="n">one</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">sim</span> <span class="o">=</span> <span class="n">formula_similarity_fuzz</span><span class="p">(</span><span class="n">one</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">curve</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+        <span class="n">im_iv</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">sim</span><span class="p">[</span><span class="s2">&quot;ivs&quot;</span><span class="p">]</span>
+        <span class="n">im_out</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">sim</span><span class="p">[</span><span class="s2">&quot;output&quot;</span><span class="p">]</span>
+        <span class="n">table</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">one</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">sim</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">sim</span><span class="p">[</span><span class="s1">&#39;ivs&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">table</span><span class="p">,</span> <span class="n">im_iv</span><span class="p">,</span> <span class="n">im_out</span>
+
+<span class="k">def</span> <span class="nf">plot_similarities</span><span class="p">(</span><span class="n">formulas</span><span class="p">,</span> <span class="n">im_data</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+    <span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">im_data</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">cbar_ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">((</span><span class="mf">0.90</span><span class="p">,</span> <span class="mf">0.11</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">,</span> <span class="mf">0.76</span><span class="p">))</span>
+    <span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">cax</span><span class="o">=</span><span class="n">cbar_ax</span><span class="p">)</span>
+    <span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Similarity (</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=-</span><span class="mi">90</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">formulas</span><span class="p">)),</span> <span class="n">labels</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">formulas</span><span class="p">)),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">formulas</span><span class="p">)),</span> <span class="n">labels</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">formulas</span><span class="p">)),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">one</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">formulas</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">other</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">formulas</span><span class="p">):</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">im_data</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">]</span><span class="si">:</span><span class="s2">.2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">analyze_formulas</span><span class="p">(</span><span class="n">formulas</span><span class="p">,</span> <span class="n">curve</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">table</span><span class="p">,</span> <span class="n">im_iv</span><span class="p">,</span> <span class="n">im_out</span> <span class="o">=</span> <span class="n">compute_similarities</span><span class="p">(</span><span class="n">formulas</span><span class="p">,</span> <span class="n">curve</span><span class="p">)</span>
+    <span class="n">plot_similarities</span><span class="p">(</span><span class="n">formulas</span><span class="p">,</span> <span class="n">im_iv</span><span class="p">,</span> <span class="s2">&quot;IV&quot;</span><span class="p">)</span>
+    <span class="n">plot_similarities</span><span class="p">(</span><span class="n">formulas</span><span class="p">,</span> <span class="n">im_out</span><span class="p">,</span> <span class="s2">&quot;output&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Analysis">
+<h2>Analysis<a class="headerlink" href="#Analysis" title="Link to this heading">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xz_ladders</span> <span class="o">=</span> <span class="p">[</span><span class="n">formula</span> <span class="k">for</span> <span class="n">formula</span> <span class="ow">in</span> <span class="n">mont</span><span class="o">.</span><span class="n">coordinates</span><span class="p">[</span><span class="s2">&quot;xz&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">formulas</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">formula</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;ladd&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">formula</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;mladd&quot;</span><span class="p">)]</span> <span class="o">+</span> <span class="p">[</span>
+    <span class="n">lib_formulas</span><span class="p">[</span><span class="s2">&quot;ladd-rfc7748&quot;</span><span class="p">],</span> <span class="n">lib_formulas</span><span class="p">[</span><span class="s2">&quot;ladd-hacl-x25519&quot;</span><span class="p">],</span> <span class="n">lib_formulas</span><span class="p">[</span><span class="s2">&quot;ladd-openssl-x25519&quot;</span><span class="p">],</span> <span class="n">lib_formulas</span><span class="p">[</span><span class="s2">&quot;ladd-bc-r1rv76-x25519&quot;</span><span class="p">],</span>
+    <span class="n">lib_formulas</span><span class="p">[</span><span class="s2">&quot;ladd-go-1214&quot;</span><span class="p">],</span> <span class="n">lib_formulas</span><span class="p">[</span><span class="s2">&quot;ladd-boringssl-x25519&quot;</span><span class="p">],</span> <span class="n">lib_formulas</span><span class="p">[</span><span class="s2">&quot;ladd-botan-x25519&quot;</span><span class="p">]]</span>
+<span class="n">analyze_formulas</span><span class="p">(</span><span class="n">xz_ladders</span><span class="p">)</span>
+<span class="n">analyze_formulas</span><span class="p">(</span><span class="n">xz_ladders</span><span class="p">,</span> <span class="n">curve25519</span><span class="o">.</span><span class="n">curve</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xz_dbls</span> <span class="o">=</span> <span class="p">[</span><span class="n">formula</span> <span class="k">for</span> <span class="n">formula</span> <span class="ow">in</span> <span class="n">mont</span><span class="o">.</span><span class="n">coordinates</span><span class="p">[</span><span class="s2">&quot;xz&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">formulas</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">formula</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;dbl&quot;</span><span class="p">)]</span> <span class="o">+</span> <span class="p">[</span>
+    <span class="n">lib_formulas</span><span class="p">[</span><span class="s2">&quot;dbl-bc-r1rv76-x25519&quot;</span><span class="p">],</span> <span class="n">lib_formulas</span><span class="p">[</span><span class="s2">&quot;dbl-hacl-x25519&quot;</span><span class="p">],</span> <span class="n">lib_formulas</span><span class="p">[</span><span class="s2">&quot;dbl-ipp-x25519&quot;</span><span class="p">]]</span>
+<span class="n">analyze_formulas</span><span class="p">(</span><span class="n">xz_dbls</span><span class="p">)</span>
+<span class="n">analyze_formulas</span><span class="p">(</span><span class="n">xz_dbls</span><span class="p">,</span> <span class="n">curve25519</span><span class="o">.</span><span class="n">curve</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jac3_adds</span> <span class="o">=</span> <span class="p">[</span><span class="n">formula</span> <span class="k">for</span> <span class="n">formula</span> <span class="ow">in</span> <span class="n">sw</span><span class="o">.</span><span class="n">coordinates</span><span class="p">[</span><span class="s2">&quot;jacobian-3&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">formulas</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">formula</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;add&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">formula</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;madd&quot;</span><span class="p">)]</span> <span class="o">+</span> <span class="p">[</span>
+    <span class="n">lib_formulas</span><span class="p">[</span><span class="s2">&quot;add-boringssl-p224&quot;</span><span class="p">],</span> <span class="n">lib_formulas</span><span class="p">[</span><span class="s2">&quot;add-openssl-z256&quot;</span><span class="p">],</span> <span class="n">lib_formulas</span><span class="p">[</span><span class="s2">&quot;add-openssl-z256a&quot;</span><span class="p">],</span>
+    <span class="n">lib_formulas</span><span class="p">[</span><span class="s2">&quot;add-gecc-322&quot;</span><span class="p">]]</span>
+<span class="n">jac3_adds_fixed</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">formula</span> <span class="ow">in</span> <span class="n">jac3_adds</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">formula</span><span class="o">.</span><span class="n">coordinate_model</span> <span class="o">!=</span> <span class="n">sw</span><span class="o">.</span><span class="n">coordinates</span><span class="p">[</span><span class="s2">&quot;jacobian-3&quot;</span><span class="p">]:</span>
+        <span class="n">formula</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">formula</span><span class="p">)</span>
+        <span class="n">formula</span><span class="o">.</span><span class="n">coordinate_model</span> <span class="o">=</span> <span class="n">sw</span><span class="o">.</span><span class="n">coordinates</span><span class="p">[</span><span class="s2">&quot;jacobian-3&quot;</span><span class="p">]</span>
+    <span class="n">jac3_adds_fixed</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">formula</span><span class="p">)</span>
+<span class="n">analyze_formulas</span><span class="p">(</span><span class="n">jac3_adds_fixed</span><span class="p">)</span>
+<span class="n">analyze_formulas</span><span class="p">(</span><span class="n">jac3_adds_fixed</span><span class="p">,</span> <span class="n">p256_jac3</span><span class="o">.</span><span class="n">curve</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jac3_dbls</span> <span class="o">=</span> <span class="p">[</span><span class="n">formula</span> <span class="k">for</span> <span class="n">formula</span> <span class="ow">in</span> <span class="n">sw</span><span class="o">.</span><span class="n">coordinates</span><span class="p">[</span><span class="s2">&quot;jacobian-3&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">formulas</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">formula</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;dbl&quot;</span><span class="p">)]</span> <span class="o">+</span> <span class="p">[</span>
+        <span class="n">lib_formulas</span><span class="p">[</span><span class="s2">&quot;dbl-boringssl-p224&quot;</span><span class="p">],</span> <span class="n">lib_formulas</span><span class="p">[</span><span class="s2">&quot;dbl-gecc-321&quot;</span><span class="p">]]</span>
+<span class="n">jac3_dbls_fixed</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">formula</span> <span class="ow">in</span> <span class="n">jac3_dbls</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">formula</span><span class="o">.</span><span class="n">coordinate_model</span> <span class="o">!=</span> <span class="n">sw</span><span class="o">.</span><span class="n">coordinates</span><span class="p">[</span><span class="s2">&quot;jacobian-3&quot;</span><span class="p">]:</span>
+        <span class="n">formula</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">formula</span><span class="p">)</span>
+        <span class="n">formula</span><span class="o">.</span><span class="n">coordinate_model</span> <span class="o">=</span> <span class="n">sw</span><span class="o">.</span><span class="n">coordinates</span><span class="p">[</span><span class="s2">&quot;jacobian-3&quot;</span><span class="p">]</span>
+    <span class="n">jac3_dbls_fixed</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">formula</span><span class="p">)</span>
+<span class="n">analyze_formulas</span><span class="p">(</span><span class="n">jac3_dbls_fixed</span><span class="p">)</span>
+<span class="n">analyze_formulas</span><span class="p">(</span><span class="n">jac3_dbls_fixed</span><span class="p">,</span> <span class="n">p256_jac3</span><span class="o">.</span><span class="n">curve</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mod_adds</span> <span class="o">=</span> <span class="p">[</span><span class="n">formula</span> <span class="k">for</span> <span class="n">formula</span> <span class="ow">in</span> <span class="n">sw</span><span class="o">.</span><span class="n">coordinates</span><span class="p">[</span><span class="s2">&quot;modified&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">formulas</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">formula</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;add&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">formula</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;madd&quot;</span><span class="p">)]</span> <span class="o">+</span> <span class="p">[</span>
+    <span class="n">lib_formulas</span><span class="p">[</span><span class="s2">&quot;add-bc-r1rv76-mod&quot;</span><span class="p">]]</span>
+<span class="n">analyze_formulas</span><span class="p">(</span><span class="n">mod_adds</span><span class="p">)</span>
+<span class="n">analyze_formulas</span><span class="p">(</span><span class="n">mod_adds</span><span class="p">,</span> <span class="n">p256_mod</span><span class="o">.</span><span class="n">curve</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mod_dbls</span> <span class="o">=</span> <span class="p">[</span><span class="n">formula</span> <span class="k">for</span> <span class="n">formula</span> <span class="ow">in</span> <span class="n">sw</span><span class="o">.</span><span class="n">coordinates</span><span class="p">[</span><span class="s2">&quot;modified&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">formulas</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">formula</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;dbl&quot;</span><span class="p">)]</span> <span class="o">+</span> <span class="p">[</span>
+    <span class="n">lib_formulas</span><span class="p">[</span><span class="s2">&quot;dbl-bc-r1rv76-mod&quot;</span><span class="p">]]</span>
+<span class="n">analyze_formulas</span><span class="p">(</span><span class="n">mod_dbls</span><span class="p">)</span>
+<span class="n">analyze_formulas</span><span class="p">(</span><span class="n">mod_dbls</span><span class="p">,</span> <span class="n">p256_mod</span><span class="o">.</span><span class="n">curve</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jac_adds</span> <span class="o">=</span> <span class="p">[</span><span class="n">formula</span> <span class="k">for</span> <span class="n">formula</span> <span class="ow">in</span> <span class="n">sw</span><span class="o">.</span><span class="n">coordinates</span><span class="p">[</span><span class="s2">&quot;jacobian&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">formulas</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">formula</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;add&quot;</span><span class="p">)]</span> <span class="o">+</span> <span class="p">[</span>
+    <span class="n">lib_formulas</span><span class="p">[</span><span class="s2">&quot;add-bc-r1rv76-jac&quot;</span><span class="p">],</span> <span class="n">lib_formulas</span><span class="p">[</span><span class="s2">&quot;add-libressl-v382&quot;</span><span class="p">],</span> <span class="n">lib_formulas</span><span class="p">[</span><span class="s2">&quot;add-bearssl-v06&quot;</span><span class="p">],</span> <span class="n">lib_formulas</span><span class="p">[</span><span class="s2">&quot;add-libgcrypt-v1102&quot;</span><span class="p">]]</span>
+<span class="n">analyze_formulas</span><span class="p">(</span><span class="n">jac_adds</span><span class="p">)</span>
+<span class="n">analyze_formulas</span><span class="p">(</span><span class="n">jac_adds</span><span class="p">,</span> <span class="n">p256_jac</span><span class="o">.</span><span class="n">curve</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jac_dbls</span> <span class="o">=</span> <span class="p">[</span><span class="n">formula</span> <span class="k">for</span> <span class="n">formula</span> <span class="ow">in</span> <span class="n">sw</span><span class="o">.</span><span class="n">coordinates</span><span class="p">[</span><span class="s2">&quot;jacobian&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">formulas</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">formula</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;dbl&quot;</span><span class="p">)]</span> <span class="o">+</span> <span class="p">[</span>
+    <span class="n">lib_formulas</span><span class="p">[</span><span class="s2">&quot;dbl-secp256k1-v040&quot;</span><span class="p">],</span> <span class="n">lib_formulas</span><span class="p">[</span><span class="s2">&quot;dbl-libressl-v382&quot;</span><span class="p">],</span> <span class="n">lib_formulas</span><span class="p">[</span><span class="s2">&quot;dbl-bearssl-v06&quot;</span><span class="p">],</span> <span class="n">lib_formulas</span><span class="p">[</span><span class="s2">&quot;dbl-libgcrypt-v1102&quot;</span><span class="p">]]</span>
+<span class="n">analyze_formulas</span><span class="p">(</span><span class="n">jac_dbls</span><span class="p">)</span>
+<span class="n">analyze_formulas</span><span class="p">(</span><span class="n">jac_dbls</span><span class="p">,</span> <span class="n">p256_jac</span><span class="o">.</span><span class="n">curve</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">proj3_adds</span> <span class="o">=</span> <span class="p">[</span><span class="n">formula</span> <span class="k">for</span> <span class="n">formula</span> <span class="ow">in</span> <span class="n">sw</span><span class="o">.</span><span class="n">coordinates</span><span class="p">[</span><span class="s2">&quot;projective-3&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">formulas</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">formula</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;add&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">formula</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;madd&quot;</span><span class="p">)]</span> <span class="o">+</span> <span class="p">[</span>
+    <span class="n">lib_formulas</span><span class="p">[</span><span class="s2">&quot;add-sunec-v21&quot;</span><span class="p">]]</span>
+<span class="n">analyze_formulas</span><span class="p">(</span><span class="n">proj3_adds</span><span class="p">)</span>
+<span class="n">analyze_formulas</span><span class="p">(</span><span class="n">proj3_adds</span><span class="p">,</span> <span class="n">p256_proj3</span><span class="o">.</span><span class="n">curve</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">proj3_dbls</span> <span class="o">=</span> <span class="p">[</span><span class="n">formula</span> <span class="k">for</span> <span class="n">formula</span> <span class="ow">in</span> <span class="n">sw</span><span class="o">.</span><span class="n">coordinates</span><span class="p">[</span><span class="s2">&quot;projective-3&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">formulas</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">formula</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;dbl&quot;</span><span class="p">)]</span> <span class="o">+</span> <span class="p">[</span>
+    <span class="n">lib_formulas</span><span class="p">[</span><span class="s2">&quot;dbl-sunec-v21&quot;</span><span class="p">]]</span>
+<span class="n">analyze_formulas</span><span class="p">(</span><span class="n">proj3_dbls</span><span class="p">)</span>
+<span class="n">analyze_formulas</span><span class="p">(</span><span class="n">proj3_dbls</span><span class="p">,</span> <span class="n">p256_proj3</span><span class="o">.</span><span class="n">curve</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ext_adds</span> <span class="o">=</span> <span class="p">[</span><span class="n">formula</span> <span class="k">for</span> <span class="n">formula</span> <span class="ow">in</span> <span class="n">te</span><span class="o">.</span><span class="n">coordinates</span><span class="p">[</span><span class="s2">&quot;extended-1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">formulas</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">formula</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;add&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">formula</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;madd&quot;</span><span class="p">)]</span> <span class="o">+</span> <span class="p">[</span>
+    <span class="n">lib_formulas</span><span class="p">[</span><span class="s2">&quot;add-sunec-v21-ed25519&quot;</span><span class="p">]]</span>
+<span class="n">analyze_formulas</span><span class="p">(</span><span class="n">ext_adds</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ext_dbls</span> <span class="o">=</span> <span class="p">[</span><span class="n">formula</span> <span class="k">for</span> <span class="n">formula</span> <span class="ow">in</span> <span class="n">te</span><span class="o">.</span><span class="n">coordinates</span><span class="p">[</span><span class="s2">&quot;extended-1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">formulas</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">formula</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;dbl&quot;</span><span class="p">)]</span> <span class="o">+</span> <span class="p">[</span>
+    <span class="n">lib_formulas</span><span class="p">[</span><span class="s2">&quot;dbl-sunec-v21-ed25519&quot;</span><span class="p">]]</span>
+<span class="n">analyze_formulas</span><span class="p">(</span><span class="n">ext_dbls</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Expand">
+<h2>Expand<a class="headerlink" href="#Expand" title="Link to this heading">¶</a></h2>
+<p>We can also expand the set of formulas by applying various transformations (like swapping the order of commutative operations).</p>
+<p>Note that this computation is parallelized and you should set an appropriate number of workers.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">expand_out</span><span class="p">(</span><span class="n">formulas</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">pyecsca.ec.formula.expand</span> <span class="kn">import</span> <span class="n">expand_formula_set</span>
+    <span class="kn">import</span> <span class="nn">pickle</span>
+
+    <span class="n">expanded</span> <span class="o">=</span> <span class="n">expand_formula_set</span><span class="p">(</span><span class="n">formulas</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">expanded</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">name</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">expanded</span><span class="p">)</span>
+
+<span class="c1"># 22 is really a maximum usable number here, as there are only 22 &quot;jobs&quot;.</span>
+<span class="n">context</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">get_context</span><span class="p">(</span><span class="s2">&quot;spawn&quot;</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">ProcessPoolExecutor</span><span class="p">(</span><span class="n">max_workers</span><span class="o">=</span><span class="mi">22</span><span class="p">,</span> <span class="n">mp_context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span> <span class="k">as</span> <span class="n">pool</span><span class="p">,</span> <span class="n">enable_spawn</span><span class="p">(</span><span class="n">expand_out</span><span class="p">)</span> <span class="k">as</span> <span class="n">expand_func</span><span class="p">:</span>
+    <span class="n">futures</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">coord_name</span><span class="p">,</span> <span class="n">coords</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">sw</span><span class="o">.</span><span class="n">coordinates</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Submitting&quot;</span><span class="p">):</span>
+        <span class="n">adds</span> <span class="o">=</span> <span class="p">[</span><span class="n">formula</span> <span class="k">for</span> <span class="n">formula</span> <span class="ow">in</span> <span class="n">coords</span><span class="o">.</span><span class="n">formulas</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">formula</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;add&quot;</span><span class="p">)]</span>
+        <span class="n">lib_adds</span> <span class="o">=</span> <span class="p">[</span><span class="n">formula</span> <span class="k">for</span> <span class="n">formula</span> <span class="ow">in</span> <span class="n">lib_formulas</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">formula</span><span class="o">.</span><span class="n">coordinate_model</span> <span class="o">==</span> <span class="n">coords</span> <span class="ow">and</span> <span class="n">formula</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;add&quot;</span><span class="p">)]</span>
+        <span class="n">dbls</span> <span class="o">=</span> <span class="p">[</span><span class="n">formula</span> <span class="k">for</span> <span class="n">formula</span> <span class="ow">in</span> <span class="n">coords</span><span class="o">.</span><span class="n">formulas</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">formula</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;dbl&quot;</span><span class="p">)]</span>
+        <span class="n">lib_dbls</span> <span class="o">=</span> <span class="p">[</span><span class="n">formula</span> <span class="k">for</span> <span class="n">formula</span> <span class="ow">in</span> <span class="n">lib_formulas</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">formula</span><span class="o">.</span><span class="n">coordinate_model</span> <span class="o">==</span> <span class="n">coords</span> <span class="ow">and</span> <span class="n">formula</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;dbl&quot;</span><span class="p">)]</span>
+        <span class="n">futures</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pool</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">expand_func</span><span class="p">,</span> <span class="n">adds</span> <span class="o">+</span> <span class="n">lib_adds</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;sw_</span><span class="si">{</span><span class="n">coord_name</span><span class="si">}</span><span class="s2">_adds.pickle&quot;</span><span class="p">))</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sw_</span><span class="si">{</span><span class="n">coord_name</span><span class="si">}</span><span class="s2">_adds.pickle&quot;</span><span class="p">)</span>
+        <span class="n">futures</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pool</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">expand_func</span><span class="p">,</span> <span class="n">dbls</span> <span class="o">+</span> <span class="n">lib_dbls</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;sw_</span><span class="si">{</span><span class="n">coord_name</span><span class="si">}</span><span class="s2">_dbls.pickle&quot;</span><span class="p">))</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sw_</span><span class="si">{</span><span class="n">coord_name</span><span class="si">}</span><span class="s2">_dbls.pickle&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">future</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">as_completed</span><span class="p">(</span><span class="n">futures</span><span class="p">),</span> <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">futures</span><span class="p">),</span> <span class="n">smoothing</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Computing&quot;</span><span class="p">):</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="n">futures</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">future</span><span class="p">)</span>
+        <span class="n">arg</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="n">future</span><span class="o">.</span><span class="n">exception</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">error</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">future</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">res</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;2018-2024, Jan Jancar.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.5</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../../_sources/notebook/re/formulas.ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>pyecsca.ec.mult.base module &#8212; pyecsca 0.3.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d10597a4" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=bf281230" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_paramlinks.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=de02a091" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" />
+    <script src="../_static/documentation_options.js?v=71d9d8e6"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/logo_black.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pyecsca.ec.mult.binary module" href="pyecsca.ec.mult.binary.html" />
+    <link rel="prev" title="pyecsca.ec.mult package" href="pyecsca.ec.mult.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo_black.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">pyecsca</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html"><span class="fas fa-screwdriver-wrench fa-fw"></span> Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks.html"><span class="fas fa-hand-pointer fa-fw"></span> Notebooks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="pyecsca.ec.html">pyecsca.ec package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.misc.html">pyecsca.misc package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.html">pyecsca.sca package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.html">pyecsca.codegen package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries.html"><span class="fas fa-server fa-fw"></span> ECC in Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html"><span class="fas fa-asterisk fa-fw"></span> References</a></li>
+</ul>
+
+<ul style="margin-top: 1em">
+    <li class="toctree-l1"><a href="https://github.com/J08nY/pyecsca/"><i class="fab fa-fw fa-github"></i> Source code</a></li>
+    <li class="toctree-l1"><a href="https://pypi.org/project/pyecsca/"><i class="fas fa-fw fa-file"></i> Releases</a></li>
+</ul><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul>
+  <li><a href="pyecsca.ec.html">pyecsca.ec package</a><ul>
+  <li><a href="pyecsca.ec.mult.html">pyecsca.ec.mult package</a><ul>
+      <li>Previous: <a href="pyecsca.ec.mult.html" title="previous chapter">pyecsca.ec.mult package</a></li>
+      <li>Next: <a href="pyecsca.ec.mult.binary.html" title="next chapter">pyecsca.ec.mult.binary module</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-pyecsca.ec.mult.base">
+<span id="pyecsca-ec-mult-base-module"></span><h1>pyecsca.ec.mult.base module<a class="headerlink" href="#module-pyecsca.ec.mult.base" title="Link to this heading">¶</a></h1>
+<p>Provides (mostly abstract) base classes for scalar multipliers, enums used to specify their parameters
+and actions used in them.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.base.ProcessingDirection">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ProcessingDirection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/base.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.base.ProcessingDirection" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>Scalar processing direction.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.base.ProcessingDirection.LTR">
+<span class="sig-name descname"><span class="pre">LTR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Left-to-right'</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/base.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.base.ProcessingDirection.LTR" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.base.ProcessingDirection.RTL">
+<span class="sig-name descname"><span class="pre">RTL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Right-to-left'</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/base.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.base.ProcessingDirection.RTL" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.base.AccumulationOrder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AccumulationOrder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/base.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.base.AccumulationOrder" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>Accumulation order (makes a difference for the projective result).</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.base.AccumulationOrder.PeqPR">
+<span class="sig-name descname"><span class="pre">PeqPR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'P</span> <span class="pre">=</span> <span class="pre">P</span> <span class="pre">+</span> <span class="pre">R'</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/base.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.base.AccumulationOrder.PeqPR" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.base.AccumulationOrder.PeqRP">
+<span class="sig-name descname"><span class="pre">PeqRP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'P</span> <span class="pre">=</span> <span class="pre">R</span> <span class="pre">+</span> <span class="pre">P'</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/base.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.base.AccumulationOrder.PeqRP" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.base.ScalarMultiplicationAction">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ScalarMultiplicationAction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scalar</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/base.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.base.ScalarMultiplicationAction" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pyecsca.ec.context.html#pyecsca.ec.context.ResultAction" title="pyecsca.ec.context.ResultAction"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResultAction</span></code></a></p>
+<p>A scalar multiplication of a point on a curve by a scalar.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.base.ScalarMultiplicationAction.point">
+<span class="sig-name descname"><span class="pre">point</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/base.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.base.ScalarMultiplicationAction.point" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.base.ScalarMultiplicationAction.scalar">
+<span class="sig-name descname"><span class="pre">scalar</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/base.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.base.ScalarMultiplicationAction.scalar" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.base.ScalarMultiplicationAction.exit">
+<span class="sig-name descname"><span class="pre">exit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/base.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.base.ScalarMultiplicationAction.exit" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.base.ScalarMultiplicationAction.result">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">result</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Any</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/base.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.base.ScalarMultiplicationAction.result" title="Link to this definition">¶</a></dt>
+<dd><p>The result of the action.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.base.ScalarMultiplicationAction.inside">
+<span class="sig-name descname"><span class="pre">inside</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/base.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.base.ScalarMultiplicationAction.inside" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.base.PrecomputationAction">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PrecomputationAction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/base.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.base.PrecomputationAction" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pyecsca.ec.context.html#pyecsca.ec.context.Action" title="pyecsca.ec.context.Action"><code class="xref py py-class docutils literal notranslate"><span class="pre">Action</span></code></a></p>
+<p>A precomputation of a point in scalar multiplication.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.base.PrecomputationAction.params">
+<span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="pyecsca.ec.params.html#pyecsca.ec.params.DomainParameters" title="pyecsca.ec.params.DomainParameters"><code class="xref py py-class docutils literal notranslate"><span class="pre">DomainParameters</span></code></a></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/base.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.base.PrecomputationAction.params" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.base.PrecomputationAction.point">
+<span class="sig-name descname"><span class="pre">point</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/base.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.base.PrecomputationAction.point" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.base.PrecomputationAction.inside">
+<span class="sig-name descname"><span class="pre">inside</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/base.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.base.PrecomputationAction.inside" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.base.ScalarMultiplier">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ScalarMultiplier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">short_circuit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">formulas</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/base.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.base.ScalarMultiplier" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>A scalar multiplication algorithm.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The __init__ method of all concrete subclasses needs to have type annotations so that
+configuration enumeration works.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="pyecsca.ec.mult.base.ScalarMultiplier.params.short_circuit"></span><strong>short_circuit</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.mult.base.ScalarMultiplier.params.short_circuit">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – Whether the use of formulas will be guarded by short-circuit on inputs
+of the point at infinity.</p></li>
+<li><p><span class="target" id="pyecsca.ec.mult.base.ScalarMultiplier.params.formulas"></span><strong>formulas</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.mult.base.ScalarMultiplier.params.formulas">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<a class="reference internal" href="pyecsca.ec.formula.base.html#pyecsca.ec.formula.base.Formula" title="pyecsca.ec.formula.base.Formula"><code class="xref py py-class docutils literal notranslate"><span class="pre">Formula</span></code></a>]</span>) – Formulas this instance will use.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.base.ScalarMultiplier.requires">
+<span class="sig-name descname"><span class="pre">requires</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">ClassVar</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Set</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code><span class="pre">]]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/base.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.base.ScalarMultiplier.requires" title="Link to this definition">¶</a></dt>
+<dd><p>The set of formula types that the multiplier requires.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.base.ScalarMultiplier.optionals">
+<span class="sig-name descname"><span class="pre">optionals</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">ClassVar</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Set</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code><span class="pre">]]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/base.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.base.ScalarMultiplier.optionals" title="Link to this definition">¶</a></dt>
+<dd><p>The optional set of formula types that the multiplier can use.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.base.ScalarMultiplier.short_circuit">
+<span class="sig-name descname"><span class="pre">short_circuit</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/base.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.base.ScalarMultiplier.short_circuit" title="Link to this definition">¶</a></dt>
+<dd><p>Whether the formulas will short-circuit upon input of the point at infinity.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.base.ScalarMultiplier.formulas">
+<span class="sig-name descname"><span class="pre">formulas</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">Mapping</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">,</span> <a class="reference internal" href="pyecsca.ec.formula.base.html#pyecsca.ec.formula.base.Formula" title="pyecsca.ec.formula.base.Formula"><code class="xref py py-class docutils literal notranslate"><span class="pre">Formula</span></code></a><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/base.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.base.ScalarMultiplier.formulas" title="Link to this definition">¶</a></dt>
+<dd><p>All formulas the multiplier was initialized with.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.base.ScalarMultiplier.init">
+<span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/base.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.base.ScalarMultiplier.init" title="Link to this definition">¶</a></dt>
+<dd><p>Initialize the scalar multiplier with <a class="reference internal" href="#pyecsca.ec.mult.base.ScalarMultiplier.init.params.params" title="pyecsca.ec.mult.base.ScalarMultiplier.init"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">params</span></code></a> and a <a class="reference internal" href="#pyecsca.ec.mult.base.ScalarMultiplier.init.params.point" title="pyecsca.ec.mult.base.ScalarMultiplier.init"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">point</span></code></a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The point is not verified to be on the curve represented in the domain parameters.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="pyecsca.ec.mult.base.ScalarMultiplier.init.params.params"></span><strong>params</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.mult.base.ScalarMultiplier.init.params.params">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.params.html#pyecsca.ec.params.DomainParameters" title="pyecsca.ec.params.DomainParameters"><code class="xref py py-class docutils literal notranslate"><span class="pre">DomainParameters</span></code></a></span>) – The domain parameters to initialize the multiplier with.</p></li>
+<li><p><span class="target" id="pyecsca.ec.mult.base.ScalarMultiplier.init.params.point"></span><strong>point</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.mult.base.ScalarMultiplier.init.params.point">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></span>) – The point to initialize the multiplier with.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.base.ScalarMultiplier.multiply">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">multiply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scalar</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/base.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.base.ScalarMultiplier.multiply" title="Link to this definition">¶</a></dt>
+<dd><p>Multiply the point with the scalar.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The multiplier needs to be initialized by a call to the <a class="reference internal" href="#pyecsca.ec.mult.base.ScalarMultiplier.init" title="pyecsca.ec.mult.base.ScalarMultiplier.init"><code class="xref py py-meth docutils literal notranslate"><span class="pre">init()</span></code></a> method.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.ec.mult.base.ScalarMultiplier.multiply.params.scalar"></span><strong>scalar</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.mult.base.ScalarMultiplier.multiply.params.scalar">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – The scalar to use.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The resulting multiple.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.base.AccumulatorMultiplier">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AccumulatorMultiplier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accumulation_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">AccumulationOrder.PeqPR</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/base.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.base.AccumulatorMultiplier" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyecsca.ec.mult.base.ScalarMultiplier" title="pyecsca.ec.mult.base.ScalarMultiplier"><code class="xref py py-class docutils literal notranslate"><span class="pre">ScalarMultiplier</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>A scalar multiplication algorithm mix-in class for a multiplier that accumulates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.ec.mult.base.AccumulatorMultiplier.params.accumulation_order"></span><strong>accumulation_order</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.mult.base.AccumulatorMultiplier.params.accumulation_order">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#pyecsca.ec.mult.base.AccumulationOrder" title="pyecsca.ec.mult.base.AccumulationOrder"><code class="xref py py-class docutils literal notranslate"><span class="pre">AccumulationOrder</span></code></a></span>) – The order of accumulation of points.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.base.AccumulatorMultiplier.init">
+<span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/base.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.base.AccumulatorMultiplier.init" title="Link to this definition">¶</a></dt>
+<dd><p>Initialize the scalar multiplier with <a class="reference internal" href="#pyecsca.ec.mult.base.AccumulatorMultiplier.init.params.params" title="pyecsca.ec.mult.base.AccumulatorMultiplier.init"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">params</span></code></a> and a <a class="reference internal" href="#pyecsca.ec.mult.base.AccumulatorMultiplier.init.params.point" title="pyecsca.ec.mult.base.AccumulatorMultiplier.init"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">point</span></code></a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The point is not verified to be on the curve represented in the domain parameters.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="pyecsca.ec.mult.base.AccumulatorMultiplier.init.params.params"></span><strong>params</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.mult.base.AccumulatorMultiplier.init.params.params">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.params.html#pyecsca.ec.params.DomainParameters" title="pyecsca.ec.params.DomainParameters"><code class="xref py py-class docutils literal notranslate"><span class="pre">DomainParameters</span></code></a></span>) – The domain parameters to initialize the multiplier with.</p></li>
+<li><p><span class="target" id="pyecsca.ec.mult.base.AccumulatorMultiplier.init.params.point"></span><strong>point</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.mult.base.AccumulatorMultiplier.init.params.point">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></span>) – The point to initialize the multiplier with.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.base.AccumulatorMultiplier.multiply">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">multiply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scalar</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/base.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.base.AccumulatorMultiplier.multiply" title="Link to this definition">¶</a></dt>
+<dd><p>Multiply the point with the scalar.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The multiplier needs to be initialized by a call to the <a class="reference internal" href="#pyecsca.ec.mult.base.AccumulatorMultiplier.init" title="pyecsca.ec.mult.base.AccumulatorMultiplier.init"><code class="xref py py-meth docutils literal notranslate"><span class="pre">init()</span></code></a> method.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.ec.mult.base.AccumulatorMultiplier.multiply.params.scalar"></span><strong>scalar</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.mult.base.AccumulatorMultiplier.multiply.params.scalar">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – The scalar to use.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The resulting multiple.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.base.AccumulatorMultiplier.requires">
+<span class="sig-name descname"><span class="pre">requires</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">ClassVar</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Set</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code><span class="pre">]]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/base.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.base.AccumulatorMultiplier.requires" title="Link to this definition">¶</a></dt>
+<dd><p>The set of formula types that the multiplier requires.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.base.AccumulatorMultiplier.optionals">
+<span class="sig-name descname"><span class="pre">optionals</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">ClassVar</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Set</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code><span class="pre">]]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/base.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.base.AccumulatorMultiplier.optionals" title="Link to this definition">¶</a></dt>
+<dd><p>The optional set of formula types that the multiplier can use.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.base.AccumulatorMultiplier.short_circuit">
+<span class="sig-name descname"><span class="pre">short_circuit</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/base.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.base.AccumulatorMultiplier.short_circuit" title="Link to this definition">¶</a></dt>
+<dd><p>Whether the formulas will short-circuit upon input of the point at infinity.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.base.AccumulatorMultiplier.formulas">
+<span class="sig-name descname"><span class="pre">formulas</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">Mapping</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">,</span> <a class="reference internal" href="pyecsca.ec.formula.base.html#pyecsca.ec.formula.base.Formula" title="pyecsca.ec.formula.base.Formula"><code class="xref py py-class docutils literal notranslate"><span class="pre">Formula</span></code></a><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/base.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.base.AccumulatorMultiplier.formulas" title="Link to this definition">¶</a></dt>
+<dd><p>All formulas the multiplier was initialized with.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.mult.base.AccumulatorMultiplier.accumulation_order">
+<span class="sig-name descname"><span class="pre">accumulation_order</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#pyecsca.ec.mult.base.AccumulationOrder" title="pyecsca.ec.mult.base.AccumulationOrder"><code class="xref py py-class docutils literal notranslate"><span class="pre">AccumulationOrder</span></code></a></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/mult/base.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.mult.base.AccumulatorMultiplier.accumulation_order" title="Link to this definition">¶</a></dt>
+<dd><p>The order of accumulation of points.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;2018-2024, Jan Jancar.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.5</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../_sources/api/pyecsca.ec.mult.base.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

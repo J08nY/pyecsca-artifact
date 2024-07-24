@@ -1,0 +1,341 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Configuration space\n",
+    "This notebook explores the configuration space of Elliptic Curve crypto\n",
+    "implementations.\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "An ECC implementation configuration in **pyecsca** has the following attributes: "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from typing import get_args\n",
+    "from pyecsca.ec.configuration import Configuration\n",
+    "from dataclasses import fields\n",
+    "\n",
+    "for field in fields(Configuration):\n",
+    "\tname = field.name\n",
+    "\ttp = field.type\n",
+    "\tdoc = tp.__doc__\n",
+    "\tif get_args(field.type):\n",
+    "\t\tdoc = get_args(field.type)[0].__doc__\n",
+    "\tprint(name, tp)\n",
+    "\tprint(\"   \", doc)\n",
+    "\tif hasattr(tp, \"names\"):\n",
+    "\t\tfor enum_name in tp.names():\n",
+    "\t\t\tprint(\"       \", enum_name)\n",
+    "\tprint()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "It is represented by the `Configuration` class."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Enumerating configurations\n",
+    "\n",
+    "The possible configurations can be generated using the `all_configurations()` function.\n",
+    "The whole space of configurations is quite huge.\n",
+    "\n",
+    "> Note that the amount of possible parametrizations of some scalar multipliers is very large (e.g. window size) so **pyecsca** has\n",
+    "> to resctrict this to a reasonable selection. Specifically the function below only considers a few options for window size and\n",
+    "> similar parameters."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from pyecsca.ec.configuration import all_configurations\n",
+    "\n",
+    "total = sum(1 for _ in all_configurations())\n",
+    "print(total)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "A large part of the configuration space is due to the independent options which consist of:\n",
+    " \n",
+    " - `hash_type` of type `HashType` $*6$\n",
+    " - `mod_rand` of type `RandomMod` $*2$\n",
+    " - `mult` of type `Multiplication` $*4$\n",
+    " - `sqr` of type `Squaring` $*4$\n",
+    " - `red` of type `Reduction` $*3$\n",
+    " - `inv` of type `Inversion` $*2$\n",
+    "\n",
+    "Without these, the space is somewhat smaller:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "no_indep = (6*2*4*4*3*2)\n",
+    "no_ff = (6*2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "print(total // no_indep)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "To restrict the generated configurations, pass keyword arguments to the\n",
+    "`all_configurations` matching the names of the attributes of the `Configuration` object."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from pyecsca.ec.configuration import HashType, RandomMod, Multiplication, Squaring, Reduction, Inversion\n",
+    "from pyecsca.ec.model import ShortWeierstrassModel\n",
+    "from pyecsca.ec.mult import LTRMultiplier\n",
+    "\n",
+    "model = ShortWeierstrassModel()\n",
+    "coords = model.coordinates[\"projective\"]\n",
+    "scalarmult = LTRMultiplier\n",
+    "independent_opts = {\n",
+    "\t\"hash_type\": HashType.SHA256,\n",
+    "\t\"mod_rand\": RandomMod.SAMPLE,\n",
+    "\t\"mult\": Multiplication.KARATSUBA,\n",
+    "\t\"sqr\": Squaring.KARATSUBA,\n",
+    "\t\"red\": Reduction.MONTGOMERY,\n",
+    "    \"inv\": Inversion.GCD\n",
+    "}\n",
+    "\n",
+    "configs = list(all_configurations(model=model, coords=coords, scalarmult=scalarmult,\n",
+    "\t\t\t\t\t\t\t \t  **independent_opts))\n",
+    "print(len(configs))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "We see that when we fixed all parameters except for the scalar multiplier arguments \n",
+    "(see the `LTRMultiplier` constructor) we obtained 1280 configurations. That number expresses all of the possible ways to use addition formulas for the `projective` coordinate system in the binary left-to-right multiplier as well as internal options of that multiplier:\n",
+    "\n",
+    " - whether it is \"complete\" in a sense that it starts processing at a constant bit (the bit-length od the order)\n",
+    " - whether it is \"double-and-add-always\"\n",
+    " - whether it \"short-circuits\" the formulas, i.e. detects that an exceptional point was input into them and returns correctly\n",
+    "   without executing them."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Models"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "We can explore the number of configurations for each of the supported curve models."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from IPython.display import HTML, display\n",
+    "import tabulate\n",
+    "from pyecsca.ec.model import *\n",
+    "from pyecsca.ec.mult import ProcessingDirection, AccumulationOrder\n",
+    "\n",
+    "model_counts = [[\"Model\", \"All\", \"Without independent options\", \"Without independent options and scaling\", \"Without independent options and scalarmult options\"]]\n",
+    "totals = [\"Total\", 0, 0, 0, 0]\n",
+    "for model in (ShortWeierstrassModel(), MontgomeryModel(), EdwardsModel(), TwistedEdwardsModel()):\n",
+    "\tname = model.__class__.__name__\n",
+    "\tcount = sum(1 for _ in all_configurations(model=model, **independent_opts))\n",
+    "\tcount_no_scl = sum(1 for _ in all_configurations(model=model, **independent_opts, scalarmult={\"scl\": None}))\n",
+    "\tcount_no_opts = sum(1 for _ in all_configurations(model=model, **independent_opts, scalarmult={\"scl\": None, \"always\": True, \"short_circuit\": True, \"complete\": False, \"precompute_negation\": True, \"width\": 3, \"m\": 3, \"direction\": ProcessingDirection.LTR, \"accumulation_order\": AccumulationOrder.PeqPR, \"recoding_direction\": ProcessingDirection.LTR}))\n",
+    "\tmodel_counts.append([name, count * no_ff, count, count_no_scl, count_no_opts])\n",
+    "\ttotals[1] += count * no_ff\n",
+    "\ttotals[2] += count\n",
+    "\ttotals[3] += count_no_scl\n",
+    "\ttotals[4] += count_no_opts\n",
+    "model_counts.append(totals)\n",
+    "display(HTML(tabulate.tabulate(model_counts, tablefmt=\"html\", headers=\"firstrow\")))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Coordinate systems"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Let's now look at the configuration split for coordinate systems:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "coords_counts = [[\"Model\", \"Coords\", \"All\", \"Without independent options\", \"Without independent options and scaling\", \"Without independent options and scalarmult options\"]]\n",
+    "for model in (ShortWeierstrassModel(), MontgomeryModel(), EdwardsModel(), TwistedEdwardsModel()):\n",
+    "\tmodel_name = model.__class__.__name__\n",
+    "\tcoords_counts.append([model_name, \"\", \"\", \"\", \"\", \"\"])\n",
+    "\tfor coords in sorted(model.coordinates.values(), key=lambda c: c.name):\n",
+    "\t\tcoords_name = coords.name\n",
+    "\t\tcount = sum(1 for _ in all_configurations(model=model, coords=coords, **independent_opts))\n",
+    "\t\tcount_no_scl = sum(1 for _ in all_configurations(model=model, coords=coords, **independent_opts, scalarmult={\"scl\": None}))\n",
+    "\t\tcount_no_opts = sum(1 for _ in all_configurations(model=model, coords=coords, **independent_opts, scalarmult={\"scl\": None, \"always\": True, \"short_circuit\": True, \"complete\": False, \"precompute_negation\": True, \"width\": 3, \"m\": 3, \"direction\": ProcessingDirection.LTR, \"accumulation_order\": AccumulationOrder.PeqPR, \"recoding_direction\": ProcessingDirection.LTR}))\n",
+    "\t\tcoords_counts.append([\"\", coords_name, count * no_ff, count, count_no_scl, count_no_opts])\n",
+    "display(HTML(tabulate.tabulate(coords_counts, tablefmt=\"html\", headers=\"firstrow\")))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Scalar multipliers"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from pyecsca.ec.mult import ScalarMultiplier\n",
+    "\n",
+    "def leaf_subclasses(cls):\n",
+    "    subs = cls.__subclasses__()\n",
+    "    result = set()\n",
+    "    for subclass in subs:\n",
+    "        if subclass.__subclasses__():\n",
+    "            result.update(leaf_subclasses(subclass))\n",
+    "        else:\n",
+    "            result.add(subclass)\n",
+    "    return result\n",
+    "\n",
+    "mult_counts = [[\"ScalarMultiplier\", \"All\", \"Without independent options\", \"Without independent options and scaling\", \"Without independent options and scalarmult options\"]]\n",
+    "for mult_cls in leaf_subclasses(ScalarMultiplier):\n",
+    "\tcount = sum(1 for _ in all_configurations(**independent_opts, scalarmult=mult_cls))\n",
+    "\tcount_no_scl = sum(1 for _ in all_configurations(**independent_opts, scalarmult={\"cls\": mult_cls, \"scl\": None}))\n",
+    "\tcount_no_opts = sum(1 for _ in all_configurations(**independent_opts, scalarmult={\"cls\": mult_cls, \"scl\": None, \"always\": True, \"short_circuit\": True, \"complete\": False, \"precompute_negation\": True, \"width\": 3, \"m\": 3, \"direction\": ProcessingDirection.LTR, \"accumulation_order\": AccumulationOrder.PeqPR, \"recoding_direction\": ProcessingDirection.LTR}))\n",
+    "\tmult_counts.append([mult_cls.__name__, count * no_ff, count, count_no_scl, count_no_opts])\n",
+    "display(HTML(tabulate.tabulate(mult_counts, tablefmt=\"html\", headers=\"firstrow\")))\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "@webio": {
+   "lastCommId": "cde560b9f2c044d9845711a0a2b208b6",
+   "lastKernelId": "fb83e665-19e4-4332-b620-9e2ea7aa7c62"
+  },
+  "hide_input": false,
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.11.4"
+  },
+  "latex_envs": {
+   "LaTeX_envs_menu_present": true,
+   "autoclose": false,
+   "autocomplete": true,
+   "bibliofile": "biblio.bib",
+   "cite_by": "apalike",
+   "current_citInitial": 1,
+   "eqLabelWithNumbers": true,
+   "eqNumInitial": 1,
+   "hotkeys": {
+    "equation": "Ctrl-E",
+    "itemize": "Ctrl-I"
+   },
+   "labels_anchors": false,
+   "latex_user_defs": false,
+   "report_style_numbering": false,
+   "user_envs_cfg": false
+  },
+  "pycharm": {
+   "stem_cell": {
+    "cell_type": "raw",
+    "metadata": {
+     "collapsed": false
+    },
+    "source": []
+   }
+  },
+  "toc": {
+   "base_numbering": 1,
+   "nav_menu": {},
+   "number_sections": true,
+   "sideBar": true,
+   "skip_h1_title": false,
+   "title_cell": "Table of Contents",
+   "title_sidebar": "Contents",
+   "toc_cell": false,
+   "toc_position": {},
+   "toc_section_display": true,
+   "toc_window_display": false
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

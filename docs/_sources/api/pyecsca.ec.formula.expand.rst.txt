@@ -1,0 +1,7 @@
+pyecsca.ec.formula.expand module
+================================
+
+.. automodule:: pyecsca.ec.formula.expand
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,39 @@
+pyecsca.ec package
+==================
+
+.. automodule:: pyecsca.ec
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   pyecsca.ec.formula
+   pyecsca.ec.mod
+   pyecsca.ec.mult
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   pyecsca.ec.configuration
+   pyecsca.ec.context
+   pyecsca.ec.coordinates
+   pyecsca.ec.curve
+   pyecsca.ec.divpoly
+   pyecsca.ec.error
+   pyecsca.ec.key_agreement
+   pyecsca.ec.key_generation
+   pyecsca.ec.model
+   pyecsca.ec.op
+   pyecsca.ec.params
+   pyecsca.ec.point
+   pyecsca.ec.scalar
+   pyecsca.ec.signature
+   pyecsca.ec.transformations

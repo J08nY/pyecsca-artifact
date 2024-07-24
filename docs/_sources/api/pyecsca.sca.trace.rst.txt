@@ -1,0 +1,24 @@
+pyecsca.sca.trace package
+=========================
+
+.. automodule:: pyecsca.sca.trace
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   pyecsca.sca.trace.align
+   pyecsca.sca.trace.combine
+   pyecsca.sca.trace.edit
+   pyecsca.sca.trace.filter
+   pyecsca.sca.trace.match
+   pyecsca.sca.trace.plot
+   pyecsca.sca.trace.process
+   pyecsca.sca.trace.sampling
+   pyecsca.sca.trace.test
+   pyecsca.sca.trace.trace

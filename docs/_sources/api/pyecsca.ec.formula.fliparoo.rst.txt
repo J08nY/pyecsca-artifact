@@ -1,0 +1,7 @@
+pyecsca.ec.formula.fliparoo module
+==================================
+
+.. automodule:: pyecsca.ec.formula.fliparoo
+   :members:
+   :undoc-members:
+   :show-inheritance:

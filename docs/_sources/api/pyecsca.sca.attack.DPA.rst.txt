@@ -1,0 +1,7 @@
+pyecsca.sca.attack.DPA module
+=============================
+
+.. automodule:: pyecsca.sca.attack.DPA
+   :members:
+   :undoc-members:
+   :show-inheritance:

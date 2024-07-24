@@ -1,0 +1,7 @@
+pyecsca.sca.trace\_set.inspector module
+=======================================
+
+.. automodule:: pyecsca.sca.trace_set.inspector
+   :members:
+   :undoc-members:
+   :show-inheritance:

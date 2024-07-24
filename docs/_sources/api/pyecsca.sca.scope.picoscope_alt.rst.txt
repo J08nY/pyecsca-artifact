@@ -1,0 +1,7 @@
+pyecsca.sca.scope.picoscope\_alt module
+=======================================
+
+.. automodule:: pyecsca.sca.scope.picoscope_alt
+   :members:
+   :undoc-members:
+   :show-inheritance:

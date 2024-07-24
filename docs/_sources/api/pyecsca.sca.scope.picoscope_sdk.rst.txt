@@ -1,0 +1,7 @@
+pyecsca.sca.scope.picoscope\_sdk module
+=======================================
+
+.. automodule:: pyecsca.sca.scope.picoscope_sdk
+   :members:
+   :undoc-members:
+   :show-inheritance:

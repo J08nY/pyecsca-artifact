@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>pyecsca.sca.re.zvp module &#8212; pyecsca 0.3.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d10597a4" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=bf281230" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_paramlinks.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=de02a091" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" />
+    <script src="../_static/documentation_options.js?v=71d9d8e6"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/logo_black.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pyecsca.sca.scope package" href="pyecsca.sca.scope.html" />
+    <link rel="prev" title="pyecsca.sca.re.tree module" href="pyecsca.sca.re.tree.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo_black.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">pyecsca</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html"><span class="fas fa-screwdriver-wrench fa-fw"></span> Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks.html"><span class="fas fa-hand-pointer fa-fw"></span> Notebooks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.html">pyecsca.ec package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.misc.html">pyecsca.misc package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="pyecsca.sca.html">pyecsca.sca package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.html">pyecsca.codegen package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries.html"><span class="fas fa-server fa-fw"></span> ECC in Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html"><span class="fas fa-asterisk fa-fw"></span> References</a></li>
+</ul>
+
+<ul style="margin-top: 1em">
+    <li class="toctree-l1"><a href="https://github.com/J08nY/pyecsca/"><i class="fab fa-fw fa-github"></i> Source code</a></li>
+    <li class="toctree-l1"><a href="https://pypi.org/project/pyecsca/"><i class="fas fa-fw fa-file"></i> Releases</a></li>
+</ul><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul>
+  <li><a href="pyecsca.sca.html">pyecsca.sca package</a><ul>
+  <li><a href="pyecsca.sca.re.html">pyecsca.sca.re package</a><ul>
+      <li>Previous: <a href="pyecsca.sca.re.tree.html" title="previous chapter">pyecsca.sca.re.tree module</a></li>
+      <li>Next: <a href="pyecsca.sca.scope.html" title="next chapter">pyecsca.sca.scope package</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-pyecsca.sca.re.zvp">
+<span id="pyecsca-sca-re-zvp-module"></span><h1>pyecsca.sca.re.zvp module<a class="headerlink" href="#module-pyecsca.sca.re.zvp" title="Link to this heading">¶</a></h1>
+<p>Provides functionality inspired by the Zero-value point attack <a class="reference internal" href="../references.html#zvp" id="id1"><span>[ZVP]</span></a>.</p>
+<p>Implements ZVP point construction from <a class="reference internal" href="../references.html#ffd" id="id2"><span>[FFD]</span></a>.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.sca.re.zvp.map_to_affine">
+<span class="sig-name descname"><span class="pre">map_to_affine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">formula</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">polys</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/re/zvp.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.re.zvp.map_to_affine" title="Link to this definition">¶</a></dt>
+<dd><p>Map unrolled polynomials of a formula to affine form, using some assumptions along the way (e.g. <cite>Z = 1</cite>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="pyecsca.sca.re.zvp.map_to_affine.params.formula"></span><strong>formula</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.re.zvp.map_to_affine.params.formula">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.formula.base.html#pyecsca.ec.formula.base.Formula" title="pyecsca.ec.formula.base.Formula"><code class="xref py py-class docutils literal notranslate"><span class="pre">Formula</span></code></a></span>) – The formula the polynomials belong to.</p></li>
+<li><p><span class="target" id="pyecsca.sca.re.zvp.map_to_affine.params.polys"></span><strong>polys</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.re.zvp.map_to_affine.params.polys">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Poly</span></code>]]</span>) – The polynomials (intermediate values) to map.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Poly</span></code>]]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The mapped intermediate values, with associated variable names.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.sca.re.zvp.compute_factor_set">
+<span class="sig-name descname"><span class="pre">compute_factor_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">formula</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">affine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_nonhomo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xonly</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/re/zvp.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.re.zvp.compute_factor_set" title="Link to this definition">¶</a></dt>
+<dd><p>Compute a set of factors present in the <a class="reference internal" href="#pyecsca.sca.re.zvp.compute_factor_set.params.formula" title="pyecsca.sca.re.zvp.compute_factor_set"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">formula</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="pyecsca.sca.re.zvp.compute_factor_set.params.formula"></span><strong>formula</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.re.zvp.compute_factor_set.params.formula">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.formula.base.html#pyecsca.ec.formula.base.Formula" title="pyecsca.ec.formula.base.Formula"><code class="xref py py-class docutils literal notranslate"><span class="pre">Formula</span></code></a></span>) – Formula to compute the factor set of.</p></li>
+<li><p><span class="target" id="pyecsca.sca.re.zvp.compute_factor_set.params.affine"></span><strong>affine</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.re.zvp.compute_factor_set.params.affine">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – Whether to transform the polynomials into affine form.</p></li>
+<li><p><span class="target" id="pyecsca.sca.re.zvp.compute_factor_set.params.filter_nonhomo"></span><strong>filter_nonhomo</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.re.zvp.compute_factor_set.params.filter_nonhomo">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – Whether to filter out non-homogenous polynomials.</p></li>
+<li><p><span class="target" id="pyecsca.sca.re.zvp.compute_factor_set.params.xonly"></span><strong>xonly</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.re.zvp.compute_factor_set.params.xonly">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – Whether to make the factor set “x”-only by eliminating y-coords using the curve equation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Set</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Poly</span></code>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The set of factors present in the formula.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.sca.re.zvp.zvp_points">
+<span class="sig-name descname"><span class="pre">zvp_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">poly</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curve</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/re/zvp.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.re.zvp.zvp_points" title="Link to this definition">¶</a></dt>
+<dd><p>Find a set of (affine) ZVP points for a given intermediate value and dlog relationship.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="pyecsca.sca.re.zvp.zvp_points.params.poly"></span><strong>poly</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.re.zvp.zvp_points.params.poly">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Poly</span></code></span>) – The polynomial to zero out, obtained as a result of <code class="xref py py-meth docutils literal notranslate"><span class="pre">unroll_formula()</span></code> (or its factor).</p></li>
+<li><p><span class="target" id="pyecsca.sca.re.zvp.zvp_points.params.curve"></span><strong>curve</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.re.zvp.zvp_points.params.curve">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.curve.html#pyecsca.ec.curve.EllipticCurve" title="pyecsca.ec.curve.EllipticCurve"><code class="xref py py-class docutils literal notranslate"><span class="pre">EllipticCurve</span></code></a></span>) – The curve to compute over.</p></li>
+<li><p><span class="target" id="pyecsca.sca.re.zvp.zvp_points.params.k"></span><strong>k</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.re.zvp.zvp_points.params.k">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – The discrete-log relationship between the two points, i.e. (x2, x2) = [k](x1, x1)</p></li>
+<li><p><span class="target" id="pyecsca.sca.re.zvp.zvp_points.params.n"></span><strong>n</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.re.zvp.zvp_points.params.n">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – The curve order.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Set</span></code>[<a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The set of points (x1, y1).</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;2018-2024, Jan Jancar.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.5</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../_sources/api/pyecsca.sca.re.zvp.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

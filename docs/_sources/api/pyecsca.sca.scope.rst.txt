@@ -1,0 +1,18 @@
+pyecsca.sca.scope package
+=========================
+
+.. automodule:: pyecsca.sca.scope
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   pyecsca.sca.scope.base
+   pyecsca.sca.scope.chipwhisperer
+   pyecsca.sca.scope.picoscope_alt
+   pyecsca.sca.scope.picoscope_sdk

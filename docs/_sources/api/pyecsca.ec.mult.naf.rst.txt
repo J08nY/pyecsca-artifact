@@ -1,0 +1,7 @@
+pyecsca.ec.mult.naf module
+==========================
+
+.. automodule:: pyecsca.ec.mult.naf
+   :members:
+   :undoc-members:
+   :show-inheritance:

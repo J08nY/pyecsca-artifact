@@ -1,0 +1,7 @@
+pyecsca.sca.trace.edit module
+=============================
+
+.. automodule:: pyecsca.sca.trace.edit
+   :members:
+   :undoc-members:
+   :show-inheritance:

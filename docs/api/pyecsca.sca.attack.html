@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>pyecsca.sca.attack package &#8212; pyecsca 0.3.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d10597a4" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=bf281230" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_paramlinks.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=de02a091" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" />
+    <script src="../_static/documentation_options.js?v=71d9d8e6"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/logo_black.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pyecsca.sca.attack.CPA module" href="pyecsca.sca.attack.CPA.html" />
+    <link rel="prev" title="pyecsca.sca package" href="pyecsca.sca.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo_black.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">pyecsca</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html"><span class="fas fa-screwdriver-wrench fa-fw"></span> Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks.html"><span class="fas fa-hand-pointer fa-fw"></span> Notebooks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.html">pyecsca.ec package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.misc.html">pyecsca.misc package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="pyecsca.sca.html">pyecsca.sca package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.html">pyecsca.codegen package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries.html"><span class="fas fa-server fa-fw"></span> ECC in Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html"><span class="fas fa-asterisk fa-fw"></span> References</a></li>
+</ul>
+
+<ul style="margin-top: 1em">
+    <li class="toctree-l1"><a href="https://github.com/J08nY/pyecsca/"><i class="fab fa-fw fa-github"></i> Source code</a></li>
+    <li class="toctree-l1"><a href="https://pypi.org/project/pyecsca/"><i class="fas fa-fw fa-file"></i> Releases</a></li>
+</ul><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul>
+  <li><a href="pyecsca.sca.html">pyecsca.sca package</a><ul>
+      <li>Previous: <a href="pyecsca.sca.html" title="previous chapter">pyecsca.sca package</a></li>
+      <li>Next: <a href="pyecsca.sca.attack.CPA.html" title="next chapter">pyecsca.sca.attack.CPA module</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-pyecsca.sca.attack">
+<span id="pyecsca-sca-attack-package"></span><h1>pyecsca.sca.attack package<a class="headerlink" href="#module-pyecsca.sca.attack" title="Link to this heading">¶</a></h1>
+<p>Package for attacks.</p>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.sca.attack.CPA.html">pyecsca.sca.attack.CPA module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.attack.CPA.html#pyecsca.sca.attack.CPA.CPA"><code class="docutils literal notranslate"><span class="pre">CPA</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.attack.CPA.html#pyecsca.sca.attack.CPA.CPA.points"><code class="docutils literal notranslate"><span class="pre">CPA.points</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.attack.CPA.html#pyecsca.sca.attack.CPA.CPA.traces"><code class="docutils literal notranslate"><span class="pre">CPA.traces</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.attack.CPA.html#pyecsca.sca.attack.CPA.CPA.mult"><code class="docutils literal notranslate"><span class="pre">CPA.mult</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.attack.CPA.html#pyecsca.sca.attack.CPA.CPA.params"><code class="docutils literal notranslate"><span class="pre">CPA.params</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.attack.CPA.html#pyecsca.sca.attack.CPA.CPA.leakage_model"><code class="docutils literal notranslate"><span class="pre">CPA.leakage_model</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.attack.CPA.html#pyecsca.sca.attack.CPA.CPA.correlations"><code class="docutils literal notranslate"><span class="pre">CPA.correlations</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.attack.CPA.html#pyecsca.sca.attack.CPA.CPA.compute_intermediate_value"><code class="docutils literal notranslate"><span class="pre">CPA.compute_intermediate_value()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.attack.CPA.html#pyecsca.sca.attack.CPA.CPA.compute_correlation_trace"><code class="docutils literal notranslate"><span class="pre">CPA.compute_correlation_trace()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.attack.CPA.html#pyecsca.sca.attack.CPA.CPA.plot_correlations"><code class="docutils literal notranslate"><span class="pre">CPA.plot_correlations()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.attack.CPA.html#pyecsca.sca.attack.CPA.CPA.recover_bit"><code class="docutils literal notranslate"><span class="pre">CPA.recover_bit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.attack.CPA.html#pyecsca.sca.attack.CPA.CPA.perform"><code class="docutils literal notranslate"><span class="pre">CPA.perform()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.sca.attack.DPA.html">pyecsca.sca.attack.DPA module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.attack.DPA.html#pyecsca.sca.attack.DPA.DPA"><code class="docutils literal notranslate"><span class="pre">DPA</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.attack.DPA.html#pyecsca.sca.attack.DPA.DPA.points"><code class="docutils literal notranslate"><span class="pre">DPA.points</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.attack.DPA.html#pyecsca.sca.attack.DPA.DPA.traces"><code class="docutils literal notranslate"><span class="pre">DPA.traces</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.attack.DPA.html#pyecsca.sca.attack.DPA.DPA.mult"><code class="docutils literal notranslate"><span class="pre">DPA.mult</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.attack.DPA.html#pyecsca.sca.attack.DPA.DPA.params"><code class="docutils literal notranslate"><span class="pre">DPA.params</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.attack.DPA.html#pyecsca.sca.attack.DPA.DPA.doms"><code class="docutils literal notranslate"><span class="pre">DPA.doms</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.attack.DPA.html#pyecsca.sca.attack.DPA.DPA.compute_split_point"><code class="docutils literal notranslate"><span class="pre">DPA.compute_split_point()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.attack.DPA.html#pyecsca.sca.attack.DPA.DPA.split_traces"><code class="docutils literal notranslate"><span class="pre">DPA.split_traces()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.attack.DPA.html#pyecsca.sca.attack.DPA.DPA.calculate_difference_of_means"><code class="docutils literal notranslate"><span class="pre">DPA.calculate_difference_of_means()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.attack.DPA.html#pyecsca.sca.attack.DPA.DPA.plot_difference_of_means"><code class="docutils literal notranslate"><span class="pre">DPA.plot_difference_of_means()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.attack.DPA.html#pyecsca.sca.attack.DPA.DPA.recover_bit"><code class="docutils literal notranslate"><span class="pre">DPA.recover_bit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.attack.DPA.html#pyecsca.sca.attack.DPA.DPA.perform"><code class="docutils literal notranslate"><span class="pre">DPA.perform()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.sca.attack.leakage_model.html">pyecsca.sca.attack.leakage_model module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.attack.leakage_model.html#pyecsca.sca.attack.leakage_model.Noise"><code class="docutils literal notranslate"><span class="pre">Noise</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.attack.leakage_model.html#pyecsca.sca.attack.leakage_model.ZeroNoise"><code class="docutils literal notranslate"><span class="pre">ZeroNoise</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.attack.leakage_model.html#pyecsca.sca.attack.leakage_model.NormalNoice"><code class="docutils literal notranslate"><span class="pre">NormalNoice</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.attack.leakage_model.html#pyecsca.sca.attack.leakage_model.LeakageModel"><code class="docutils literal notranslate"><span class="pre">LeakageModel</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.attack.leakage_model.html#pyecsca.sca.attack.leakage_model.LeakageModel.num_args"><code class="docutils literal notranslate"><span class="pre">LeakageModel.num_args</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.attack.leakage_model.html#pyecsca.sca.attack.leakage_model.Identity"><code class="docutils literal notranslate"><span class="pre">Identity</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.attack.leakage_model.html#pyecsca.sca.attack.leakage_model.Identity.num_args"><code class="docutils literal notranslate"><span class="pre">Identity.num_args</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.attack.leakage_model.html#pyecsca.sca.attack.leakage_model.Bit"><code class="docutils literal notranslate"><span class="pre">Bit</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.attack.leakage_model.html#pyecsca.sca.attack.leakage_model.Bit.num_args"><code class="docutils literal notranslate"><span class="pre">Bit.num_args</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.attack.leakage_model.html#pyecsca.sca.attack.leakage_model.Slice"><code class="docutils literal notranslate"><span class="pre">Slice</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.attack.leakage_model.html#pyecsca.sca.attack.leakage_model.Slice.num_args"><code class="docutils literal notranslate"><span class="pre">Slice.num_args</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.attack.leakage_model.html#pyecsca.sca.attack.leakage_model.HammingWeight"><code class="docutils literal notranslate"><span class="pre">HammingWeight</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.attack.leakage_model.html#pyecsca.sca.attack.leakage_model.HammingWeight.num_args"><code class="docutils literal notranslate"><span class="pre">HammingWeight.num_args</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.attack.leakage_model.html#pyecsca.sca.attack.leakage_model.HammingDistance"><code class="docutils literal notranslate"><span class="pre">HammingDistance</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.attack.leakage_model.html#pyecsca.sca.attack.leakage_model.HammingDistance.num_args"><code class="docutils literal notranslate"><span class="pre">HammingDistance.num_args</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.attack.leakage_model.html#pyecsca.sca.attack.leakage_model.BitLength"><code class="docutils literal notranslate"><span class="pre">BitLength</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.sca.attack.leakage_model.html#pyecsca.sca.attack.leakage_model.BitLength.num_args"><code class="docutils literal notranslate"><span class="pre">BitLength.num_args</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;2018-2024, Jan Jancar.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.5</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../_sources/api/pyecsca.sca.attack.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

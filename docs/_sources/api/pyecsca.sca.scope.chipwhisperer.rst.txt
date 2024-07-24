@@ -1,0 +1,7 @@
+pyecsca.sca.scope.chipwhisperer module
+======================================
+
+.. automodule:: pyecsca.sca.scope.chipwhisperer
+   :members:
+   :undoc-members:
+   :show-inheritance:

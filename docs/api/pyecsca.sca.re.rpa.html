@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>pyecsca.sca.re.rpa module &#8212; pyecsca 0.3.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d10597a4" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=bf281230" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_paramlinks.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=de02a091" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" />
+    <script src="../_static/documentation_options.js?v=71d9d8e6"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/logo_black.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pyecsca.sca.re.structural module" href="pyecsca.sca.re.structural.html" />
+    <link rel="prev" title="pyecsca.sca.re.base module" href="pyecsca.sca.re.base.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo_black.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">pyecsca</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html"><span class="fas fa-screwdriver-wrench fa-fw"></span> Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks.html"><span class="fas fa-hand-pointer fa-fw"></span> Notebooks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.html">pyecsca.ec package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.misc.html">pyecsca.misc package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="pyecsca.sca.html">pyecsca.sca package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.html">pyecsca.codegen package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries.html"><span class="fas fa-server fa-fw"></span> ECC in Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html"><span class="fas fa-asterisk fa-fw"></span> References</a></li>
+</ul>
+
+<ul style="margin-top: 1em">
+    <li class="toctree-l1"><a href="https://github.com/J08nY/pyecsca/"><i class="fab fa-fw fa-github"></i> Source code</a></li>
+    <li class="toctree-l1"><a href="https://pypi.org/project/pyecsca/"><i class="fas fa-fw fa-file"></i> Releases</a></li>
+</ul><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul>
+  <li><a href="pyecsca.sca.html">pyecsca.sca package</a><ul>
+  <li><a href="pyecsca.sca.re.html">pyecsca.sca.re package</a><ul>
+      <li>Previous: <a href="pyecsca.sca.re.base.html" title="previous chapter">pyecsca.sca.re.base module</a></li>
+      <li>Next: <a href="pyecsca.sca.re.structural.html" title="next chapter">pyecsca.sca.re.structural module</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-pyecsca.sca.re.rpa">
+<span id="pyecsca-sca-re-rpa-module"></span><h1>pyecsca.sca.re.rpa module<a class="headerlink" href="#module-pyecsca.sca.re.rpa" title="Link to this heading">¶</a></h1>
+<p>Provides functionality inspired by the Refined-Power Analysis attack by Goubin <a class="reference internal" href="../references.html#rpa" id="id1"><span>[RPA]</span></a>.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.sca.re.rpa.MultipleContext">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleContext</span></span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/re/rpa.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.re.rpa.MultipleContext" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pyecsca.ec.context.html#pyecsca.ec.context.Context" title="pyecsca.ec.context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a></p>
+<p>Context that traces the multiples of points computed.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.sca.re.rpa.MultipleContext.base">
+<span class="sig-name descname"><span class="pre">base</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code><span class="pre">[</span><a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/re/rpa.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.re.rpa.MultipleContext.base" title="Link to this definition">¶</a></dt>
+<dd><p>The base point that all the multiples are counted from.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.sca.re.rpa.MultipleContext.points">
+<span class="sig-name descname"><span class="pre">points</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">MutableMapping</span></code><span class="pre">[</span><a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a><span class="pre">,</span> <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/re/rpa.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.re.rpa.MultipleContext.points" title="Link to this definition">¶</a></dt>
+<dd><p>The mapping of points to the multiples they represent (e.g., base -&gt; 1).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.sca.re.rpa.MultipleContext.parents">
+<span class="sig-name descname"><span class="pre">parents</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">MutableMapping</span></code><span class="pre">[</span><a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a><span class="pre">,</span> <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a><span class="pre">]]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/re/rpa.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.re.rpa.MultipleContext.parents" title="Link to this definition">¶</a></dt>
+<dd><p>The mapping of points to their parent they were computed from.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.sca.re.rpa.MultipleContext.formulas">
+<span class="sig-name descname"><span class="pre">formulas</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">MutableMapping</span></code><span class="pre">[</span><a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a><span class="pre">,</span> <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/re/rpa.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.re.rpa.MultipleContext.formulas" title="Link to this definition">¶</a></dt>
+<dd><p>The mapping of points to the formula types they are a result of.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.sca.re.rpa.MultipleContext.inside">
+<span class="sig-name descname"><span class="pre">inside</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/re/rpa.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.re.rpa.MultipleContext.inside" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.sca.re.rpa.MultipleContext.enter_action">
+<span class="sig-name descname"><span class="pre">enter_action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/re/rpa.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.re.rpa.MultipleContext.enter_action" title="Link to this definition">¶</a></dt>
+<dd><p>Enter into an action (i.e. start executing it).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.sca.re.rpa.MultipleContext.enter_action.params.action"></span><strong>action</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.re.rpa.MultipleContext.enter_action.params.action">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.context.html#pyecsca.ec.context.Action" title="pyecsca.ec.context.Action"><code class="xref py py-class docutils literal notranslate"><span class="pre">Action</span></code></a></span>) – The action.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.sca.re.rpa.MultipleContext.exit_action">
+<span class="sig-name descname"><span class="pre">exit_action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/re/rpa.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.re.rpa.MultipleContext.exit_action" title="Link to this definition">¶</a></dt>
+<dd><p>Exit from an action (i.e. stop executing it).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.sca.re.rpa.MultipleContext.exit_action.params.action"></span><strong>action</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.re.rpa.MultipleContext.exit_action.params.action">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.context.html#pyecsca.ec.context.Action" title="pyecsca.ec.context.Action"><code class="xref py py-class docutils literal notranslate"><span class="pre">Action</span></code></a></span>) – The action.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.sca.re.rpa.rpa_point_0y">
+<span class="sig-name descname"><span class="pre">rpa_point_0y</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/re/rpa.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.re.rpa.rpa_point_0y" title="Link to this definition">¶</a></dt>
+<dd><p>Construct an (affine) <a class="reference internal" href="../references.html#rpa" id="id2"><span>[RPA]</span></a> point (0, y) for given domain parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.sca.re.rpa.rpa_point_x0">
+<span class="sig-name descname"><span class="pre">rpa_point_x0</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/re/rpa.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.re.rpa.rpa_point_x0" title="Link to this definition">¶</a></dt>
+<dd><p>Construct an (affine) <a class="reference internal" href="../references.html#rpa" id="id3"><span>[RPA]</span></a> point (x, 0) for given domain parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.sca.re.rpa.rpa_input_point">
+<span class="sig-name descname"><span class="pre">rpa_input_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rpa_point</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/re/rpa.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.re.rpa.rpa_input_point" title="Link to this definition">¶</a></dt>
+<dd><p>Construct an (affine) input point P that will lead to an RPA point [k]P.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.sca.re.rpa.rpa_distinguish">
+<span class="sig-name descname"><span class="pre">rpa_distinguish</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multipliers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oracle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bound</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tries</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">majority</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_multiply</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/re/rpa.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.re.rpa.rpa_distinguish" title="Link to this definition">¶</a></dt>
+<dd><p>Distinguish the scalar multiplier used (from the possible <a class="reference internal" href="#pyecsca.sca.re.rpa.rpa_distinguish.params.multipliers" title="pyecsca.sca.re.rpa.rpa_distinguish"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">multipliers</span></code></a>) using
+an <a class="reference internal" href="../references.html#rpa" id="id4"><span>[RPA]</span></a> <a class="reference internal" href="#pyecsca.sca.re.rpa.rpa_distinguish.params.oracle" title="pyecsca.sca.re.rpa.rpa_distinguish"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">oracle</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="pyecsca.sca.re.rpa.rpa_distinguish.params.params"></span><strong>params</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.re.rpa.rpa_distinguish.params.params">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.params.html#pyecsca.ec.params.DomainParameters" title="pyecsca.ec.params.DomainParameters"><code class="xref py py-class docutils literal notranslate"><span class="pre">DomainParameters</span></code></a></span>) – The domain parameters to use.</p></li>
+<li><p><span class="target" id="pyecsca.sca.re.rpa.rpa_distinguish.params.multipliers"></span><strong>multipliers</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.re.rpa.rpa_distinguish.params.multipliers">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="pyecsca.ec.mult.base.html#pyecsca.ec.mult.base.ScalarMultiplier" title="pyecsca.ec.mult.base.ScalarMultiplier"><code class="xref py py-class docutils literal notranslate"><span class="pre">ScalarMultiplier</span></code></a>]</span>) – The list of possible multipliers.</p></li>
+<li><p><span class="target" id="pyecsca.sca.re.rpa.rpa_distinguish.params.oracle"></span><strong>oracle</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.re.rpa.rpa_distinguish.params.oracle">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a>], <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>]</span>) – An oracle that returns <cite>True</cite> when an RPA point is encountered during scalar multiplication of the input by the scalar.</p></li>
+<li><p><span class="target" id="pyecsca.sca.re.rpa.rpa_distinguish.params.bound"></span><strong>bound</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.re.rpa.rpa_distinguish.params.bound">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>) – A bound on the size of the scalar to consider.</p></li>
+<li><p><span class="target" id="pyecsca.sca.re.rpa.rpa_distinguish.params.tries"></span><strong>tries</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.re.rpa.rpa_distinguish.params.tries">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Number of tries to get a non-trivial tree.</p></li>
+<li><p><span class="target" id="pyecsca.sca.re.rpa.rpa_distinguish.params.majority"></span><strong>majority</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.re.rpa.rpa_distinguish.params.majority">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Query the oracle up to <cite>majority</cite> times and take the majority vote of the results.</p></li>
+<li><p><span class="target" id="pyecsca.sca.re.rpa.rpa_distinguish.params.use_init"></span><strong>use_init</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.re.rpa.rpa_distinguish.params.use_init">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – Whether to consider the point multiples that happen in scalarmult initialization.</p></li>
+<li><p><span class="target" id="pyecsca.sca.re.rpa.rpa_distinguish.params.use_multiply"></span><strong>use_multiply</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.re.rpa.rpa_distinguish.params.use_multiply">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – Whether to consider the point multiples that happen in scalarmult multiply (after initialization).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Set</span></code>[<a class="reference internal" href="pyecsca.ec.mult.base.html#pyecsca.ec.mult.base.ScalarMultiplier" title="pyecsca.ec.mult.base.ScalarMultiplier"><code class="xref py py-class docutils literal notranslate"><span class="pre">ScalarMultiplier</span></code></a>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The list of possible multipliers after distinguishing (ideally just one).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.sca.re.rpa.RPA">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RPA</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">configs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/re/rpa.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.re.rpa.RPA" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pyecsca.sca.re.base.html#pyecsca.sca.re.base.RE" title="pyecsca.sca.re.base.RE"><code class="xref py py-class docutils literal notranslate"><span class="pre">RE</span></code></a></p>
+<p>RPA-based RE.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.sca.re.rpa.RPA.tree">
+<span class="sig-name descname"><span class="pre">tree</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional[Tree]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/re/rpa.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.re.rpa.RPA.tree" title="Link to this definition">¶</a></dt>
+<dd><p>The RE tree (if any).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.sca.re.rpa.RPA.configs">
+<span class="sig-name descname"><span class="pre">configs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Set[Any]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/re/rpa.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.re.rpa.RPA.configs" title="Link to this definition">¶</a></dt>
+<dd><p>The set of configurations to reverse-engineer.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.sca.re.rpa.RPA.params">
+<span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code><span class="pre">[</span><a class="reference internal" href="pyecsca.ec.params.html#pyecsca.ec.params.DomainParameters" title="pyecsca.ec.params.DomainParameters"><code class="xref py py-class docutils literal notranslate"><span class="pre">DomainParameters</span></code></a><span class="pre">]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/re/rpa.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.re.rpa.RPA.params" title="Link to this definition">¶</a></dt>
+<dd><p>The domain parameters to use.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.sca.re.rpa.RPA.P0">
+<span class="sig-name descname"><span class="pre">P0</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code><span class="pre">[</span><a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a><span class="pre">]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/re/rpa.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.re.rpa.RPA.P0" title="Link to this definition">¶</a></dt>
+<dd><p>The zero-coordinate point that will be used in the RE.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.sca.re.rpa.RPA.scalars">
+<span class="sig-name descname"><span class="pre">scalars</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code><span class="pre">]]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/re/rpa.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.re.rpa.RPA.scalars" title="Link to this definition">¶</a></dt>
+<dd><p>A list of scalars that will be used in the RE.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.sca.re.rpa.RPA.build_tree">
+<span class="sig-name descname"><span class="pre">build_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tries</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bound</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_multiply</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/re/rpa.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.re.rpa.RPA.build_tree" title="Link to this definition">¶</a></dt>
+<dd><p>Build an RPA distinguishing tree.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="pyecsca.sca.re.rpa.RPA.build_tree.params.params"></span><strong>params</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.re.rpa.RPA.build_tree.params.params">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.params.html#pyecsca.ec.params.DomainParameters" title="pyecsca.ec.params.DomainParameters"><code class="xref py py-class docutils literal notranslate"><span class="pre">DomainParameters</span></code></a></span>) – The domain parameters to use.</p></li>
+<li><p><span class="target" id="pyecsca.sca.re.rpa.RPA.build_tree.params.tries"></span><strong>tries</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.re.rpa.RPA.build_tree.params.tries">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Number of tries to get a non-trivial tree.</p></li>
+<li><p><span class="target" id="pyecsca.sca.re.rpa.RPA.build_tree.params.bound"></span><strong>bound</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.re.rpa.RPA.build_tree.params.bound">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>) – A bound on the size of the scalar to consider.</p></li>
+<li><p><span class="target" id="pyecsca.sca.re.rpa.RPA.build_tree.params.use_init"></span><strong>use_init</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.re.rpa.RPA.build_tree.params.use_init">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – Whether to consider the point multiples that happen in scalarmult initialization.</p></li>
+<li><p><span class="target" id="pyecsca.sca.re.rpa.RPA.build_tree.params.use_multiply"></span><strong>use_multiply</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.re.rpa.RPA.build_tree.params.use_multiply">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – Whether to consider the point multiples that happen in scalarmult multiply (after initialization).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.sca.re.rpa.RPA.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oracle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">majority</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/re/rpa.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.re.rpa.RPA.run" title="Link to this definition">¶</a></dt>
+<dd><p>Run the RPA-RE with an <cite>oracle</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="pyecsca.sca.re.rpa.RPA.run.params.oracle"></span><strong>oracle</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.re.rpa.RPA.run.params.oracle">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a>], <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>]</span>) – An oracle that returns <cite>True</cite> when an RPA point is encountered during scalar multiplication of the input by the scalar.</p></li>
+<li><p><span class="target" id="pyecsca.sca.re.rpa.RPA.run.params.majority"></span><strong>majority</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.re.rpa.RPA.run.params.majority">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Query the oracle up to <cite>majority</cite> times and take the majority vote of the results.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Set</span></code>[<a class="reference internal" href="pyecsca.ec.mult.base.html#pyecsca.ec.mult.base.ScalarMultiplier" title="pyecsca.ec.mult.base.ScalarMultiplier"><code class="xref py py-class docutils literal notranslate"><span class="pre">ScalarMultiplier</span></code></a>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The set of possible multipliers.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;2018-2024, Jan Jancar.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.5</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../_sources/api/pyecsca.sca.re.rpa.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

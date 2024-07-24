@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>pyecsca.sca.trace.process module &#8212; pyecsca 0.3.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d10597a4" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=bf281230" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_paramlinks.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=de02a091" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" />
+    <script src="../_static/documentation_options.js?v=71d9d8e6"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/logo_black.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pyecsca.sca.trace.sampling module" href="pyecsca.sca.trace.sampling.html" />
+    <link rel="prev" title="pyecsca.sca.trace.plot module" href="pyecsca.sca.trace.plot.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo_black.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">pyecsca</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html"><span class="fas fa-screwdriver-wrench fa-fw"></span> Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks.html"><span class="fas fa-hand-pointer fa-fw"></span> Notebooks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.html">pyecsca.ec package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.misc.html">pyecsca.misc package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="pyecsca.sca.html">pyecsca.sca package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.html">pyecsca.codegen package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries.html"><span class="fas fa-server fa-fw"></span> ECC in Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html"><span class="fas fa-asterisk fa-fw"></span> References</a></li>
+</ul>
+
+<ul style="margin-top: 1em">
+    <li class="toctree-l1"><a href="https://github.com/J08nY/pyecsca/"><i class="fab fa-fw fa-github"></i> Source code</a></li>
+    <li class="toctree-l1"><a href="https://pypi.org/project/pyecsca/"><i class="fas fa-fw fa-file"></i> Releases</a></li>
+</ul><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul>
+  <li><a href="pyecsca.sca.html">pyecsca.sca package</a><ul>
+  <li><a href="pyecsca.sca.trace.html">pyecsca.sca.trace package</a><ul>
+      <li>Previous: <a href="pyecsca.sca.trace.plot.html" title="previous chapter">pyecsca.sca.trace.plot module</a></li>
+      <li>Next: <a href="pyecsca.sca.trace.sampling.html" title="next chapter">pyecsca.sca.trace.sampling module</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-pyecsca.sca.trace.process">
+<span id="pyecsca-sca-trace-process-module"></span><h1>pyecsca.sca.trace.process module<a class="headerlink" href="#module-pyecsca.sca.trace.process" title="Link to this heading">¶</a></h1>
+<p>Provides functions for sample-wise processing of single traces.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.sca.trace.process.absolute">
+<span class="sig-name descname"><span class="pre">absolute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trace</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/trace/process.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.trace.process.absolute" title="Link to this definition">¶</a></dt>
+<dd><p>Apply absolute value to samples of <a class="reference internal" href="#pyecsca.sca.trace.process.absolute.params.trace" title="pyecsca.sca.trace.process.absolute"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">trace</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.sca.trace.process.absolute.params.trace"></span><strong>trace</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.trace.process.absolute.params.trace">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.sca.trace.trace.html#pyecsca.sca.trace.trace.Trace" title="pyecsca.sca.trace.trace.Trace"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trace</span></code></a></span>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.sca.trace.trace.html#pyecsca.sca.trace.trace.Trace" title="pyecsca.sca.trace.trace.Trace"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trace</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.sca.trace.process.invert">
+<span class="sig-name descname"><span class="pre">invert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trace</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/trace/process.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.trace.process.invert" title="Link to this definition">¶</a></dt>
+<dd><p>Invert(negate) the samples of <a class="reference internal" href="#pyecsca.sca.trace.process.invert.params.trace" title="pyecsca.sca.trace.process.invert"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">trace</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.sca.trace.process.invert.params.trace"></span><strong>trace</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.trace.process.invert.params.trace">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.sca.trace.trace.html#pyecsca.sca.trace.trace.Trace" title="pyecsca.sca.trace.trace.Trace"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trace</span></code></a></span>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.sca.trace.trace.html#pyecsca.sca.trace.trace.Trace" title="pyecsca.sca.trace.trace.Trace"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trace</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.sca.trace.process.threshold">
+<span class="sig-name descname"><span class="pre">threshold</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trace</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/trace/process.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.trace.process.threshold" title="Link to this definition">¶</a></dt>
+<dd><p>Map samples of the <a class="reference internal" href="#pyecsca.sca.trace.process.threshold.params.trace" title="pyecsca.sca.trace.process.threshold"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">trace</span></code></a> to <code class="docutils literal notranslate"><span class="pre">1</span></code> if they are above <a class="reference internal" href="#pyecsca.sca.trace.process.threshold.params.value" title="pyecsca.sca.trace.process.threshold"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">value</span></code></a> or to <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="pyecsca.sca.trace.process.threshold.params.trace"></span><strong>trace</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.trace.process.threshold.params.trace">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.sca.trace.trace.html#pyecsca.sca.trace.trace.Trace" title="pyecsca.sca.trace.trace.Trace"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trace</span></code></a></span>)</p></li>
+<li><p><span class="target" id="pyecsca.sca.trace.process.threshold.params.value"></span><strong>value</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.trace.process.threshold.params.value">¶</a></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.sca.trace.trace.html#pyecsca.sca.trace.trace.Trace" title="pyecsca.sca.trace.trace.Trace"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trace</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.sca.trace.process.rolling_mean">
+<span class="sig-name descname"><span class="pre">rolling_mean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trace</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/trace/process.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.trace.process.rolling_mean" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the rolling mean of <a class="reference internal" href="#pyecsca.sca.trace.process.rolling_mean.params.trace" title="pyecsca.sca.trace.process.rolling_mean"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">trace</span></code></a> using <a class="reference internal" href="#pyecsca.sca.trace.process.rolling_mean.params.window" title="pyecsca.sca.trace.process.rolling_mean"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">window</span></code></a>.</p>
+<p>Shortens the trace by <code class="docutils literal notranslate"><span class="pre">window</span> <span class="pre">-</span> <span class="pre">1</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="pyecsca.sca.trace.process.rolling_mean.params.trace"></span><strong>trace</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.trace.process.rolling_mean.params.trace">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.sca.trace.trace.html#pyecsca.sca.trace.trace.Trace" title="pyecsca.sca.trace.trace.Trace"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trace</span></code></a></span>)</p></li>
+<li><p><span class="target" id="pyecsca.sca.trace.process.rolling_mean.params.window"></span><strong>window</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.trace.process.rolling_mean.params.window">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.sca.trace.trace.html#pyecsca.sca.trace.trace.Trace" title="pyecsca.sca.trace.trace.Trace"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trace</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.sca.trace.process.offset">
+<span class="sig-name descname"><span class="pre">offset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trace</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/trace/process.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.trace.process.offset" title="Link to this definition">¶</a></dt>
+<dd><p>Offset samples of <a class="reference internal" href="#pyecsca.sca.trace.process.offset.params.trace" title="pyecsca.sca.trace.process.offset"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">trace</span></code></a> by <a class="reference internal" href="#pyecsca.sca.trace.process.offset.params.offset" title="pyecsca.sca.trace.process.offset"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">offset</span></code></a>, sample-wise.</p>
+<p>Adds <a class="reference internal" href="#pyecsca.sca.trace.process.offset.params.offset" title="pyecsca.sca.trace.process.offset"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">offset</span></code></a> to all samples.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="pyecsca.sca.trace.process.offset.params.trace"></span><strong>trace</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.trace.process.offset.params.trace">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.sca.trace.trace.html#pyecsca.sca.trace.trace.Trace" title="pyecsca.sca.trace.trace.Trace"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trace</span></code></a></span>)</p></li>
+<li><p><span class="target" id="pyecsca.sca.trace.process.offset.params.offset"></span><strong>offset</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.trace.process.offset.params.offset">¶</a></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.sca.trace.trace.html#pyecsca.sca.trace.trace.Trace" title="pyecsca.sca.trace.trace.Trace"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trace</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.sca.trace.process.recenter">
+<span class="sig-name descname"><span class="pre">recenter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trace</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/trace/process.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.trace.process.recenter" title="Link to this definition">¶</a></dt>
+<dd><p>Subtract the root mean square of the <a class="reference internal" href="#pyecsca.sca.trace.process.recenter.params.trace" title="pyecsca.sca.trace.process.recenter"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">trace</span></code></a> from its samples, sample-wise.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.sca.trace.process.recenter.params.trace"></span><strong>trace</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.trace.process.recenter.params.trace">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.sca.trace.trace.html#pyecsca.sca.trace.trace.Trace" title="pyecsca.sca.trace.trace.Trace"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trace</span></code></a></span>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.sca.trace.trace.html#pyecsca.sca.trace.trace.Trace" title="pyecsca.sca.trace.trace.Trace"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trace</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.sca.trace.process.normalize">
+<span class="sig-name descname"><span class="pre">normalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trace</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/trace/process.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.trace.process.normalize" title="Link to this definition">¶</a></dt>
+<dd><p>Normalize a <a class="reference internal" href="#pyecsca.sca.trace.process.normalize.params.trace" title="pyecsca.sca.trace.process.normalize"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">trace</span></code></a> by subtracting its mean and dividing by its standard deviation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.sca.trace.process.normalize.params.trace"></span><strong>trace</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.trace.process.normalize.params.trace">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.sca.trace.trace.html#pyecsca.sca.trace.trace.Trace" title="pyecsca.sca.trace.trace.Trace"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trace</span></code></a></span>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.sca.trace.trace.html#pyecsca.sca.trace.trace.Trace" title="pyecsca.sca.trace.trace.Trace"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trace</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.sca.trace.process.normalize_wl">
+<span class="sig-name descname"><span class="pre">normalize_wl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trace</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/trace/process.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.trace.process.normalize_wl" title="Link to this definition">¶</a></dt>
+<dd><p>Normalize a <a class="reference internal" href="#pyecsca.sca.trace.process.normalize_wl.params.trace" title="pyecsca.sca.trace.process.normalize_wl"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">trace</span></code></a> by subtracting its mean and dividing by a multiple (= <code class="docutils literal notranslate"><span class="pre">len(trace)</span></code>) of its standard deviation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.sca.trace.process.normalize_wl.params.trace"></span><strong>trace</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.trace.process.normalize_wl.params.trace">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.sca.trace.trace.html#pyecsca.sca.trace.trace.Trace" title="pyecsca.sca.trace.trace.Trace"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trace</span></code></a></span>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.sca.trace.trace.html#pyecsca.sca.trace.trace.Trace" title="pyecsca.sca.trace.trace.Trace"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trace</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.sca.trace.process.transform">
+<span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trace</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/trace/process.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.trace.process.transform" title="Link to this definition">¶</a></dt>
+<dd><p>Scale a <a class="reference internal" href="pyecsca.sca.target.ectester.html#pyecsca.sca.target.ectester.ECTesterTarget.transform.params.trace" title="pyecsca.sca.target.ectester.ECTesterTarget.transform"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">trace</span></code></a> so that its minimum is at <a class="reference internal" href="pyecsca.sca.target.ectester.html#pyecsca.sca.target.ectester.ECTesterTarget.transform.params.min_value" title="pyecsca.sca.target.ectester.ECTesterTarget.transform"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">min_value</span></code></a> and its maximum is at <a class="reference internal" href="pyecsca.sca.target.ectester.html#pyecsca.sca.target.ectester.ECTesterTarget.transform.params.max_value" title="pyecsca.sca.target.ectester.ECTesterTarget.transform"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">max_value</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="pyecsca.sca.trace.process.transform.params.trace"></span><strong>trace</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.trace.process.transform.params.trace">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.sca.trace.trace.html#pyecsca.sca.trace.trace.Trace" title="pyecsca.sca.trace.trace.Trace"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trace</span></code></a></span>)</p></li>
+<li><p><span class="target" id="pyecsca.sca.trace.process.transform.params.min_value"></span><strong>min_value</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.trace.process.transform.params.min_value">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></span>)</p></li>
+<li><p><span class="target" id="pyecsca.sca.trace.process.transform.params.max_value"></span><strong>max_value</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.trace.process.transform.params.max_value">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></span>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.sca.trace.trace.html#pyecsca.sca.trace.trace.Trace" title="pyecsca.sca.trace.trace.Trace"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trace</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;2018-2024, Jan Jancar.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.5</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../_sources/api/pyecsca.sca.trace.process.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

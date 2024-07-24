@@ -1,0 +1,7 @@
+pyecsca.sca.trace\_set.hdf5 module
+==================================
+
+.. automodule:: pyecsca.sca.trace_set.hdf5
+   :members:
+   :undoc-members:
+   :show-inheritance:

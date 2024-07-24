@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>pyecsca.ec.params module &#8212; pyecsca 0.3.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d10597a4" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=bf281230" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_paramlinks.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=de02a091" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" />
+    <script src="../_static/documentation_options.js?v=71d9d8e6"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/logo_black.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pyecsca.ec.point module" href="pyecsca.ec.point.html" />
+    <link rel="prev" title="pyecsca.ec.op module" href="pyecsca.ec.op.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo_black.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">pyecsca</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html"><span class="fas fa-screwdriver-wrench fa-fw"></span> Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks.html"><span class="fas fa-hand-pointer fa-fw"></span> Notebooks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="pyecsca.ec.html">pyecsca.ec package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.misc.html">pyecsca.misc package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.html">pyecsca.sca package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.html">pyecsca.codegen package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries.html"><span class="fas fa-server fa-fw"></span> ECC in Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html"><span class="fas fa-asterisk fa-fw"></span> References</a></li>
+</ul>
+
+<ul style="margin-top: 1em">
+    <li class="toctree-l1"><a href="https://github.com/J08nY/pyecsca/"><i class="fab fa-fw fa-github"></i> Source code</a></li>
+    <li class="toctree-l1"><a href="https://pypi.org/project/pyecsca/"><i class="fas fa-fw fa-file"></i> Releases</a></li>
+</ul><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul>
+  <li><a href="pyecsca.ec.html">pyecsca.ec package</a><ul>
+      <li>Previous: <a href="pyecsca.ec.op.html" title="previous chapter">pyecsca.ec.op module</a></li>
+      <li>Next: <a href="pyecsca.ec.point.html" title="next chapter">pyecsca.ec.point module</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-pyecsca.ec.params">
+<span id="pyecsca-ec-params-module"></span><h1>pyecsca.ec.params module<a class="headerlink" href="#module-pyecsca.ec.params" title="Link to this heading">¶</a></h1>
+<p>Provides functions for obtaining domain parameters from the <a class="reference external" href="https://github.com/J08nY/std-curves">std-curves</a> repository <a class="reference internal" href="../references.html#std" id="id1"><span>[STD]</span></a>.</p>
+<p>It also provides a domain parameter class and a class for a whole category of domain parameters.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.ec.params.DomainParameters">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DomainParameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">curve</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cofactor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/params.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.params.DomainParameters" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Domain parameters which specify a subgroup on an elliptic curve.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">secp256r1</span> <span class="o">=</span> <span class="n">get_params</span><span class="p">(</span><span class="s2">&quot;secg&quot;</span><span class="p">,</span> <span class="s2">&quot;secp256r1&quot;</span><span class="p">,</span> <span class="s2">&quot;projective&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">secp256r1</span><span class="p">)</span>
+<span class="go">&#39;DomainParameters(secg/secp256r1)&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">secp256r1</span><span class="o">.</span><span class="n">order</span>
+<span class="go">115792089210356248762697446949407573529996955224135760342422259061068512044369</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">secp256r1</span><span class="o">.</span><span class="n">cofactor</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">secp256r1</span><span class="o">.</span><span class="n">generator</span>
+<span class="go">Point([X=48439561293906451759052585252797914202762949526041747995844080717082404635286, Y=36134250956749795798585127919587881956611106672985015071877198253568414405109, Z=1] in shortw/projective)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">secp256r1</span><span class="o">.</span><span class="n">curve</span><span class="o">.</span><span class="n">prime</span>
+<span class="go">115792089210356248762697446949407573530086143415290314195533631308867097853951</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">secp256r1</span><span class="o">.</span><span class="n">curve</span><span class="o">.</span><span class="n">parameters</span>  
+<span class="go">{&#39;a&#39;: 115792089210356248762697446949407573530086143415290314195533631308867097853948,</span>
+<span class="go"> &#39;b&#39;: 41058363725152142129326129780047268409114441015993725554835256314039467401291}</span>
+</pre></div>
+</div>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.params.DomainParameters.curve">
+<span class="sig-name descname"><span class="pre">curve</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="pyecsca.ec.curve.html#pyecsca.ec.curve.EllipticCurve" title="pyecsca.ec.curve.EllipticCurve"><code class="xref py py-class docutils literal notranslate"><span class="pre">EllipticCurve</span></code></a></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/params.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.params.DomainParameters.curve" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.params.DomainParameters.generator">
+<span class="sig-name descname"><span class="pre">generator</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.Point" title="pyecsca.ec.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/params.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.params.DomainParameters.generator" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.params.DomainParameters.order">
+<span class="sig-name descname"><span class="pre">order</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/params.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.params.DomainParameters.order" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.params.DomainParameters.cofactor">
+<span class="sig-name descname"><span class="pre">cofactor</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/params.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.params.DomainParameters.cofactor" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.params.DomainParameters.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/params.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.params.DomainParameters.name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.params.DomainParameters.category">
+<span class="sig-name descname"><span class="pre">category</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/params.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.params.DomainParameters.category" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.params.DomainParameters.to_coords">
+<span class="sig-name descname"><span class="pre">to_coords</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coordinate_model</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/params.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.params.DomainParameters.to_coords" title="Link to this definition">¶</a></dt>
+<dd><p>Convert the domain parameters into a different coordinate model, only possible if they are currently affine.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.ec.params.DomainParameters.to_coords.params.coordinate_model"></span><strong>coordinate_model</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.params.DomainParameters.to_coords.params.coordinate_model">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.ec.coordinates.html#pyecsca.ec.coordinates.CoordinateModel" title="pyecsca.ec.coordinates.CoordinateModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">CoordinateModel</span></code></a></span>) – The target coordinate model.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#pyecsca.ec.params.DomainParameters" title="pyecsca.ec.params.DomainParameters"><code class="xref py py-class docutils literal notranslate"><span class="pre">DomainParameters</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The transformed domain parameters</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.ec.params.DomainParameters.to_affine">
+<span class="sig-name descname"><span class="pre">to_affine</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/params.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.params.DomainParameters.to_affine" title="Link to this definition">¶</a></dt>
+<dd><p>Convert the domain parameters into the affine coordinate model, if possible.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#pyecsca.ec.params.DomainParameters" title="pyecsca.ec.params.DomainParameters"><code class="xref py py-class docutils literal notranslate"><span class="pre">DomainParameters</span></code></a></span></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The transformed domain parameters</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.ec.params.DomainParameterCategory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DomainParameterCategory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curves</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/params.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.params.DomainParameterCategory" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A category of domain parameters.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.params.DomainParameterCategory.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/params.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.params.DomainParameterCategory.name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.params.DomainParameterCategory.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/params.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.params.DomainParameterCategory.description" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyecsca.ec.params.DomainParameterCategory.curves">
+<span class="sig-name descname"><span class="pre">curves</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><a class="reference internal" href="#pyecsca.ec.params.DomainParameters" title="pyecsca.ec.params.DomainParameters"><code class="xref py py-class docutils literal notranslate"><span class="pre">DomainParameters</span></code></a><span class="pre">]</span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/params.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.params.DomainParameterCategory.curves" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.ec.params.load_category">
+<span class="sig-name descname"><span class="pre">load_category</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">infty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/params.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.params.load_category" title="Link to this definition">¶</a></dt>
+<dd><p>Load a category of domain parameters containing several curves from a JSON file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="pyecsca.ec.params.load_category.params.file"></span><strong>file</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.params.load_category.params.file">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">BinaryIO</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">IO</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code>]]</span>) – The file to load from.</p></li>
+<li><p><span class="target" id="pyecsca.ec.params.load_category.params.coords"></span><strong>coords</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.params.load_category.params.coords">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]</span>) – The name of the coordinate system to use. Can be a callable that takes
+as argument the name of the curve and produces the coordinate system to use for that curve.</p></li>
+<li><p><span class="target" id="pyecsca.ec.params.load_category.params.infty"></span><strong>infty</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.params.load_category.params.infty">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>]]</span>) – Whether to use the special <a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.InfinityPoint" title="pyecsca.ec.point.InfinityPoint"><code class="xref py py-class docutils literal notranslate"><span class="pre">InfinityPoint</span></code></a> (<cite>True</cite>) or try to use the
+point at infinity of the coordinate system. Can be a callable that takes
+as argument the name of the curve and returns the infinity option to use for that curve.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#pyecsca.ec.params.DomainParameterCategory" title="pyecsca.ec.params.DomainParameterCategory"><code class="xref py py-class docutils literal notranslate"><span class="pre">DomainParameterCategory</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The category.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.ec.params.load_params">
+<span class="sig-name descname"><span class="pre">load_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">infty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/params.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.params.load_params" title="Link to this definition">¶</a></dt>
+<dd><p>Load a curve from a JSON file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="pyecsca.ec.params.load_params.params.file"></span><strong>file</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.params.load_params.params.file">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">BinaryIO</span></code>]</span>) – The file to load from.</p></li>
+<li><p><span class="target" id="pyecsca.ec.params.load_params.params.coords"></span><strong>coords</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.params.load_params.params.coords">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The name of the coordinate system to use.</p></li>
+<li><p><span class="target" id="pyecsca.ec.params.load_params.params.infty"></span><strong>infty</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.params.load_params.params.infty">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – Whether to use the special <a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.InfinityPoint" title="pyecsca.ec.point.InfinityPoint"><code class="xref py py-class docutils literal notranslate"><span class="pre">InfinityPoint</span></code></a> (<cite>True</cite>) or try to use the
+point at infinity of the coordinate system.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#pyecsca.ec.params.DomainParameters" title="pyecsca.ec.params.DomainParameters"><code class="xref py py-class docutils literal notranslate"><span class="pre">DomainParameters</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The curve.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.ec.params.load_params_ecgen">
+<span class="sig-name descname"><span class="pre">load_params_ecgen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">infty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/params.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.params.load_params_ecgen" title="Link to this definition">¶</a></dt>
+<dd><p>Load a curve from a file that is output of <a class="reference external" href="https://github.com/J08nY/ecgen">ecgen</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="pyecsca.ec.params.load_params_ecgen.params.file"></span><strong>file</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.params.load_params_ecgen.params.file">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">BinaryIO</span></code>]</span>) – The file to load from.</p></li>
+<li><p><span class="target" id="pyecsca.ec.params.load_params_ecgen.params.coords"></span><strong>coords</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.params.load_params_ecgen.params.coords">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The name of the coordinate system to use.</p></li>
+<li><p><span class="target" id="pyecsca.ec.params.load_params_ecgen.params.infty"></span><strong>infty</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.params.load_params_ecgen.params.infty">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – Whether to use the special <a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.InfinityPoint" title="pyecsca.ec.point.InfinityPoint"><code class="xref py py-class docutils literal notranslate"><span class="pre">InfinityPoint</span></code></a> (<cite>True</cite>) or try to use the
+point at infinity of the coordinate system.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#pyecsca.ec.params.DomainParameters" title="pyecsca.ec.params.DomainParameters"><code class="xref py py-class docutils literal notranslate"><span class="pre">DomainParameters</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The curve.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.ec.params.load_params_ectester">
+<span class="sig-name descname"><span class="pre">load_params_ectester</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">infty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/params.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.params.load_params_ectester" title="Link to this definition">¶</a></dt>
+<dd><p>Load a curve from a file that uses the format of <a class="reference external" href="https://github.com/crocs-muni/ECTester">ECTester</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="pyecsca.ec.params.load_params_ectester.params.file"></span><strong>file</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.params.load_params_ectester.params.file">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">BinaryIO</span></code>]</span>) – The file to load from.</p></li>
+<li><p><span class="target" id="pyecsca.ec.params.load_params_ectester.params.coords"></span><strong>coords</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.params.load_params_ectester.params.coords">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The name of the coordinate system to use.</p></li>
+<li><p><span class="target" id="pyecsca.ec.params.load_params_ectester.params.infty"></span><strong>infty</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.params.load_params_ectester.params.infty">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – Whether to use the special <a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.InfinityPoint" title="pyecsca.ec.point.InfinityPoint"><code class="xref py py-class docutils literal notranslate"><span class="pre">InfinityPoint</span></code></a> (<cite>True</cite>) or try to use the
+point at infinity of the coordinate system.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#pyecsca.ec.params.DomainParameters" title="pyecsca.ec.params.DomainParameters"><code class="xref py py-class docutils literal notranslate"><span class="pre">DomainParameters</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The curve.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.ec.params.get_category">
+<span class="sig-name descname"><span class="pre">get_category</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">category</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">infty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/params.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.params.get_category" title="Link to this definition">¶</a></dt>
+<dd><p>Retrieve a category from the std-curves database at <a class="reference external" href="https://github.com/J08nY/std-curves">https://github.com/J08nY/std-curves</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="pyecsca.ec.params.get_category.params.category"></span><strong>category</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.params.get_category.params.category">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The category to retrieve.</p></li>
+<li><p><span class="target" id="pyecsca.ec.params.get_category.params.coords"></span><strong>coords</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.params.get_category.params.coords">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]</span>) – The name of the coordinate system to use. Can be a callable that takes
+as argument the name of the curve and produces the coordinate system to use for that curve.</p></li>
+<li><p><span class="target" id="pyecsca.ec.params.get_category.params.infty"></span><strong>infty</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.params.get_category.params.infty">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>]]</span>) – Whether to use the special <a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.InfinityPoint" title="pyecsca.ec.point.InfinityPoint"><code class="xref py py-class docutils literal notranslate"><span class="pre">InfinityPoint</span></code></a> (<cite>True</cite>) or try to use the
+point at infinity of the coordinate system. Can be a callable that takes
+as argument the name of the curve and returns the infinity option to use for that curve.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#pyecsca.ec.params.DomainParameterCategory" title="pyecsca.ec.params.DomainParameterCategory"><code class="xref py py-class docutils literal notranslate"><span class="pre">DomainParameterCategory</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The category.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyecsca.ec.params.get_params">
+<span class="sig-name descname"><span class="pre">get_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">category</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">infty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/ec/params.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.ec.params.get_params" title="Link to this definition">¶</a></dt>
+<dd><p>Retrieve a curve from a set of stored parameters.</p>
+<p>Uses the std-curves database at <a class="reference external" href="https://github.com/J08nY/std-curves">https://github.com/J08nY/std-curves</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="pyecsca.ec.params.get_params.params.category"></span><strong>category</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.params.get_params.params.category">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The category of the curve.</p></li>
+<li><p><span class="target" id="pyecsca.ec.params.get_params.params.name"></span><strong>name</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.params.get_params.params.name">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The name of the curve.</p></li>
+<li><p><span class="target" id="pyecsca.ec.params.get_params.params.coords"></span><strong>coords</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.params.get_params.params.coords">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The name of the coordinate system to use.</p></li>
+<li><p><span class="target" id="pyecsca.ec.params.get_params.params.infty"></span><strong>infty</strong><a class="paramlink headerlink reference internal" href="#pyecsca.ec.params.get_params.params.infty">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – Whether to use the special <a class="reference internal" href="pyecsca.ec.point.html#pyecsca.ec.point.InfinityPoint" title="pyecsca.ec.point.InfinityPoint"><code class="xref py py-class docutils literal notranslate"><span class="pre">InfinityPoint</span></code></a> (<cite>True</cite>) or try to use the
+point at infinity of the coordinate system.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#pyecsca.ec.params.DomainParameters" title="pyecsca.ec.params.DomainParameters"><code class="xref py py-class docutils literal notranslate"><span class="pre">DomainParameters</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The curve.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;2018-2024, Jan Jancar.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.5</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../_sources/api/pyecsca.ec.params.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

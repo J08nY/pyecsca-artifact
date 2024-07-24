@@ -1,0 +1,7 @@
+pyecsca.sca.target.simpleserial module
+======================================
+
+.. automodule:: pyecsca.sca.target.simpleserial
+   :members:
+   :undoc-members:
+   :show-inheritance:

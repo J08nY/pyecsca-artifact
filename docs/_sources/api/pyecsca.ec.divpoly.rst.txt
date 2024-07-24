@@ -1,0 +1,7 @@
+pyecsca.ec.divpoly module
+=========================
+
+.. automodule:: pyecsca.ec.divpoly
+   :members:
+   :undoc-members:
+   :show-inheritance:

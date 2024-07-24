@@ -1,0 +1,7 @@
+pyecsca.ec.curve module
+=======================
+
+.. automodule:: pyecsca.ec.curve
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,7 @@
+pyecsca.sca.attack.CPA module
+=============================
+
+.. automodule:: pyecsca.sca.attack.CPA
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,7 @@
+pyecsca.sca.attack.leakage\_model module
+========================================
+
+.. automodule:: pyecsca.sca.attack.leakage_model
+   :members:
+   :undoc-members:
+   :show-inheritance:

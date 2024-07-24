@@ -1,0 +1,7 @@
+pyecsca.ec.mod.flint module
+===========================
+
+.. automodule:: pyecsca.ec.mod.flint
+   :members:
+   :undoc-members:
+   :show-inheritance:

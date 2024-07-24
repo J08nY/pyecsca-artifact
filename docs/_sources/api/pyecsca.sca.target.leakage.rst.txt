@@ -1,0 +1,7 @@
+pyecsca.sca.target.leakage module
+=================================
+
+.. automodule:: pyecsca.sca.target.leakage
+   :members:
+   :undoc-members:
+   :show-inheritance:

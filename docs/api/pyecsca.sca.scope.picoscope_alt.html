@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>pyecsca.sca.scope.picoscope_alt module &#8212; pyecsca 0.3.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d10597a4" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=bf281230" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_paramlinks.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=de02a091" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" />
+    <script src="../_static/documentation_options.js?v=71d9d8e6"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/logo_black.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pyecsca.sca.scope.picoscope_sdk module" href="pyecsca.sca.scope.picoscope_sdk.html" />
+    <link rel="prev" title="pyecsca.sca.scope.chipwhisperer module" href="pyecsca.sca.scope.chipwhisperer.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo_black.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">pyecsca</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html"><span class="fas fa-screwdriver-wrench fa-fw"></span> Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks.html"><span class="fas fa-hand-pointer fa-fw"></span> Notebooks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.html">pyecsca.ec package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.misc.html">pyecsca.misc package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="pyecsca.sca.html">pyecsca.sca package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.html">pyecsca.codegen package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries.html"><span class="fas fa-server fa-fw"></span> ECC in Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html"><span class="fas fa-asterisk fa-fw"></span> References</a></li>
+</ul>
+
+<ul style="margin-top: 1em">
+    <li class="toctree-l1"><a href="https://github.com/J08nY/pyecsca/"><i class="fab fa-fw fa-github"></i> Source code</a></li>
+    <li class="toctree-l1"><a href="https://pypi.org/project/pyecsca/"><i class="fas fa-fw fa-file"></i> Releases</a></li>
+</ul><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul>
+  <li><a href="pyecsca.sca.html">pyecsca.sca package</a><ul>
+  <li><a href="pyecsca.sca.scope.html">pyecsca.sca.scope package</a><ul>
+      <li>Previous: <a href="pyecsca.sca.scope.chipwhisperer.html" title="previous chapter">pyecsca.sca.scope.chipwhisperer module</a></li>
+      <li>Next: <a href="pyecsca.sca.scope.picoscope_sdk.html" title="next chapter">pyecsca.sca.scope.picoscope_sdk module</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-pyecsca.sca.scope.picoscope_alt">
+<span id="pyecsca-sca-scope-picoscope-alt-module"></span><h1>pyecsca.sca.scope.picoscope_alt module<a class="headerlink" href="#module-pyecsca.sca.scope.picoscope_alt" title="Link to this heading">¶</a></h1>
+<p>Provides an oscilloscope class for the PicoScope branded oscilloscopes using the alternative <a class="reference external" href="https://github.com/colinoflynn/pico-python">pico-python</a> bindings.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyecsca.sca.scope.picoscope_alt.PicoScopeAlt">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PicoScopeAlt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ps</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/scope/picoscope_alt.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pyecsca.sca.scope.base.html#pyecsca.sca.scope.base.Scope" title="pyecsca.sca.scope.base.Scope"><code class="xref py py-class docutils literal notranslate"><span class="pre">Scope</span></code></a></p>
+<p>PicoScope based scope.</p>
+<p>Supports series 3000,4000,5000 and 6000.</p>
+<p>Create a new scope.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.params.ps"></span><strong>ps</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.params.ps">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">PS3000</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PS4000</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PS5000</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PS6000</span></code>]</span>) – An instance of one of the supported PicoScope classes (<code class="xref py py-class docutils literal notranslate"><span class="pre">PS3000</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PS4000</span></code>,
+<code class="xref py py-class docutils literal notranslate"><span class="pre">PS5000</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PS6000</span></code>).</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.open">
+<span class="sig-name descname"><span class="pre">open</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/scope/picoscope_alt.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.open" title="Link to this definition">¶</a></dt>
+<dd><p>Open the connection to the scope.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.channels">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">channels</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/scope/picoscope_alt.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.channels" title="Link to this definition">¶</a></dt>
+<dd><p>A list of channels available on this scope.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_frequency">
+<span class="sig-name descname"><span class="pre">setup_frequency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frequency</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pretrig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">posttrig</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/scope/picoscope_alt.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_frequency" title="Link to this definition">¶</a></dt>
+<dd><p>Setup the frequency and sample count for the measurement.</p>
+<p>The scope might not support the requested values and will adjust them to get
+the next best frequency and the largest supported number of samples
+(or the number of samples requested).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_frequency.params.frequency"></span><strong>frequency</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_frequency.params.frequency">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – The requested frequency in Hz.</p></li>
+<li><p><span class="target" id="pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_frequency.params.pretrig"></span><strong>pretrig</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_frequency.params.pretrig">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – The requested number of samples to measure before the trigger.</p></li>
+<li><p><span class="target" id="pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_frequency.params.posttrig"></span><strong>posttrig</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_frequency.params.posttrig">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – The requested number of samples to measure after the trigger.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A tuple of the actual set frequency and the actual number of samples.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_channel">
+<span class="sig-name descname"><span class="pre">setup_channel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coupling</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enable</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/scope/picoscope_alt.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_channel" title="Link to this definition">¶</a></dt>
+<dd><p>Setup a channel to use the coupling method and measure the given voltage range.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_channel.params.channel"></span><strong>channel</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_channel.params.channel">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The channel to measure.</p></li>
+<li><p><span class="target" id="pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_channel.params.coupling"></span><strong>coupling</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_channel.params.coupling">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The coupling method (“AC” or “DC).</p></li>
+<li><p><span class="target" id="pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_channel.params.range"></span><strong>range</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_channel.params.range">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – The voltage range to measure.</p></li>
+<li><p><span class="target" id="pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_channel.params.offset"></span><strong>offset</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_channel.params.offset">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – The analog voltage offset added to the input. Not supported on many scopes.</p></li>
+<li><p><span class="target" id="pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_channel.params.enable"></span><strong>enable</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_channel.params.enable">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – Whether to enable or disable the channel.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_trigger">
+<span class="sig-name descname"><span class="pre">setup_trigger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enable</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/scope/picoscope_alt.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_trigger" title="Link to this definition">¶</a></dt>
+<dd><p>Setup a trigger on a particular <cite>channel</cite>, the channel has to be set up and enabled.</p>
+<p>The trigger will fire based on the <cite>threshold</cite> and <cite>direction</cite>, if enabled,  the trigger
+will capture after <cite>delay</cite> ticks pass. If trigger conditions do not hold it will fire
+automatically after <cite>timeout</cite> milliseconds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_trigger.params.channel"></span><strong>channel</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_trigger.params.channel">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The channel to trigger on.</p></li>
+<li><p><span class="target" id="pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_trigger.params.threshold"></span><strong>threshold</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_trigger.params.threshold">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – The value to trigger on.</p></li>
+<li><p><span class="target" id="pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_trigger.params.direction"></span><strong>direction</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_trigger.params.direction">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The direction to trigger on (“above”, “below”, “rising”, “falling”).</p></li>
+<li><p><span class="target" id="pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_trigger.params.delay"></span><strong>delay</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_trigger.params.delay">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – The delay for capture after trigger (clock ticks).</p></li>
+<li><p><span class="target" id="pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_trigger.params.timeout"></span><strong>timeout</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_trigger.params.timeout">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – The timeout in milliseconds.</p></li>
+<li><p><span class="target" id="pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_trigger.params.enable"></span><strong>enable</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_trigger.params.enable">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – Whether to enable or disable this trigger.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_capture">
+<span class="sig-name descname"><span class="pre">setup_capture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enable</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/scope/picoscope_alt.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_capture" title="Link to this definition">¶</a></dt>
+<dd><p>Setup the capture for a channel.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_capture.params.channel"></span><strong>channel</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_capture.params.channel">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The channel to capture.</p></li>
+<li><p><span class="target" id="pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_capture.params.enable"></span><strong>enable</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.setup_capture.params.enable">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – Whether to enable or disable capture.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.arm">
+<span class="sig-name descname"><span class="pre">arm</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/scope/picoscope_alt.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.arm" title="Link to this definition">¶</a></dt>
+<dd><p>Arm the scope, it will listen for the trigger after this point.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.capture">
+<span class="sig-name descname"><span class="pre">capture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/scope/picoscope_alt.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.capture" title="Link to this definition">¶</a></dt>
+<dd><p>Wait for the trace to capture, this will block until the scope has a trace.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.capture.params.timeout"></span><strong>timeout</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.capture.params.timeout">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>) – A time in milliseconds to wait for the trace, returns <cite>None</cite> if it runs out.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Whether capture was successful (or it timed out).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.retrieve">
+<span class="sig-name descname"><span class="pre">retrieve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype=&lt;class</span> <span class="pre">'numpy.float32'&gt;</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/scope/picoscope_alt.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.retrieve" title="Link to this definition">¶</a></dt>
+<dd><p>Retrieve a captured trace of a channel.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.retrieve.params.channel"></span><strong>channel</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.retrieve.params.channel">¶</a> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The channel to retrieve the trace from.</p></li>
+<li><p><span class="target" id="pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.retrieve.params.type"></span><strong>type</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.retrieve.params.type">¶</a> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="pyecsca.sca.scope.base.html#pyecsca.sca.scope.base.SampleType" title="pyecsca.sca.scope.base.SampleType"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleType</span></code></a></span>) – The type of returned samples.</p></li>
+<li><p><span class="target" id="pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.retrieve.params.dtype"></span><strong>dtype</strong><a class="paramlink headerlink reference internal" href="#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.retrieve.params.dtype">¶</a> – The data type of the returned samples, should be numpy dtype-like.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<a class="reference internal" href="pyecsca.sca.trace.trace.html#pyecsca.sca.trace.trace.Trace" title="pyecsca.sca.trace.trace.Trace"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trace</span></code></a>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The captured trace (if any).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.stop">
+<span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/scope/picoscope_alt.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.stop" title="Link to this definition">¶</a></dt>
+<dd><p>Stop the capture, if any.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/J08nY/pyecsca/tree/master/pyecsca/sca/scope/picoscope_alt.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyecsca.sca.scope.picoscope_alt.PicoScopeAlt.close" title="Link to this definition">¶</a></dt>
+<dd><p>Close the connection to the scope.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;2018-2024, Jan Jancar.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.5</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../_sources/api/pyecsca.sca.scope.picoscope_alt.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

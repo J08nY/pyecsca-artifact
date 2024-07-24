@@ -1,0 +1,26 @@
+pyecsca.codegen package
+=======================
+
+.. automodule:: pyecsca.codegen
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   pyecsca.codegen.templates
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   pyecsca.codegen.builder
+   pyecsca.codegen.client
+   pyecsca.codegen.common
+   pyecsca.codegen.render

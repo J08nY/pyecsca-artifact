@@ -1,0 +1,7 @@
+pyecsca.ec.formula.metrics module
+=================================
+
+.. automodule:: pyecsca.ec.formula.metrics
+   :members:
+   :undoc-members:
+   :show-inheritance:

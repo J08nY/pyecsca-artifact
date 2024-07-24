@@ -1,0 +1,7 @@
+pyecsca.ec.scalar module
+========================
+
+.. automodule:: pyecsca.ec.scalar
+   :members:
+   :undoc-members:
+   :show-inheritance:

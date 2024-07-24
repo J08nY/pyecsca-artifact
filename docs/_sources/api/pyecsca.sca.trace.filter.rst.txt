@@ -1,0 +1,7 @@
+pyecsca.sca.trace.filter module
+===============================
+
+.. automodule:: pyecsca.sca.trace.filter
+   :members:
+   :undoc-members:
+   :show-inheritance:

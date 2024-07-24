@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>pyecsca.ec.mult package &#8212; pyecsca 0.3.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d10597a4" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=bf281230" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_paramlinks.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=de02a091" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" />
+    <script src="../_static/documentation_options.js?v=71d9d8e6"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/logo_black.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pyecsca.ec.mult.base module" href="pyecsca.ec.mult.base.html" />
+    <link rel="prev" title="pyecsca.ec.mod.symbolic module" href="pyecsca.ec.mod.symbolic.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo_black.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">pyecsca</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html"><span class="fas fa-screwdriver-wrench fa-fw"></span> Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks.html"><span class="fas fa-hand-pointer fa-fw"></span> Notebooks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="pyecsca.ec.html">pyecsca.ec package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.misc.html">pyecsca.misc package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.sca.html">pyecsca.sca package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.codegen.html">pyecsca.codegen package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries.html"><span class="fas fa-server fa-fw"></span> ECC in Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html"><span class="fas fa-asterisk fa-fw"></span> References</a></li>
+</ul>
+
+<ul style="margin-top: 1em">
+    <li class="toctree-l1"><a href="https://github.com/J08nY/pyecsca/"><i class="fab fa-fw fa-github"></i> Source code</a></li>
+    <li class="toctree-l1"><a href="https://pypi.org/project/pyecsca/"><i class="fas fa-fw fa-file"></i> Releases</a></li>
+</ul><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../api.html"><span class="fas fa-code fa-fw"></span> API reference</a><ul>
+  <li><a href="pyecsca.ec.html">pyecsca.ec package</a><ul>
+      <li>Previous: <a href="pyecsca.ec.mod.symbolic.html" title="previous chapter">pyecsca.ec.mod.symbolic module</a></li>
+      <li>Next: <a href="pyecsca.ec.mult.base.html" title="next chapter">pyecsca.ec.mult.base module</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-pyecsca.ec.mult">
+<span id="pyecsca-ec-mult-package"></span><h1>pyecsca.ec.mult package<a class="headerlink" href="#module-pyecsca.ec.mult" title="Link to this heading">¶</a></h1>
+<p>Provides several classes implementing different scalar multiplication algorithms.</p>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.ec.mult.base.html">pyecsca.ec.mult.base module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.mult.base.html#pyecsca.ec.mult.base.ProcessingDirection"><code class="docutils literal notranslate"><span class="pre">ProcessingDirection</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.base.html#pyecsca.ec.mult.base.ProcessingDirection.LTR"><code class="docutils literal notranslate"><span class="pre">ProcessingDirection.LTR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.base.html#pyecsca.ec.mult.base.ProcessingDirection.RTL"><code class="docutils literal notranslate"><span class="pre">ProcessingDirection.RTL</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.mult.base.html#pyecsca.ec.mult.base.AccumulationOrder"><code class="docutils literal notranslate"><span class="pre">AccumulationOrder</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.base.html#pyecsca.ec.mult.base.AccumulationOrder.PeqPR"><code class="docutils literal notranslate"><span class="pre">AccumulationOrder.PeqPR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.base.html#pyecsca.ec.mult.base.AccumulationOrder.PeqRP"><code class="docutils literal notranslate"><span class="pre">AccumulationOrder.PeqRP</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.mult.base.html#pyecsca.ec.mult.base.ScalarMultiplicationAction"><code class="docutils literal notranslate"><span class="pre">ScalarMultiplicationAction</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.base.html#pyecsca.ec.mult.base.ScalarMultiplicationAction.point"><code class="docutils literal notranslate"><span class="pre">ScalarMultiplicationAction.point</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.base.html#pyecsca.ec.mult.base.ScalarMultiplicationAction.scalar"><code class="docutils literal notranslate"><span class="pre">ScalarMultiplicationAction.scalar</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.base.html#pyecsca.ec.mult.base.ScalarMultiplicationAction.exit"><code class="docutils literal notranslate"><span class="pre">ScalarMultiplicationAction.exit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.base.html#pyecsca.ec.mult.base.ScalarMultiplicationAction.result"><code class="docutils literal notranslate"><span class="pre">ScalarMultiplicationAction.result</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.base.html#pyecsca.ec.mult.base.ScalarMultiplicationAction.inside"><code class="docutils literal notranslate"><span class="pre">ScalarMultiplicationAction.inside</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.mult.base.html#pyecsca.ec.mult.base.PrecomputationAction"><code class="docutils literal notranslate"><span class="pre">PrecomputationAction</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.base.html#pyecsca.ec.mult.base.PrecomputationAction.params"><code class="docutils literal notranslate"><span class="pre">PrecomputationAction.params</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.base.html#pyecsca.ec.mult.base.PrecomputationAction.point"><code class="docutils literal notranslate"><span class="pre">PrecomputationAction.point</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.base.html#pyecsca.ec.mult.base.PrecomputationAction.inside"><code class="docutils literal notranslate"><span class="pre">PrecomputationAction.inside</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.mult.base.html#pyecsca.ec.mult.base.ScalarMultiplier"><code class="docutils literal notranslate"><span class="pre">ScalarMultiplier</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.base.html#pyecsca.ec.mult.base.ScalarMultiplier.requires"><code class="docutils literal notranslate"><span class="pre">ScalarMultiplier.requires</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.base.html#pyecsca.ec.mult.base.ScalarMultiplier.optionals"><code class="docutils literal notranslate"><span class="pre">ScalarMultiplier.optionals</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.base.html#pyecsca.ec.mult.base.ScalarMultiplier.short_circuit"><code class="docutils literal notranslate"><span class="pre">ScalarMultiplier.short_circuit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.base.html#pyecsca.ec.mult.base.ScalarMultiplier.formulas"><code class="docutils literal notranslate"><span class="pre">ScalarMultiplier.formulas</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.base.html#pyecsca.ec.mult.base.ScalarMultiplier.init"><code class="docutils literal notranslate"><span class="pre">ScalarMultiplier.init()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.base.html#pyecsca.ec.mult.base.ScalarMultiplier.multiply"><code class="docutils literal notranslate"><span class="pre">ScalarMultiplier.multiply()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.mult.base.html#pyecsca.ec.mult.base.AccumulatorMultiplier"><code class="docutils literal notranslate"><span class="pre">AccumulatorMultiplier</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.base.html#pyecsca.ec.mult.base.AccumulatorMultiplier.init"><code class="docutils literal notranslate"><span class="pre">AccumulatorMultiplier.init()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.base.html#pyecsca.ec.mult.base.AccumulatorMultiplier.multiply"><code class="docutils literal notranslate"><span class="pre">AccumulatorMultiplier.multiply()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.base.html#pyecsca.ec.mult.base.AccumulatorMultiplier.requires"><code class="docutils literal notranslate"><span class="pre">AccumulatorMultiplier.requires</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.base.html#pyecsca.ec.mult.base.AccumulatorMultiplier.optionals"><code class="docutils literal notranslate"><span class="pre">AccumulatorMultiplier.optionals</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.base.html#pyecsca.ec.mult.base.AccumulatorMultiplier.short_circuit"><code class="docutils literal notranslate"><span class="pre">AccumulatorMultiplier.short_circuit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.base.html#pyecsca.ec.mult.base.AccumulatorMultiplier.formulas"><code class="docutils literal notranslate"><span class="pre">AccumulatorMultiplier.formulas</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.base.html#pyecsca.ec.mult.base.AccumulatorMultiplier.accumulation_order"><code class="docutils literal notranslate"><span class="pre">AccumulatorMultiplier.accumulation_order</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.ec.mult.binary.html">pyecsca.ec.mult.binary module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.mult.binary.html#pyecsca.ec.mult.binary.DoubleAndAddMultiplier"><code class="docutils literal notranslate"><span class="pre">DoubleAndAddMultiplier</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.binary.html#pyecsca.ec.mult.binary.DoubleAndAddMultiplier.requires"><code class="docutils literal notranslate"><span class="pre">DoubleAndAddMultiplier.requires</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.binary.html#pyecsca.ec.mult.binary.DoubleAndAddMultiplier.optionals"><code class="docutils literal notranslate"><span class="pre">DoubleAndAddMultiplier.optionals</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.binary.html#pyecsca.ec.mult.binary.DoubleAndAddMultiplier.always"><code class="docutils literal notranslate"><span class="pre">DoubleAndAddMultiplier.always</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.binary.html#pyecsca.ec.mult.binary.DoubleAndAddMultiplier.direction"><code class="docutils literal notranslate"><span class="pre">DoubleAndAddMultiplier.direction</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.binary.html#pyecsca.ec.mult.binary.DoubleAndAddMultiplier.complete"><code class="docutils literal notranslate"><span class="pre">DoubleAndAddMultiplier.complete</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.binary.html#pyecsca.ec.mult.binary.DoubleAndAddMultiplier.multiply"><code class="docutils literal notranslate"><span class="pre">DoubleAndAddMultiplier.multiply()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.binary.html#pyecsca.ec.mult.binary.DoubleAndAddMultiplier.init"><code class="docutils literal notranslate"><span class="pre">DoubleAndAddMultiplier.init()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.binary.html#pyecsca.ec.mult.binary.DoubleAndAddMultiplier.accumulation_order"><code class="docutils literal notranslate"><span class="pre">DoubleAndAddMultiplier.accumulation_order</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.binary.html#pyecsca.ec.mult.binary.DoubleAndAddMultiplier.short_circuit"><code class="docutils literal notranslate"><span class="pre">DoubleAndAddMultiplier.short_circuit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.binary.html#pyecsca.ec.mult.binary.DoubleAndAddMultiplier.formulas"><code class="docutils literal notranslate"><span class="pre">DoubleAndAddMultiplier.formulas</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.mult.binary.html#pyecsca.ec.mult.binary.LTRMultiplier"><code class="docutils literal notranslate"><span class="pre">LTRMultiplier</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.binary.html#pyecsca.ec.mult.binary.LTRMultiplier.init"><code class="docutils literal notranslate"><span class="pre">LTRMultiplier.init()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.binary.html#pyecsca.ec.mult.binary.LTRMultiplier.multiply"><code class="docutils literal notranslate"><span class="pre">LTRMultiplier.multiply()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.binary.html#pyecsca.ec.mult.binary.LTRMultiplier.optionals"><code class="docutils literal notranslate"><span class="pre">LTRMultiplier.optionals</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.binary.html#pyecsca.ec.mult.binary.LTRMultiplier.requires"><code class="docutils literal notranslate"><span class="pre">LTRMultiplier.requires</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.binary.html#pyecsca.ec.mult.binary.LTRMultiplier.always"><code class="docutils literal notranslate"><span class="pre">LTRMultiplier.always</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.binary.html#pyecsca.ec.mult.binary.LTRMultiplier.direction"><code class="docutils literal notranslate"><span class="pre">LTRMultiplier.direction</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.binary.html#pyecsca.ec.mult.binary.LTRMultiplier.complete"><code class="docutils literal notranslate"><span class="pre">LTRMultiplier.complete</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.binary.html#pyecsca.ec.mult.binary.LTRMultiplier.accumulation_order"><code class="docutils literal notranslate"><span class="pre">LTRMultiplier.accumulation_order</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.binary.html#pyecsca.ec.mult.binary.LTRMultiplier.short_circuit"><code class="docutils literal notranslate"><span class="pre">LTRMultiplier.short_circuit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.binary.html#pyecsca.ec.mult.binary.LTRMultiplier.formulas"><code class="docutils literal notranslate"><span class="pre">LTRMultiplier.formulas</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.mult.binary.html#pyecsca.ec.mult.binary.RTLMultiplier"><code class="docutils literal notranslate"><span class="pre">RTLMultiplier</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.binary.html#pyecsca.ec.mult.binary.RTLMultiplier.init"><code class="docutils literal notranslate"><span class="pre">RTLMultiplier.init()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.binary.html#pyecsca.ec.mult.binary.RTLMultiplier.multiply"><code class="docutils literal notranslate"><span class="pre">RTLMultiplier.multiply()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.binary.html#pyecsca.ec.mult.binary.RTLMultiplier.optionals"><code class="docutils literal notranslate"><span class="pre">RTLMultiplier.optionals</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.binary.html#pyecsca.ec.mult.binary.RTLMultiplier.requires"><code class="docutils literal notranslate"><span class="pre">RTLMultiplier.requires</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.binary.html#pyecsca.ec.mult.binary.RTLMultiplier.always"><code class="docutils literal notranslate"><span class="pre">RTLMultiplier.always</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.binary.html#pyecsca.ec.mult.binary.RTLMultiplier.direction"><code class="docutils literal notranslate"><span class="pre">RTLMultiplier.direction</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.binary.html#pyecsca.ec.mult.binary.RTLMultiplier.complete"><code class="docutils literal notranslate"><span class="pre">RTLMultiplier.complete</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.binary.html#pyecsca.ec.mult.binary.RTLMultiplier.accumulation_order"><code class="docutils literal notranslate"><span class="pre">RTLMultiplier.accumulation_order</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.binary.html#pyecsca.ec.mult.binary.RTLMultiplier.short_circuit"><code class="docutils literal notranslate"><span class="pre">RTLMultiplier.short_circuit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.binary.html#pyecsca.ec.mult.binary.RTLMultiplier.formulas"><code class="docutils literal notranslate"><span class="pre">RTLMultiplier.formulas</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.mult.binary.html#pyecsca.ec.mult.binary.CoronMultiplier"><code class="docutils literal notranslate"><span class="pre">CoronMultiplier</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.binary.html#pyecsca.ec.mult.binary.CoronMultiplier.init"><code class="docutils literal notranslate"><span class="pre">CoronMultiplier.init()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.binary.html#pyecsca.ec.mult.binary.CoronMultiplier.requires"><code class="docutils literal notranslate"><span class="pre">CoronMultiplier.requires</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.binary.html#pyecsca.ec.mult.binary.CoronMultiplier.short_circuit"><code class="docutils literal notranslate"><span class="pre">CoronMultiplier.short_circuit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.binary.html#pyecsca.ec.mult.binary.CoronMultiplier.formulas"><code class="docutils literal notranslate"><span class="pre">CoronMultiplier.formulas</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.binary.html#pyecsca.ec.mult.binary.CoronMultiplier.optionals"><code class="docutils literal notranslate"><span class="pre">CoronMultiplier.optionals</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.binary.html#pyecsca.ec.mult.binary.CoronMultiplier.multiply"><code class="docutils literal notranslate"><span class="pre">CoronMultiplier.multiply()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.ec.mult.comb.html">pyecsca.ec.mult.comb module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.mult.comb.html#pyecsca.ec.mult.comb.BGMWMultiplier"><code class="docutils literal notranslate"><span class="pre">BGMWMultiplier</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.comb.html#pyecsca.ec.mult.comb.BGMWMultiplier.requires"><code class="docutils literal notranslate"><span class="pre">BGMWMultiplier.requires</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.comb.html#pyecsca.ec.mult.comb.BGMWMultiplier.optionals"><code class="docutils literal notranslate"><span class="pre">BGMWMultiplier.optionals</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.comb.html#pyecsca.ec.mult.comb.BGMWMultiplier.direction"><code class="docutils literal notranslate"><span class="pre">BGMWMultiplier.direction</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.comb.html#pyecsca.ec.mult.comb.BGMWMultiplier.width"><code class="docutils literal notranslate"><span class="pre">BGMWMultiplier.width</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.comb.html#pyecsca.ec.mult.comb.BGMWMultiplier.init"><code class="docutils literal notranslate"><span class="pre">BGMWMultiplier.init()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.comb.html#pyecsca.ec.mult.comb.BGMWMultiplier.multiply"><code class="docutils literal notranslate"><span class="pre">BGMWMultiplier.multiply()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.comb.html#pyecsca.ec.mult.comb.BGMWMultiplier.accumulation_order"><code class="docutils literal notranslate"><span class="pre">BGMWMultiplier.accumulation_order</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.comb.html#pyecsca.ec.mult.comb.BGMWMultiplier.short_circuit"><code class="docutils literal notranslate"><span class="pre">BGMWMultiplier.short_circuit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.comb.html#pyecsca.ec.mult.comb.BGMWMultiplier.formulas"><code class="docutils literal notranslate"><span class="pre">BGMWMultiplier.formulas</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.mult.comb.html#pyecsca.ec.mult.comb.CombMultiplier"><code class="docutils literal notranslate"><span class="pre">CombMultiplier</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.comb.html#pyecsca.ec.mult.comb.CombMultiplier.requires"><code class="docutils literal notranslate"><span class="pre">CombMultiplier.requires</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.comb.html#pyecsca.ec.mult.comb.CombMultiplier.optionals"><code class="docutils literal notranslate"><span class="pre">CombMultiplier.optionals</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.comb.html#pyecsca.ec.mult.comb.CombMultiplier.width"><code class="docutils literal notranslate"><span class="pre">CombMultiplier.width</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.comb.html#pyecsca.ec.mult.comb.CombMultiplier.accumulation_order"><code class="docutils literal notranslate"><span class="pre">CombMultiplier.accumulation_order</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.comb.html#pyecsca.ec.mult.comb.CombMultiplier.short_circuit"><code class="docutils literal notranslate"><span class="pre">CombMultiplier.short_circuit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.comb.html#pyecsca.ec.mult.comb.CombMultiplier.formulas"><code class="docutils literal notranslate"><span class="pre">CombMultiplier.formulas</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.comb.html#pyecsca.ec.mult.comb.CombMultiplier.init"><code class="docutils literal notranslate"><span class="pre">CombMultiplier.init()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.comb.html#pyecsca.ec.mult.comb.CombMultiplier.multiply"><code class="docutils literal notranslate"><span class="pre">CombMultiplier.multiply()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.ec.mult.fixed.html">pyecsca.ec.mult.fixed module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.mult.fixed.html#pyecsca.ec.mult.fixed.FullPrecompMultiplier"><code class="docutils literal notranslate"><span class="pre">FullPrecompMultiplier</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.fixed.html#pyecsca.ec.mult.fixed.FullPrecompMultiplier.requires"><code class="docutils literal notranslate"><span class="pre">FullPrecompMultiplier.requires</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.fixed.html#pyecsca.ec.mult.fixed.FullPrecompMultiplier.optionals"><code class="docutils literal notranslate"><span class="pre">FullPrecompMultiplier.optionals</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.fixed.html#pyecsca.ec.mult.fixed.FullPrecompMultiplier.always"><code class="docutils literal notranslate"><span class="pre">FullPrecompMultiplier.always</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.fixed.html#pyecsca.ec.mult.fixed.FullPrecompMultiplier.direction"><code class="docutils literal notranslate"><span class="pre">FullPrecompMultiplier.direction</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.fixed.html#pyecsca.ec.mult.fixed.FullPrecompMultiplier.complete"><code class="docutils literal notranslate"><span class="pre">FullPrecompMultiplier.complete</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.fixed.html#pyecsca.ec.mult.fixed.FullPrecompMultiplier.accumulation_order"><code class="docutils literal notranslate"><span class="pre">FullPrecompMultiplier.accumulation_order</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.fixed.html#pyecsca.ec.mult.fixed.FullPrecompMultiplier.short_circuit"><code class="docutils literal notranslate"><span class="pre">FullPrecompMultiplier.short_circuit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.fixed.html#pyecsca.ec.mult.fixed.FullPrecompMultiplier.formulas"><code class="docutils literal notranslate"><span class="pre">FullPrecompMultiplier.formulas</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.fixed.html#pyecsca.ec.mult.fixed.FullPrecompMultiplier.init"><code class="docutils literal notranslate"><span class="pre">FullPrecompMultiplier.init()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.fixed.html#pyecsca.ec.mult.fixed.FullPrecompMultiplier.multiply"><code class="docutils literal notranslate"><span class="pre">FullPrecompMultiplier.multiply()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.ec.mult.ladder.html">pyecsca.ec.mult.ladder module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.mult.ladder.html#pyecsca.ec.mult.ladder.LadderMultiplier"><code class="docutils literal notranslate"><span class="pre">LadderMultiplier</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.ladder.html#pyecsca.ec.mult.ladder.LadderMultiplier.requires"><code class="docutils literal notranslate"><span class="pre">LadderMultiplier.requires</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.ladder.html#pyecsca.ec.mult.ladder.LadderMultiplier.optionals"><code class="docutils literal notranslate"><span class="pre">LadderMultiplier.optionals</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.ladder.html#pyecsca.ec.mult.ladder.LadderMultiplier.complete"><code class="docutils literal notranslate"><span class="pre">LadderMultiplier.complete</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.ladder.html#pyecsca.ec.mult.ladder.LadderMultiplier.multiply"><code class="docutils literal notranslate"><span class="pre">LadderMultiplier.multiply()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.ladder.html#pyecsca.ec.mult.ladder.LadderMultiplier.init"><code class="docutils literal notranslate"><span class="pre">LadderMultiplier.init()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.ladder.html#pyecsca.ec.mult.ladder.LadderMultiplier.short_circuit"><code class="docutils literal notranslate"><span class="pre">LadderMultiplier.short_circuit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.ladder.html#pyecsca.ec.mult.ladder.LadderMultiplier.formulas"><code class="docutils literal notranslate"><span class="pre">LadderMultiplier.formulas</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.mult.ladder.html#pyecsca.ec.mult.ladder.SimpleLadderMultiplier"><code class="docutils literal notranslate"><span class="pre">SimpleLadderMultiplier</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.ladder.html#pyecsca.ec.mult.ladder.SimpleLadderMultiplier.requires"><code class="docutils literal notranslate"><span class="pre">SimpleLadderMultiplier.requires</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.ladder.html#pyecsca.ec.mult.ladder.SimpleLadderMultiplier.optionals"><code class="docutils literal notranslate"><span class="pre">SimpleLadderMultiplier.optionals</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.ladder.html#pyecsca.ec.mult.ladder.SimpleLadderMultiplier.complete"><code class="docutils literal notranslate"><span class="pre">SimpleLadderMultiplier.complete</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.ladder.html#pyecsca.ec.mult.ladder.SimpleLadderMultiplier.multiply"><code class="docutils literal notranslate"><span class="pre">SimpleLadderMultiplier.multiply()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.ladder.html#pyecsca.ec.mult.ladder.SimpleLadderMultiplier.init"><code class="docutils literal notranslate"><span class="pre">SimpleLadderMultiplier.init()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.ladder.html#pyecsca.ec.mult.ladder.SimpleLadderMultiplier.short_circuit"><code class="docutils literal notranslate"><span class="pre">SimpleLadderMultiplier.short_circuit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.ladder.html#pyecsca.ec.mult.ladder.SimpleLadderMultiplier.formulas"><code class="docutils literal notranslate"><span class="pre">SimpleLadderMultiplier.formulas</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.mult.ladder.html#pyecsca.ec.mult.ladder.DifferentialLadderMultiplier"><code class="docutils literal notranslate"><span class="pre">DifferentialLadderMultiplier</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.ladder.html#pyecsca.ec.mult.ladder.DifferentialLadderMultiplier.requires"><code class="docutils literal notranslate"><span class="pre">DifferentialLadderMultiplier.requires</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.ladder.html#pyecsca.ec.mult.ladder.DifferentialLadderMultiplier.optionals"><code class="docutils literal notranslate"><span class="pre">DifferentialLadderMultiplier.optionals</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.ladder.html#pyecsca.ec.mult.ladder.DifferentialLadderMultiplier.init"><code class="docutils literal notranslate"><span class="pre">DifferentialLadderMultiplier.init()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.ladder.html#pyecsca.ec.mult.ladder.DifferentialLadderMultiplier.short_circuit"><code class="docutils literal notranslate"><span class="pre">DifferentialLadderMultiplier.short_circuit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.ladder.html#pyecsca.ec.mult.ladder.DifferentialLadderMultiplier.formulas"><code class="docutils literal notranslate"><span class="pre">DifferentialLadderMultiplier.formulas</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.ladder.html#pyecsca.ec.mult.ladder.DifferentialLadderMultiplier.complete"><code class="docutils literal notranslate"><span class="pre">DifferentialLadderMultiplier.complete</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.ladder.html#pyecsca.ec.mult.ladder.DifferentialLadderMultiplier.multiply"><code class="docutils literal notranslate"><span class="pre">DifferentialLadderMultiplier.multiply()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.ec.mult.naf.html">pyecsca.ec.mult.naf module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.mult.naf.html#pyecsca.ec.mult.naf.BinaryNAFMultiplier"><code class="docutils literal notranslate"><span class="pre">BinaryNAFMultiplier</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.naf.html#pyecsca.ec.mult.naf.BinaryNAFMultiplier.requires"><code class="docutils literal notranslate"><span class="pre">BinaryNAFMultiplier.requires</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.naf.html#pyecsca.ec.mult.naf.BinaryNAFMultiplier.optionals"><code class="docutils literal notranslate"><span class="pre">BinaryNAFMultiplier.optionals</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.naf.html#pyecsca.ec.mult.naf.BinaryNAFMultiplier.direction"><code class="docutils literal notranslate"><span class="pre">BinaryNAFMultiplier.direction</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.naf.html#pyecsca.ec.mult.naf.BinaryNAFMultiplier.init"><code class="docutils literal notranslate"><span class="pre">BinaryNAFMultiplier.init()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.naf.html#pyecsca.ec.mult.naf.BinaryNAFMultiplier.multiply"><code class="docutils literal notranslate"><span class="pre">BinaryNAFMultiplier.multiply()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.naf.html#pyecsca.ec.mult.naf.BinaryNAFMultiplier.accumulation_order"><code class="docutils literal notranslate"><span class="pre">BinaryNAFMultiplier.accumulation_order</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.naf.html#pyecsca.ec.mult.naf.BinaryNAFMultiplier.short_circuit"><code class="docutils literal notranslate"><span class="pre">BinaryNAFMultiplier.short_circuit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.naf.html#pyecsca.ec.mult.naf.BinaryNAFMultiplier.formulas"><code class="docutils literal notranslate"><span class="pre">BinaryNAFMultiplier.formulas</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.mult.naf.html#pyecsca.ec.mult.naf.WindowNAFMultiplier"><code class="docutils literal notranslate"><span class="pre">WindowNAFMultiplier</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.naf.html#pyecsca.ec.mult.naf.WindowNAFMultiplier.requires"><code class="docutils literal notranslate"><span class="pre">WindowNAFMultiplier.requires</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.naf.html#pyecsca.ec.mult.naf.WindowNAFMultiplier.optionals"><code class="docutils literal notranslate"><span class="pre">WindowNAFMultiplier.optionals</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.naf.html#pyecsca.ec.mult.naf.WindowNAFMultiplier.width"><code class="docutils literal notranslate"><span class="pre">WindowNAFMultiplier.width</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.naf.html#pyecsca.ec.mult.naf.WindowNAFMultiplier.precompute_negation"><code class="docutils literal notranslate"><span class="pre">WindowNAFMultiplier.precompute_negation</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.naf.html#pyecsca.ec.mult.naf.WindowNAFMultiplier.accumulation_order"><code class="docutils literal notranslate"><span class="pre">WindowNAFMultiplier.accumulation_order</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.naf.html#pyecsca.ec.mult.naf.WindowNAFMultiplier.short_circuit"><code class="docutils literal notranslate"><span class="pre">WindowNAFMultiplier.short_circuit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.naf.html#pyecsca.ec.mult.naf.WindowNAFMultiplier.formulas"><code class="docutils literal notranslate"><span class="pre">WindowNAFMultiplier.formulas</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.naf.html#pyecsca.ec.mult.naf.WindowNAFMultiplier.init"><code class="docutils literal notranslate"><span class="pre">WindowNAFMultiplier.init()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.naf.html#pyecsca.ec.mult.naf.WindowNAFMultiplier.multiply"><code class="docutils literal notranslate"><span class="pre">WindowNAFMultiplier.multiply()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyecsca.ec.mult.window.html">pyecsca.ec.mult.window module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.mult.window.html#pyecsca.ec.mult.window.SlidingWindowMultiplier"><code class="docutils literal notranslate"><span class="pre">SlidingWindowMultiplier</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.window.html#pyecsca.ec.mult.window.SlidingWindowMultiplier.requires"><code class="docutils literal notranslate"><span class="pre">SlidingWindowMultiplier.requires</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.window.html#pyecsca.ec.mult.window.SlidingWindowMultiplier.optionals"><code class="docutils literal notranslate"><span class="pre">SlidingWindowMultiplier.optionals</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.window.html#pyecsca.ec.mult.window.SlidingWindowMultiplier.width"><code class="docutils literal notranslate"><span class="pre">SlidingWindowMultiplier.width</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.window.html#pyecsca.ec.mult.window.SlidingWindowMultiplier.recoding_direction"><code class="docutils literal notranslate"><span class="pre">SlidingWindowMultiplier.recoding_direction</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.window.html#pyecsca.ec.mult.window.SlidingWindowMultiplier.init"><code class="docutils literal notranslate"><span class="pre">SlidingWindowMultiplier.init()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.window.html#pyecsca.ec.mult.window.SlidingWindowMultiplier.multiply"><code class="docutils literal notranslate"><span class="pre">SlidingWindowMultiplier.multiply()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.window.html#pyecsca.ec.mult.window.SlidingWindowMultiplier.accumulation_order"><code class="docutils literal notranslate"><span class="pre">SlidingWindowMultiplier.accumulation_order</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.window.html#pyecsca.ec.mult.window.SlidingWindowMultiplier.short_circuit"><code class="docutils literal notranslate"><span class="pre">SlidingWindowMultiplier.short_circuit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.window.html#pyecsca.ec.mult.window.SlidingWindowMultiplier.formulas"><code class="docutils literal notranslate"><span class="pre">SlidingWindowMultiplier.formulas</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.mult.window.html#pyecsca.ec.mult.window.FixedWindowLTRMultiplier"><code class="docutils literal notranslate"><span class="pre">FixedWindowLTRMultiplier</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.window.html#pyecsca.ec.mult.window.FixedWindowLTRMultiplier.requires"><code class="docutils literal notranslate"><span class="pre">FixedWindowLTRMultiplier.requires</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.window.html#pyecsca.ec.mult.window.FixedWindowLTRMultiplier.optionals"><code class="docutils literal notranslate"><span class="pre">FixedWindowLTRMultiplier.optionals</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.window.html#pyecsca.ec.mult.window.FixedWindowLTRMultiplier.accumulation_order"><code class="docutils literal notranslate"><span class="pre">FixedWindowLTRMultiplier.accumulation_order</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.window.html#pyecsca.ec.mult.window.FixedWindowLTRMultiplier.m"><code class="docutils literal notranslate"><span class="pre">FixedWindowLTRMultiplier.m</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.window.html#pyecsca.ec.mult.window.FixedWindowLTRMultiplier.init"><code class="docutils literal notranslate"><span class="pre">FixedWindowLTRMultiplier.init()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.window.html#pyecsca.ec.mult.window.FixedWindowLTRMultiplier.multiply"><code class="docutils literal notranslate"><span class="pre">FixedWindowLTRMultiplier.multiply()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.window.html#pyecsca.ec.mult.window.FixedWindowLTRMultiplier.short_circuit"><code class="docutils literal notranslate"><span class="pre">FixedWindowLTRMultiplier.short_circuit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.window.html#pyecsca.ec.mult.window.FixedWindowLTRMultiplier.formulas"><code class="docutils literal notranslate"><span class="pre">FixedWindowLTRMultiplier.formulas</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyecsca.ec.mult.window.html#pyecsca.ec.mult.window.WindowBoothMultiplier"><code class="docutils literal notranslate"><span class="pre">WindowBoothMultiplier</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.window.html#pyecsca.ec.mult.window.WindowBoothMultiplier.requires"><code class="docutils literal notranslate"><span class="pre">WindowBoothMultiplier.requires</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.window.html#pyecsca.ec.mult.window.WindowBoothMultiplier.optionals"><code class="docutils literal notranslate"><span class="pre">WindowBoothMultiplier.optionals</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.window.html#pyecsca.ec.mult.window.WindowBoothMultiplier.accumulation_order"><code class="docutils literal notranslate"><span class="pre">WindowBoothMultiplier.accumulation_order</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.window.html#pyecsca.ec.mult.window.WindowBoothMultiplier.short_circuit"><code class="docutils literal notranslate"><span class="pre">WindowBoothMultiplier.short_circuit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.window.html#pyecsca.ec.mult.window.WindowBoothMultiplier.formulas"><code class="docutils literal notranslate"><span class="pre">WindowBoothMultiplier.formulas</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.window.html#pyecsca.ec.mult.window.WindowBoothMultiplier.width"><code class="docutils literal notranslate"><span class="pre">WindowBoothMultiplier.width</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.window.html#pyecsca.ec.mult.window.WindowBoothMultiplier.precompute_negation"><code class="docutils literal notranslate"><span class="pre">WindowBoothMultiplier.precompute_negation</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.window.html#pyecsca.ec.mult.window.WindowBoothMultiplier.init"><code class="docutils literal notranslate"><span class="pre">WindowBoothMultiplier.init()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyecsca.ec.mult.window.html#pyecsca.ec.mult.window.WindowBoothMultiplier.multiply"><code class="docutils literal notranslate"><span class="pre">WindowBoothMultiplier.multiply()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;2018-2024, Jan Jancar.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.5</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../_sources/api/pyecsca.ec.mult.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

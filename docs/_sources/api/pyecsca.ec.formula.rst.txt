@@ -1,0 +1,25 @@
+pyecsca.ec.formula package
+==========================
+
+.. automodule:: pyecsca.ec.formula
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   pyecsca.ec.formula.base
+   pyecsca.ec.formula.code
+   pyecsca.ec.formula.efd
+   pyecsca.ec.formula.expand
+   pyecsca.ec.formula.fake
+   pyecsca.ec.formula.fliparoo
+   pyecsca.ec.formula.graph
+   pyecsca.ec.formula.metrics
+   pyecsca.ec.formula.partitions
+   pyecsca.ec.formula.switch_sign
+   pyecsca.ec.formula.unroll
