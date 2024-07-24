@@ -2,7 +2,7 @@
 
 This artifact accompanies the *"pyecsca: Reverse engineering black-box elliptic curve cryptography via side-channel analysis"*
 paper and contains:
- - The pyecsca toolkit itself, implementing the methods presented in the paper. This is under [pyecsca/](pyecsca/) and also
+ - The pyecsca toolkit itself, as a git submodule, implementing the methods presented in the paper. This is under [pyecsca/](pyecsca/) and also
    in the repository [https://github.com/J08nY/pyecsca](https://github.com/J08nY/pyecsca).
  - The notebooks used to evaluate the methods in the paper. This is under [pyecsca/notebook/](pyecsca/notebook/) and also
    in the repository [https://github.com/J08nY/pyecsca-notebook](https://github.com/J08nY/pyecsca-notebook).
@@ -38,21 +38,21 @@ jupyter lab
 
 Assuming the **pyecsca** package is installed, open the `formulas.ipynb` Jupyter notebook in the
 `pyecsca/notebook/re/` directory. Run its cells sequentially and observe the expanded formula
-dataset generated in the final cell. Optionally, change the `max_workers` value to something that
-suits your setup (i.e. number of your CPU cores).
+dataset generated in the final cell. Change the `num_workers` value to something that
+suits your setup (i.e. number of your CPU cores minus two).
 
 ### Configuration space (Table 2)
 
 Assuming the **pyecsca** package is installed, open the `configuration_space.ipynb` Jupyter notebook in the
 `pyecsca/notebook/` directory. Run its cells sequentially and observe the tables being printed
 (with additional columns that are not present in the paper). Note that the cell computing all of the configurations
-takes some time to finish, as it enumerates them internally.
+takes some time to finish (~ 10 minutes), as it enumerates them internally.
 
 ### RPA evaluation (Section 6.1 and Table 3)
 
 Assuming the **pyecsca** package is installed, open the `rpa.ipynb` Jupyter notebook in the
-`pyecsca/notebook/re/` directory. Run its cells sequentially. Note that some cells have a `num_cores`
-or `max_workers` argument, change this to something that suits your setup (i.e. number of your CPU cores).
+`pyecsca/notebook/re/` directory. Run its cells sequentially. Change the `num_workers` value to something that
+suits your setup (i.e. number of your CPU cores minus two).
 
 You can observe the tree metrics for RPA-RE in Table 3 from the following cell:
 
@@ -70,11 +70,11 @@ You can observe Figures 5 and 6 as direct output of some cells, as well as saved
 ### ZVP evaluation (Section 6.2 and Table 3)
 
 Assuming the **pyecsca** package is installed, open the `zvp.ipynb` Jupyter notebook in the
-`pyecsca/notebook/re/` directory. Run its cells sequentially. Optionally, you can skip some
+`pyecsca/notebook/re/` directory. Run its cells sequentially, upto and including the
+evaluation part. Optionally, you can skip some
 cells that are there to store and subsequently load various intermediate datasets. These can, 
-however, help you save your progress if something happens to the computation later on. Note
-that some cells have a `num_cores` or `max_workers` argument, change this to something that
-suits your setup (i.e. number of your CPU cores).
+however, help you save your progress if something happens to the computation later on.
+Change the `num_workers` value to something that suits your setup (i.e. number of your CPU cores minus two).
 
 You can observe the tree metrics for ZVP-RE in Table 3 from the following cell:
 
