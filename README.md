@@ -11,7 +11,7 @@ paper and contains:
    on [https://zenodo.org/records/10908698](https://zenodo.org/records/10908698).
 
 To reproduce the results in the paper follow these instructions. All of the tables, figures and datasets
-are reproduced here. If you with to explore the toolkit more, use the notebooks linked next to sections in the paper
+are reproduced here. If you wish to explore the toolkit more, use the notebooks linked next to sections in the paper
 or at [https://pyecsca.org/notebooks.html](https://pyecsca.org/notebooks.html).
 
 We performed the evaluation on a machine with Ubuntu 23.04, 64GB RAM, and AMD Ryzen 9 7950X 16-Core CPU. However,
