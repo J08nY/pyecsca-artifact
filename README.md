@@ -28,6 +28,7 @@ Follow the steps below to install the core package as well as the requirements f
 the [installation docs](https://pyecsca.org/installation.html).
 
 ```shell
+git submodule update --init --recursive
 python3 -m venv virt
 . virt/bin/activate
 pip install pyecsca/[pari,gmp]
