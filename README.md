@@ -8,7 +8,7 @@ paper and contains:
    in the repository [https://github.com/J08nY/pyecsca-notebook](https://github.com/J08nY/pyecsca-notebook).
  - The documentation for the toolkit. This is under [docs/](docs/) and also on the site [https://pyecsca.org](https://pyecsca.org).
  - The expanded EFD formula dataset as described in the paper. This is under [expanded_efd/](expanded_efd/) and also
-   on [https://zenodo.org/records/10908698](https://zenodo.org/records/10908698).
+   on [https://zenodo.org/doi/10.5281/zenodo.10908697](https://zenodo.org/doi/10.5281/zenodo.10908697).
 
 To reproduce the results in the paper follow these instructions. All of the tables, figures and datasets
 are reproduced here. If you wish to explore the toolkit more, use the notebooks linked next to sections in the paper
